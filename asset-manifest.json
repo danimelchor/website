@@ -1,29 +1,28 @@
 {
   "files": {
-    "main.css": "/website/static/css/main.c2bea7e1.chunk.css",
-    "main.js": "/website/static/js/main.a8a7578c.chunk.js",
-    "main.js.map": "/website/static/js/main.a8a7578c.chunk.js.map",
-    "runtime-main.js": "/website/static/js/runtime-main.b4d6643c.js",
-    "runtime-main.js.map": "/website/static/js/runtime-main.b4d6643c.js.map",
-    "static/js/2.6db12740.chunk.js": "/website/static/js/2.6db12740.chunk.js",
-    "static/js/2.6db12740.chunk.js.map": "/website/static/js/2.6db12740.chunk.js.map",
-    "static/js/3.8a1b8770.chunk.js": "/website/static/js/3.8a1b8770.chunk.js",
-    "static/js/3.8a1b8770.chunk.js.map": "/website/static/js/3.8a1b8770.chunk.js.map",
+    "main.css": "/website/static/css/main.38868028.chunk.css",
+    "main.js": "/website/static/js/main.dd845142.chunk.js",
+    "main.js.map": "/website/static/js/main.dd845142.chunk.js.map",
+    "runtime-main.js": "/website/static/js/runtime-main.1cd3fcf3.js",
+    "runtime-main.js.map": "/website/static/js/runtime-main.1cd3fcf3.js.map",
+    "static/js/2.c518f4ef.chunk.js": "/website/static/js/2.c518f4ef.chunk.js",
+    "static/js/2.c518f4ef.chunk.js.map": "/website/static/js/2.c518f4ef.chunk.js.map",
+    "static/js/3.74c7e4d2.chunk.js": "/website/static/js/3.74c7e4d2.chunk.js",
+    "static/js/3.74c7e4d2.chunk.js.map": "/website/static/js/3.74c7e4d2.chunk.js.map",
     "index.html": "/website/index.html",
-    "static/css/main.c2bea7e1.chunk.css.map": "/website/static/css/main.c2bea7e1.chunk.css.map",
-    "static/js/2.6db12740.chunk.js.LICENSE.txt": "/website/static/js/2.6db12740.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/website/static/media/bg.be535c16.png",
+    "static/css/main.38868028.chunk.css.map": "/website/static/css/main.38868028.chunk.css.map",
+    "static/js/2.c518f4ef.chunk.js.LICENSE.txt": "/website/static/js/2.c518f4ef.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/website/static/media/grid2.13eddc83.png",
     "static/media/conway.472829b1.png": "/website/static/media/conway.472829b1.png",
     "static/media/djangoweb.255075f1.png": "/website/static/media/djangoweb.255075f1.png",
     "static/media/me.7322c404.jpg": "/website/static/media/me.7322c404.jpg",
     "static/media/oldwebsite.b361a27f.png": "/website/static/media/oldwebsite.b361a27f.png",
-    "static/media/ss.5cf77c69.png": "/website/static/media/ss.5cf77c69.png",
-    "static/media/test.dca11527.svg": "/website/static/media/test.dca11527.svg"
+    "static/media/ss.5cf77c69.png": "/website/static/media/ss.5cf77c69.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.b4d6643c.js",
-    "static/js/2.6db12740.chunk.js",
-    "static/css/main.c2bea7e1.chunk.css",
-    "static/js/main.a8a7578c.chunk.js"
+    "static/js/runtime-main.1cd3fcf3.js",
+    "static/js/2.c518f4ef.chunk.js",
+    "static/css/main.38868028.chunk.css",
+    "static/js/main.dd845142.chunk.js"
   ]
 }
