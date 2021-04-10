@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/website/static/css/main.e8e70ea8.chunk.css",
-    "main.js": "/website/static/js/main.c4388455.chunk.js",
-    "main.js.map": "/website/static/js/main.c4388455.chunk.js.map",
+    "main.css": "/website/static/css/main.b1ab9d9b.chunk.css",
+    "main.js": "/website/static/js/main.444579ae.chunk.js",
+    "main.js.map": "/website/static/js/main.444579ae.chunk.js.map",
     "runtime-main.js": "/website/static/js/runtime-main.1cd3fcf3.js",
     "runtime-main.js.map": "/website/static/js/runtime-main.1cd3fcf3.js.map",
     "static/js/2.14f2c68a.chunk.js": "/website/static/js/2.14f2c68a.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.74c7e4d2.chunk.js": "/website/static/js/3.74c7e4d2.chunk.js",
     "static/js/3.74c7e4d2.chunk.js.map": "/website/static/js/3.74c7e4d2.chunk.js.map",
     "index.html": "/website/index.html",
-    "static/css/main.e8e70ea8.chunk.css.map": "/website/static/css/main.e8e70ea8.chunk.css.map",
+    "static/css/main.b1ab9d9b.chunk.css.map": "/website/static/css/main.b1ab9d9b.chunk.css.map",
     "static/js/2.14f2c68a.chunk.js.LICENSE.txt": "/website/static/js/2.14f2c68a.chunk.js.LICENSE.txt",
     "static/media/CPlus-logo.1240ce15.png": "/website/static/media/CPlus-logo.1240ce15.png",
     "static/media/CSS-logo.e41e4887.png": "/website/static/media/CSS-logo.e41e4887.png",
@@ -22,7 +22,7 @@
     "static/media/Java-logo.84e21b5f.png": "/website/static/media/Java-logo.84e21b5f.png",
     "static/media/JavaScript-logo.fe39527e.png": "/website/static/media/JavaScript-logo.fe39527e.png",
     "static/media/PHP-logo.54425381.png": "/website/static/media/PHP-logo.54425381.png",
-    "static/media/Photoshop-logo.6a6274dd.png": "/website/static/media/Photoshop-logo.6a6274dd.png",
+    "static/media/Photoshop-logo.f65860c2.png": "/website/static/media/Photoshop-logo.f65860c2.png",
     "static/media/Python-logo.91072be8.png": "/website/static/media/Python-logo.91072be8.png",
     "static/media/ReactJS-logo.fb59dfc6.png": "/website/static/media/ReactJS-logo.fb59dfc6.png",
     "static/media/SCSS-logo.1e780022.png": "/website/static/media/SCSS-logo.1e780022.png",
@@ -41,7 +41,7 @@
   "entrypoints": [
     "static/js/runtime-main.1cd3fcf3.js",
     "static/js/2.14f2c68a.chunk.js",
-    "static/css/main.e8e70ea8.chunk.css",
-    "static/js/main.c4388455.chunk.js"
+    "static/css/main.b1ab9d9b.chunk.css",
+    "static/js/main.444579ae.chunk.js"
   ]
 }
