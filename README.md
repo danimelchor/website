@@ -2,7 +2,7 @@
 Welcome! This is my current website's repository. Below you will have some information about how it was made and how to run it in your own device. I hope you enjoy it and don't doubt in messaging me if you have any doubts about the project :).
 
 ## Languages and Modules
-This project is made with ReactJS. This JavaScript library allows user to build single-page websites efficiently by creating views for each page and updating the components in the moment, when needed.
+This project is made with ReactJS. This JavaScript library allows user to build single-page websites efficiently by creating views for each page and updating the components live, when needed.
 
 In addition, this project also uses other NPM modules such as `tailwindcss`,`typewritter-effect` and `react-tsparticles`.
 
@@ -24,4 +24,4 @@ For the dark mode I used [TailwindCSS](https://tailwindcss.com/)'s integrated da
 For the particles I used npm's module [react-tsparticles](https://www.npmjs.com/package/react-tsparticles), which, not going to lie, was a pain to configure. I found most of the information about this module navigating around their [official website](https://particles.js.org/) [demos](https://particles.js.org/samples/index.html#chars) and [codepen](https://codepen.io/collection/DPOage). If you want to copy my particle system, head to `website > src > components > Welcome.js`.
 
 ## Typewritter Effect
-This animation is pretty simple and their documentation is really good. Check out the react usage [here](https://www.npmjs.com/package/typewriter-effect#react)
+This animation is pretty simple and their documentation is good. Check out the react usage [here](https://www.npmjs.com/package/typewriter-effect#react)
