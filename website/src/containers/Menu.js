@@ -19,15 +19,15 @@ export default class Menu extends Component {
 
     componentDidMount() {
         let current = localStorage.getItem('theme')
-        if(current === null) {
+        if (current === null) {
             this.setState({ moon: 'far fa-moon' });
             document.body.style.backgroundImage = "url(" + grid + ")";
             document.documentElement.classList.remove('dark');
-        } else if(current === 'dark') {
+        } else if (current === 'dark') {
             this.setState({ moon: 'fas fa-moon' });
             document.body.style.backgroundImage = "url(" + darkGrid + ")";
             document.documentElement.classList.add('dark');
-        } else if(current === 'light') {
+        } else if (current === 'light') {
             this.setState({ moon: 'far fa-moon' });
             document.body.style.backgroundImage = "url(" + grid + ")";
             document.documentElement.classList.remove('dark');
@@ -58,18 +58,18 @@ export default class Menu extends Component {
     changeTheme() {
         let current = localStorage.getItem('theme')
         console.log(current);
-        if(current === null) {
-            localStorage.setItem('theme','dark');
+        if (current === null) {
+            localStorage.setItem('theme', 'dark');
             document.documentElement.classList.add('dark');
             this.setState({ moon: 'fas fa-moon' });
             document.body.style.backgroundImage = "url(" + darkGrid + ")";
-        } else if(current === 'dark') {
-            localStorage.setItem('theme','light');
+        } else if (current === 'dark') {
+            localStorage.setItem('theme', 'light');
             document.documentElement.classList.remove('dark');
             this.setState({ moon: 'far fa-moon' });
             document.body.style.backgroundImage = "url(" + grid + ")";
-        } else if(current === 'light') {
-            localStorage.setItem('theme','dark');
+        } else if (current === 'light') {
+            localStorage.setItem('theme', 'dark');
             document.documentElement.classList.add('dark');
             this.setState({ moon: 'fas fa-moon' });
             document.body.style.backgroundImage = "url(" + darkGrid + ")";
@@ -83,7 +83,7 @@ export default class Menu extends Component {
                     <i onClick={() => this.toggleMenu()} class="fas fa-bars text-3xl inline-block align-middle px-3 text-primary dark:text-primaryDark float-left"></i>
                     <a className="text-3xl inline-block align-middle text-primary dark:text-gray-300" href="/">Daniel Melchor</a>
                     <div
-                        className="inline-block md:hidden float-right rounded shadow-2xl p-3 cursor-pointer text-center align-middle bg-gray-200 text-md dark:text-primaryDark dark:bg-gray-800"
+                        className="inline-block md:hidden float-right rounded shadow-2xl p-3 cursor-pointer text-center align-middle bg-gray-200 text-md dark:text-primaryDark dark:bg-gray-800 border-b-2 border-gray-400 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
                         onClick={this.changeTheme.bind(this)}
                     >
                         <i className={this.state.moon + " block"}></i>
@@ -94,7 +94,7 @@ export default class Menu extends Component {
                     style={this.state.menuActive ? { display: "block" } : { display: "none" }}
                 >
                     <div
-                        className="hidden rounded shadow-2xl md:block p-3 cursor-pointer text-center bg-gray-200 absolute top-2 right-2 text-md dark:text-primaryDark dark:bg-gray-700"
+                        className="hidden rounded md:block p-3 cursor-pointer text-center bg-gray-200 absolute top-2 right-2 text-md dark:text-primaryDark dark:bg-gray-900 border-b-2 border-gray-400 dark:border-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700"
                         onClick={this.changeTheme.bind(this)}
                     >
                         <i className={this.state.moon + " block"}></i>
