@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition-duration: 200ms;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  background-image: url('../img/grid2.png');
+}
+
+.content-bg {
+  background-image: url("/src/img/bg.png");
+  background-repeat: repeat-y;
+  background-size: cover;
+  filter: blur(4px) brightness(50%);
+}
+
+.typewritterBg {
+  user-select: none;
+  margin: 0 auto;
+  background-color: rgba(20, 22, 26, 0.8);
+  font-size: 4.2rem;
+  text-align: center;
+}
+
+.titleSection {
+  color: white;
+  text-transform: uppercase;
+  padding-left: calc(8.33% + 0.6rem);
+}
+
+.link {
+  color: #006B61;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #FFC800;
+}
