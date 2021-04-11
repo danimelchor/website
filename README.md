@@ -9,7 +9,7 @@ In addition, this project also uses other NPM modules such as `tailwindcss`,`typ
 ## How to set it up in your machine
 First of all you should have `npm` installed in your machine, which should come by default with any OS. To check if you have it, open terminal and run `npm -v`. If you don't have it, follow the instructions [here](https://www.npmjs.com/get-npm).
 
-Then, clone this repository into a folder in your computer using git (Open terminal, `cd` into your folder and run `git clone https://github.com/danimelchor/website/` and then `cd` into the website folder where the React App is located (´cd website´).
+Then, clone this repository into a folder in your computer using git (Open terminal, `cd` into your folder and run `git clone https://github.com/danimelchor/website/` and then `cd` into the website folder where the React App is located (`cd website`).
 
 Then, to install all the used packages in this project run `npm install`.
 
