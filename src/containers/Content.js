@@ -9,6 +9,7 @@ import Skills from '../pages/Skills'
 import Education from '../pages/Education'
 import Contact from '../pages/Contact'
 import Resume from '../pages/Resume'
+import Footer from '../pages/Footer'
 
 
 export default class Content extends Component {
@@ -24,6 +25,7 @@ export default class Content extends Component {
                     <Education />
                     <Contact />
                     <Resume />
+                    <Footer />
                 </div>
             </div>
         )
