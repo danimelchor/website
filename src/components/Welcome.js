@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import Typewriter from 'typewriter-effect';
 import Particles from "react-tsparticles";
 
+import BG from '../img/bg.jpeg'
+
 export default class Welcome extends Component {
     state = {
         moveText: 0
@@ -19,13 +21,14 @@ export default class Welcome extends Component {
                     <div className="text-center">
                         <Particles
                             options={{
+                                autoPlay: true,
                                 fpsLimit: 45,
                                 particles: {
                                     collisions: {
-                                        enable: false
+                                        enable: true
                                     },
                                     number: {
-                                        value: 200,
+                                        value: 150,
                                         density: {
                                             enable: true,
                                             area: 800,
@@ -34,10 +37,10 @@ export default class Welcome extends Component {
                                     },
                                     links: {
                                         enable: true,
-                                        distance: 80,
-                                        opacity: 0.5,
+                                        distance: 120,
+                                        opacity: 0.2,
                                         color: "#fff",
-                                        width: 2
+                                        width: 1
                                     },
                                     move: {
                                         direction: "none",
@@ -48,16 +51,20 @@ export default class Welcome extends Component {
                                         straight: false
                                     },
                                     opacity: {
-                                        value: 0.7
+                                        value: 0.6
                                     },
                                     color: {
                                         value: "#fff"
                                     },
-                                    shape: {
-                                        type: "circle"
-                                    },
                                     size: {
-                                        value: 10
+                                        random: {
+                                            enable: true,
+                                            minimumValue: 10
+                                        },
+                                        value: {
+                                            min: 5,
+                                            max: 15
+                                        }
                                     },
                                     shape: {
                                         type: "char",
@@ -89,20 +96,22 @@ export default class Welcome extends Component {
                                     },
                                     modes: {
                                         repulse: {
-                                            distance: 150,
-                                            duration: 3
+                                            distance: 50,
+                                            duration: 2
                                         },
                                     },
                                 },
-                                detectRetina: true
+                                detectRetina: true,
+                                pauseOnBlur: true,
+                                pauseOnOutsideViewport: true,
                             }}
 
-                            className="absolute w-full h-screen"
+                            className="absolute w-full h-screen z-0"
                         />
                     </div>
                     <div
                         id="typewritterBg"
-                        className="typewritterBg p-1 w-5/6 md:w-2/3 lg:w-1/2 border-4 border-secondary dark:border-primaryDark"
+                        className="typewritterBg w-5/6 md:w-2/3 lg:w-1/2 border-4 border-secondary dark:border-primaryDark"
                         style={{ marginTop: this.state.moveText + "px" }}
                     >
                         <Typewriter
@@ -111,8 +120,8 @@ export default class Welcome extends Component {
                                 strings: ['Front end', 'Back end', 'Algorithms', 'Websites', 'UI/UX'],
                                 autoStart: true,
                                 loop: true,
-                                wrapperClassName: "text-white relative top-0",
-                                cursorClassName: "text-white"
+                                wrapperClassName: "text-white dark:text-gray-100 relative top-0",
+                                cursorClassName: "text-white dark:text-gray-100"
                             }}
                         />
                     </div>
