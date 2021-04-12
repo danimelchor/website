@@ -8,7 +8,7 @@ export default class About extends Component {
             <div id="about" className="w-full z-10 mb-24">
                 <h1 className="px-10 py-10 w-full text-black text-4xl titleSection bg-primary dark:bg-gray-900 text-center md:text-left ">About</h1>
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
-                    <div className="block my-5 bg-white dark:bg-gray-900 dark:text-gray-50 rounded p-5 md:p-10 shadow-2xl overflow-hidden">
+                    <div className="block my-5 bg-white dark:bg-gray-800 dark:text-gray-50 rounded p-5 md:p-10 shadow-2xl overflow-hidden">
                         <div className="my-5">
                             <img src={meFriends} className="xl:w-5/12 xl:inline-block align-middle"/>
                             <p className="xl:inline-block text-lg xl:text-xl leading-10 xl:ml-12 text-justify align-middle xl:w-1/2 my-10 xl:my-0">
