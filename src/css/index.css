@@ -27,12 +27,11 @@ body {
 .typewritterBg {
   user-select: none;
   margin: 0 auto;
-  font-size: 4.2rem;
-  text-align: center;
+  text-align: left;
   position: absolute;
-  background: rgba(0, 0, 0, 0.9);
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%,-50%);
 }
 
 .titleSection {
@@ -48,4 +47,8 @@ body {
 .link:hover {
   text-decoration: underline;
   color: #FFC800;
+}
+
+.Typewriter {
+  display: inline;
 }

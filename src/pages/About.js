@@ -29,14 +29,14 @@ export default class About extends Component {
                                 </p>
                                 <p className="my-4" >
                                     If you are interested in having a chat or working on a project with me don't doubt in messaging me in 
-                                    the <a href="#contact" className="text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark">contact section</a>!
+                                    the <a href="#contact" className="text-primary hover:text-secondary dark:text-secondaryDark dark:hover:text-primaryDark">contact section</a>!
                                 </p>
                                 <p className="my-4" >
-                                    My current focus is placed on finishing my <a className="text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="https://www.bu.edu/academics/cas/programs/computer-science/ba-ms/">
+                                    My current focus is placed on finishing my <a className="text-primary hover:text-secondary dark:text-secondaryDark dark:hover:text-primaryDark" href="https://www.bu.edu/academics/cas/programs/computer-science/ba-ms/">
                                     BA/MS</a> (Bachelor of Arts + Master of Sciences) in 4 years, most likely
                                     in Computer Science and a M.S. in A.I., but I am open to contribute in any project
                                     with a good purpose. For example, a group of me and 3 other students are remodeling the Boston University's
-                                    registration tool to give it a modern design and new functionality. Check it out <a className="text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="http://bunexus.com">here</a>.
+                                    registration tool to give it a modern design and new functionality. Check it out <a className="text-primary hover:text-secondary dark:text-secondaryDark dark:hover:text-primaryDark" href="http://bunexus.com">here</a>.
                                 </p>
                             </div>
                         </div>

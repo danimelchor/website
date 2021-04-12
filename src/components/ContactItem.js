@@ -7,7 +7,7 @@ export default class ContactItem extends Component {
                 <div className="bg-primary inline-block align-middle text-center rounded-full w-16 h-16 dark:bg-gray-700">
                     <i className={this.props.icon + " text-3xl text-white block transform -translate-y-2/4 dark:text-gray-800"} style={{ marginTop:"50%" }}></i>
                 </div>
-                <span className="hover:underline inline-block align-middle text-md md:text-xl ml-5 text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark">{this.props.text}</span>
+                <span className="hover:underline inline-block align-middle text-md md:text-xl ml-5 text-primary hover:text-secondary dark:text-secondaryDark dark:hover:text-primaryDark">{this.props.text}</span>
             </a>
         )
     }

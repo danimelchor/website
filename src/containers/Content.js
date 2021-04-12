@@ -15,7 +15,7 @@ import Footer from '../pages/Footer'
 export default class Content extends Component {
     render() {
         return (
-            <div className="w-screen md:w-2/3 lg:w-3/4 right-0 z-0 absolute">
+            <div className="w-screen md:w-2/3 lg:w-3/4 2xl:w-4/5 right-0 z-0 absolute">
                 <div className="relative z-10">
                     <Welcome />
                     <About />

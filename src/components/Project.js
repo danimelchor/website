@@ -15,7 +15,7 @@ export default class Project extends Component {
 
     render() {
         return (
-            <a href={this.props.url} className="shadow-2xl block w-full my-5 md:w-2/5 md:m-2 lg:w-1/4 lg:m-5">
+            <a href={this.props.url} className="shadow-2xl block w-full my-5 md:m-5 md:w-5/6 lg:w-1/4">
                 <div className="relative h-6 w-full bg-gray-300 dark:bg-gray-800">
                     <h2 className="absolute inline-block align-middle transform overflow-hidden -translate-x-2/4 dark:text-gray-100" style={{ left:"50%" }} >{this.props.title}</h2>
                     <div className="inline-block align-middle float-right">

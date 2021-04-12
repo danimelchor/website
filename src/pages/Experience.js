@@ -12,7 +12,7 @@ export default class Experience extends Component {
                             I am currently on an F-1 Student visa in the United States, which means I can only work on campus. This plus
                             COVID-19 have made finding a job nearly impossible, but once this situation gets better I am looking for any opportunity
                             to get more integrated in the professional world. I have volunteered at many places and participated in non-paid activities. If
-                            you are interested in learning more about them, check out my <a className="text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="https://www.linkedin.com/in/dannymelchor/">LinkedIn</a>.
+                            you are interested in learning more about them, check out my <a className="text-primary hover:text-secondary dark:text-secondaryDark dark:hover:text-primaryDark" href="https://www.linkedin.com/in/dannymelchor/">LinkedIn</a>.
                         </p>
                     </div>
                 </div>

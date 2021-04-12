@@ -7,10 +7,10 @@ export default class Footer extends Component {
                 <div className="m-auto w-full px-7 md:px-0 md:w-2/3 lg:w-1/2">
                     <h1 className="font-bold text-2xl">Contribute / Use code</h1>
                     <p>
-                    <a className="dark:text-secondaryDark text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="/">Danielmelchor.com</a> is
+                    <a className="dark:text-secondaryDark text-secondary hover:text-green-600 dark:text-secondaryDark dark:hover:text-primaryDark" href="/">Danielmelchor.com</a> is
                         an MIT licensed, open-source project. The source code is available
-                        on <a className="dark:text-secondaryDark text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="https://github.com/danimelchor/website/tree/main">GitHub</a>.
-                        Feel free to use the code / <a className="dark:text-secondaryDark text-yellow-500 hover:text-primary dark:text-secondaryDark dark:hover:text-primaryDark" href="#contact">ask me any questions</a> if you want to.
+                        on <a className="dark:text-secondaryDark text-secondary hover:text-green-600 dark:text-secondaryDark dark:hover:text-primaryDark" href="https://github.com/danimelchor/website/tree/main">GitHub</a>.
+                        Feel free to use the code / <a className="dark:text-secondaryDark text-secondary hover:text-green-600 dark:text-secondaryDark dark:hover:text-primaryDark" href="#contact">ask me any questions</a> if you want to.
                     </p>
                 </div>
             </div>
