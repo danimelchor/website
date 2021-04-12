@@ -38,8 +38,8 @@ class SinglePage extends React.Component {
   render() {
     return (
       <div className="w-full h-full">
-        <Menu active={this.state.active}/>
-        <Content />
+        <Menu active={this.state.active} />
+        <Content active={this.state.active} />
       </div>
     );
   }

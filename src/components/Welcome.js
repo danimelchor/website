@@ -6,6 +6,16 @@ import Particles from "react-tsparticles";
 import BG from '../img/bg.jpeg'
 
 export default class Welcome extends Component {
+    state = {
+        active : 0
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.active !== this.props.active) {
+            this.setState({ active: this.props.active })
+        }
+    }
+
     render() {
         return (
             <div className="relative h-screen" id="welcome">
@@ -138,7 +148,9 @@ export default class Welcome extends Component {
                                         .pasteString("<p class='mt-3'></p>")
                                         .typeString("$ ")
                                         .callFunction(() => {
-                                            document.getElementById('about').scrollIntoView();
+                                            if(this.state.active === 0) {
+                                                document.getElementById('about').scrollIntoView();
+                                            }
                                         })
                                         .start();
                                 }}
