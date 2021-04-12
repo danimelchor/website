@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/website/static/css/main.7678b772.chunk.css",
-    "main.js": "/website/static/js/main.7b1b3eb2.chunk.js",
-    "main.js.map": "/website/static/js/main.7b1b3eb2.chunk.js.map",
+    "main.css": "/website/static/css/main.14240084.chunk.css",
+    "main.js": "/website/static/js/main.c8ad282b.chunk.js",
+    "main.js.map": "/website/static/js/main.c8ad282b.chunk.js.map",
     "runtime-main.js": "/website/static/js/runtime-main.b4d6643c.js",
     "runtime-main.js.map": "/website/static/js/runtime-main.b4d6643c.js.map",
     "static/js/2.58f90665.chunk.js": "/website/static/js/2.58f90665.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.8a1b8770.chunk.js": "/website/static/js/3.8a1b8770.chunk.js",
     "static/js/3.8a1b8770.chunk.js.map": "/website/static/js/3.8a1b8770.chunk.js.map",
     "index.html": "/website/index.html",
-    "static/css/main.7678b772.chunk.css.map": "/website/static/css/main.7678b772.chunk.css.map",
+    "static/css/main.14240084.chunk.css.map": "/website/static/css/main.14240084.chunk.css.map",
     "static/js/2.58f90665.chunk.js.LICENSE.txt": "/website/static/js/2.58f90665.chunk.js.LICENSE.txt",
     "static/media/BUNexus.a3e1171a.png": "/website/static/media/BUNexus.a3e1171a.png",
     "static/media/CPlus-logo.1240ce15.png": "/website/static/media/CPlus-logo.1240ce15.png",
@@ -45,7 +45,7 @@
   "entrypoints": [
     "static/js/runtime-main.b4d6643c.js",
     "static/js/2.58f90665.chunk.js",
-    "static/css/main.7678b772.chunk.css",
-    "static/js/main.7b1b3eb2.chunk.js"
+    "static/css/main.14240084.chunk.css",
+    "static/js/main.c8ad282b.chunk.js"
   ]
 }
