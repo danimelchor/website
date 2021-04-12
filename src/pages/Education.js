@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import School from '../components/School'
+import Title from '../components/Title'
 
 export default class Education extends Component {
     render() {
         return (
             <div id="education" className="w-full mb-24">
-                <h1 className="px-10 py-10 w-full text-black text-4xl titleSection bg-primary dark:bg-gray-900 text-center md:text-left">Education</h1>
+                <Title name="education" />
                 <div className="flex py-10 justify-center content-center flex-wrap px-2">
                     <School
                         url="http://bu.edu"

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SkillContainer from '../containers/SkillContainer'
+import Title from '../components/Title'
 
 import HTML from '../img/HTML-logo.png'
 import CSS from '../img/CSS-logo.png'
@@ -22,7 +23,7 @@ export default class Skills extends Component {
     render() {
         return (
             <div id="skills" className="w-full mb-24">
-                <h1 className="px-10 py-10 w-full text-black text-4xl titleSection bg-primary dark:bg-gray-900 text-center md:text-left">Skills</h1>
+                <Title name="skills" />
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
                     <SkillContainer
                         title="Front-End"
