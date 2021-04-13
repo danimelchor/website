@@ -1,13 +1,16 @@
 import './css/index.css';
+
+import Content from './Content';
+import Menu from './Menu';
 import React from 'react';
-import SinglePage from './containers/SinglePage';
 
 function App() {
-    return (
-      <div className="w-full h-full">
-        <SinglePage />
-      </div>
-    );
+  return (
+    <div className="w-full h-full">
+      <Menu />
+      <Content />
+    </div>
+  );
 }
 
 export default App;

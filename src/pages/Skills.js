@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SkillContainer from '../containers/SkillContainer'
 import Title from '../components/Title'
 
+// Importing all the images for the skills
 import HTML from '../img/HTML-logo.png'
 import CSS from '../img/CSS-logo.png'
 import SCSS from '../img/SCSS-logo.png'
@@ -27,23 +28,23 @@ export default class Skills extends Component {
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
                     <SkillContainer
                         title="Front-End"
-                        imgs={[HTML,CSS,JavaScript,SCSS,ReactJS,VueJS,JQuery]}
-                        names={['HTML','CSS','JavaScript','SCSS','ReactJS','VueJS','JQuery']}
+                        imgs={[HTML, CSS, JavaScript, SCSS, ReactJS, VueJS, JQuery]}
+                        names={['HTML', 'CSS', 'JavaScript', 'SCSS', 'ReactJS', 'VueJS', 'JQuery']}
                     />
                     <SkillContainer
                         title="Back-End"
-                        imgs={[PHP,Python,Django,SQL]}
-                        names={['PHP','Python','Django','SQL']}
+                        imgs={[PHP, Python, Django, SQL]}
+                        names={['PHP', 'Python', 'Django', 'SQL']}
                     />
                     <SkillContainer
                         title="Other Languages"
-                        imgs={[Java,CSharp,CPlus,Python]}
-                        names={['Java','C#','C++','Python']}
+                        imgs={[Java, CSharp, CPlus, Python]}
+                        names={['Java', 'C#', 'C++', 'Python']}
                     />
                     <SkillContainer
                         title="Other"
-                        imgs={[Photoshop,GitHub]}
-                        names={['Photoshop','GitHub']}
+                        imgs={[Photoshop, GitHub]}
+                        names={['Photoshop', 'GitHub']}
                     />
                 </div>
             </div>

@@ -14,7 +14,7 @@ import Footer from '../pages/Footer'
 
 export default class Content extends Component {
     state = {
-        active : 0
+        active: 0
     }
 
     componentDidUpdate(prevProps) {

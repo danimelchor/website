@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Project from '../components/Project'
 import Title from '../components/Title'
 
-import {PROJECTS} from '../ProjectList'
+import { PROJECTS } from '../ProjectList'
 
 export default class Projects extends Component {
     state = {
@@ -10,8 +10,10 @@ export default class Projects extends Component {
     }
 
     componentDidMount() {
-        let projectsArr = PROJECTS.map((item,index) => {
-            return(<Project
+        // Opens the project dictionary and creates
+        // Project components with the appropiate propertiess
+        let projectsArr = PROJECTS.map((item, index) => {
+            return (<Project
                 key={index}
                 title={item.title}
                 img={item.img}
@@ -20,7 +22,7 @@ export default class Projects extends Component {
                 languages={item.languages}
             />);
         });
-        this.setState({projectsHtml:projectsArr})
+        this.setState({ projectsHtml: projectsArr })
     }
 
     render() {

@@ -8,10 +8,11 @@ export default class SkillContainer extends Component {
 
     componentDidMount() {
         let arr = []
-        for(let i = 0; i < this.props.names.length; i++) {
+        // Creating the skills icons + text
+        for (let i = 0; i < this.props.names.length; i++) {
             arr.push(<Skill key={i} img={this.props.imgs[i]} name={this.props.names[i]} />)
         }
-        this.setState({itemsHtml:arr})
+        this.setState({ itemsHtml: arr })
     }
 
     render() {

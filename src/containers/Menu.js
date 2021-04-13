@@ -5,27 +5,27 @@ import grid from '../img/grid2.png'
 import darkGrid from '../img/darkGrid.png'
 
 export default class Menu extends Component {
+    // State manages if the menu is open + how the dark-mode icon looks
     state = {
         menuActive: false,
         moon: "fas fa-moon"
     }
 
+    // When the user clicks the hamburguer menu
     toggleMenu() {
         console.log('click');
         this.setState({ menuActive: !this.state.menuActive })
     }
 
+    // Checking for the theme item in localStorage or they have their device dark-mode
+    // activated to set the appropiate theme
     componentDidMount() {
         let current = localStorage.getItem('theme')
-        if (current === null) {
+        if ((current === null && window.matchMedia('(prefers-color-scheme: dark)').matches) || current === 'dark') {
             this.setState({ moon: 'far fa-moon' });
             document.body.style.backgroundImage = "url(" + darkGrid + ")";
             document.documentElement.classList.add('dark');
-        } else if (current === 'dark') {
-            this.setState({ moon: 'far fa-moon' });
-            document.body.style.backgroundImage = "url(" + darkGrid + ")";
-            document.documentElement.classList.add('dark');
-        } else if (current === 'light') {
+        } else {
             this.setState({ moon: 'fas fa-moon' });
             document.body.style.backgroundImage = "url(" + grid + ")";
             document.documentElement.classList.remove('dark');
@@ -33,27 +33,24 @@ export default class Menu extends Component {
 
         window.addEventListener('resize', this.handleResize.bind(this))
         if (window.innerWidth >= 640) {
-            this.setState({ menuActive: true })
+            this.setState({ menuActive: true });
         }
     }
 
+    // Only for visuals checking responsiveness
     handleResize() {
         if (window.innerWidth >= 640) {
-            this.setState({ menuActive: true })
-        } else {
             this.setState({ menuActive: false })
+        } else {
+            this.setState({ menuActive: true })
         }
     }
 
+    // When the user clicks the dark-mode icon
     changeTheme() {
         let current = localStorage.getItem('theme')
         console.log(current);
-        if (current === null) {
-            localStorage.setItem('theme', 'light');
-            document.documentElement.classList.remove('dark');
-            this.setState({ moon: 'fas fa-moon' });
-            document.body.style.backgroundImage = "url(" + grid + ")";
-        } else if (current === 'dark') {
+        if (current === null || current === 'dark') {
             localStorage.setItem('theme', 'light');
             document.documentElement.classList.remove('dark');
             this.setState({ moon: 'fas fa-moon' });
@@ -69,6 +66,7 @@ export default class Menu extends Component {
     render() {
         return (
             <>
+                {/* This is the small screen menu */}
                 <div className="font-mono fixed md:hidden top-0 w-full z-10 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
                     <div className="relative h-10">
                         <i onClick={() => this.toggleMenu()} className="left-8 absolute fas fa-bars text-3xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"></i>
@@ -84,6 +82,8 @@ export default class Menu extends Component {
                         </div>
                     </div>
                 </div>
+
+                {/* Dark mode icon (normal screens only) */}
                 <div
                     className="transition-none hidden md:block z-50 py-4 px-7 cursor-pointer text-center bg-primary text-md fixed right-0
                                dark:text-secondaryDark dark:bg-gray-600 border-b-2 border-l-2  border-secondary dark:border-secondaryDark
@@ -92,6 +92,8 @@ export default class Menu extends Component {
                 >
                     <i className={this.state.moon + " block"}></i>
                 </div>
+
+                {/* Normal screen menu */}
                 <div
                     className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl fixed h-screen z-50 bg-gray-200 dark:bg-gray-800"
                     style={this.state.menuActive ? { display: "block" } : { display: "none" }}

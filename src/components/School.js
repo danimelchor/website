@@ -6,6 +6,7 @@ export default class School extends Component {
     }
 
     componentDidMount() {
+        // Renders all things I did at a school
         let typesHtml = this.props.type.map((i,index) => {
             return(<li key={index}>{i}</li>)
         })

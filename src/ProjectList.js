@@ -6,6 +6,8 @@ import SSimage from './img/ss.png'
 import ThisWeb from './img/thisWeb.png'
 import BUNexus from './img/BUNexus.png'
 
+// For simplicity and ease updating my projects I decided to keep them as a Dictionary
+// Very simple/shabby but works well
 export const PROJECTS = [
     {
         "title": "My first website",

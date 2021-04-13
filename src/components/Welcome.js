@@ -4,22 +4,13 @@ import Typewriter from 'typewriter-effect';
 import Particles from "react-tsparticles";
 
 export default class Welcome extends Component {
-    state = {
-        active : 0
-    }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.active !== this.props.active) {
-            this.setState({ active: this.props.active })
-        }
-    }
-
     render() {
         return (
             <div className="relative h-screen" id="welcome">
                 <div className="content-bg absolute h-screen w-full right-0 z-0"></div>
                 <div className="w-full absolute right-0 h-screen overflow-hidden">
                     <div className="text-center">
+                        {/* Particle system in the landing section */}
                         <Particles
                             options={{
                                 autoPlay: true,
@@ -110,6 +101,8 @@ export default class Welcome extends Component {
                             className="absolute w-full h-screen z-0"
                         />
                     </div>
+
+                    {/* Terminal animation */}
                     <div id="typewritterBg" className="typewritterBg w-11/12 m-auto md:w-3/4 rounded h-2/3">
                         <div className="relative h-6 w-full bg-gray-300 dark:bg-gray-800 rounded-t">
                             <h2 className="absolute inline-block align-middle dark:text-gray-100 left-1/2 transform -translate-x-1/2">Terminal</h2>
@@ -146,6 +139,8 @@ export default class Welcome extends Component {
                                         .pasteString("<p class='mt-3'></p>")
                                         .typeString("$ ")
                                         .callFunction(() => {
+                                            // Terminal animation should scroll down to about
+                                            // only if user is looking at it
                                             let thisHeight = document.getElementById('welcome').clientHeight;
                                             let thisOffsetTop = document.getElementById('welcome').offsetTop
                                             let offset = window.innerHeight/2
