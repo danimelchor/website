@@ -6,10 +6,9 @@ export default class Project extends Component {
     }
 
     componentDidMount() {
-        let arr = []
-        for(const i of this.props.languages.split(',')) {
-            arr.push(<span className="py-1 px-2 inline-block rounded m-1 text-white" style={{backgroundColor:"#18242C"}}>{i}</span>)
-        }
+        let arr = this.props.languages.split(',').map((i,index) => {
+            return (<span key={index} className="py-1 px-2 inline-block rounded m-1 text-white" style={{backgroundColor:"#18242C"}}>{i}</span>)
+        });
         this.setState({languages:arr})
     }
 

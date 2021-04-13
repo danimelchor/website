@@ -23,7 +23,7 @@ export default class Skills extends Component {
     render() {
         return (
             <div id="skills" className="w-full mb-24">
-                <Title name="skills" />
+                <Title title="skills" />
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
                     <SkillContainer
                         title="Front-End"

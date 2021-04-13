@@ -10,23 +10,23 @@ export default class Projects extends Component {
     }
 
     componentDidMount() {
-        let projectsArr = []
-        for(const item of PROJECTS) {
-            projectsArr.push(<Project
+        let projectsArr = PROJECTS.map((item,index) => {
+            return(<Project
+                key={index}
                 title={item.title}
                 img={item.img}
                 date={item.date}
                 url={item.url}
                 languages={item.languages}
             />);
-        }
+        });
         this.setState({projectsHtml:projectsArr})
     }
 
     render() {
         return (
             <div id="projects" className="w-full mb-24">
-                <Title name="projects" />
+                <Title title="projects" />
                 <div className="flex py-10 justify-center content-center flex-wrap px-2">
                     {this.state.projectsHtml}
                 </div>

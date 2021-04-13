@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import MenuItem from '../components/MenuItem'
 
-import me from '../img/me.jpg'
 import grid from '../img/grid2.png'
 import darkGrid from '../img/darkGrid.png'
 
 export default class Menu extends Component {
     state = {
-        active: [true, false, false, false, false, false, false, false],
         menuActive: false,
         moon: "fas fa-moon"
     }
@@ -47,14 +45,6 @@ export default class Menu extends Component {
         }
     }
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.active !== this.props.active) {
-            let arr = [false, false, false, false, false, false, false, false]
-            arr[this.props.active] = true;
-            this.setState({ active: arr })
-        }
-    }
-
     changeTheme() {
         let current = localStorage.getItem('theme')
         console.log(current);
@@ -81,7 +71,7 @@ export default class Menu extends Component {
             <>
                 <div className="font-mono fixed md:hidden top-0 w-full z-10 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
                     <div className="relative h-10">
-                        <i onClick={() => this.toggleMenu()} class="left-8 absolute fas fa-bars text-3xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"></i>
+                        <i onClick={() => this.toggleMenu()} className="left-8 absolute fas fa-bars text-3xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"></i>
                         <a className="text-xl sm:text-2xl text-gray-800 dark:text-gray-300 inline-block align-middle absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" href="/">
                             <span className="text-blue-700 dark:text-blue-300">class</span> User(<span className="text-secondary dark:text-secondaryDark">DM</span>):
                         </a>
@@ -120,14 +110,14 @@ export default class Menu extends Component {
                                 <p className="text-3xl inline-block align-middle text-primary dark:text-gray-300">Menu</p>
                                 <i onClick={() => this.toggleMenu()} className="fas fa-times text-3xl float-right inline-block align-middle text-primary dark:text-primaryDark"></i>
                             </div>
-                            <MenuItem text=".welcome()" icon="fab fa-creative-commons-zero" linkTo="#welcome" activeNow={this.state.active[0]} />
-                            <MenuItem text=".about()" icon="fas fa-user" linkTo="#about" activeNow={this.state.active[1]} />
-                            <MenuItem text=".experience()" icon="fas fa-user-tie" linkTo="#experience" activeNow={this.state.active[2]} />
-                            <MenuItem text=".projects()" icon="fas fa-tools" linkTo="#projects" activeNow={this.state.active[3]} />
-                            <MenuItem text=".skills()" icon="fas fa-chart-bar" linkTo="#skills" activeNow={this.state.active[4]} />
-                            <MenuItem text=".education()" icon="fas fa-graduation-cap" linkTo="#education" activeNow={this.state.active[5]} />
-                            <MenuItem text=".contact()" icon="fas fa-comment-dots" linkTo="#contact" activeNow={this.state.active[6]} />
-                            <MenuItem text=".resume()" icon="fas fa-file" linkTo="#resume" activeNow={this.state.active[7]} />
+                            <MenuItem text=".welcome()" icon="fab fa-creative-commons-zero" linkTo="welcome" />
+                            <MenuItem text=".about()" icon="fas fa-user" linkTo="about" />
+                            <MenuItem text=".experience()" icon="fas fa-user-tie" linkTo="experience" />
+                            <MenuItem text=".projects()" icon="fas fa-tools" linkTo="projects" />
+                            <MenuItem text=".skills()" icon="fas fa-chart-bar" linkTo="skills" />
+                            <MenuItem text=".education()" icon="fas fa-graduation-cap" linkTo="education" />
+                            <MenuItem text=".contact()" icon="fas fa-comment-dots" linkTo="contact" />
+                            <MenuItem text=".resume()" icon="fas fa-file" linkTo="resume" />
                         </div>
                     </div>
                 </div>

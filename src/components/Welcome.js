@@ -3,8 +3,6 @@ import React, { Component } from 'react'
 import Typewriter from 'typewriter-effect';
 import Particles from "react-tsparticles";
 
-import BG from '../img/bg.jpeg'
-
 export default class Welcome extends Component {
     state = {
         active : 0
@@ -112,7 +110,7 @@ export default class Welcome extends Component {
                             className="absolute w-full h-screen z-0"
                         />
                     </div>
-                    <div id="typewritterBg" className="typewritterBg w-11/12 m-auto md:w-3/4 rounded h-1/2 md:h-2/3">
+                    <div id="typewritterBg" className="typewritterBg w-11/12 m-auto md:w-3/4 rounded h-2/3">
                         <div className="relative h-6 w-full bg-gray-300 dark:bg-gray-800 rounded-t">
                             <h2 className="absolute inline-block align-middle dark:text-gray-100 left-1/2 transform -translate-x-1/2">Terminal</h2>
                             <div className="inline-block align-middle float-right">
@@ -148,8 +146,18 @@ export default class Welcome extends Component {
                                         .pasteString("<p class='mt-3'></p>")
                                         .typeString("$ ")
                                         .callFunction(() => {
-                                            if(this.state.active === 0) {
-                                                document.getElementById('about').scrollIntoView();
+                                            let thisHeight = document.getElementById('welcome').clientHeight;
+                                            let thisOffsetTop = document.getElementById('welcome').offsetTop
+                                            let offset = window.innerHeight/2
+                                            if((window.scrollY + offset > thisOffsetTop) && (window.scrollY + offset < thisOffsetTop + thisHeight)) {
+                                                var Scroll   = require('react-scroll');
+                                                var scroller = Scroll.scroller;
+                                                scroller.scrollTo('about',{
+                                                    duration: 400,
+                                                    delay: 0,
+                                                    smooth: true,
+                                                    offset: window.innerWidth < 768 ? -84 : 0
+                                                });
                                             }
                                         })
                                         .start();

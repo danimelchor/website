@@ -5,7 +5,7 @@ export default class Experience extends Component {
     render() {
         return (
             <div id="experience" className="w-full mb-24">
-                <Title name="experience" />
+                <Title title="experience" />
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
                     <div className="block my-5 bg-white dark:bg-gray-800 dark:text-gray-50 rounded p-10 shadow-2x0l text-justify">
                         <p className="text-lg xl:text-xl leading-10">

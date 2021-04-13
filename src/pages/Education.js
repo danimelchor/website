@@ -6,7 +6,7 @@ export default class Education extends Component {
     render() {
         return (
             <div id="education" className="w-full mb-24">
-                <Title name="education" />
+                <Title title="education" />
                 <div className="flex py-10 justify-center content-center flex-wrap px-2">
                     <School
                         url="http://bu.edu"

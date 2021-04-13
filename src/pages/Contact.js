@@ -6,7 +6,7 @@ export default class Contact extends Component {
     render() {
         return (
             <div id="contact" className="w-full mb-24">
-                <Title name="contact" />
+                <Title title="contact" />
                 <div className="py-10 px-2 m-auto w-full md:w-5/6">
                     <ContactItem
                         icon="fas fa-envelope"
