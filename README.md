@@ -4,7 +4,7 @@ Welcome! This is my current website's repository. Below you will have some infor
 ## Languages and Modules
 This project is made with ReactJS. This JavaScript library allows user to build single-page websites efficiently by creating views for each page and updating the components live, when needed.
 
-In addition, this project also uses other NPM modules such as `tailwindcss`,`typewritter-effect` and `react-tsparticles`.
+In addition, this project also uses other NPM modules such as `tailwindcss`,`typewritter-effect`,`react-scroll` and `react-tsparticles`.
 
 ## How to set it up in your machine
 First of all you should have `npm` installed in your machine, which should come by default with any OS. To check if you have it, open terminal and run `npm -v`. If you don't have it, follow the instructions [here](https://www.npmjs.com/get-npm).
@@ -25,3 +25,6 @@ For the particles I used npm's module [react-tsparticles](https://www.npmjs.com/
 
 ## Typewritter Effect
 This animation is pretty simple and their documentation is good. Check out the react usage [here](https://www.npmjs.com/package/typewriter-effect#react)
+
+## Smooth scroll (even in Safari)
+I just use the default package with a few custom settings. The usage is pretty simple, check it out [here](https://www.npmjs.com/package/react-scroll)
