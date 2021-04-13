@@ -27,4 +27,4 @@ For the particles I used npm's module [react-tsparticles](https://www.npmjs.com/
 This animation is pretty simple and their documentation is good. Check out the react usage [here](https://www.npmjs.com/package/typewriter-effect#react)
 
 ## Smooth scroll (even in Safari)
-I just use the default package with a few custom settings. The usage is pretty simple, check it out [here](https://www.npmjs.com/package/react-scroll)
+I just use the default `react-scroll` npm package with a few custom settings. The usage is pretty simple, check it out [here](https://www.npmjs.com/package/react-scroll)
