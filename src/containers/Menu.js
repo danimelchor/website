@@ -13,7 +13,6 @@ export default class Menu extends Component {
 
     // When the user clicks the hamburguer menu
     toggleMenu() {
-        console.log('click');
         this.setState({ menuActive: !this.state.menuActive })
     }
 
@@ -40,16 +39,15 @@ export default class Menu extends Component {
     // Only for visuals checking responsiveness
     handleResize() {
         if (window.innerWidth >= 640) {
-            this.setState({ menuActive: false })
-        } else {
             this.setState({ menuActive: true })
+        } else {
+            this.setState({ menuActive: false })
         }
     }
 
     // When the user clicks the dark-mode icon
     changeTheme() {
         let current = localStorage.getItem('theme')
-        console.log(current);
         if (current === null || current === 'dark') {
             localStorage.setItem('theme', 'light');
             document.documentElement.classList.remove('dark');
@@ -95,8 +93,8 @@ export default class Menu extends Component {
 
                 {/* Normal screen menu */}
                 <div
-                    className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl fixed h-screen z-50 bg-gray-200 dark:bg-gray-800"
-                    style={this.state.menuActive ? { display: "block" } : { display: "none" }}
+                    className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl fixed h-screen z-50 bg-gray-200 dark:bg-gray-800 transition-transform md:transition-none md:transition-colors"
+                    style={this.state.menuActive ? {} : { transform: "translateX(-105%)" }}
                 >
                     <div className="hidden md:block border-b-4 border-secondary dark:border-secondaryDark text-center">
                         <div className="text-primary dark:text-blue-300 font-bold text-2xl inline-block py-5 font-sans" >danielmelchor.com</div>
@@ -104,10 +102,10 @@ export default class Menu extends Component {
                     <div className="md:top-1/2 md:absolute transform md:-translate-y-2/4 w-full">
                         <div className="w-full pt-5 flex flex-wrap items-center justify-center hidden md:block">
                             <a className="pl-5 text-xl w-full text-gray-800 dark:text-gray-300" href="/">
-                                <span className="text-green-900 dark:text-blue-300">class</span> User(<span className="text-secondary dark:text-secondaryDark">D<span className="hidden xl:inline">aniel</span>M<span className="hidden xl:inline">elchor</span></span>):
+                                <span className="text-green-900 dark:text-blue-300">class</span> User(<span className="text-secondary dark:text-secondaryDark">D<span className="hidden xl:inline">aniel</span>M</span>):
                             </a>
                         </div>
-                        <div className="pt-2 xl:pt-5">
+                        <div className="pt-10 md:pt-2 xl:pt-5">
                             <div className="md:hidden z-20 w-full mb-2 block px-3 text-center">
                                 <p className="text-3xl inline-block align-middle text-primary dark:text-gray-300">Menu</p>
                                 <i onClick={() => this.toggleMenu()} className="fas fa-times text-3xl float-right inline-block align-middle text-primary dark:text-primaryDark"></i>

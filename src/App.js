@@ -1,7 +1,7 @@
 import './css/index.css';
 
-import Content from './Content';
-import Menu from './Menu';
+import Content from './containers/Content';
+import Menu from './containers/Menu';
 import React from 'react';
 
 function App() {

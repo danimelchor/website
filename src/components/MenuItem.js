@@ -8,6 +8,7 @@ export default class MenuItem extends Component {
     }
 
     componentDidMount() {
+        this.onScroll();
         window.addEventListener('scroll', this.onScroll.bind(this))
     }
 
