@@ -20,7 +20,7 @@ export default class Menu extends Component {
     // activated to set the appropiate theme
     componentDidMount() {
         let current = localStorage.getItem('theme')
-        if ((current === null && window.matchMedia('(prefers-color-scheme: dark)').matches) || current === 'dark') {
+        if (current === null || current === 'dark') {
             this.setState({ moon: 'far fa-moon' });
             document.body.style.backgroundImage = "url(" + darkGrid + ")";
             document.documentElement.classList.add('dark');
@@ -65,7 +65,7 @@ export default class Menu extends Component {
         return (
             <>
                 {/* This is the small screen menu */}
-                <div className="font-mono fixed md:hidden top-0 w-full z-10 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
+                <div className="font-mono fixed md:hidden top-0 w-full z-30 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
                     <div className="relative h-10">
                         <i onClick={() => this.toggleMenu()} className="left-8 absolute fas fa-bars text-3xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"></i>
                         <a className="text-xl sm:text-2xl text-gray-800 dark:text-gray-300 inline-block align-middle absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" href="/">
@@ -93,7 +93,7 @@ export default class Menu extends Component {
 
                 {/* Normal screen menu */}
                 <div
-                    className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl fixed h-screen z-50 bg-gray-200 dark:bg-gray-800 transition-transform md:transition-none md:transition-colors"
+                    className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl fixed h-screen z-40 bg-gray-200 dark:bg-gray-800 transition-transform md:transition-none md:transition-colors"
                     style={this.state.menuActive ? {} : { transform: "translateX(-105%)" }}
                 >
                     <div className="hidden md:block border-b-4 border-secondary dark:border-secondaryDark text-center">
