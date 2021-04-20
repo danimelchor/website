@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.a6d62728.chunk.css",
-    "main.js": "/static/js/main.6c77e83f.chunk.js",
-    "main.js.map": "/static/js/main.6c77e83f.chunk.js.map",
+    "main.js": "/static/js/main.678496a2.chunk.js",
+    "main.js.map": "/static/js/main.678496a2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.1a32f8d5.js",
     "runtime-main.js.map": "/static/js/runtime-main.1a32f8d5.js.map",
     "static/js/2.d6e6bf4f.chunk.js": "/static/js/2.d6e6bf4f.chunk.js",
@@ -28,7 +28,7 @@
     "static/media/ReactJS-logo.fb59dfc6.png": "/static/media/ReactJS-logo.fb59dfc6.png",
     "static/media/SCSS-logo.1e780022.png": "/static/media/SCSS-logo.1e780022.png",
     "static/media/SQL-logo.73be91a0.png": "/static/media/SQL-logo.73be91a0.png",
-    "static/media/Sorting.f94c216b.png": "/static/media/Sorting.f94c216b.png",
+    "static/media/Sorting.dc47cc9b.png": "/static/media/Sorting.dc47cc9b.png",
     "static/media/VueJS-logo.3260de00.png": "/static/media/VueJS-logo.3260de00.png",
     "static/media/index.css": "/static/media/grid2.ed160aaa.png",
     "static/media/conway.472829b1.png": "/static/media/conway.472829b1.png",
@@ -45,6 +45,6 @@
     "static/js/runtime-main.1a32f8d5.js",
     "static/js/2.d6e6bf4f.chunk.js",
     "static/css/main.a6d62728.chunk.css",
-    "static/js/main.6c77e83f.chunk.js"
+    "static/js/main.678496a2.chunk.js"
   ]
 }
