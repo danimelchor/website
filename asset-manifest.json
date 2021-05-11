@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.a6d62728.chunk.css",
-    "main.js": "/static/js/main.f0ee0ef4.chunk.js",
-    "main.js.map": "/static/js/main.f0ee0ef4.chunk.js.map",
+    "main.css": "/static/css/main.889f056c.chunk.css",
+    "main.js": "/static/js/main.8599d6bc.chunk.js",
+    "main.js.map": "/static/js/main.8599d6bc.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.8bd979d0.js",
     "runtime-main.js.map": "/static/js/runtime-main.8bd979d0.js.map",
-    "static/js/2.b9c57c60.chunk.js": "/static/js/2.b9c57c60.chunk.js",
-    "static/js/2.b9c57c60.chunk.js.map": "/static/js/2.b9c57c60.chunk.js.map",
+    "static/js/2.a51332ce.chunk.js": "/static/js/2.a51332ce.chunk.js",
+    "static/js/2.a51332ce.chunk.js.map": "/static/js/2.a51332ce.chunk.js.map",
     "static/js/3.8b30899b.chunk.js": "/static/js/3.8b30899b.chunk.js",
     "static/js/3.8b30899b.chunk.js.map": "/static/js/3.8b30899b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a6d62728.chunk.css.map": "/static/css/main.a6d62728.chunk.css.map",
-    "static/js/2.b9c57c60.chunk.js.LICENSE.txt": "/static/js/2.b9c57c60.chunk.js.LICENSE.txt",
+    "static/css/main.889f056c.chunk.css.map": "/static/css/main.889f056c.chunk.css.map",
+    "static/js/2.a51332ce.chunk.js.LICENSE.txt": "/static/js/2.a51332ce.chunk.js.LICENSE.txt",
     "static/media/BUNexus.a3e1171a.png": "/static/media/BUNexus.a3e1171a.png",
     "static/media/CPlus-logo.1240ce15.png": "/static/media/CPlus-logo.1240ce15.png",
     "static/media/CSS-logo.e41e4887.png": "/static/media/CSS-logo.e41e4887.png",
@@ -32,7 +32,7 @@
     "static/media/VueJS-logo.3260de00.png": "/static/media/VueJS-logo.3260de00.png",
     "static/media/index.css": "/static/media/grid2.ed160aaa.png",
     "static/media/conway.472829b1.png": "/static/media/conway.472829b1.png",
-    "static/media/danielmelchor_resume.6b55d5b5.pdf": "/static/media/danielmelchor_resume.6b55d5b5.pdf",
+    "static/media/danielmelchor_resume.777a75ab.pdf": "/static/media/danielmelchor_resume.777a75ab.pdf",
     "static/media/darkGrid.d6fe6466.png": "/static/media/darkGrid.d6fe6466.png",
     "static/media/djangoweb.255075f1.png": "/static/media/djangoweb.255075f1.png",
     "static/media/meFriends.aebebd00.jpg": "/static/media/meFriends.aebebd00.jpg",
@@ -43,8 +43,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.8bd979d0.js",
-    "static/js/2.b9c57c60.chunk.js",
-    "static/css/main.a6d62728.chunk.css",
-    "static/js/main.f0ee0ef4.chunk.js"
+    "static/js/2.a51332ce.chunk.js",
+    "static/css/main.889f056c.chunk.css",
+    "static/js/main.8599d6bc.chunk.js"
   ]
 }
