@@ -3,9 +3,12 @@ import React, { Component } from "react";
 import { Link } from "react-scroll";
 
 export default class MenuItem extends Component {
-  state = {
-    active: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: false,
+    };
+  }
 
   componentDidMount() {
     this.onScroll();
@@ -30,7 +33,7 @@ export default class MenuItem extends Component {
   render() {
     return (
       <Link
-        onClick={() => this.props.toggleMenuFunc()}
+        onClick={this.props.toggleMenuFunc}
         to={this.props.linkTo}
         smooth={true}
         duration={400}
