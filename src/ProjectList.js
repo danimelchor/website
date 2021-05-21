@@ -6,10 +6,46 @@ import SSimage from "./img/ss.png";
 import ThisWeb from "./img/thisWeb.png";
 import BUNexus from "./img/BUNexus.png";
 import Sorting from "./img/Sorting.png";
+import Decentrapass from "./img/decentrapass.png";
 
 // For simplicity and ease updating my projects I decided to keep them as a Dictionary
 // Very simple/shabby but works well
 export const PROJECTS = [
+  {
+    title: "This website",
+    img: ThisWeb,
+    date: "04/11/2021",
+    languages: "HTML,CSS,JSX,JavaScript,ReactJS",
+    url: "https://github.com/danimelchor/website/tree/main",
+  },
+  {
+    title: "BU Nexus",
+    img: BUNexus,
+    date: "04/11/2021",
+    languages: "HTML,CSS,JSX,Python,Django,JavaScript,ReactJS,Apache",
+    url: "https://bunexus.com/",
+  },
+  {
+    title: "Decentrapass",
+    img: Decentrapass,
+    date: "06/18/2021",
+    languages: "HTML,CSS,JavaScript,ReactJS,Solidity",
+    url: "https://decentrapass.github.io/Decentrapass-v1-Interface/",
+  },
+  {
+    title: "Symptom Survey Bot",
+    img: SSimage,
+    date: "03/24/2021",
+    languages: "Python",
+    url: "https://github.com/danimelchor/buSurveyAndAppointment",
+  },
+  {
+    title: "Sorting Visualizer",
+    img: Sorting,
+    date: "04/20/2021",
+    languages: "HTML,CSS,JavaScript,JQuery",
+    url: "https://danimelchor.github.io/sorting-visualizer/",
+  },
   {
     title: "My first website",
     img: OldWebsite,
@@ -30,33 +66,5 @@ export const PROJECTS = [
     date: "11/23/2020",
     languages: "Python",
     url: "https://github.com/danimelchor/conway",
-  },
-  {
-    title: "Symptom Survey Bot",
-    img: SSimage,
-    date: "03/24/2021",
-    languages: "Python",
-    url: "https://github.com/danimelchor/buSurveyAndAppointment",
-  },
-  {
-    title: "This website",
-    img: ThisWeb,
-    date: "04/11/2021",
-    languages: "HTML,CSS,JSX,JavaScript,ReactJS",
-    url: "https://github.com/danimelchor/website/tree/main",
-  },
-  {
-    title: "BU Nexus",
-    img: BUNexus,
-    date: "04/11/2021",
-    languages: "HTML,CSS,JSX,Python,Django,JavaScript,ReactJS,Apache",
-    url: "https://bunexus.com/",
-  },
-  {
-    title: "Sorting Visualizer",
-    img: Sorting,
-    date: "04/20/2021",
-    languages: "HTML,CSS,JavaScript,JQuery",
-    url: "https://danimelchor.github.io/sorting-visualizer/",
   },
 ];
