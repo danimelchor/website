@@ -15,10 +15,11 @@ import Python from "../img/skills/Python-logo.png";
 import Django from "../img/skills/Django-logo.png";
 import SQL from "../img/skills/SQL-logo.png";
 import Java from "../img/skills/Java-logo.png";
-import CSharp from "../img/skills/CSharp-logo.png";
-import CPlus from "../img/skills/CPlus-logo.png";
 import Photoshop from "../img/skills/Photoshop-logo.png";
 import GitHub from "../img/skills/GitHub-logo.png";
+import Pytorch from "../img/skills/Pytorch-logo.png";
+import Matplot from "../img/skills/Matplot-logo.png";
+import Numpy from "../img/skills/Numpy-logo.png";
 
 export default class Skills extends Component {
   render() {
@@ -45,9 +46,9 @@ export default class Skills extends Component {
             names={["PHP", "Python", "Django", "SQL"]}
           />
           <SkillContainer
-            title="Other Languages"
-            imgs={[Java, CSharp, CPlus, Python]}
-            names={["Java", "C#", "C++", "Python"]}
+            title="Other Languages And Libraries"
+            imgs={[Java, Python, Pytorch, Matplot, Numpy]}
+            names={["Java", "Python", "Pytorch", "Matplotlib", "Numpy"]}
           />
           <SkillContainer
             title="Other"

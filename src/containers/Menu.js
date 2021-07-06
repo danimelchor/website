@@ -18,7 +18,8 @@ export default class Menu extends Component {
 
   // When the user clicks the hamburguer menu
   toggleMenu() {
-    if (window.innerWidth < 640)
+    console.log("X");
+    if (window.innerWidth < 768)
       this.setState({ menuActive: !this.state.menuActive });
   }
 
@@ -37,14 +38,14 @@ export default class Menu extends Component {
     }
 
     window.addEventListener("resize", this.handleResize.bind(this));
-    if (window.innerWidth >= 640) {
+    if (window.innerWidth >= 768) {
       this.setState({ menuActive: true });
     }
   }
 
   // Only for visuals checking responsiveness
   handleResize() {
-    if (window.innerWidth >= 640) {
+    if (window.innerWidth >= 768) {
       this.setState({ menuActive: true });
     } else {
       this.setState({ menuActive: false });
