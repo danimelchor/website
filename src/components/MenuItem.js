@@ -15,18 +15,24 @@ export default class MenuItem extends Component {
     window.addEventListener("scroll", this.onScroll.bind(this));
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.onScroll.bind(this));
+  }
+
   // Checks window scroll to see if a menu element should be highlighted
   onScroll() {
-    let thisHeight = document.getElementById(this.props.linkTo).clientHeight;
-    let thisOffsetTop = document.getElementById(this.props.linkTo).offsetTop;
-    let offset = window.innerHeight / 3;
-    if (
-      window.scrollY + offset > thisOffsetTop &&
-      window.scrollY + offset < thisOffsetTop + thisHeight
-    ) {
-      this.setState({ active: true });
-    } else {
-      this.setState({ active: false });
+    if (document.getElementById(this.props.linkTo)) {
+      let thisHeight = document.getElementById(this.props.linkTo).clientHeight;
+      let thisOffsetTop = document.getElementById(this.props.linkTo).offsetTop;
+      let offset = window.innerHeight / 3;
+      if (
+        window.scrollY + offset > thisOffsetTop &&
+        window.scrollY + offset < thisOffsetTop + thisHeight
+      ) {
+        this.setState({ active: true });
+      } else {
+        this.setState({ active: false });
+      }
     }
   }
 

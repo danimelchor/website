@@ -4,6 +4,10 @@ import MenuItem from "../components/MenuItem";
 import grid from "../img/grid2.png";
 import darkGrid from "../img/darkGrid.png";
 
+import { FaPencilAlt } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router-dom";
+
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks
   state = {
@@ -186,6 +190,23 @@ export default class Menu extends Component {
                 icon="fas fa-file"
                 linkTo="resume"
               />
+              <Link
+                to="/blog"
+                className="flex items-center px-3 pl-4 2xl:pl-6 cursor-pointer"
+                style={
+                  window.innerHeight > window.innerWidth
+                    ? { paddingTop: "2vh", paddingBottom: "2vh" }
+                    : { paddingTop: "2vh", paddingBottom: "2vh" }
+                }
+              >
+                <FaPencilAlt className="text-2xl 2xl:text-3xl pr-5 w-12 text-center text-primary dark:text-gray-400" />
+                <span className="text-md xl:text-lg font-mono text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-gray-100">
+                  <span className="text-secondary dark:text-secondaryDark">
+                    this
+                  </span>
+                  .blog()
+                </span>
+              </Link>
             </div>
           </div>
         </div>

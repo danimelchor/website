@@ -10,7 +10,12 @@
 
 body {
   overflow-x: hidden;
-  background-image: url('../img/grid2.png');
+  background-image: url("../img/grid2.png");
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 .content-bg {
@@ -27,7 +32,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .titleSection {
@@ -37,12 +42,12 @@ body {
 }
 
 .link {
-  color: #006B61;
+  color: #006b61;
 }
 
 .link:hover {
   text-decoration: underline;
-  color: #FFC800;
+  color: #ffc800;
 }
 
 .Typewriter {
