@@ -1,12 +1,12 @@
 // Images
-import OldWebsite from "./img/oldwebsite.png";
-import DjangoWeb from "./img/djangoweb.png";
-import Conway from "./img/conway.png";
-import SSimage from "./img/ss.png";
-import ThisWeb from "./img/thisWeb.png";
-import BUNexus from "./img/BUNexus.png";
-import Sorting from "./img/Sorting.png";
-import Decentrapass from "./img/decentrapass.png";
+import OldWebsite from "./img/projects/oldwebsite.png";
+import DjangoWeb from "./img/projects/djangoweb.png";
+import Conway from "./img/projects/conway.png";
+import SSimage from "./img/projects/ss.png";
+import ThisWeb from "./img/projects/thisWeb.png";
+import BUNexus from "./img/projects/BUNexus.png";
+import Sorting from "./img/projects/Sorting.png";
+import Decentrapass from "./img/projects/decentrapass.png";
 
 // For simplicity and ease updating my projects I decided to keep them as a Dictionary
 // Very simple/shabby but works well
