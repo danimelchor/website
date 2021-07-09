@@ -55,7 +55,7 @@ export default class MenuItem extends Component {
         className={
           this.state.active
             ? "cursor-pointer px-3 pl-4 2xl:pl-6 block w-100 bg-gray-100 shadow-md relative menuItemActive -mr-2 transition-all text-gray-900 border-l-8 border-secondary dark:bg-gray-700 dark:text-gray-100 dark:border-primaryDark"
-            : "cursor-pointer px-3 pl-4 2xl:pl-6 block w-100 bg-gray-200 transition-all hover:bg-gray-100 text-gray-700 hover:text-black dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-100 dark:border-primaryDark"
+            : "cursor-pointer px-3 pl-4 2xl:pl-6 block w-100 bg-gray-200 transition-all hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 hover:text-black dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-100 dark:border-primaryDark"
         }
       >
         <i

@@ -6,7 +6,6 @@ import darkGrid from "../img/darkGrid.png";
 
 import { FaPencilAlt } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks
@@ -103,8 +102,8 @@ export default class Menu extends Component {
 
         {/* Dark mode icon (normal screens only) */}
         <div
-          className="transition-none hidden md:block z-50 py-4 px-7 cursor-pointer text-center bg-primary text-md fixed right-0
-                               dark:text-secondaryDark dark:bg-gray-600 border-b-2 border-l-2  border-secondary dark:border-secondaryDark
+          className="transition-none hidden md:block z-50 py-4 px-7 cursor-pointer text-center bg-primary text-md fixed right-3 top-3
+                               dark:text-secondaryDark dark:bg-gray-600 border-2 rounded-md border-secondary dark:border-secondaryDark
                                hover:bg-gray-900 dark:hover:bg-gray-700 text-secondary"
           onClick={this.changeTheme.bind(this)}
         >
@@ -190,9 +189,9 @@ export default class Menu extends Component {
                 icon="fas fa-file"
                 linkTo="resume"
               />
-              <Link
-                to="/blog"
-                className="flex items-center px-3 pl-4 2xl:pl-6 cursor-pointer"
+              <a
+                href="https://danielmelchor.medium.com/"
+                className="flex items-center px-3 pl-4 2xl:pl-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 group transition-colors"
                 style={
                   window.innerHeight > window.innerWidth
                     ? { paddingTop: "2vh", paddingBottom: "2vh" }
@@ -200,13 +199,14 @@ export default class Menu extends Component {
                 }
               >
                 <FaPencilAlt className="text-2xl 2xl:text-3xl pr-5 w-12 text-center text-primary dark:text-gray-400" />
-                <span className="text-md xl:text-lg font-mono text-gray-700 hover:text-black dark:text-gray-400 dark:hover:text-gray-100">
+                <span className="text-md xl:text-lg font-mono text-gray-700 group-hover:text-black dark:text-gray-400 dark:group-hover:text-gray-100 flex items-center transition-colors">
                   <span className="text-secondary dark:text-secondaryDark">
                     this
                   </span>
-                  .blog()
+                  .blog(
+                  <FiExternalLink />)
                 </span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
