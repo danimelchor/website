@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;400;600;700;900&display=swap");
+
+#blog-post * {
+  font-family: "Martel Sans", sans-serif;
+}
+
+#blog-post *::-moz-selection {
+  /* Code for Firefox */
+  color: rgb(250, 250, 250);
+  background: #008cff;
+}
+
+#blog-post *::selection {
+  color: rgb(250, 250, 250);
+  background: #008cff;
+}
+
+/* Main title */
+#blog-post h1 {
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 900;
+}
+
+/* Subtitle */
+#blog-post h2 {
+  font-size: 16px;
+  line-height: 26px;
+  color: rgb(117, 117, 117);
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+/* Section */
+#blog-post h3 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  margin-top: 1.35em;
+  margin-bottom: 3px;
+}
+
+/* Subsection */
+#blog-post h4 {
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+/* Image caption */
+#blog-post h5 {
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  color: #6b6b6b;
+  margin-bottom: 1.72em;
+  margin-top: -6px;
+}
+
+/* Link */
+#blog-post a {
+  text-decoration: underline;
+}
+
+/* Images */
+#blog-post img {
+  margin: 0 auto;
+  margin-top: 1.72em;
+  max-width: 100%;
+  padding: 4px;
+  background: white;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background: transparent;
+}
+
+/* Unordered list */
+#blog-post ul {
+  list-style-type: disc;
+  display: block;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+#blog-post li {
+  margin: 10px 0;
+}
+
+/* Normal text */
+#blog-post p {
+  line-height: 26px;
+  font-size: 16px;
+  color: rgb(41, 41, 41);
+  margin-bottom: 15px;
+}
+
+/* -------------------------------------------------- */
+/* -------------------- DARK MODE ------------------- */
+/* -------------------------------------------------- */
+
+/* Subtitle */
+.dark #blog-post h2 {
+  color: rgb(148, 148, 148) !important;
+}
+
+/* Image caption */
+.dark #blog-post h5 {
+  color: rgb(165, 165, 165) !important;
+}
+
+.dark #blog-post img {
+  filter: invert(1);
+}
+
+.dark #blog-post img::-moz-selection,
+.dark #blog-post img::selection {
+  color: rgb(250, 250, 250);
+  background: #ff7300 !important;
+}
+
+/* Link */
+.dark #blog-post h1,
+.dark #blog-post h3,
+.dark #blog-post h4,
+.dark #blog-post ul,
+.dark #blog-post li,
+.dark #blog-post p {
+  color: rgb(228, 228, 228) !important;
+}
+
+/* -------------------------------------------------- */
+/* ----------------- RESPONSIVE SIZES --------------- */
+/* -------------------------------------------------- */
+@media screen and (min-width: 800px) {
+  /* Main title */
+  #blog-post h1 {
+    font-size: 36px;
+    line-height: 56px;
+  }
+
+  /* Subtitle */
+  #blog-post h2 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  /* Section */
+  #blog-post h3 {
+    font-size: 30px;
+    line-height: 36px;
+    margin-top: 1.95em;
+  }
+
+  /* Subsection */
+  #blog-post h4 {
+    font-size: 22px;
+    line-height: 28px;
+    margin-top: 1.72em;
+  }
+
+  /* Images */
+  #blog-post img {
+    max-width: 60%;
+  }
+
+  /* Image caption */
+  #blog-post h5 {
+    font-size: 16px;
+  }
+
+  /* Normal text */
+  #blog-post p {
+    line-height: 32px;
+    margin-bottom: 15px;
+  }
+}

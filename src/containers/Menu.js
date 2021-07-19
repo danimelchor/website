@@ -190,7 +190,7 @@ export default class Menu extends Component {
                 linkTo="resume"
               />
               <a
-                href="https://danielmelchor.medium.com/"
+                href="/blog/"
                 className="flex items-center px-3 pl-4 2xl:pl-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 group transition-colors"
                 style={
                   window.innerHeight > window.innerWidth
@@ -203,8 +203,7 @@ export default class Menu extends Component {
                   <span className="text-secondary dark:text-secondaryDark">
                     this
                   </span>
-                  .blog(
-                  <FiExternalLink />)
+                  .blog()
                 </span>
               </a>
             </div>
