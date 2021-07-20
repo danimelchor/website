@@ -4,13 +4,18 @@ import bg from "../../img/blog-bg.jpg";
 import { POSTS } from "./PostsList";
 import { Link } from "react-router-dom";
 
+import { FaSearch } from "react-icons/fa";
+
 export default class Blog extends Component {
   constructor(props) {
     super(props);
 
+    this.filterBlogs = this.filterBlogs.bind(this);
+
     this.state = {
       postlist: "",
       page: 0,
+      posts: POSTS,
     };
   }
 
@@ -40,6 +45,19 @@ export default class Blog extends Component {
     }
   }
 
+  filterBlogs(e) {
+    let query = e.target.value;
+    let all_classes = [...POSTS];
+
+    all_classes = all_classes.filter((post) =>
+      post.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    if (query == "") all_classes = POSTS;
+
+    this.setState({ posts: all_classes });
+  }
+
   render() {
     return (
       <div className="w-full h-full flex flex-col items-center bg-white dark:bg-gray-900 min-h-screen">
@@ -53,7 +71,7 @@ export default class Blog extends Component {
             to="/"
             className="absolute left-0 top-0 p-5 z-50 text-white font-black text-lg sm:text-xl hover:text-gray-300 hover:underline"
           >
-            dmelchor.com
+            danielmelchor.com
           </Link>
           <div className="text-white z-50 flex items-center justify-center flex-col">
             <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-mono">
@@ -87,14 +105,26 @@ export default class Blog extends Component {
             <i className={this.state.moon + " block"}></i>
           </button>
         </div>
-        <div className="dark:bg-gray-900 my-2 rounded-sm h-full p-6 md:p-10">
-          {POSTS.map((post, div) => {
+        <div className="my-2 h-full p-6 md:p-10 w-full md:w-2/3 lg:w-1/2">
+          <div className="mb-10 relative">
+            <input
+              type="text"
+              placeholder="Search..."
+              onFocus={(e) => (e.target.placeholder = "")}
+              onBlur={(e) => (e.target.placeholder = "Search...")}
+              className="w-full bg-transparent border focus:outline-none dark:text-gray-200 p-3 pr-10e text-lg placeholder-gray-500"
+              onChange={this.filterBlogs}
+            />
+            <FaSearch className="dark:text-gray-200 text-2xl absolute right-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+          </div>
+          {this.state.posts.map((post, key) => {
             return (
               <Link
                 to={"blog/" + post.link}
-                className="py-8 cursor-pointer flex flex-col transition-none mb-5 border-b border-gray-300 dark:border-gray-700 group"
+                className="py-8 cursor-pointer flex flex-col transition-none mb-5 border-t border-gray-300 dark:border-gray-700 group"
+                key={key}
               >
-                <h1 className="font-bold text-xl text-black dark:text-white group-hover:text-secondary dark:group-hover:text-secondaryDark">
+                <h1 className="font-bold text-xl xl:text-2xl text-black dark:text-white group-hover:text-secondary dark:group-hover:text-secondaryDark">
                   {post.title}
                 </h1>
                 <h2 className="text-gray-700 dark:text-gray-300 mb-5">
@@ -106,6 +136,11 @@ export default class Blog extends Component {
               </Link>
             );
           })}
+          {this.state.posts.length == 0 && (
+            <div className="w-full font-bold text-xl xl:text-2xl text-black dark:text-white group-hover:text-secondary dark:group-hover:text-secondaryDark">
+              No blogs found matching that search.
+            </div>
+          )}
         </div>
       </div>
     );

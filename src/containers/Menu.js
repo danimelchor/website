@@ -6,6 +6,7 @@ import darkGrid from "../img/darkGrid.png";
 
 import { FaPencilAlt } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks
@@ -189,8 +190,8 @@ export default class Menu extends Component {
                 icon="fas fa-file"
                 linkTo="resume"
               />
-              <a
-                href="/blog/"
+              <Link
+                to="/blog"
                 className="flex items-center px-3 pl-4 2xl:pl-6 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 group transition-colors"
                 style={
                   window.innerHeight > window.innerWidth
@@ -205,7 +206,7 @@ export default class Menu extends Component {
                   </span>
                   .blog()
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

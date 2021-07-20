@@ -4,13 +4,13 @@ import ReactMarkdown from "react-markdown";
 import "./style.css";
 import grid from "../../img/grid2.png";
 import darkGrid from "../../img/darkGrid.png";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { GoChevronLeft } from "react-icons/go";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 /* Use `…/dist/cjs/…` if you’re not in ESM! */
-import { prism, dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { ghcolors, nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 // CODE SYNTAX
 const components = {
@@ -18,16 +18,16 @@ const components = {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
       <SyntaxHighlighter
-        style={localStorage.getItem("blog-theme") == "light" ? prism : dracula}
+        style={localStorage.getItem("blog-theme") == "light" ? ghcolors : nord}
         language={match[1]}
         PreTag="div"
         children={String(children).replace(/\n$/, "")}
         {...props}
-        className="bg-red-500"
         customStyle={{
-          boxShadow: "0px 3px 6px 0px rgba(0, 0, 0, 0.3)",
-          borderRadius: "5px",
+          marginBottom: "20px",
         }}
+        showLineNumbers={true}
+        showInlineLineNumbers={true}
       />
     ) : (
       <code className={className} {...props} />
@@ -42,11 +42,12 @@ export default class Post extends Component {
     this.state = {
       post: "",
       postname: "",
+      redirect: "",
     };
   }
 
   componentWillMount() {
-    let path = window.location.pathname.split("blog/");
+    let path = window.location.hash.split("blog/");
     path = path[path.length - 1].replaceAll("/", "");
 
     import(`./posts/${path}.md`)
@@ -54,9 +55,9 @@ export default class Post extends Component {
         fetch(res.default)
           .then((res) => res.text())
           .then((res) => this.setState({ post: res, postname: path }))
-          .catch((err) => console.log(err));
+          .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
 
     // Dark mode
     let current = localStorage.getItem("blog-theme");
@@ -90,7 +91,8 @@ export default class Post extends Component {
   render() {
     return (
       <div className="w-full h-full flex items-center justify-center">
-        <div className="bg-white dark:bg-gray-900 shadow-2xl w-full lg:w-2/3 xl:w-1/2 lg:my-2 lg:rounded-md h-full p-6 lg:p-10">
+        {this.state.redirect}
+        <div className="bg-white dark:bg-gray-900 shadow-2xl w-full lg:w-2/3 xl:w-1/2 2xl:w-5/12 lg:my-2 lg:rounded-md h-full p-6 lg:p-10">
           <div className="flex items-center justify-between mb-10">
             <Link
               to="/blog"
