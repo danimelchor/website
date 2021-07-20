@@ -1,2 +1,0 @@
-(this.webpackJsonpwebsite=this.webpackJsonpwebsite||[]).push([[5],{721:function(t,e,i){"use strict";i.r(e),e.default=i.p+"static/media/1-important-extraction.fc83a743.md"}}]);
-//# sourceMappingURL=5.70b1497f.chunk.js.map
