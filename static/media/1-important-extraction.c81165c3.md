@@ -34,7 +34,7 @@ For the sake of being consistent we will use the following example email (mostly
 >
 > Bitcoin: 1GttzecjYm19xu3iC8i8NEuM7mB5uZQbKD
 
-If you are curious, the input given to GPT-3 was: _"This is an email from Satoshi Nakamoto to Jack explaining how the bitcoin network seems to have disconnected. The email:"_
+If you are curious, the input given to GPT-3 was: _"This is an email from Satoshi Nakamoto to Jack explaining how the bitcoin network seems to have disconnected. The email:"_. The result isn't really related but it works just fine as an example.
 
 ### Techniques
 
