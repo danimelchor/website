@@ -37,6 +37,7 @@ export default class MenuItem extends Component {
   }
 
   render() {
+    let default_class = "cursor-pointer block transition-all pl-4 md:pl-6";
     return (
       <Link
         onClick={this.props.toggleMenuFunc}
@@ -53,17 +54,15 @@ export default class MenuItem extends Component {
             : { paddingTop: "2vh", paddingBottom: "2vh" }
         }
         className={
-          this.state.active
-            ? "cursor-pointer px-3 pl-4 2xl:pl-6 block w-100 bg-gray-100 shadow-md relative menuItemActive -mr-2 transition-all text-gray-900 border-l-8 border-secondary dark:bg-gray-700 dark:text-gray-100 dark:border-primaryDark"
-            : "cursor-pointer px-3 pl-4 2xl:pl-6 block w-100 bg-gray-200 transition-all hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 hover:text-black dark:bg-gray-800 dark:text-gray-400 dark:hover:text-gray-100 dark:border-primaryDark"
+          default_class +
+          (this.state.active
+            ? " bg-gray-100 shadow-md relative menuItemActive text-gray-900 border-l-8 border-solid ml-4 -mr-2 border-secondary dark:bg-gray-700 dark:text-white dark:border-primaryDark"
+            : " bg-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 hover:text-black dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100 dark:border-primaryDark")
         }
       >
-        <i
-          className={
-            this.props.icon +
-            " inline-block align-middle text-2xl 2xl:text-3xl pr-5 w-12 text-center text-primary dark:text-gray-400"
-          }
-        ></i>
+        <div className="inline-block align-middle text-2xl 2xl:text-3xl pr-5 w-12 text-center">
+          {this.props.icon}
+        </div>
         <span className="inline-block align-middle text-md xl:text-lg font-mono">
           <span className="text-secondary dark:text-secondaryDark">this</span>
           {this.props.text}

@@ -18,23 +18,6 @@ body {
   min-height: 100vh;
 }
 
-.content-bg {
-  background-image: url("/src/img/bg.png");
-  background-repeat: repeat-y;
-  background-size: cover;
-  filter: brightness(50%);
-}
-
-.typewritterBg {
-  user-select: none;
-  margin: 0 auto;
-  text-align: left;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .titleSection {
   color: white;
   padding-left: calc(8.33% + 0.6rem);
@@ -50,6 +33,117 @@ body {
   color: #ffc800;
 }
 
-.Typewriter {
-  display: inline;
+.arrow {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #17b169;
+  position: absolute;
+  top: 0;
+  transform: translate(0, -100%);
+}
+
+.dark .arrow {
+  border-bottom: 8px solid #e9b500;
+}
+
+/* SAY HELLO BUTTON */
+.say-hello {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: 2vw;
+  margin-top: 2vw;
+  border: 2px solid #2f4858;
+  background: white;
+  border-radius: 100px;
+  padding: 0.7em 1.5em;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  color: #2f4858;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 150ms ease-in, background 150ms ease-in,
+    color 150ms ease-in, margin 250ms linear, border-color 150ms ease-in;
+  white-space: nowrap;
+}
+
+.dark .say-hello {
+  border-color: white;
+  color: white;
+  background: #374151;
+}
+
+.say-hello:hover {
+  background-color: #2f4858;
+  color: white;
+  transform: scale(1.08);
+}
+
+.dark .say-hello:hover {
+  color: #374151;
+  background: white;
+}
+
+.say-hello-scrolled {
+  margin-top: calc(100vh - 2vw);
+  margin-left: 98vw;
+  transform: translate(-100%, -100%);
+  font-size: 2em;
+  padding: 0.4em;
+  border-color: #374151;
+  color: #374151;
+}
+
+.dark .say-hello-scrolled {
+  background-color: #111827;
+  color: white;
+}
+
+.say-hello-scrolled:hover {
+  background: #17b169;
+  color: white;
+  border-color: white;
+  transform: translate(-100%, -100%);
+}
+
+.dark .say-hello-scrolled:hover {
+  background: #e9b500;
+  color: #f3f4f6;
+  border-color: #f3f4f6;
+}
+
+/* Jumpy arrow */
+#welcome-scroll {
+  animation: jump-scroll 3s infinite;
+}
+
+@keyframes jump-scroll {
+  0% {
+    margin-bottom: 5px;
+  }
+
+  5% {
+    margin-bottom: 0;
+  }
+
+  10% {
+    margin-bottom: 2px;
+  }
+
+  15% {
+    margin-bottom: 0;
+  }
+
+  95% {
+    margin-bottom: 0;
+  }
+
+  100% {
+    margin-bottom: 5px;
+  }
 }

@@ -5,12 +5,15 @@ import "./style.css";
 import grid from "../../img/grid2.png";
 import darkGrid from "../../img/darkGrid.png";
 import { Link, Redirect } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import { GoChevronLeft } from "react-icons/go";
 
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 /* Use `…/dist/cjs/…` if you’re not in ESM! */
 import { ghcolors, nord } from "react-syntax-highlighter/dist/esm/styles/prism";
+
+import { POSTS } from "./PostsList";
 
 // CODE SYNTAX
 const components = {
@@ -43,6 +46,7 @@ export default class Post extends Component {
       post: "",
       postname: "",
       redirect: "",
+      info: "",
     };
   }
 
@@ -54,7 +58,9 @@ export default class Post extends Component {
       .then((res) => {
         fetch(res.default)
           .then((res) => res.text())
-          .then((res) => this.setState({ post: res, postname: path }))
+          .then((res) =>
+            this.setState({ post: res, postname: path, info: POSTS[path] })
+          )
           .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
       })
       .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
@@ -90,9 +96,38 @@ export default class Post extends Component {
 
   render() {
     return (
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="w-full h-full flex flex-col items-center justify-center bg-white dark:bg-gray-900">
         {this.state.redirect}
-        <div className="bg-white dark:bg-gray-900 shadow-2xl w-full lg:w-2/3 xl:w-1/2 2xl:w-5/12 lg:my-2 lg:rounded-md h-full p-6 lg:p-10">
+        <Helmet>
+          <title>{this.state.info.title}</title>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@dmh672" />
+          <meta name="twitter:creator" content="@dmh672" />
+          <meta name="twitter:title" content={this.state.info.title} />
+          <meta name="twitter:description" content={this.state.info.subtitle} />
+          <meta
+            name="twitter:image"
+            content={`https://danielmelchor.com${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
+          />
+        </Helmet>
+        <div
+          className="overflow-hidden flex items-center justify-center w-full relative bg-yellow-50 dark:bg-gray-800"
+          style={
+            window.innerWidth > 640 ? { height: "65vh" } : { height: "100vw" }
+          }
+        >
+          <Link
+            to="/"
+            className="absolute left-0 top-0 p-5 z-50 dark:text-white font-black text-lg sm:text-xl hover:text-gray-700 dark:hover:text-gray-300 hover:underline"
+          >
+            danielmelchor.com
+          </Link>
+          <img
+            src={`${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
+            className="h-full filter absolute top-1/2 transform -translate-y-1/2"
+          />
+        </div>
+        <div className="w-full lg:w-1/2 xl:w-5/12 w-full h-full p-6 lg:p-10">
           <div className="flex items-center justify-between mb-10">
             <Link
               to="/blog"
@@ -101,12 +136,21 @@ export default class Post extends Component {
               <GoChevronLeft />
               Go back
             </Link>
-            <button
-              className="p-3 dark:text-white focus:outline-none text-lg"
-              onClick={this.changeTheme.bind(this)}
-            >
-              <i className={this.state.moon + " block"}></i>
-            </button>
+            <div className="flex items-center">
+              <a
+                href={this.state.info["link"]}
+                style={{ backgroundColor: "#355876" }}
+                className="px-4 py-1 text-white rounded-full transition-transform hover:scale-105 transform"
+              >
+                See on Towards Data Science
+              </a>
+              <button
+                className="p-3 dark:text-white focus:outline-none text-lg hover:text-gray-700 dark:hover:text-gray-300"
+                onClick={this.changeTheme.bind(this)}
+              >
+                <i className={this.state.moon + " block"}></i>
+              </button>
+            </div>
           </div>
           <div id="blog-post">
             <ReactMarkdown

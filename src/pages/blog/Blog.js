@@ -5,6 +5,7 @@ import { POSTS } from "./PostsList";
 import { Link } from "react-router-dom";
 
 import { FaSearch } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 export default class Blog extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Blog extends Component {
     this.state = {
       postlist: "",
       page: 0,
-      posts: POSTS,
+      posts: Object.values(POSTS),
     };
   }
 
@@ -47,7 +48,7 @@ export default class Blog extends Component {
 
   filterBlogs(e) {
     let query = e.target.value;
-    let all_classes = [...POSTS];
+    let all_classes = Object.values(POSTS);
 
     all_classes = all_classes.filter((post) =>
       post.title.toLowerCase().includes(query.toLowerCase())
@@ -61,6 +62,9 @@ export default class Blog extends Component {
   render() {
     return (
       <div className="w-full h-full flex flex-col items-center bg-white dark:bg-gray-900 min-h-screen">
+        <Helmet>
+          <title>Blog</title>
+        </Helmet>
         <div
           className="overflow-hidden flex items-center justify-center w-full relative"
           style={
@@ -120,7 +124,7 @@ export default class Blog extends Component {
           {this.state.posts.map((post, key) => {
             return (
               <Link
-                to={"blog/" + post.link}
+                to={"blog/" + post.internallink}
                 className="py-8 cursor-pointer flex flex-col transition-none mb-5 border-t border-gray-300 dark:border-gray-700 group"
                 key={key}
               >

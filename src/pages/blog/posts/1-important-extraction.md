@@ -2,10 +2,6 @@
 
 ## The power of transformers for obtaining relevant entity extraction from unstructured emails.
 
-![Header](Header.png)
-
-##### Image by author
-
 121 per day, 3,751 a month, and 44,165 a year. According to some [calculations](https://www.campaignmonitor.com/resources/knowledge-base/how-many-emails-does-the-average-person-receive-per-day/#:~:text=Keeping%20all%20this%20in%20mind,will%20be%20closer%20to%20126.), that is the number of emails the average person receives. I don't know about you, but for me, that is a lot of emails to give my time to…
 
 ![Gmail Notifs](gmail.png)
@@ -38,7 +34,7 @@ For the sake of being consistent we will use the following example email (mostly
 >
 > Bitcoin: 1GttzecjYm19xu3iC8i8NEuM7mB5uZQbKD
 
-If you are curious, the input given to GPT-3 was: _"This is an email from Satoshi Nakamoto to Jack explaining how the bitcoin network seems to have disconnected. The email:"_
+If you are curious, the input given to GPT-3 was: _"This is an email from Satoshi Nakamoto to Jack explaining how the bitcoin network seems to have disconnected. The email:"_. The result isn't really related but it works just fine as an example.
 
 ### Techniques
 
@@ -89,7 +85,7 @@ result = re.findall(regex_expr, email_body)
 print(result)
 ```
 
-Which would select the following from our email:
+Which would select the following strings from our email:
 
 ![Regex extraction](regex.png)
 
@@ -152,7 +148,7 @@ Which would select the following from our email:
 
 ##### spaCy extraction: Image by author
 
-As you can see, this model did much better than regex! It ignored cases like _"Tesla Roadster"_ or _"Hi Jack"_, but now we didn't get the correct name: _"Satoshi Nakamoto"_! This is likely due to spaCy never encountering this name before inside its training data.
+As you can see, this model did much better than regex. It ignored cases like _"Tesla Roadster"_ or _"Hi Jack"_, but now we didn't get the correct name: _"Satoshi Nakamoto"_! This is likely due to spaCy never encountering this name before inside its training data.
 
 This doesn't really change the outcome though… Even if spaCy had detected _"Satoshi Nakamoto"_ we still wouldn't know which of the person entities is the important one.
 
@@ -162,7 +158,7 @@ How can we do it? Is it even possible? So many questions! Mmmm… questions. Wha
 
 Using a transformer that has been fine-tuned with a question-answering dataset like [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/) will allow us to ask it any question about the context it receives (in this case the email).
 
-Thankfully, the [HuggingFace](https://huggingface.co/) library includes lots of pre-trained models ready to be used out of the box. For the sake of simplicity, we will be using one of these, since not everyone can afford a TPU ready-to-train models as big as BERT. Feel free to take a look at their model catalog and choose the model that you like the most. I will use the "[bert-large-uncased-whole-word-masking-finetuned-squad](https://huggingface.co/bert-large-uncased-whole-word-masking-finetuned-squad)" model which achieves an F1 score of 93.15.
+Thankfully, the [HuggingFace](https://huggingface.co/) library includes lots of pre-trained models ready to be used out of the box. For simplicity, we will be using one of these, since not everyone can afford a TPU ready-to-train models as big as BERT. Feel free to take a look at their model catalog and choose the model that you like the most. I will use the "[bert-large-uncased-whole-word-masking-finetuned-squad](https://huggingface.co/bert-large-uncased-whole-word-masking-finetuned-squad)" model which, according to them, achieves an F1 score of 93.15.
 
 Like spaCy, HuggingFace has an API that allows to quickly interact with the pre-trained models for specific tasks: [pipelines](https://huggingface.co/transformers/main_classes/pipelines.html).
 
@@ -240,9 +236,9 @@ Which outputs the following probabilities for each answer:
 
 ##### Q&A Model extraction: Image by author
 
-_"Tesla car company"_, _"Satoshi"_ and _"Tesla"_? Here we are finding a similar problem to regex-only extraction (Option 1): we get formats that don't look like the ones we want, and entities that are not a name.
+_"Tesla car company"_, _"Satoshi"_ and _"Tesla"_? Here we have a similar problem to regex-only extraction (Option 1): we get formats that don't look like the ones we want, and entities that are not a name.
 
-To solve this we have two options. We either use regex or spaCy. Since we have already seen that spaCy couldn't detect the name _"Satoshi Nakamoto"_ as a person, we are going to use regex. You should try using spaCy instead since it will also be useful in other scenarios. If you are feeling adventurous, try both simultaneously.
+To solve this we have three options: we can use regex, spaCy, or both. Since we have already seen that spaCy couldn't detect the name _"Satoshi Nakamoto"_ as a person, we are going to use regex. You should try using spaCy instead since it will also be useful in other scenarios. If you are feeling adventurous, try both at the same time.
 
 #### Option 3B: Q&A Transformer models + regex filtering
 
@@ -272,8 +268,6 @@ Satoshi Nakamoto
 Phone number: +1 (650) 566–1191
 Bitcoin: 1GttzecjYm19xu3iC8i8NEuM7mB5uZQbKD
 """
-
-regex_expr = r"(?:[A-Z][a-z]+)+(?:[\- ][A-Z](?:[a-z\.]+)?)+"
 
 questions = [
   "What is his name?",
@@ -305,6 +299,7 @@ result = [(a, s) for (a,s) in unique_answers.items()]
 result.sort(key=lambda tup: tup[1], reverse=True)
 
 # Filtering answers with RegEx
+regex_expr = r"(?:[A-Z][a-z]+)+(?:[\- ][A-Z](?:[a-z\.]+)?)+"
 result = [r for r in result if re.match(regex_expr, r[0])]
 
 # Displaying result
@@ -321,7 +316,7 @@ If we run this code we get these new probabilities:
 
 And there we go! Thinking out of the box we were able to extract relevant information from a text. Think about it: if you have a question about the email, just ask the computer! ;)
 
-Here are other questions I asked the model that I found interesting. Try changing them and seeing the output, but remember to remove the regex checking if it's not about names!
+Here are other questions I asked the model that I found interesting. Try your own questions and see what answer the model gives you, but remember to remove/change the regex checking if it's not about names!
 
 ```bash
 Q: What is his phone number?

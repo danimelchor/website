@@ -1,18 +1,21 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: 'class',
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        'primary': "#2F4858",
-        'secondary': '#17B169',
-        'primaryDark': "#0070C4",
-        'secondaryDark': "#E9B500",
-      }
+        primary: "#2F4858",
+        secondary: "#17B169",
+        primaryDark: "#0070C4",
+        secondaryDark: "#E9B500",
+      },
+      screens: {
+        "3xl": "2048px",
+      },
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};
