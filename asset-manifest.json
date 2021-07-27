@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.17fb76a8.chunk.css",
-    "main.js": "/static/js/main.e6b4b7cb.chunk.js",
-    "main.js.map": "/static/js/main.e6b4b7cb.chunk.js.map",
+    "main.js": "/static/js/main.0a1cda3b.chunk.js",
+    "main.js.map": "/static/js/main.0a1cda3b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a10fffaf.js",
     "runtime-main.js.map": "/static/js/runtime-main.a10fffaf.js.map",
     "static/js/2.8ffb258f.chunk.js": "/static/js/2.8ffb258f.chunk.js",
@@ -18,29 +18,29 @@
     "static/js/2.8ffb258f.chunk.js.LICENSE.txt": "/static/js/2.8ffb258f.chunk.js.LICENSE.txt",
     "static/media/0-pytorch-nntransformer.md": "/static/media/0-pytorch-nntransformer.05fad6dd.md",
     "static/media/1-important-extraction.md": "/static/media/1-important-extraction.03f507d6.md",
-    "static/media/BUNexus.c16ba246.png": "/static/media/BUNexus.c16ba246.png",
+    "static/media/BUNexus.16df41e4.png": "/static/media/BUNexus.16df41e4.png",
     "static/media/Matplot-logo.7acfad2b.png": "/static/media/Matplot-logo.7acfad2b.png",
     "static/media/Numpy-logo.e5894cbf.png": "/static/media/Numpy-logo.e5894cbf.png",
     "static/media/Photoshop-logo.8217b195.png": "/static/media/Photoshop-logo.8217b195.png",
-    "static/media/Sorting.dc47cc9b.png": "/static/media/Sorting.dc47cc9b.png",
+    "static/media/Sorting.b4b66188.png": "/static/media/Sorting.b4b66188.png",
     "static/media/blog-bg.43902188.jpg": "/static/media/blog-bg.43902188.jpg",
-    "static/media/bunexus.63e02805.png": "/static/media/bunexus.63e02805.png",
-    "static/media/conway.472829b1.png": "/static/media/conway.472829b1.png",
+    "static/media/bunexus.84a39915.png": "/static/media/bunexus.84a39915.png",
+    "static/media/conway.f02a36b9.png": "/static/media/conway.f02a36b9.png",
     "static/media/darkGrid.d6fe6466.png": "/static/media/darkGrid.d6fe6466.png",
-    "static/media/decentrapass.2f7e7989.png": "/static/media/decentrapass.2f7e7989.png",
-    "static/media/djangoweb.255075f1.png": "/static/media/djangoweb.255075f1.png",
+    "static/media/decentrapass.5b61c037.png": "/static/media/decentrapass.5b61c037.png",
+    "static/media/djangoweb.0591570e.png": "/static/media/djangoweb.0591570e.png",
     "static/media/index.css": "/static/media/grid2.ed160aaa.png",
-    "static/media/intelygenz.19e2e956.png": "/static/media/intelygenz.19e2e956.png",
+    "static/media/intelygenz.06938bce.png": "/static/media/intelygenz.06938bce.png",
     "static/media/meFriends.aebebd00.jpg": "/static/media/meFriends.aebebd00.jpg",
     "static/media/meSergio.6ced021f.jpg": "/static/media/meSergio.6ced021f.jpg",
-    "static/media/oldwebsite.b361a27f.png": "/static/media/oldwebsite.b361a27f.png",
-    "static/media/ss.5cf77c69.png": "/static/media/ss.5cf77c69.png",
-    "static/media/thisWeb.a28c4068.png": "/static/media/thisWeb.a28c4068.png"
+    "static/media/oldwebsite.d84397d4.png": "/static/media/oldwebsite.d84397d4.png",
+    "static/media/ss.cd24b04c.png": "/static/media/ss.cd24b04c.png",
+    "static/media/thisWeb.043b1f81.png": "/static/media/thisWeb.043b1f81.png"
   },
   "entrypoints": [
     "static/js/runtime-main.a10fffaf.js",
     "static/js/2.8ffb258f.chunk.js",
     "static/css/main.17fb76a8.chunk.css",
-    "static/js/main.e6b4b7cb.chunk.js"
+    "static/js/main.0a1cda3b.chunk.js"
   ]
 }
