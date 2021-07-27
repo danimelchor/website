@@ -6,10 +6,12 @@ import { IoChatboxEllipsesOutline } from "react-icons/io5";
 import { BsChevronDown } from "react-icons/bs";
 
 import { Link } from "react-scroll";
+import Contact from "../components/Contact";
 
 export default class Welcome extends Component {
   state = {
     buttonText: "Say Hello",
+    contactOpened: false,
   };
 
   windowScrolled(e) {
@@ -43,13 +45,23 @@ export default class Welcome extends Component {
           className="bg-white dark:bg-gray-700 w-screen flex justify-center items-center flex-col"
           style={{ height: "99vh" }}
         >
-          <a href="/contact" className="say-hello" id="say-hello">
+          <div
+            className="say-hello cursor-pointer"
+            id="say-hello"
+            onClick={() => this.setState({ contactOpened: true })}
+          >
             {this.state.buttonText}
-          </a>
-          <h1 className="w-11/12 text-center md:w-auto text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-9xl font-black dark:text-white">
+          </div>
+          <h1
+            className="w-11/12 text-center md:w-auto text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-9xl font-black dark:text-white"
+            id="home-title"
+          >
             Daniel Melchor
           </h1>
-          <h2 className="w-11/12 font-serif text-center md:w-auto text-xl 2xl:text-2xl 3xl:text-3xl italic text-gray-700 dark:text-gray-300">
+          <h2
+            className="w-11/12 font-serif text-center md:w-auto text-xl 2xl:text-2xl 3xl:text-3xl italic text-gray-700 dark:text-gray-300"
+            id="home-subtitle"
+          >
             A full stack developer that never stops learning.
           </h2>
           <Socials />
@@ -67,9 +79,12 @@ export default class Welcome extends Component {
             offset={window.innerWidth < 768 ? -84 : 0}
             ignoreCancelEvents={true}
           >
-            <BsChevronDown id="welcome-scroll" className="cursor-pointer" />
+            <BsChevronDown className="cursor-pointer animate__animated animate__bounce animate__infinite" />
           </Link>
         </div>
+        {this.state.contactOpened && (
+          <Contact closeMenu={() => this.setState({ contactOpened: false })} />
+        )}
       </div>
     );
   }

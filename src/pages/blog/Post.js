@@ -21,7 +21,7 @@ const components = {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
       <SyntaxHighlighter
-        style={localStorage.getItem("blog-theme") == "light" ? ghcolors : nord}
+        style={localStorage.getItem("blog-theme") === "light" ? ghcolors : nord}
         language={match[1]}
         PreTag="div"
         children={String(children).replace(/\n$/, "")}
@@ -67,7 +67,7 @@ export default class Post extends Component {
 
     // Dark mode
     let current = localStorage.getItem("blog-theme");
-    if (current === null || current === "dark") {
+    if (current === "dark") {
       this.setState({ moon: "far fa-moon" });
       document.documentElement.classList.add("dark");
       document.body.style.backgroundImage = "url(" + darkGrid + ")";
@@ -81,12 +81,12 @@ export default class Post extends Component {
   // When the user clicks the dark-mode icon
   changeTheme() {
     let current = localStorage.getItem("blog-theme");
-    if (current === null || current === "dark") {
+    if (current === "dark") {
       localStorage.setItem("blog-theme", "light");
       document.documentElement.classList.remove("dark");
       this.setState({ moon: "fas fa-moon" });
       document.body.style.backgroundImage = "url(" + grid + ")";
-    } else if (current === "light") {
+    } else {
       localStorage.setItem("blog-theme", "dark");
       document.documentElement.classList.add("dark");
       this.setState({ moon: "far fa-moon" });
@@ -125,6 +125,7 @@ export default class Post extends Component {
           <img
             src={`${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
             className="h-full filter absolute top-1/2 transform -translate-y-1/2"
+            alt={this.state.postname + " header image"}
           />
         </div>
         <div className="w-full lg:w-1/2 xl:w-5/12 w-full h-full p-6 lg:p-10">

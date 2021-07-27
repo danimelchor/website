@@ -14,12 +14,13 @@ import {
 } from "react-icons/fi";
 import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks
   state = {
     menuActive: false,
-    moon: "fas fa-moon",
+    moon: <FiSun />,
   };
 
   constructor(props) {
@@ -37,12 +38,12 @@ export default class Menu extends Component {
   // activated to set the appropiate theme
   componentDidMount() {
     let current = localStorage.getItem("theme");
-    if (current === null || current === "dark") {
-      this.setState({ moon: "far fa-moon" });
+    if (current === "dark") {
+      this.setState({ moon: <FiSun /> });
       document.body.style.backgroundImage = "url(" + darkGrid + ")";
       document.documentElement.classList.add("dark");
     } else {
-      this.setState({ moon: "fas fa-moon" });
+      this.setState({ moon: <FiMoon /> });
       document.body.style.backgroundImage = "url(" + grid + ")";
       document.documentElement.classList.remove("dark");
     }
@@ -65,15 +66,15 @@ export default class Menu extends Component {
   // When the user clicks the dark-mode icon
   changeTheme() {
     let current = localStorage.getItem("theme");
-    if (current === null || current === "dark") {
+    if (current === "dark") {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
-      this.setState({ moon: "fas fa-moon" });
+      this.setState({ moon: <FiMoon /> });
       document.body.style.backgroundImage = "url(" + grid + ")";
-    } else if (current === "light") {
+    } else {
       localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
-      this.setState({ moon: "far fa-moon" });
+      this.setState({ moon: <FiSun /> });
       document.body.style.backgroundImage = "url(" + darkGrid + ")";
     }
   }
@@ -154,12 +155,6 @@ export default class Menu extends Component {
                 icon={<IoSchoolOutline />}
                 linkTo="education"
               />
-              <MenuItem
-                text=".contact()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<FiMessageCircle />}
-                linkTo="contact"
-              />
             </div>
           </div>
           <div className="spacer h-20"></div>
@@ -184,14 +179,14 @@ export default class Menu extends Component {
         </div>
         {/* Dark mode icon (normal screens only) */}
         <div
-          className="transition-none flex z-50 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0"
+          className="transition-none flex z-50 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0 text-xl"
           onClick={this.changeTheme.bind(this)}
           style={{
             top: "2vw",
             right: "2vw",
           }}
         >
-          <i className={this.state.moon + " block"}></i>
+          {this.state.moon}
         </div>
       </>
     );

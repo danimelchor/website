@@ -25,7 +25,7 @@ export default class Project extends Component {
     return (
       <a
         href={this.props.url}
-        className="block w-full my-5 md:m-5 md:w-5/6 lg:w-1/4 shadow-lg hover:shadow-2xl hover:scale-105 transform transition-transform"
+        className="block w-full my-5 md:m-5 md:w-5/6 lg:w-1/4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition-transform"
       >
         <div className="relative h-6 w-full bg-gray-300 dark:bg-gray-800">
           <h2

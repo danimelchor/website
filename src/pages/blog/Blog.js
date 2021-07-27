@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
+import { FiMoon, FiSun } from "react-icons/fi";
+
 export default class Blog extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +18,7 @@ export default class Blog extends Component {
     this.state = {
       postlist: "",
       page: 0,
+      moon: <FiSun />,
       posts: Object.values(POSTS),
     };
   }
@@ -23,11 +26,11 @@ export default class Blog extends Component {
   componentWillMount() {
     // Dark mode
     let current = localStorage.getItem("blog-theme");
-    if (current === null || current === "dark") {
-      this.setState({ moon: "far fa-moon" });
+    if (current === "dark") {
+      this.setState({ moon: <FiSun /> });
       document.documentElement.classList.add("dark");
     } else {
-      this.setState({ moon: "fas fa-moon" });
+      this.setState({ moon: <FiMoon /> });
       document.documentElement.classList.remove("dark");
     }
   }
@@ -35,14 +38,14 @@ export default class Blog extends Component {
   // When the user clicks the dark-mode icon
   changeTheme() {
     let current = localStorage.getItem("blog-theme");
-    if (current === null || current === "dark") {
+    if (current === "dark") {
       localStorage.setItem("blog-theme", "light");
       document.documentElement.classList.remove("dark");
-      this.setState({ moon: "fas fa-moon" });
-    } else if (current === "light") {
+      this.setState({ moon: <FiMoon /> });
+    } else {
       localStorage.setItem("blog-theme", "dark");
       document.documentElement.classList.add("dark");
-      this.setState({ moon: "far fa-moon" });
+      this.setState({ moon: <FiSun /> });
     }
   }
 
@@ -54,7 +57,7 @@ export default class Blog extends Component {
       post.title.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (query == "") all_classes = POSTS;
+    if (query === "") all_classes = POSTS;
 
     this.setState({ posts: all_classes });
   }
@@ -100,13 +103,14 @@ export default class Blog extends Component {
           </div>
           <img
             src={bg}
+            alt="Opinaca Reservoir, Quebec"
             className="h-full sm:h-auto sm:w-full filter brightness-50 absolute top-1/2 transform -translate-y-1/2"
           />
           <button
             className="p-3 absolute right-0 top-0 text-white focus:outline-none text-lg"
             onClick={this.changeTheme.bind(this)}
           >
-            <i className={this.state.moon + " block"}></i>
+            {this.state.moon}
           </button>
         </div>
         <div className="my-2 h-full p-6 md:p-10 w-full md:w-2/3 lg:w-1/2">
@@ -134,13 +138,13 @@ export default class Blog extends Component {
                 <h2 className="text-gray-700 dark:text-gray-300 mb-5">
                   {post.subtitle}
                 </h2>
-                <span className="text-gray-500">
+                <span className="text-gray-600 dark:text-gray-400">
                   Published on {post.date} · {post.readtime} read
                 </span>
               </Link>
             );
           })}
-          {this.state.posts.length == 0 && (
+          {this.state.posts.length === 0 && (
             <div className="w-full font-bold text-xl xl:text-2xl text-black dark:text-white group-hover:text-secondary dark:group-hover:text-secondaryDark">
               No blogs found matching that search.
             </div>

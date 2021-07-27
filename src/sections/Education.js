@@ -16,7 +16,7 @@ export default class Education extends Component {
             location="Madrid, Spain"
           />
           <School
-            url="http://bu.edu"
+            url="https://www.bu.edu/"
             school="Boston University"
             year="2020 - Present"
             type={[

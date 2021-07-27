@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 
-import About from "../pages/About";
-import Experience from "../pages/Experience";
-import Projects from "../pages/Projects";
-import Skills from "../pages/Skills";
-import Education from "../pages/Education";
-import Contact from "../pages/Contact";
-import Footer from "../pages/Footer";
+import About from "../sections/About";
+import Experience from "../sections/Experience";
+import Projects from "../sections/Projects";
+import Skills from "../sections/Skills";
+import Education from "../sections/Education";
+import Footer from "../sections/Footer";
+import Welcome from "../sections/Welcome";
 import Menu from "./Menu";
-import Welcome from "../pages/Welcome";
 
 export default class Content extends Component {
   state = {
@@ -34,7 +33,6 @@ export default class Content extends Component {
               <Projects />
               <Skills />
               <Education />
-              <Contact />
               <Footer />
             </div>
           </div>

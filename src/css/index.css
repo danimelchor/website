@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+::-moz-selection {
+  background: rgb(193, 212, 226);
+}
+
+::selection {
+  background: rgb(193, 212, 226);
+}
+
+.dark ::-moz-selection {
+  background: rgb(75, 89, 99);
+}
+
+.dark ::selection {
+  background: rgb(75, 89, 99);
+}
+
 * {
   transition-duration: 200ms;
   transition-property: background-color, border-color;
@@ -11,6 +27,11 @@
 body {
   overflow-x: hidden;
   background-image: url("../img/grid2.png");
+  background-color: white;
+}
+
+.dark body {
+  background-color: #101624;
 }
 
 #root {
@@ -18,6 +39,43 @@ body {
   min-height: 100vh;
 }
 
+/* ANIMATIONS WELCOME */
+#home-title {
+  animation: fadeInDownBig;
+  animation-duration: 600ms;
+}
+
+#home-subtitle {
+  animation: fadeInDownBig;
+  animation-duration: 500ms;
+}
+
+#socials {
+  animation: fadeInDownBig;
+  animation-duration: 300ms;
+}
+
+#copied-div {
+  animation: copiedAnimation 2s;
+  bottom: -10vh;
+}
+
+@keyframes copiedAnimation {
+  0% {
+    bottom: -10vh;
+  }
+  15% {
+    bottom: 5vh;
+  }
+  85% {
+    bottom: 5vh;
+  }
+  100% {
+    bottom: -10vh;
+  }
+}
+
+/* Individual Items */
 .titleSection {
   color: white;
   padding-left: calc(8.33% + 0.6rem);
