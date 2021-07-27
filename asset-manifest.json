@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.17fb76a8.chunk.css",
-    "main.js": "/static/js/main.08315319.chunk.js",
-    "main.js.map": "/static/js/main.08315319.chunk.js.map",
+    "main.js": "/static/js/main.e6b4b7cb.chunk.js",
+    "main.js.map": "/static/js/main.e6b4b7cb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.a10fffaf.js",
     "runtime-main.js.map": "/static/js/runtime-main.a10fffaf.js.map",
     "static/js/2.8ffb258f.chunk.js": "/static/js/2.8ffb258f.chunk.js",
@@ -19,24 +19,10 @@
     "static/media/0-pytorch-nntransformer.md": "/static/media/0-pytorch-nntransformer.05fad6dd.md",
     "static/media/1-important-extraction.md": "/static/media/1-important-extraction.03f507d6.md",
     "static/media/BUNexus.c16ba246.png": "/static/media/BUNexus.c16ba246.png",
-    "static/media/CSS-logo.e41e4887.png": "/static/media/CSS-logo.e41e4887.png",
-    "static/media/Django-logo.161aef0b.png": "/static/media/Django-logo.161aef0b.png",
-    "static/media/GitHub-logo.5a5d0892.png": "/static/media/GitHub-logo.5a5d0892.png",
-    "static/media/HTML-logo.dbc3baa7.png": "/static/media/HTML-logo.dbc3baa7.png",
-    "static/media/JQuery-logo.fe01f980.png": "/static/media/JQuery-logo.fe01f980.png",
-    "static/media/Java-logo.84e21b5f.png": "/static/media/Java-logo.84e21b5f.png",
-    "static/media/JavaScript-logo.fe39527e.png": "/static/media/JavaScript-logo.fe39527e.png",
-    "static/media/Matplot-logo.f56b8058.png": "/static/media/Matplot-logo.f56b8058.png",
-    "static/media/Numpy-logo.2118571a.png": "/static/media/Numpy-logo.2118571a.png",
-    "static/media/PHP-logo.54425381.png": "/static/media/PHP-logo.54425381.png",
-    "static/media/Photoshop-logo.f65860c2.png": "/static/media/Photoshop-logo.f65860c2.png",
-    "static/media/Python-logo.91072be8.png": "/static/media/Python-logo.91072be8.png",
-    "static/media/Pytorch-logo.613ed790.png": "/static/media/Pytorch-logo.613ed790.png",
-    "static/media/ReactJS-logo.fb59dfc6.png": "/static/media/ReactJS-logo.fb59dfc6.png",
-    "static/media/SCSS-logo.1e780022.png": "/static/media/SCSS-logo.1e780022.png",
-    "static/media/SQL-logo.73be91a0.png": "/static/media/SQL-logo.73be91a0.png",
+    "static/media/Matplot-logo.7acfad2b.png": "/static/media/Matplot-logo.7acfad2b.png",
+    "static/media/Numpy-logo.e5894cbf.png": "/static/media/Numpy-logo.e5894cbf.png",
+    "static/media/Photoshop-logo.8217b195.png": "/static/media/Photoshop-logo.8217b195.png",
     "static/media/Sorting.dc47cc9b.png": "/static/media/Sorting.dc47cc9b.png",
-    "static/media/VueJS-logo.3260de00.png": "/static/media/VueJS-logo.3260de00.png",
     "static/media/blog-bg.43902188.jpg": "/static/media/blog-bg.43902188.jpg",
     "static/media/bunexus.63e02805.png": "/static/media/bunexus.63e02805.png",
     "static/media/conway.472829b1.png": "/static/media/conway.472829b1.png",
@@ -55,6 +41,6 @@
     "static/js/runtime-main.a10fffaf.js",
     "static/js/2.8ffb258f.chunk.js",
     "static/css/main.17fb76a8.chunk.css",
-    "static/js/main.08315319.chunk.js"
+    "static/js/main.e6b4b7cb.chunk.js"
   ]
 }
