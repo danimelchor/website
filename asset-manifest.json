@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.666f02c9.chunk.css",
-    "main.js": "/static/js/main.0ca9a0f2.chunk.js",
-    "main.js.map": "/static/js/main.0ca9a0f2.chunk.js.map",
+    "main.css": "/static/css/main.dd07023c.chunk.css",
+    "main.js": "/static/js/main.cbae10ff.chunk.js",
+    "main.js.map": "/static/js/main.cbae10ff.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.babab9d7.js",
     "runtime-main.js.map": "/static/js/runtime-main.babab9d7.js.map",
     "static/js/2.a4407ed0.chunk.js": "/static/js/2.a4407ed0.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/5.8698afac.chunk.js": "/static/js/5.8698afac.chunk.js",
     "static/js/5.8698afac.chunk.js.map": "/static/js/5.8698afac.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.666f02c9.chunk.css.map": "/static/css/main.666f02c9.chunk.css.map",
+    "static/css/main.dd07023c.chunk.css.map": "/static/css/main.dd07023c.chunk.css.map",
     "static/js/2.a4407ed0.chunk.js.LICENSE.txt": "/static/js/2.a4407ed0.chunk.js.LICENSE.txt",
     "static/media/0-pytorch-nntransformer.md": "/static/media/0-pytorch-nntransformer.05fad6dd.md",
     "static/media/1-important-extraction.md": "/static/media/1-important-extraction.03f507d6.md",
@@ -26,13 +26,12 @@
     "static/media/blog-bg.43902188.jpg": "/static/media/blog-bg.43902188.jpg",
     "static/media/bunexus.84a39915.png": "/static/media/bunexus.84a39915.png",
     "static/media/conway.f02a36b9.png": "/static/media/conway.f02a36b9.png",
-    "static/media/darkGrid.d6fe6466.png": "/static/media/darkGrid.d6fe6466.png",
+    "static/media/darkGrid.f42243e3.png": "/static/media/darkGrid.f42243e3.png",
     "static/media/decentrapass.5b61c037.png": "/static/media/decentrapass.5b61c037.png",
     "static/media/djangoweb.0591570e.png": "/static/media/djangoweb.0591570e.png",
-    "static/media/index.css": "/static/media/grid2.ed160aaa.png",
+    "static/media/index.css": "/static/media/grid2.642256a8.png",
     "static/media/intelygenz.06938bce.png": "/static/media/intelygenz.06938bce.png",
-    "static/media/meFriends.aebebd00.jpg": "/static/media/meFriends.aebebd00.jpg",
-    "static/media/meSergio.6ced021f.jpg": "/static/media/meSergio.6ced021f.jpg",
+    "static/media/me.7322c404.jpg": "/static/media/me.7322c404.jpg",
     "static/media/oldwebsite.d84397d4.png": "/static/media/oldwebsite.d84397d4.png",
     "static/media/ss.cd24b04c.png": "/static/media/ss.cd24b04c.png",
     "static/media/thisWeb.043b1f81.png": "/static/media/thisWeb.043b1f81.png"
@@ -40,7 +39,7 @@
   "entrypoints": [
     "static/js/runtime-main.babab9d7.js",
     "static/js/2.a4407ed0.chunk.js",
-    "static/css/main.666f02c9.chunk.css",
-    "static/js/main.0ca9a0f2.chunk.js"
+    "static/css/main.dd07023c.chunk.css",
+    "static/js/main.cbae10ff.chunk.js"
   ]
 }
