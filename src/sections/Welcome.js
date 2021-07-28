@@ -42,7 +42,7 @@ export default class Welcome extends Component {
       <div>
         <div
           id="welcome"
-          className="bg-white dark:bg-gray-700 w-screen flex justify-center items-center flex-col"
+          className="bg-white dark:bg-gray-700 w-screen flex justify-center items-center flex-col transition-colors duration-200"
           style={{ height: "99vh" }}
         >
           <div
@@ -53,13 +53,13 @@ export default class Welcome extends Component {
             {this.state.buttonText}
           </div>
           <h1
-            className="w-11/12 text-center md:w-auto text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-9xl font-black dark:text-white"
+            className="w-11/12 text-center md:w-auto text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl 3xl:text-9xl font-black dark:text-white transition-colors duration-200"
             id="home-title"
           >
             Daniel Melchor
           </h1>
           <h2
-            className="w-11/12 font-serif text-center md:w-auto text-xl 2xl:text-2xl 3xl:text-3xl italic text-gray-700 dark:text-gray-300"
+            className="w-11/12 font-serif text-center md:w-auto text-xl 2xl:text-2xl 3xl:text-3xl italic text-gray-700 dark:text-gray-300 transition-colors duration-200"
             id="home-subtitle"
           >
             A full stack developer that never stops learning.
@@ -79,7 +79,7 @@ export default class Welcome extends Component {
             offset={window.innerWidth < 768 ? -84 : 0}
             ignoreCancelEvents={true}
           >
-            <BsChevronDown className="cursor-pointer animate__animated animate__bounce animate__infinite" />
+            <BsChevronDown className="cursor-pointer animated__bounce" />
           </Link>
         </div>
         {this.state.contactOpened && (

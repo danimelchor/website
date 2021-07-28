@@ -100,15 +100,6 @@ export default class Post extends Component {
         {this.state.redirect}
         <Helmet>
           <title>{this.state.info.title}</title>
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@dmh672" />
-          <meta name="twitter:creator" content="@dmh672" />
-          <meta name="twitter:title" content={this.state.info.title} />
-          <meta name="twitter:description" content={this.state.info.subtitle} />
-          <meta
-            name="twitter:image"
-            content={`https://danielmelchor.com${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
-          />
         </Helmet>
         <div
           className="overflow-hidden flex items-center justify-center w-full relative bg-yellow-50 dark:bg-gray-800"

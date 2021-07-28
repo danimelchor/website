@@ -5,8 +5,6 @@ import { IoMdClose, IoMdCopy } from "react-icons/io";
 import { FiLinkedin, FiMail, FiTwitter, FiExternalLink } from "react-icons/fi";
 import { SiProtonmail } from "react-icons/si";
 
-import ContactItem from "./ContactItem";
-
 const copyToClipboard = (str) => {
   const el = document.createElement("textarea");
   el.value = str;
@@ -40,8 +38,8 @@ export default class Contact extends Component {
   render() {
     return (
       <div
-        className="fixed top-0 left-0 bg-black bg-opacity-70 w-screen h-screen flex items-center justify-center animate__animated animate__fadeIn"
-        style={{ zIndex: 1000, animationDuration: "500ms" }}
+        className="fixed top-0 left-0 bg-black bg-opacity-70 w-screen h-screen flex items-center justify-center animated__fadeIn"
+        style={{ zIndex: 1000 }}
         onClick={() => this.props.closeMenu()}
       >
         <div

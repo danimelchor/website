@@ -14,6 +14,15 @@ export default class Content extends Component {
     active: 0,
   };
 
+  componentDidMount() {
+    if (this.props.location) {
+      let loc = document.getElementById(this.props.location).offsetTop;
+      setTimeout(() => {
+        window.scroll(0, loc);
+      }, 500);
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.active !== this.props.active) {
       this.setState({ active: this.props.active });

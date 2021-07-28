@@ -5,15 +5,10 @@ import grid from "../img/grid2.png";
 import darkGrid from "../img/darkGrid.png";
 
 // ICONS
-import {
-  FiHome,
-  FiSmile,
-  FiBriefcase,
-  FiTool,
-  FiMessageCircle,
-} from "react-icons/fi";
+import { FiHome, FiSmile, FiBriefcase, FiTool, FiMenu } from "react-icons/fi";
 import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 export default class Menu extends Component {
@@ -84,88 +79,106 @@ export default class Menu extends Component {
       <>
         {/* Normal screen menu */}
         <div
-          className="font-mono w-5/6 md:w-1/3 lg:w-1/4 2xl:w-1/5 shadow-2xl flex flex-col fixed md:sticky top-0 h-screen z-40 bg-gray-200 dark:bg-gray-800 transition-transform md:transition-none md:transition-colors justify-between"
-          id="menu"
+          className="bg-black bg-opacity-70 w-screen md:w-1/3 lg:w-1/4 2xl:w-1/5 fixed md:sticky h-screen z-50 top-0 transition-opacity md:pointer-events-none md:bg-transparent"
           style={
-            this.state.menuActive ? {} : { transform: "translateX(-105%)" }
+            this.state.menuActive
+              ? { opacity: "1", pointerEvents: "all" }
+              : { opacity: "0", pointerEvents: "none" }
           }
+          onClick={this.toggleMenu}
         >
-          <div className="hidden md:block border-b-4 border-secondary dark:border-secondaryDark text-center">
-            <div className="text-primary dark:text-blue-300 font-bold text-2xl inline-block py-5 font-sans">
-              danielmelchor.com
-            </div>
-          </div>
-          <div className="w-full">
-            <div className="w-full pl-3 pt-5 flex flex-wrap items-center justify-center hidden md:block">
-              <a
-                className="pl-5 text-xl w-full text-gray-800 dark:text-gray-300"
-                href="/"
-              >
-                <span className="text-green-900 dark:text-blue-300">class</span>{" "}
-                User(
-                <span className="text-secondary dark:text-secondaryDark">
-                  D<span className="hidden xl:inline">aniel</span>M
-                </span>
-                ):
-              </a>
-            </div>
-            <div className="pt-10 md:pt-2 xl:pt-5 flex flex-col">
-              <div className="md:hidden z-20 w-full mb-2 block px-3 text-center">
-                <p className="text-3xl inline-block align-middle text-primary dark:text-gray-300">
-                  Menu
-                </p>
-                <i
-                  onClick={() => this.toggleMenu()}
-                  className="fas fa-times text-3xl float-right inline-block align-middle text-primary dark:text-primaryDark"
-                ></i>
+          <div
+            className="font-mono md:transition-none md:transition-colors w-5/6 md:w-auto shadow-2xl flex flex-col md:sticky  h-screen  bg-gray-200 dark:bg-gray-800 transition-transform justify-between"
+            id="menu"
+            style={
+              this.state.menuActive ? {} : { transform: "translateX(-105%)" }
+            }
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="hidden md:block border-b-4 border-secondary dark:border-secondaryDark text-center">
+              <div className="text-primary dark:text-blue-300 font-bold text-2xl inline-block py-5 font-sans">
+                danielmelchor.com
               </div>
-              <MenuItem
-                text=".welcome()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<FiHome />}
-                linkTo="welcome"
-              />
-              <MenuItem
-                text=".about()"
-                icon={<FiSmile />}
-                linkTo="about"
-                toggleMenuFunc={this.toggleMenu}
-              />
-              <MenuItem
-                text=".experience()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<FiBriefcase />}
-                linkTo="experience"
-              />
-              <MenuItem
-                text=".projects()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<FiTool />}
-                linkTo="projects"
-              />
-              <MenuItem
-                text=".skills()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<BiBrain />}
-                linkTo="skills"
-              />
-              <MenuItem
-                text=".education()"
-                toggleMenuFunc={this.toggleMenu}
-                icon={<IoSchoolOutline />}
-                linkTo="education"
-              />
             </div>
+            <div className="w-full">
+              <div className="w-full pt-5 flex flex-wrap items-center justify-center hidden md:block">
+                <a
+                  className="pl-8 text-xl w-full text-gray-800 dark:text-gray-300"
+                  href="/"
+                >
+                  <span className="text-green-900 dark:text-blue-300">
+                    class
+                  </span>{" "}
+                  User(
+                  <span className="text-secondary dark:text-secondaryDark">
+                    D<span className="hidden xl:inline">aniel</span>M
+                  </span>
+                  ):
+                </a>
+              </div>
+              <div className="lg:pt-10 md:pt-2 xl:pt-5 flex flex-col">
+                <div className="h-20 md:hidden z-20 w-full mb-3 block px-3 text-center border-b-4 dark:border-primaryDark flex items-center justify-center relative">
+                  <p className="text-3xl inline-block align-middle text-primary dark:text-gray-300">
+                    &#60;Menu&#62;
+                  </p>
+                  <div
+                    onClick={this.toggleMenu}
+                    className="text-4xl float-right inline-block align-middle text-primary dark:text-primaryDark absolute right-5"
+                  >
+                    <IoMdClose />
+                  </div>
+                </div>
+                <MenuItem
+                  text=".welcome()"
+                  toggleMenuFunc={this.toggleMenu}
+                  icon={<FiHome />}
+                  linkTo="welcome"
+                />
+                <MenuItem
+                  text=".about()"
+                  icon={<FiSmile />}
+                  linkTo="about"
+                  toggleMenuFunc={this.toggleMenu}
+                />
+                <MenuItem
+                  text=".experience()"
+                  toggleMenuFunc={this.toggleMenu}
+                  icon={<FiBriefcase />}
+                  linkTo="experience"
+                />
+                <MenuItem
+                  text=".projects()"
+                  toggleMenuFunc={this.toggleMenu}
+                  icon={<FiTool />}
+                  linkTo="projects"
+                />
+                <MenuItem
+                  text=".skills()"
+                  toggleMenuFunc={this.toggleMenu}
+                  icon={<BiBrain />}
+                  linkTo="skills"
+                />
+                <MenuItem
+                  text=".education()"
+                  toggleMenuFunc={this.toggleMenu}
+                  icon={<IoSchoolOutline />}
+                  linkTo="education"
+                />
+              </div>
+            </div>
+            <div className="spacer h-20"></div>
           </div>
-          <div className="spacer h-20"></div>
         </div>
+
         {/* This is the small screen menu */}
         <div className="font-mono sticky md:hidden top-0 w-screen z-30 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
           <div className="h-10">
-            <i
+            <div
               onClick={() => this.toggleMenu()}
-              className="left-8 absolute fas fa-bars text-3xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"
-            ></i>
+              className="left-8 absolute fas fa-bars text-4xl sm:text-4xl sm:px-3 text-primary dark:text-primaryDark inline-block align-middle"
+            >
+              <FiMenu />
+            </div>
             <a
               className="text-xl sm:text-2xl text-gray-800 dark:text-gray-300 inline-block align-middle absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"
               href="/"
@@ -177,9 +190,10 @@ export default class Menu extends Component {
             </a>
           </div>
         </div>
-        {/* Dark mode icon (normal screens only) */}
+
+        {/* Dark mode icon */}
         <div
-          className="transition-none flex z-50 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0 text-xl"
+          className="transition-none flex z-40 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0 text-xl"
           onClick={this.changeTheme.bind(this)}
           style={{
             top: "2vw",

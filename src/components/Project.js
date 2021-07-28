@@ -1,31 +1,61 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+// Icons
+import { FiCode, FiEye } from "react-icons/fi";
 
 export default class Project extends Component {
-  state = {
-    languages: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      languages: [],
+      projectShow: false,
+    };
+  }
 
   componentDidMount() {
     // Rendering all programming languages a project uses
     let arr = this.props.languages.split(",").map((i, index) => {
-      return (
-        <span
-          key={index}
-          className="py-1 px-2 inline-block rounded m-1 text-white"
-          style={{ backgroundColor: "#18242C" }}
-        >
-          {i}
-        </span>
-      );
+      if (index < 6)
+        return (
+          <span
+            key={index}
+            className="px-1 inline-block rounded text-white bg-primary dark:bg-gray-800 border-gray-600 dark:border-gray-700 border shadow-2xl"
+          >
+            {i}
+          </span>
+        );
+      else if (index === 6)
+        return (
+          <span
+            key={index}
+            className="px-1 inline-block rounded text-white bg-primary dark:bg-gray-800 border-gray-600 dark:border-gray-700 border shadow-2xl"
+          >
+            ...
+          </span>
+        );
+      return <></>;
     });
     this.setState({ languages: arr });
   }
 
   render() {
     return (
-      <a
-        href={this.props.url}
-        className="block w-full my-5 md:m-5 md:w-5/6 lg:w-1/4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition-transform"
+      <button
+        className="block my-5 md:m-5 lg:w-5/12 xl:w-1/4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition-transform focus:outline-none group"
+        onMouseEnter={() => {
+          if (window.innerWidth < 768)
+            setTimeout(
+              function () {
+                this.setState({ projectShow: true });
+              }.bind(this),
+              400
+            );
+          else this.setState({ projectShow: true });
+        }}
+        onMouseLeave={() => {
+          this.setState({ projectShow: false });
+        }}
       >
         <div className="relative h-6 w-full bg-gray-300 dark:bg-gray-800">
           <h2
@@ -50,18 +80,50 @@ export default class Project extends Component {
           </div>
         </div>
         <div className="relative">
-          <img src={this.props.img} alt="" className="object-cover z-0" />
-          <div className="absolute top-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity">
-            <div className="absolute z-0 top-0 w-full h-full opacity-90 bg-primary"></div>
-            <span className="absolute right-0 top-0 m-3 text-gray-200 ">
+          <div className="w-full h-full overflow-hidden">
+            <img
+              src={this.props.img}
+              alt={this.props.title + " Image"}
+              className="z-0"
+            />
+          </div>
+          <div
+            className="absolute top-0 w-full h-full transition-opacity flex flex-col items-center justify-center bg-primary dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-30 opacity-0 group-hover:opacity-100"
+            style={
+              this.state.projectShow
+                ? { pointerEvents: "all" }
+                : { pointerEvents: "none" }
+            }
+          >
+            <span className="absolute right-0 top-0 m-3 text-gray-200 w-1/4 flex items-start justify-end">
               {this.props.date}
             </span>
-            <div className="text-center absolute top-2/4 transform -translate-y-2/4 w-full p-5">
+            <div className="p-3 absolute left-0 top-0 w-3/4 gap-1 flex flex-wrap">
               {this.state.languages}
+            </div>
+            <div className="p-5 flex flex-col w-full items-center justify-center">
+              <a
+                href={this.props.url}
+                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-2/3 2xl:w-1/2 flex items-center justify-center"
+              >
+                <FiCode className="w-8 mr-1 text-xl" />
+                <span>See code</span>
+              </a>
+              <Link
+                to={
+                  "projects/" +
+                  this.props.title.toLowerCase().replaceAll(" ", "") +
+                  "/"
+                }
+                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-2/3 2xl:w-1/2 flex items-center justify-center"
+              >
+                <FiEye className="w-8 mr-1 text-xl" />
+                <span>See more</span>
+              </Link>
             </div>
           </div>
         </div>
-      </a>
+      </button>
     );
   }
 }

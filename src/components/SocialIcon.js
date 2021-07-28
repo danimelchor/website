@@ -14,7 +14,7 @@ export default class SocialIcon extends Component {
 
     return (
       <div className="relative group">
-        <div className="opacity-0 group-hover:opacity-100 bg-secondary dark:bg-secondaryDark text-white dark:text-black px-3 py-1 rounded-sm absolute bottom-0 left-0 transform translate-y-full transition-opacity duration-200 delay-300 text-center xl:text-lg">
+        <div className="opacity-0 group-hover:opacity-100 bg-secondary dark:bg-secondaryDark text-white dark:text-black px-3 py-1 rounded-sm absolute bottom-0 left-0 transform translate-y-full transition-opacity duration-200 delay-300 text-center xl:text-lg pointer-events-none">
           <div className="arrow left-4 2xl:left-6"></div>
           {title}
         </div>
