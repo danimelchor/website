@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.c64cb85f.chunk.css",
-    "main.js": "/static/js/main.0f4f07c0.chunk.js",
-    "main.js.map": "/static/js/main.0f4f07c0.chunk.js.map",
+    "main.css": "/static/css/main.fec8bcc3.chunk.css",
+    "main.js": "/static/js/main.361c4cbf.chunk.js",
+    "main.js.map": "/static/js/main.361c4cbf.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.219c95cf.js",
     "runtime-main.js.map": "/static/js/runtime-main.219c95cf.js.map",
     "static/js/2.3e9952e5.chunk.js": "/static/js/2.3e9952e5.chunk.js",
@@ -14,7 +14,7 @@
     "static/js/5.6f454933.chunk.js": "/static/js/5.6f454933.chunk.js",
     "static/js/5.6f454933.chunk.js.map": "/static/js/5.6f454933.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.c64cb85f.chunk.css.map": "/static/css/main.c64cb85f.chunk.css.map",
+    "static/css/main.fec8bcc3.chunk.css.map": "/static/css/main.fec8bcc3.chunk.css.map",
     "static/js/2.3e9952e5.chunk.js.LICENSE.txt": "/static/js/2.3e9952e5.chunk.js.LICENSE.txt",
     "static/media/0-pytorch-nntransformer.md": "/static/media/0-pytorch-nntransformer.05fad6dd.md",
     "static/media/1-important-extraction.md": "/static/media/1-important-extraction.03f507d6.md",
@@ -47,7 +47,7 @@
   "entrypoints": [
     "static/js/runtime-main.219c95cf.js",
     "static/js/2.3e9952e5.chunk.js",
-    "static/css/main.c64cb85f.chunk.css",
-    "static/js/main.0f4f07c0.chunk.js"
+    "static/css/main.fec8bcc3.chunk.css",
+    "static/js/main.361c4cbf.chunk.js"
   ]
 }
