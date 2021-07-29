@@ -9,7 +9,7 @@ import {
   FiFileText,
   FiTool,
 } from "react-icons/fi";
-import { BiPen } from "react-icons/bi";
+import { IoTextOutline } from "react-icons/io5";
 
 const SOCIALS = [
   {
@@ -39,7 +39,7 @@ const SOCIALS = [
   {
     title: "Blog",
     url: "/blog",
-    icon: <BiPen className="w-6 h-6 2xl:w-8 2xl:h-8" />,
+    icon: <IoTextOutline className="w-6 h-6 2xl:w-8 2xl:h-8" />,
     type: "internal",
   },
   {

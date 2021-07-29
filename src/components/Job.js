@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BsArrowRight } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 
 export default class Job extends Component {
@@ -25,9 +24,8 @@ export default class Job extends Component {
             <FiExternalLink className="ml-1 opacity-0 group-hover:opacity-100" />
           </a>
           <p className="text-blue-700 dark:text-blue-300 block font-mono text-sm flex items-center">
-            from({this.props.from}, {this.props.to})
-            <BsArrowRight className="mx-2" />
-            {this.props.duration}:
+            from({this.props.from}, {this.props.to}) -&gt; {this.props.duration}
+            :
           </p>
           <p className="text-primary dark:text-gray-400 font-mono italic text-sm">
             # {this.props.where}

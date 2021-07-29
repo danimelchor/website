@@ -6,6 +6,7 @@ import React from "react";
 import Blog from "./pages/blog/Blog";
 import Post from "./pages/blog/Post";
 import ProjectPage from "./pages/projects/ProjectPage";
+import Cookies from "./components/Cookies";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Content location={window.location.hash} />
         </Route>
       </Switch>
+      <Cookies />
     </Router>
   );
 }

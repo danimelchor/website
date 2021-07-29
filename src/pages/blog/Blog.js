@@ -25,7 +25,7 @@ export default class Blog extends Component {
 
   componentWillMount() {
     // Dark mode
-    let current = localStorage.getItem("blog-theme");
+    let current = localStorage.getItem("theme");
     if (current === "dark") {
       this.setState({ moon: <FiSun /> });
       document.documentElement.classList.add("dark");
@@ -37,13 +37,13 @@ export default class Blog extends Component {
 
   // When the user clicks the dark-mode icon
   changeTheme() {
-    let current = localStorage.getItem("blog-theme");
+    let current = localStorage.getItem("theme");
     if (current === "dark") {
-      localStorage.setItem("blog-theme", "light");
+      localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
       this.setState({ moon: <FiMoon /> });
     } else {
-      localStorage.setItem("blog-theme", "dark");
+      localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
       this.setState({ moon: <FiSun /> });
     }
@@ -81,13 +81,19 @@ export default class Blog extends Component {
             danielmelchor.com
           </Link>
           <div className="text-white z-50 flex items-center justify-center flex-col">
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold font-mono">
+            <h1
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold font-mono"
+              id="blog-title"
+            >
               <span className="text-secondary dark:text-secondaryDark">
                 this
               </span>
               .blog()
             </h1>
-            <h2 className="text-base sm:text-lg lg:text-2xl text-gray-300">
+            <h2
+              className="text-base sm:text-lg lg:text-2xl text-gray-300"
+              id="blog-subtitle"
+            >
               Tutorials, life experiences, and ideas.
             </h2>
           </div>

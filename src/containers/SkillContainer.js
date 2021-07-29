@@ -23,7 +23,9 @@ export default class SkillContainer extends Component {
         <h2 className="text-3xl uppercase w-full border-b-2 pb-3 text-primary border-secondary dark:text-gray-400 dark:border-primaryDark font-mono italic">
           &#47;&#47; {this.props.title}
         </h2>
-        <div className="grid grid-cols-2 lg:block">{this.state.itemsHtml}</div>
+        <div className="grid grid-cols-2 lg:flex p-4 gap-4 lg:gap-7">
+          {this.state.itemsHtml}
+        </div>
       </div>
     );
   }

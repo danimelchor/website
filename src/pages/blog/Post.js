@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactMarkdown from "react-markdown";
 
-import "./style.css";
+import "../../css/blog.css";
 import grid from "../../img/grid2.png";
 import darkGrid from "../../img/darkGrid.png";
 import { Link, Redirect } from "react-router-dom";
@@ -21,7 +21,7 @@ const components = {
     const match = /language-(\w+)/.exec(className || "");
     return !inline && match ? (
       <SyntaxHighlighter
-        style={localStorage.getItem("blog-theme") === "light" ? ghcolors : nord}
+        style={localStorage.getItem("theme") === "light" ? ghcolors : nord}
         language={match[1]}
         PreTag="div"
         children={String(children).replace(/\n$/, "")}
@@ -66,7 +66,7 @@ export default class Post extends Component {
       .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
 
     // Dark mode
-    let current = localStorage.getItem("blog-theme");
+    let current = localStorage.getItem("theme");
     if (current === "dark") {
       this.setState({ moon: "far fa-moon" });
       document.documentElement.classList.add("dark");
@@ -80,14 +80,14 @@ export default class Post extends Component {
 
   // When the user clicks the dark-mode icon
   changeTheme() {
-    let current = localStorage.getItem("blog-theme");
+    let current = localStorage.getItem("theme");
     if (current === "dark") {
-      localStorage.setItem("blog-theme", "light");
+      localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
       this.setState({ moon: "fas fa-moon" });
       document.body.style.backgroundImage = "url(" + grid + ")";
     } else {
-      localStorage.setItem("blog-theme", "dark");
+      localStorage.setItem("theme", "dark");
       document.documentElement.classList.add("dark");
       this.setState({ moon: "far fa-moon" });
       document.body.style.backgroundImage = "url(" + darkGrid + ")";

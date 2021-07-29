@@ -207,3 +207,13 @@
     width: 90%;
   }
 }
+
+#blog-title {
+  animation: fadeInDownBig;
+  animation-duration: 600ms;
+}
+
+#blog-subtitle {
+  animation: fadeInDownBig;
+  animation-duration: 500ms;
+}
