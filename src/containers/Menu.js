@@ -10,6 +10,12 @@ import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { FiMoon, FiSun } from "react-icons/fi";
+import {
+  changeTheme,
+  getCookie,
+  setCookie,
+  setTheme,
+} from "../functions/cookies";
 
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks
@@ -32,16 +38,10 @@ export default class Menu extends Component {
   // Checking for the theme item in localStorage or they have their device dark-mode
   // activated to set the appropiate theme
   componentDidMount() {
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      this.setState({ moon: <FiSun /> });
-      document.body.style.backgroundImage = "url(" + darkGrid + ")";
-      document.documentElement.classList.add("dark");
-    } else {
-      this.setState({ moon: <FiMoon /> });
-      document.body.style.backgroundImage = "url(" + grid + ")";
-      document.documentElement.classList.remove("dark");
-    }
+    let current = setTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
+    document.body.style.backgroundImage =
+      current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
 
     window.addEventListener("resize", this.handleResize.bind(this));
     if (window.innerWidth >= 768) {
@@ -60,18 +60,10 @@ export default class Menu extends Component {
 
   // When the user clicks the dark-mode icon
   changeTheme() {
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      this.setState({ moon: <FiMoon /> });
-      document.body.style.backgroundImage = "url(" + grid + ")";
-    } else {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      this.setState({ moon: <FiSun /> });
-      document.body.style.backgroundImage = "url(" + darkGrid + ")";
-    }
+    let current = changeTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
+    document.body.style.backgroundImage =
+      current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
   }
 
   render() {

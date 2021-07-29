@@ -21,3 +21,40 @@ export const getCookie = (c_name) => {
     }
   }
 };
+
+export const setTheme = () => {
+  let current = getCookie("theme") || document.documentElement.classList[0];
+  if (current === "dark") {
+    document.documentElement.classList.add("dark");
+    return "dark";
+  } else {
+    document.documentElement.classList.remove("dark");
+    return "light";
+  }
+};
+
+export const changeTheme = () => {
+  let current = getCookie("theme") || document.documentElement.classList[0];
+
+  if (current === "dark") {
+    // Making sure we are allowed to store their data
+    if (
+      localStorage.getItem("danielmelchor.com__cookiesAccepted") !== null &&
+      localStorage.getItem("danielmelchor.com__cookiesAccepted")
+    )
+      setCookie("theme", "light", 36500);
+
+    document.documentElement.classList.remove("dark");
+    return "light";
+  } else {
+    // Making sure we are allowed to store their data
+    if (
+      localStorage.getItem("danielmelchor.com__cookiesAccepted") !== null &&
+      localStorage.getItem("danielmelchor.com__cookiesAccepted")
+    )
+      setCookie("theme", "dark", 36500);
+
+    document.documentElement.classList.add("dark");
+    return "dark";
+  }
+};

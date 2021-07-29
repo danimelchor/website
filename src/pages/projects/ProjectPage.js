@@ -12,6 +12,7 @@ import {
   FiMail,
 } from "react-icons/fi";
 import { HiOutlineLink } from "react-icons/hi";
+import { setTheme } from "../../functions/cookies";
 
 const copyToClipboard = (str) => {
   const el = document.createElement("textarea");
@@ -48,11 +49,7 @@ export default class ProjectPage extends Component {
     if (!valid) this.setState({ redirect: <Redirect to="/" /> });
     else this.setState({ project: valid });
 
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+    setTheme();
   }
 
   copiedText() {

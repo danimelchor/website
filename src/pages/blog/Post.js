@@ -14,6 +14,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { ghcolors, nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { POSTS } from "./PostsList";
+import {
+  changeTheme,
+  getCookie,
+  setCookie,
+  setTheme,
+} from "../../functions/cookies";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 // CODE SYNTAX
 const components = {
@@ -65,33 +72,18 @@ export default class Post extends Component {
       })
       .catch((err) => this.setState({ redirect: <Redirect to="/blog" /> }));
 
-    // Dark mode
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      this.setState({ moon: "far fa-moon" });
-      document.documentElement.classList.add("dark");
-      document.body.style.backgroundImage = "url(" + darkGrid + ")";
-    } else {
-      this.setState({ moon: "fas fa-moon" });
-      document.documentElement.classList.remove("dark");
-      document.body.style.backgroundImage = "url(" + grid + ")";
-    }
+    let current = setTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
+    document.body.style.backgroundImage =
+      current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
   }
 
   // When the user clicks the dark-mode icon
   changeTheme() {
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      this.setState({ moon: "fas fa-moon" });
-      document.body.style.backgroundImage = "url(" + grid + ")";
-    } else {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      this.setState({ moon: "far fa-moon" });
-      document.body.style.backgroundImage = "url(" + darkGrid + ")";
-    }
+    let current = changeTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
+    document.body.style.backgroundImage =
+      current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
   }
 
   render() {
@@ -137,10 +129,10 @@ export default class Post extends Component {
                 See on Towards Data Science
               </a>
               <button
-                className="p-3 dark:text-white focus:outline-none text-lg hover:text-gray-700 dark:hover:text-gray-300"
+                className="p-3 dark:text-white focus:outline-none text-xl hover:text-gray-700 dark:hover:text-gray-300"
                 onClick={this.changeTheme.bind(this)}
               >
-                <i className={this.state.moon + " block"}></i>
+                {this.state.moon}
               </button>
             </div>
           </div>

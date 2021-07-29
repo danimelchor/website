@@ -8,6 +8,12 @@ import { FaSearch } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
 import { FiMoon, FiSun } from "react-icons/fi";
+import {
+  changeTheme,
+  getCookie,
+  setCookie,
+  setTheme,
+} from "../../functions/cookies";
 
 export default class Blog extends Component {
   constructor(props) {
@@ -24,29 +30,14 @@ export default class Blog extends Component {
   }
 
   componentWillMount() {
-    // Dark mode
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      this.setState({ moon: <FiSun /> });
-      document.documentElement.classList.add("dark");
-    } else {
-      this.setState({ moon: <FiMoon /> });
-      document.documentElement.classList.remove("dark");
-    }
+    let current = setTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
   }
 
   // When the user clicks the dark-mode icon
   changeTheme() {
-    let current = localStorage.getItem("theme");
-    if (current === "dark") {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-      this.setState({ moon: <FiMoon /> });
-    } else {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-      this.setState({ moon: <FiSun /> });
-    }
+    let current = changeTheme();
+    this.setState({ moon: current === "dark" ? <FiSun /> : <FiMoon /> });
   }
 
   filterBlogs(e) {
