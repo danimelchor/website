@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Link, Redirect } from "react-router-dom";
-import { PROJECTS } from "../../data/project-list";
+import { PROJECTS } from "../../data/projects/project-list";
 
 // Icons
 import {
@@ -67,6 +67,15 @@ export default class ProjectPage extends Component {
 
   render() {
     let project = this.state.project;
+    let date = new Date(project.date).toDateString();
+    date =
+      date.split(" ")[0] +
+      ", " +
+      date.split(" ")[1] +
+      " " +
+      date.split(" ")[2] +
+      ", " +
+      date.split(" ")[3];
 
     return (
       <div className="w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-900 dark:text-gray-100 dark:bg-gray-900">
@@ -93,7 +102,7 @@ export default class ProjectPage extends Component {
             }
             target="_blank"
             rel="noreferrer"
-            className="p-3 text-xl border-t-2 border-b-2 border-primary dark:border-gray-300"
+            className="p-3 text-xl border-t-2 border-b-2 border-primary dark:border-gray-300 hover:text-gray-400 dark:hover:text-gray-600"
           >
             <FiTwitter />
           </a>
@@ -102,12 +111,12 @@ export default class ProjectPage extends Component {
               "mailto:email?subject=Check out this project by Daniel Melchor&body=Hey! Check out this project by Daniel Melchor: https://danielmelchor.com/projects/" +
               project.title.toLowerCase().replaceAll(" ", "")
             }
-            className="p-3 text-xl border-b-2 border-primary dark:border-gray-300"
+            className="p-3 text-xl border-b-2 border-primary dark:border-gray-300 hover:text-gray-400 dark:hover:text-gray-600"
           >
             <FiMail />
           </a>
           <div
-            className="p-3 pb-0 text-xl cursor-pointer"
+            className="p-3 pb-0 text-xl cursor-pointer hover:text-gray-400 dark:hover:text-gray-600"
             onClick={() => {
               copyToClipboard(
                 "https://danielmelchor.com/projects/" +
@@ -154,9 +163,14 @@ export default class ProjectPage extends Component {
               )}
             </div>
           </div>
-          <h1 className="text-4xl lg:text-6xl font-black text-gray-800 dark:text-gray-100 mb-2">
-            {project.title}
-          </h1>
+          <div className="flex items-end mb-2">
+            <h1 className="text-4xl lg:text-6xl font-black text-gray-800 dark:text-gray-100">
+              {project.title}
+            </h1>
+            <span className="text-gray-700 dark:text-gray-300 ml-2">
+              {date}
+            </span>
+          </div>
           <div className="flex flex-col project-content">
             {project.description}
           </div>

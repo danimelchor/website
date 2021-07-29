@@ -54,7 +54,7 @@ export default class Post extends Component {
     let path = window.location.hash.split("blog/");
     path = path[path.length - 1].replaceAll("/", "");
 
-    import(`./posts/${path}.md`)
+    import(`../../data/posts/${path}.md`)
       .then((res) => {
         fetch(res.default)
           .then((res) => res.text())

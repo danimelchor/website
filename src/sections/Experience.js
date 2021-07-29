@@ -21,7 +21,6 @@ const getMonthsSince = (date1, date2) => {
 
 export default class Experience extends Component {
   render() {
-    console.log(new Date());
     return (
       <div id="experience" className="w-full mb-24 flex flex-col items-center">
         <Title title="experience" />

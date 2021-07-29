@@ -12,6 +12,7 @@ export default class Welcome extends Component {
   state = {
     buttonText: "Say Hello",
     contactOpened: false,
+    alreadyOpened: false,
   };
 
   windowScrolled(e) {
@@ -31,6 +32,11 @@ export default class Welcome extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.windowScrolled.bind(this));
+  }
+
+  componentDidUpdate() {
+    if (!this.state.alreadyOpened)
+      this.setState({ contactOpened: this.props.contact, alreadyOpened: true });
   }
 
   componentWillUnmount() {

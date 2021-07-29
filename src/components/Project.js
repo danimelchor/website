@@ -34,7 +34,7 @@ export default class Project extends Component {
             ...
           </span>
         );
-      return <></>;
+      return <div className="hidden" key={index}></div>;
     });
     this.setState({ languages: arr });
   }
@@ -42,7 +42,7 @@ export default class Project extends Component {
   render() {
     return (
       <button
-        className="block my-5 md:m-5 lg:w-5/12 xl:w-1/4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition-transform focus:outline-none group"
+        className="block my-5 md:m-5 lg:w-5/12 2xl:w-1/4 shadow-2xl hover:shadow-2xl hover:scale-105 transform transition-transform focus:outline-none group"
         onMouseEnter={() => {
           if (window.innerWidth < 768)
             setTimeout(
@@ -104,7 +104,7 @@ export default class Project extends Component {
             <div className="p-5 flex flex-col w-full items-center justify-center">
               <a
                 href={this.props.url}
-                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-2/3 2xl:w-1/2 flex items-center justify-center"
+                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-3/4 2xl:w-1/2 flex items-center justify-center"
               >
                 <FiCode className="w-8 mr-1 text-xl" />
                 <span>See code</span>
@@ -115,7 +115,7 @@ export default class Project extends Component {
                   this.props.title.toLowerCase().replaceAll(" ", "") +
                   "/"
                 }
-                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-2/3 2xl:w-1/2 flex items-center justify-center"
+                className="px-3 py-2 rounded-full border-2 border-gray-800 bg-gray-800 my-2 dark:border-primary dark:bg-primary text-white hover:bg-opacity-50 transform hover:scale-110 transition-transform dark:hover:scale-110 hover:border-secondary dark:hover:border-secondaryDark dark:hover:bg-opacity-50 w-4/5 sm:w-3/4 2xl:w-1/2 flex items-center justify-center"
               >
                 <FiEye className="w-8 mr-1 text-xl" />
                 <span>See more</span>

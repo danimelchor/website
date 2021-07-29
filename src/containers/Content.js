@@ -11,15 +11,22 @@ import Menu from "./Menu";
 
 export default class Content extends Component {
   state = {
-    active: 0,
+    contact: false,
   };
 
   componentDidMount() {
     if (this.props.location) {
-      let loc = document.getElementById(this.props.location).offsetTop;
-      setTimeout(() => {
-        window.scroll(0, loc);
-      }, 500);
+      let item = this.props.location.split("/");
+      item = item[item.length - 1];
+
+      if (item === "projects") {
+        let loc = document.getElementById(item).offsetTop;
+        setTimeout(() => {
+          window.scroll(0, loc);
+        }, 500);
+      } else if (item === "contact") {
+        this.setState({ contact: true });
+      }
     }
   }
 
@@ -31,18 +38,20 @@ export default class Content extends Component {
 
   render() {
     return (
-      <div className="w-screen right-0 z-0 absolute">
-        <div className="relative z-10">
-          <Welcome active={this.state.active} />
-          <div className="flex flex-col md:flex-row items-start w-full">
-            <Menu />
-            <div className="flex flex-col justify-start items-end w-screen md:w-2/3 lg:w-3/4 2xl:w-4/5">
-              <About />
-              <Experience />
-              <Projects />
-              <Skills />
-              <Education />
-              <Footer />
+      <div className="w-full min-h-full">
+        <div className="w-screen right-0 z-0 absolute">
+          <div className="relative z-10">
+            <Welcome contact={this.state.contact} />
+            <div className="flex flex-col md:flex-row items-start w-full">
+              <Menu />
+              <div className="flex flex-col justify-start items-end w-screen md:w-2/3 lg:w-3/4 2xl:w-4/5">
+                <About />
+                <Experience />
+                <Projects />
+                <Skills />
+                <Education />
+                <Footer />
+              </div>
             </div>
           </div>
         </div>
