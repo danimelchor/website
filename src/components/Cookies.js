@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { setCookie } from "../functions/cookies";
 
-const chooseCookies = (val) => {
+const setCookies = (val) => {
   localStorage.setItem("danielmelchor.com__cookiesAccepted", val);
+
+  if (val) {
+    setCookie(
+      "danielmelchor.com__joinDate",
+      new Date().toISOString(),
+      365 * 100
+    );
+  }
 };
 
 export default class Cookies extends Component {
@@ -15,13 +23,18 @@ export default class Cookies extends Component {
 
   componentDidMount() {
     let val = localStorage.getItem("danielmelchor.com__cookiesAccepted");
-    if (val != undefined) this.setState({ display: false });
+    if (val !== undefined) this.setState({ display: false });
   }
 
   componentDidUpdate() {
     let val = localStorage.getItem("danielmelchor.com__cookiesAccepted");
-    if (val != undefined && this.state.display)
+    if (val !== undefined && this.state.display)
       this.setState({ display: false });
+  }
+
+  chooseCookies(val) {
+    setCookies(val);
+    this.setState({ display: false });
   }
 
   render() {
@@ -39,13 +52,13 @@ export default class Cookies extends Component {
               </span>
               <div className="flex flex-col sm:flex-row items-center justify-center md:w-1/2 gap-2">
                 <button
-                  onClick={() => chooseCookies(true)}
+                  onClick={() => this.chooseCookies(true)}
                   className="rounded-full border-2 border-green-600 bg-green-600 px-2 text-white py-1 hover:border-green-500 hover:bg-green-500 transition-colors w-full sm:w-auto"
                 >
                   Accept Cookies
                 </button>
                 <button
-                  onClick={() => chooseCookies(false)}
+                  onClick={() => this.chooseCookies(false)}
                   className="rounded-full border-2 border-primary text-primary hover:border-gray-500 hover:text-gray-500 px-2 py-1 transition-colors w-full sm:w-auto"
                 >
                   I prefer to stay anonymous
