@@ -160,11 +160,11 @@ export default class ProjectPage extends Component {
               )}
             </div>
           </div>
-          <div className="flex items-end mb-2">
-            <h1 className="text-4xl lg:text-6xl font-black text-gray-800 dark:text-gray-100">
+          <div className="flex sm:items-end mb-2 sm:flex-row flex-col">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-gray-800 dark:text-gray-100">
               {project.title}
             </h1>
-            <span className="text-gray-700 dark:text-gray-300 ml-2">
+            <span className="text-gray-700 dark:text-gray-300 sm:ml-2">
               {date}
             </span>
           </div>

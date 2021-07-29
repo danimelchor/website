@@ -54,12 +54,17 @@ export default class Socials extends Component {
   render() {
     return (
       <div
-        className="flex justify-evenly items-center w-4/5 md:w-2/4 lg:w-1/3 xl:w-1/4 mt-5"
+        className="flex flex-col justify-evenly items-center w-4/5 md:w-2/4 lg:w-1/3 xl:w-1/4 mt-5"
         id="socials"
       >
-        {SOCIALS.map((item, key) => {
-          return <SocialIcon item={item} key={key} />;
-        })}
+        <div className="flex justify-evenly items-center w-full select-none">
+          {SOCIALS.map((item, key) => {
+            return <SocialIcon item={item} key={key} />;
+          })}
+        </div>
+        <div className="text-center w-full text-sm text-gray-400 dark:text-gray-500 leading-none md:hidden">
+          Tip: hold for a second on each icon to see what each of them are.
+        </div>
       </div>
     );
   }

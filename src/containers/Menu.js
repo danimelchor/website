@@ -80,7 +80,7 @@ export default class Menu extends Component {
           onClick={this.toggleMenu}
         >
           <div
-            className="font-mono md:transition-none md:transition-colors w-5/6 md:w-auto shadow-2xl flex flex-col md:sticky  h-screen  bg-gray-200 dark:bg-gray-800 transition-transform justify-between"
+            className="font-mono md:transition-none md:transition-colors w-5/6 md:w-auto shadow-2xl flex flex-col md:sticky h-screen bg-gray-200 dark:bg-gray-800 transition-transform duration-500 justify-between"
             id="menu"
             style={
               this.state.menuActive ? {} : { transform: "translateX(-105%)" }

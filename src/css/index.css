@@ -151,6 +151,23 @@ body {
   border-bottom: 8px solid #e9b500;
 }
 
+@media only screen and (max-width: 640px) {
+  .arrow {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #17b169;
+    border-bottom: 8px solid transparent;
+    top: auto;
+    bottom: 0;
+    transform: translate(0, 100%);
+  }
+
+  .dark .arrow {
+    border-top: 8px solid #e9b500;
+    border-bottom: 8px solid transparent;
+  }
+}
+
 /* SAY HELLO BUTTON */
 .say-hello {
   position: fixed;
