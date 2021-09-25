@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getCookie, setCookie } from "../functions/cookies";
+import { setCookie } from "../functions/cookies";
 
 const setCookies = (val) => {
   localStorage.setItem("danielmelchor.com__cookiesAccepted", val);

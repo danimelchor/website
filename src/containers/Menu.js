@@ -10,12 +10,7 @@ import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { FiMoon, FiSun } from "react-icons/fi";
-import {
-  changeTheme,
-  getCookie,
-  setCookie,
-  setTheme,
-} from "../functions/cookies";
+import { changeTheme, setTheme } from "../functions/cookies";
 
 export default class Menu extends Component {
   // State manages if the menu is open + how the dark-mode icon looks

@@ -14,12 +14,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { ghcolors, nord } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { POSTS } from "./PostsList";
-import {
-  changeTheme,
-  getCookie,
-  setCookie,
-  setTheme,
-} from "../../functions/cookies";
+import { changeTheme, setTheme } from "../../functions/cookies";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 // CODE SYNTAX

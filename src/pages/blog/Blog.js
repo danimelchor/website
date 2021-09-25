@@ -8,12 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 
 import { FiMoon, FiSun } from "react-icons/fi";
-import {
-  changeTheme,
-  getCookie,
-  setCookie,
-  setTheme,
-} from "../../functions/cookies";
+import { changeTheme, setTheme } from "../../functions/cookies";
 
 export default class Blog extends Component {
   constructor(props) {

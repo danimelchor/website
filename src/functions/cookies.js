@@ -1,3 +1,4 @@
+// Helper function to set a cookie
 export const setCookie = (c_name, value, exdays) => {
   var exdate = new Date();
   exdate.setDate(exdate.getDate() + exdays);
@@ -7,6 +8,7 @@ export const setCookie = (c_name, value, exdays) => {
   document.cookie = c_name + "=" + c_value;
 };
 
+// Helper function to read a cookie's value
 export const getCookie = (c_name) => {
   var i,
     x,
@@ -22,6 +24,7 @@ export const getCookie = (c_name) => {
   }
 };
 
+// Helper function to set the correct classList depending on theme on load
 export const setTheme = () => {
   let current = getCookie("theme") || document.documentElement.classList[0];
   if (current === "dark") {
@@ -33,6 +36,7 @@ export const setTheme = () => {
   }
 };
 
+// Helper function to change the classList depending on theme (if cookies accepted)
 export const changeTheme = () => {
   let current = getCookie("theme") || document.documentElement.classList[0];
 
