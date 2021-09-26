@@ -43,7 +43,7 @@ export default class Cookies extends Component {
   render() {
     return (
       <>
-        {this.state.display && (
+        {false && (
           <div
             className="w-full bg-white dark:bg-gray-700 flex bg-opacity-90 fixed bottom-0 left-0 p-3 items-center justify-center border-t border-gray-200 dark:border-gray-600"
             style={{ zIndex: 1000 }}
