@@ -37,13 +37,17 @@ export default class Blog extends Component {
 
   filterBlogs(e) {
     let query = e.target.value;
-    let all_classes = Object.values(POSTS);
+    let all_classes;
 
-    all_classes = all_classes.filter((post) =>
-      post.title.toLowerCase().includes(query.toLowerCase())
-    );
+    if (query === "") {
+      all_classes = Object.values(POSTS);
+    } else {
+      all_classes = Object.values(POSTS);
 
-    if (query === "") all_classes = POSTS;
+      all_classes = all_classes.filter((post) =>
+        post.title.toLowerCase().includes(query.toLowerCase())
+      );
+    }
 
     this.setState({ posts: all_classes });
   }

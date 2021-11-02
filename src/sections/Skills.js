@@ -5,6 +5,8 @@ import Title from "../components/Title";
 // Importing all the images for the skills
 import HTML from "../img/skills/HTML-logo.png";
 import CSS from "../img/skills/CSS-logo.png";
+import CPP from "../img/skills/CPP-logo.png";
+import C from "../img/skills/C-logo.png";
 import SCSS from "../img/skills/SCSS-logo.png";
 import JavaScript from "../img/skills/JavaScript-logo.png";
 import ReactJS from "../img/skills/ReactJS-logo.png";
@@ -47,8 +49,16 @@ export default class Skills extends Component {
           />
           <SkillContainer
             title="Other Languages And Libraries"
-            imgs={[Java, Python, Pytorch, Matplot, Numpy]}
-            names={["Java", "Python", "Pytorch", "Matplotlib", "Numpy"]}
+            imgs={[CPP, C, Java, Python, Pytorch, Matplot, Numpy]}
+            names={[
+              "C++",
+              "C",
+              "Java",
+              "Python",
+              "Pytorch",
+              "Matplotlib",
+              "Numpy",
+            ]}
           />
           <SkillContainer
             title="Other"

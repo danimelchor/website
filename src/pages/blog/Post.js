@@ -89,20 +89,20 @@ export default class Post extends Component {
           <title>{this.state.info.title}</title>
         </Helmet>
         <div
-          className="overflow-hidden flex items-center justify-center w-full relative bg-yellow-50 dark:bg-gray-800"
+          className="overflow-hidden flex items-center justify-center w-full relative bg-blue-50 dark:bg-gray-800"
           style={
             window.innerWidth > 640 ? { height: "65vh" } : { height: "100vw" }
           }
         >
           <Link
             to="/"
-            className="absolute left-0 top-0 p-5 z-50 dark:text-white font-black text-lg sm:text-xl hover:text-gray-700 dark:hover:text-gray-300 hover:underline"
+            className="absolute left-0 top-0 p-5 z-50 text-gray-800 dark:text-white font-black text-lg sm:text-xl hover:text-gray-700 dark:hover:text-gray-300 hover:underline"
           >
             danielmelchor.com
           </Link>
           <img
             src={`${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
-            className="h-full filter absolute top-1/2 transform -translate-y-1/2"
+            className="h-full filter absolute top-1/2 transform -translate-y-1/2 py-5"
             alt={this.state.postname + " header image"}
           />
         </div>
@@ -116,13 +116,17 @@ export default class Post extends Component {
               Go back
             </Link>
             <div className="flex items-center">
-              <a
-                href={this.state.info["link"]}
-                style={{ backgroundColor: "#355876" }}
-                className="px-4 py-1 text-white rounded-full transition-transform hover:scale-105 transform"
-              >
-                See on Towards Data Science
-              </a>
+              {this.state.info["towardsDataLink"] && (
+                <a
+                  href={this.state.info["link"]}
+                  style={{ backgroundColor: "#355876" }}
+                  className="px-4 py-1 text-white rounded-full transition-transform hover:scale-105 transform"
+                >
+                  {window.innerWidth > 640
+                    ? "See on Towards Data Science"
+                    : "See on TDS"}
+                </a>
+              )}
               <button
                 className="p-3 dark:text-white focus:outline-none text-xl hover:text-gray-700 dark:hover:text-gray-300"
                 onClick={this.changeTheme.bind(this)}

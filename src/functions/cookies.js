@@ -27,7 +27,7 @@ export const getCookie = (c_name) => {
 // Helper function to set the correct classList depending on theme on load
 export const setTheme = () => {
   let current = getCookie("theme") || document.documentElement.classList[0];
-  if (current === "dark") {
+  if (!current || current === "dark") {
     document.documentElement.classList.add("dark");
     return "dark";
   } else {
