@@ -89,20 +89,20 @@ export default class Post extends Component {
           <title>{this.state.info.title}</title>
         </Helmet>
         <div
-          className="overflow-hidden flex items-center justify-center w-full relative bg-blue-50 dark:bg-gray-800"
+          className="overflow-hidden flex-col lg:flex-row flex lg:justify-center w-full relative bg-blue-50 dark:bg-gray-800"
           style={
             window.innerWidth > 640 ? { height: "65vh" } : { height: "100vw" }
           }
         >
           <Link
             to="/"
-            className="absolute left-0 top-0 p-5 z-50 text-gray-800 dark:text-white font-black text-lg sm:text-xl hover:text-gray-700 dark:hover:text-gray-300 hover:underline"
+            className="lg:absolute w-full lg:w-auto left-0 top-0 p-5 z-50 text-gray-800 dark:text-white font-black text-lg sm:text-xl hover:text-gray-700 dark:hover:text-gray-300 hover:underline"
           >
             danielmelchor.com
           </Link>
           <img
             src={`${process.env.PUBLIC_URL}/blog/img/${this.state.postname}.png`}
-            className="h-full filter absolute top-1/2 transform -translate-y-1/2 py-5"
+            className="md:h-full filter transform p-4"
             alt={this.state.postname + " header image"}
           />
         </div>
