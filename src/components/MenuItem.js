@@ -64,7 +64,7 @@ export default class MenuItem extends Component {
           {this.props.icon}
         </div>
         <span className="inline-block align-middle text-md xl:text-lg font-mono">
-          <span className="text-secondary dark:text-secondaryDark">this</span>
+          <span className="text-secondary dark:text-secondaryDark">self</span>
           {this.props.text}
         </span>
       </Link>
