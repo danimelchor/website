@@ -76,7 +76,7 @@ export default class Blog extends Component {
               id="blog-title"
             >
               <span className="text-secondary dark:text-secondaryDark">
-                this
+                self
               </span>
               .blog()
             </h1>
