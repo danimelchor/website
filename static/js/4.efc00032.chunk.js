@@ -1,2 +1,0 @@
-(this.webpackJsonpwebsite=this.webpackJsonpwebsite||[]).push([[4],{513:function(t,s,e){"use strict";e.r(s),s.default=e.p+"static/media/0-pytorch-nntransformer.05fad6dd.md"}}]);
-//# sourceMappingURL=4.efc00032.chunk.js.map
