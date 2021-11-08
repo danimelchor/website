@@ -2,7 +2,7 @@
 
 ## A list of C++'s most useful data structures and their time complexities for coding interviews.
 
-I am currently a sophomore in college and I've been preparing for Summer 2022 internships. After hours of research and practice regarding data structures, I feel confident sharing the list of data structures I used during my interviews and coding assessments. I hope this list can help you practice land those internships.
+I am currently a sophomore in college and I've been preparing for Summer 2022 internships. After hours of research and practice regarding data structures, I feel confident sharing the list of data structures I used during my interviews and coding assessments. I hope this list can help you practice and land those internships.
 
 ### Imports
 
