@@ -2,18 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-::-moz-selection {
-  background: rgb(193, 212, 226);
-}
+$selection: rgb(193, 212, 226);
+$dar-selection: rgb(75, 89, 99);
 
+$primary: #2f4858;
+$primary-dark: #111827;
+
+$secondary: #17b169;
+$secondary-dark: #ffc800;
+
+// TAILWIND
+$gray-7: #374151;
+
+::-moz-selection,
 ::selection {
-  background: rgb(193, 212, 226);
+  background: $selection;
 }
 
-.dark ::-moz-selection {
-  background: rgb(75, 89, 99);
-}
-
+.dark ::-moz-selection,
 .dark ::selection {
   background: rgb(75, 89, 99);
 }
@@ -30,7 +36,7 @@ body {
 }
 
 .dark body {
-  background-color: #101624;
+  background-color: $primary-dark;
 }
 
 #root {
@@ -126,35 +132,26 @@ body {
   font-family: monospace;
 }
 
-.link {
-  color: #006b61;
-}
-
-.link:hover {
-  text-decoration: underline;
-  color: #ffc800;
-}
-
 .arrow {
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #17b169;
+  border-bottom: 8px solid $secondary;
   position: absolute;
   top: 0;
   transform: translate(0, -100%);
 }
 
 .dark .arrow {
-  border-bottom: 8px solid #e9b500;
+  border-bottom: 8px solid $secondary-dark;
 }
 
 @media only screen and (max-width: 640px) {
   .arrow {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid #17b169;
+    border-top: 8px solid $secondary;
     border-bottom: 8px solid transparent;
     top: auto;
     bottom: 0;
@@ -162,7 +159,7 @@ body {
   }
 
   .dark .arrow {
-    border-top: 8px solid #e9b500;
+    border-top: 8px solid $secondary-dark;
     border-bottom: 8px solid transparent;
   }
 }
@@ -174,14 +171,14 @@ body {
   left: 0;
   margin-left: 2vw;
   margin-top: 2vw;
-  border: 2px solid #2f4858;
+  border: 2px solid $primary;
   background: white;
   border-radius: 100px;
   padding: 0.7em 1.5em;
   text-decoration: none;
   font-family: sans-serif;
   font-size: 1.1em;
-  color: #2f4858;
+  color: $primary;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -194,17 +191,17 @@ body {
 .dark .say-hello {
   border-color: white;
   color: white;
-  background: #374151;
+  background: $gray-7;
 }
 
 .say-hello:hover {
-  background-color: #2f4858;
+  background-color: $primary;
   color: white;
   transform: scale(1.08);
 }
 
 .dark .say-hello:hover {
-  color: #374151;
+  color: $gray-7;
   background: white;
 }
 
@@ -214,26 +211,28 @@ body {
   transform: translate(-100%, -100%);
   font-size: 2em;
   padding: 0.4em;
-  border-color: #374151;
-  color: #374151;
+  color: $primary;
+  background-color: white;
+  border-color: $primary;
 }
 
 .dark .say-hello-scrolled {
-  background-color: #111827;
   color: white;
+  border-color: white;
+  background-color: $gray-7;
 }
 
 .say-hello-scrolled:hover {
-  background: #17b169;
-  color: white;
   border-color: white;
+  color: white;
+  background-color: $primary;
   transform: translate(-100%, -100%);
 }
 
 .dark .say-hello-scrolled:hover {
-  background: #e9b500;
-  color: #f3f4f6;
-  border-color: #f3f4f6;
+  background: white;
+  color: $gray-7;
+  border-color: $gray-7;
 }
 
 /* Jumpy arrow */
@@ -265,4 +264,11 @@ body {
   100% {
     margin-bottom: 5px;
   }
+}
+
+// TOAST CUSTOMIZATION
+:root {
+  --toastify-color-success: #128650 !important;
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-color-progress-success: var(--toastify-color-success);
 }

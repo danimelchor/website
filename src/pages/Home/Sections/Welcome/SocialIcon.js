@@ -8,7 +8,7 @@ export default function SocialIcon({ url, title, icon, type }) {
 
   return (
     <div className="relative group">
-      <div className="opacity-0 group-hover:opacity-100 bg-secondary dark:bg-secondaryDark text-white dark:text-black px-3 py-1 rounded-sm absolute top-0 md:bottom-0 md:top-auto left-0 transform -translate-y-full md:translate-y-full transition-opacity duration-200 delay-300 text-center xl:text-lg pointer-events-none">
+      <div className="opacity-0 group-hover:opacity-100 bg-secondary dark:bg-secondaryDark text-white dark:text-black px-3 py-1 rounded-sm absolute md:bottom-0 left-0 transform -translate-y-full md:translate-y-full transition-opacity duration-200 delay-300 text-center xl:text-lg pointer-events-none">
         <div className="arrow left-4 2xl:left-6"></div>
         {title}
       </div>

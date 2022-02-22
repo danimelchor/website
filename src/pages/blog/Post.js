@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
-import "../../styles/blog.css";
+import "../../styles/blog.scss";
 
 import grid from "./img/grid2.png";
 import darkGrid from "./img/darkGrid.png";

@@ -13,10 +13,12 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { FiMoon, FiSun } from "react-icons/fi";
 
+import Notification from "../../../components/Notification";
+
 export default function Menu() {
   // State manages if the menu is open + how the dark-mode icon looks
   const [menuActive, setMenuActive] = useState(false);
-  const [moon, setMoon] = useState(<FiSun />);
+  const [darkMode, setDarkMode] = useState(false);
 
   // When the user clicks the hamburguer menu
   const toggleMenu = () => {
@@ -35,7 +37,7 @@ export default function Menu() {
   // When the user clicks the dark-mode icon
   const changeTheme = () => {
     let current = changeThemeFunc();
-    setMoon(current === "dark" ? <FiSun /> : <FiMoon />);
+    setDarkMode(current === "dark");
     document.body.style.backgroundImage =
       current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
   };
@@ -44,7 +46,7 @@ export default function Menu() {
   // activated to set the appropiate theme
   useEffect(() => {
     let current = setThemeFunc();
-    setMoon(current === "dark" ? <FiSun /> : <FiMoon />);
+    setDarkMode(current === "dark");
     document.body.style.backgroundImage =
       current === "dark" ? "url(" + darkGrid + ")" : "url(" + grid + ")";
 
@@ -149,7 +151,6 @@ export default function Menu() {
           <div className="spacer h-20"></div>
         </div>
       </div>
-
       {/* This is the small screen menu */}
       <div className="font-mono sticky md:hidden top-0 w-screen z-30 text-center shadow-2xl bg-gray-100 dark:bg-gray-900 py-5 sm:p-5 border-b-4 border-primary dark:border-primaryDark">
         <div className="h-10">
@@ -170,7 +171,6 @@ export default function Menu() {
           </a>
         </div>
       </div>
-
       {/* Dark mode icon */}
       <div
         className="transition-none flex z-40 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0 text-xl"
@@ -180,8 +180,9 @@ export default function Menu() {
           right: "2vw",
         }}
       >
-        {moon}
+        {darkMode ? <FiSun /> : <FiMoon />}
       </div>
+      <Notification />
     </>
   );
 }

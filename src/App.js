@@ -7,8 +7,6 @@ import Blog from "./pages/Blog";
 import Post from "./pages/Blog/Post";
 import ProjectPage from "./pages/Projects";
 
-import { ToastContainer } from "react-toastify";
-
 function App() {
   return (
     <>
@@ -25,7 +23,6 @@ function App() {
           />
         </Routes>
       </HashRouter>
-      <ToastContainer />
     </>
   );
 }

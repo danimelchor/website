@@ -5,6 +5,7 @@ import { IoMdClose, IoMdCopy } from "react-icons/io";
 import { FiExternalLink } from "react-icons/fi";
 
 import { CONTACT_WAYS } from "../../../../data/home/contact";
+import { toast } from "react-toastify";
 
 const copyToClipboard = (str) => {
   const el = document.createElement("textarea");
@@ -15,34 +16,26 @@ const copyToClipboard = (str) => {
   document.body.removeChild(el);
 };
 
-const ContactCard = ({ href, text, copyText, icon, color }) => {
+const ContactCard = ({ href, text, copyText, icon }) => {
   return (
-    <div
-      className={`bg-${color}-100 dark:bg-${color}-900 border-2 border-${color}-400 dark:border-${color}-900 rounded-sm flex items-center justify-between py-2 sm:py-4 px-3 sm:px-6`}
-    >
+    <div className="border-2 rounded-sm flex items-center justify-between py-2 sm:py-4 px-3 sm:px-6 dark:border-gray-400">
       <div className="flex items-center">
-        <div
-          className={`text-xl sm:text-3xl mr-4 text-${color}-400 dark:text-${color}-300`}
-        >
-          {icon}
-        </div>
-        <a
-          href={href}
-          className={`sm:text-lg text-${color}-900 dark:text-${color}-200 hover:underline`}
-        >
+        <div className="text-xl sm:text-3xl mr-4 dark:text-white">{icon}</div>
+        <a href={href} className="sm:text-lg hover:underline dark:text-white">
           {text}
         </a>
       </div>
-      <div
-        className={`flex items-center text-lg sm:text-xl text-${color}-400 dark:text-${color}-300 gap-2`}
-      >
+      <div className="flex items-center text-lg sm:text-xl gap-2">
         <IoMdCopy
-          className={`cursor-pointer hover:text-${color}-800 dark:hover:text-${color}-500 transform hover:scale-110 transition-transform`}
-          onClick={() => copyToClipboard(copyText)}
+          className="cursor-pointer transform hover:scale-110 transition-transform dark:text-white"
+          onClick={() => {
+            copyToClipboard(copyText);
+            toast.success("Copied to clipboard");
+          }}
         />
         <a
           href={href}
-          className={`cursor-pointer hover:text-${color}-800 dark:hover:text-${color}-500 transform hover:scale-110 transition-transform`}
+          className="cursor-pointer transform hover:scale-110 transition-transform dark:text-white"
         >
           <FiExternalLink />
         </a>
@@ -63,7 +56,7 @@ export default function Contact({ closeMenu }) {
         onClick={(e) => e.stopPropagation()}
       >
         <IoMdClose
-          className="absolute top-5 right-5 h-6 w-6 rounded-full cursor-pointer"
+          className="absolute top-5 right-5 h-6 w-6 rounded-full cursor-pointer dark:text-white"
           onClick={closeMenu}
         />
         <h2 className="text-4xl 2xl:text-5xl 3xl:text-7xl font-black text-gray-800 dark:text-gray-100">
@@ -82,7 +75,6 @@ export default function Contact({ closeMenu }) {
                 href={i.href}
                 icon={i.icon}
                 copyText={i.copyText}
-                color={i.color}
               />
             ))}
           </div>
