@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[763],{763:function(e,t,s){e.exports=s.p+"static/media/1-important-extraction.03f507d6ba1fd29d021f.md"}}]);
