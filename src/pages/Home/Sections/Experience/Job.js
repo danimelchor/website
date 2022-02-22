@@ -9,6 +9,7 @@ export default class Job extends Component {
           className="h-16 lg:h-28 rounded-sm mr-5"
           src={this.props.image}
           alt={this.props.company + " Logo"}
+          loading="lazy"
         />
         <div>
           <p className="font-bold text-xl leading-none mb-1">

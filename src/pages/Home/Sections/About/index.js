@@ -19,7 +19,12 @@ export default function About() {
       <div className="py-10 px-2 m-auto w-full md:w-5/6">
         <div className="block my-5 bg-white dark:bg-gray-800 dark:text-gray-50 rounded p-5 md:p-10 shadow-2xl overflow-hidden flex flex-col lg:flex-row">
           <div className="rounded-sm overflow-hidden lg:mr-5 lg:mb-0 mb-5 flex items-center justify-center w-full lg:w-auto lg:items-start 2xl:items-center">
-            <img className="w-96" src={me} alt="Daniel Melchor portrait" />
+            <img
+              className="w-96"
+              src={me}
+              alt="Daniel Melchor portrait"
+              loading="lazy"
+            />
           </div>
           <div className="flex flex-col justify-center h-full ml-4 w-full">
             <div className={htmlTagsStyle}>&#60;h1&#62;</div>
@@ -37,9 +42,9 @@ export default function About() {
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>
             <p className="leading-relaxed text-lg dark:text-gray-300 text-gray-700 transition-colors duration-200">
-              During the summer, I have been working as a Machine Learning
-              developer at Intelygenz, an international company focused on
-              process automation using AI.
+              During the summer, I will be working at Stripe as a SWE developer.
+              During the year, I am working at a SWE at BastionZero, a cloud
+              service designed for modern Infrastructure as Code environments
             </p>
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>

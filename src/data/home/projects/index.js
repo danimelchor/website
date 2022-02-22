@@ -7,10 +7,12 @@ import { ss } from "./4_ss";
 import { decentrapass } from "./5_decentrapass";
 import { bunexus } from "./6_bunexus";
 import { thiswebsite } from "./7_thiswebsite";
+import { wordel } from "./8_wordel";
 
 // For simplicity and ease updating my projects I decided to keep them as a Dictionary
 // Very simple/shabby but works well
 export const PROJECTS_LIST = [
+  wordel,
   thiswebsite,
   bunexus,
   decentrapass,

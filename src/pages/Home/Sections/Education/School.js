@@ -7,20 +7,21 @@ export default function School({ type, year, school, url }) {
         href={url}
         rel="noreferrer"
         target="_blank"
-        className="uppercase text-lg md:text-2xl text-primary hover:text-secondary dark:text-gray-400 dark:hover:text-secondaryDark font-mono italic"
+        className="uppercase text-lg md:text-2xl hover:text-secondary dark:hover:text-secondaryDark font-bold"
       >
-        <p href={url} target="_blank" rel="noreferrer">
-          &#47;&#47; {school}
-        </p>
+        {school}
       </a>
       <span className="text-blue-700 dark:text-blue-300 block mb-3 font-mono">
         from({year.slice(0, 4)},{year.slice(7, year.length)})
       </span>
-      <ul className="list-disc list-inside">
+      <div className="text-primary dark:text-gray-400 font-mono italic">
         {type.map((i, index) => (
-          <li key={index}>{i}</li>
+          <div key={index} className="flex gap-2">
+            <div>#</div>
+            <div>{i}</div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

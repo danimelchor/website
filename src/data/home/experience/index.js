@@ -1,23 +1,45 @@
 import IntelygenzImg from "./intelygenz.png";
 import BUNexusImg from "./bunexus.png";
+import StripeImg from "./stripe.png";
+import BastionZeroImg from "./bastionzero.jpeg";
 
 const getMonthsSince = (date1, date2) => {
   var Difference_In_Time = date1.getTime() - date2.getTime();
   var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
   var Difference_In_Months = Math.ceil(Difference_In_Days / 30);
 
-  if (Difference_In_Months < 12) return Difference_In_Months + "mos";
+  if (Difference_In_Months < 0) return `in ${-1 * Difference_In_Months}mos`;
+  else if (Difference_In_Months < 12) return `${Difference_In_Months}mos`;
   else {
-    var Difference_In_Years = Math.floor(Difference_In_Months / 12);
-    Difference_In_Months = Difference_In_Months % 12;
-
-    return Difference_In_Years + "ys " + Difference_In_Months + "mos";
+    var Difference_In_Years = Math.floor(Difference_In_Months / 12) % 12;
+    return `${Difference_In_Years}ys ${Difference_In_Months}mos"`;
   }
 };
 
 export const EXPERIENCE_LIST = [
   {
-    role: "Machine Learning Software Engineer",
+    role: "Software Engineer",
+    company: "Stripe",
+    from: "Fen 2022",
+    to: "Present",
+    duration: getMonthsSince(new Date(), new Date("05/13/2022")),
+    where: "South San Francisco, California, USA",
+    website: "https://stripe.com/",
+    image: StripeImg,
+  },
+
+  {
+    role: "Software Engineer",
+    company: "BastionZero",
+    from: "May 2022",
+    to: "Present",
+    duration: getMonthsSince(new Date(), new Date("02/22/2022")),
+    where: "Boston, Massachusetts, USA",
+    website: "https://bastionzero.com/",
+    image: BastionZeroImg,
+  },
+  {
+    role: "ML Software Engineer",
     company: "Intelygenz",
     from: "Jun 2021",
     to: "Aug 2021",
@@ -30,8 +52,8 @@ export const EXPERIENCE_LIST = [
     role: "Full Stack Developer",
     company: "BU Nexus",
     from: "Mar 2021",
-    to: "Present",
-    duration: getMonthsSince(new Date(), new Date("03/11/2021")),
+    to: "Oct 2021",
+    duration: getMonthsSince(new Date("10/11/2021"), new Date("03/11/2021")),
     where: "Boston, Massachusetts, USA",
     website: "https://bunexus.com/",
     image: BUNexusImg,

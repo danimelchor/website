@@ -1,4 +1,3 @@
-import "./css/index.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 // Pages

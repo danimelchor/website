@@ -18,4 +18,14 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  safelist: [
+    {
+      pattern: /bg-(blue|indigo|purple|pink)-(100|900)/,
+      variants: ["dark"],
+    },
+    {
+      pattern: /text-(blue|indigo|purple|pink)-(200|300|400|500|800|900)/,
+      variants: ["dark"],
+    },
+  ],
 };

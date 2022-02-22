@@ -56,7 +56,12 @@ export default function Project({ languages, title, img, date, url }) {
       </div>
       <div className="relative">
         <div className="w-full h-full overflow-hidden">
-          <img src={img} alt={title + " Image"} className="z-0" />
+          <img
+            src={img}
+            alt={title + " Image"}
+            className="z-0"
+            loading="lazy"
+          />
         </div>
         <div
           className="absolute top-0 w-full h-full transition-opacity flex flex-col items-center justify-center bg-primary dark:bg-gray-900 bg-opacity-90 dark:bg-opacity-90 z-30 opacity-0 group-hover:opacity-100"

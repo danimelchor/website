@@ -103,6 +103,7 @@ export default function Post() {
           src={`/blog/img/${postname}.png`}
           className="md:h-full filter transform p-4"
           alt={postname + " header image"}
+          loading="lazy"
         />
       </div>
       <div className="w-full lg:w-1/2 xl:w-5/12 w-full h-full p-6 lg:p-10">

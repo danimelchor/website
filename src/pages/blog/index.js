@@ -84,6 +84,7 @@ export default function Blog() {
           src={bg}
           alt="Opinaca Reservoir, Quebec"
           className="h-full sm:h-auto sm:w-full filter brightness-50 absolute top-1/2 transform -translate-y-1/2"
+          loading="lazy"
         />
         <button
           className="p-3 absolute right-0 top-0 text-white focus:outline-none text-lg"
