@@ -9,7 +9,7 @@ $primary: #2f4858;
 $primary-dark: #111827;
 
 $secondary: #17b169;
-$secondary-dark: #ffc800;
+$secondary-dark: #e9b500;
 
 // TAILWIND
 $gray-7: #374151;
@@ -132,15 +132,43 @@ body {
   font-family: monospace;
 }
 
-.arrow {
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid $secondary;
-  position: absolute;
-  top: 0;
-  transform: translate(0, -100%);
+.social-icon {
+  .tooltip {
+    opacity: 0;
+    color: white;
+    background: $secondary;
+    transition: opacity 200ms 200ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    padding: 4px 10px;
+    border-radius: 2px;
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid $secondary;
+      transition: border-top-color 200ms 200ms;
+      position: absolute;
+      bottom: 0;
+      transform: translate(0, 100%);
+    }
+  }
+
+  &:hover .tooltip {
+    opacity: 1;
+  }
+}
+
+.dark .tooltip {
+  background: $secondary-dark;
+
+  .arrow {
+    border-top-color: $secondary-dark;
+  }
 }
 
 .dark .arrow {
@@ -271,4 +299,22 @@ body {
   --toastify-color-success: #128650 !important;
   --toastify-icon-color-success: var(--toastify-color-success);
   --toastify-color-progress-success: var(--toastify-color-success);
+}
+
+@media screen and (min-width: 768px) {
+  .social-icon {
+    .tooltip {
+      bottom: 0;
+      top: auto;
+      transform: translateY(100%);
+
+      .arrow {
+        border-bottom: 8px solid $secondary;
+        border-top: 0 none;
+        bottom: auto;
+        top: 0;
+        transform: translate(0, -100%);
+      }
+    }
+  }
 }

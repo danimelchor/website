@@ -53,7 +53,7 @@ const SOCIALS = [
 export default function Socials() {
   return (
     <div
-      className="flex flex-col justify-evenly items-center w-4/5 md:w-2/4 lg:w-1/3 xl:w-1/4 mt-5"
+      className="flex flex-col justify-evenly items-center w-4/5 md:w-2/4 lg:w-1/3 xl:w-1/4 mt-2"
       id="socials"
     >
       <div className="flex justify-evenly items-center w-full select-none">

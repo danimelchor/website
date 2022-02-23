@@ -20,7 +20,7 @@ export const EXPERIENCE_LIST = [
   {
     role: "Software Engineer",
     company: "Stripe",
-    from: "Fen 2022",
+    from: "May 2022",
     to: "Present",
     duration: getMonthsSince(new Date(), new Date("05/13/2022")),
     where: "South San Francisco, California, USA",
@@ -31,7 +31,7 @@ export const EXPERIENCE_LIST = [
   {
     role: "Software Engineer",
     company: "BastionZero",
-    from: "May 2022",
+    from: "Feb 2022",
     to: "Present",
     duration: getMonthsSince(new Date(), new Date("02/22/2022")),
     where: "Boston, Massachusetts, USA",
