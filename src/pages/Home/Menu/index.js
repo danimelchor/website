@@ -7,7 +7,14 @@ import darkGrid from "./img/darkGrid.png";
 import { changeThemeFunc, setThemeFunc } from "../../../functions/theme";
 
 // ICONS
-import { FiHome, FiSmile, FiBriefcase, FiTool, FiMenu } from "react-icons/fi";
+import {
+  FiHome,
+  FiSmile,
+  FiBriefcase,
+  FiTool,
+  FiMenu,
+  FiTerminal,
+} from "react-icons/fi";
 import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
@@ -173,14 +180,24 @@ export default function Menu() {
       </div>
       {/* Dark mode icon */}
       <div
-        className="transition-none flex z-40 cursor-pointer fixed dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors mt-2 md:mt-0 text-xl"
-        onClick={changeTheme}
+        className="flex z-40 fixed items-center justify-center mt-2 md:mt-0 text-xl"
         style={{
           top: "2vw",
           right: "2vw",
         }}
       >
-        {darkMode ? <FiSun /> : <FiMoon />}
+        <a
+          className="transition-none flex z-40 cursor-pointer dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors text-xl duration-200"
+          href="https://danimelchor.github.io/terminal-website-example/"
+        >
+          <FiTerminal />
+        </a>
+        <div
+          className="transition-none flex z-40 cursor-pointer dark:text-white w-10 h-10 items-center justify-center md:dark:bg-gray-700 md:bg-white rounded-full md:dark:hover:bg-gray-800 md:hover:bg-gray-200 transition-colors text-xl duration-200"
+          onClick={changeTheme}
+        >
+          {darkMode ? <FiSun /> : <FiMoon />}
+        </div>
       </div>
       <Notification />
     </>
