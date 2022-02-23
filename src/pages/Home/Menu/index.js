@@ -180,7 +180,7 @@ export default function Menu() {
       </div>
       {/* Dark mode icon */}
       <div
-        className="flex z-40 fixed items-center justify-center mt-2 md:mt-0 text-xl"
+        className="flex z-40 fixed items-center justify-center mt-2 md:mt-0 text-xl gap-2"
         style={{
           top: "2vw",
           right: "2vw",
