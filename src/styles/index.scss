@@ -315,6 +315,10 @@ body {
         top: 0;
         transform: translate(0, -100%);
       }
+
+      .dark .arrow {
+        border-bottom: 8px solid $secondary-dark;
+      }
     }
   }
 }

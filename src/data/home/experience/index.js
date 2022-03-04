@@ -18,7 +18,7 @@ const getMonthsSince = (date1, date2) => {
 
 export const EXPERIENCE_LIST = [
   {
-    role: "Software Engineer",
+    role: "Software Engineer Intern",
     company: "Stripe",
     from: "May 2022",
     to: "Present",
@@ -29,7 +29,7 @@ export const EXPERIENCE_LIST = [
   },
 
   {
-    role: "Software Engineer",
+    role: "Software Engineer Intern",
     company: "BastionZero",
     from: "Feb 2022",
     to: "Present",
