@@ -163,16 +163,12 @@ body {
   }
 }
 
-.dark .tooltip {
+.dark .social-icon .tooltip {
   background: $secondary-dark;
 
-  .arrow {
+  & .arrow {
     border-top-color: $secondary-dark;
   }
-}
-
-.dark .arrow {
-  border-bottom: 8px solid $secondary-dark;
 }
 
 @media only screen and (max-width: 640px) {
@@ -315,10 +311,10 @@ body {
         top: 0;
         transform: translate(0, -100%);
       }
-
-      .dark .arrow {
-        border-bottom: 8px solid $secondary-dark;
-      }
     }
+  }
+
+  .dark .social-icon .tooltip .arrow {
+    border-bottom: 8px solid $secondary-dark;
   }
 }
