@@ -36,15 +36,14 @@ export default function About() {
             <p className="leading-relaxed text-lg dark:text-gray-300 text-gray-700 transition-colors duration-200">
               I'm a {getAge()}-year-old student from Spain studying at Boston
               University. I am pursuing a major in Computer Science, and, most
-              likely, completing an accelerated Master's degree program while
-              there.
+              likely, will be graduating one year early.
             </p>
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>
             <p className="leading-relaxed text-lg dark:text-gray-300 text-gray-700 transition-colors duration-200">
-              During the summer, I will be working at Stripe as a SWE developer.
-              During the year, I am working at a SWE at BastionZero, a cloud
-              service designed for modern Infrastructure as Code environments
+              During the summer, I have worked at Stripe as a SWE intern. During
+              the year, I was working at a SWE at BastionZero, a cloud service
+              designed for modern Infrastructure as Code environments.
             </p>
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>
