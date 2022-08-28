@@ -3,10 +3,7 @@ export const EDUCATION_LIST = [
     url: "https://www.bu.edu/",
     school: "Boston University",
     year: "2020 - Present",
-    type: [
-      "B.A. in Computer Science",
-      "Planning on entering the BA/MS program for A.I.",
-    ],
+    type: ["B.A. in Computer Science"],
     location: "Boston, MA, USA",
   },
   {
@@ -15,5 +12,5 @@ export const EDUCATION_LIST = [
     year: "2005 - 2020",
     type: ["International Baccalaureate"],
     location: "Madrid, Spain",
-  }
+  },
 ];
