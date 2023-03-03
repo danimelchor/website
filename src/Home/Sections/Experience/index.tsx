@@ -1,5 +1,5 @@
 import React from "react";
-import { EXPERIENCE_LIST } from "../../../../data/home/experience";
+import { EXPERIENCE_LIST } from "data/home/experience";
 
 import Title from "../../Title";
 import Job from "./Job";

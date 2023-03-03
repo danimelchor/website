@@ -2,8 +2,8 @@ import me from "./img/me.jpg";
 import Title from "../../Title";
 
 const getAge = () => {
-  let now = new Date();
-  let birth = new Date(2002, 6, 6);
+  let now = new Date().getTime();
+  let birth = new Date(2002, 6, 6).getTime();
   let diff = now - birth;
   return Math.floor(diff / 1000 / 3600 / 365 / 24);
 };

@@ -14,7 +14,7 @@ import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 
-import Notification from "../../../components/Notification";
+import Notification from "components/Notification";
 
 export default function Menu() {
   // State manages if the menu is open + how the dark-mode icon looks

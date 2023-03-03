@@ -2,7 +2,7 @@
 import { IoMdClose, IoMdCopy } from "react-icons/io";
 import { FiExternalLink } from "react-icons/fi";
 
-import { CONTACT_WAYS } from "../../../../data/home/contact";
+import { CONTACT_WAYS } from "data/home/contact";
 import { toast } from "react-toastify";
 
 const copyToClipboard = (str: string) => {

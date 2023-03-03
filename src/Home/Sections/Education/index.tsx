@@ -1,7 +1,7 @@
 import React from "react";
 import School from "./School";
 import Title from "../../Title";
-import { EDUCATION_LIST } from "../../../../data/home/education";
+import { EDUCATION_LIST } from "data/home/education";
 
 export default function Education() {
   return (

@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-
 import About from "./Sections/About";
 import Experience from "./Sections/Experience";
 import Education from "./Sections/Education";
@@ -9,19 +6,6 @@ import Welcome from "./Sections/Welcome";
 import Menu from "./Menu";
 
 export default function Home() {
-  const params = useParams();
-
-  useEffect(() => {
-    let section = params.section;
-
-    if (section === "projects") {
-      let loc = document.getElementById(section)?.offsetTop;
-      setTimeout(() => {
-        window.scroll(0, loc || 0);
-      }, 500);
-    } 
-  }, [params]);
-
   return (
     <div className="w-full min-h-full">
       <div className="w-screen right-0 z-0 absolute">

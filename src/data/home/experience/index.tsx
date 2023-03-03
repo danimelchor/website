@@ -17,7 +17,7 @@ const getMonthsSince = (date1: Date, date2: Date) => {
   }
 };
 
-export const EXPERIENCE_LIST : ExperienceType = [
+export const EXPERIENCE_LIST : ExperienceType[] = [
   {
     role: "Software Engineer",
     company: "Stripe",

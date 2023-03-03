@@ -1,4 +1,6 @@
-export default function School({ type, year, school, url }) {
+import { EducationType } from "types";
+
+export default function School({ type, year, school, url } : EducationType) {
   return (
     <div className="p-10 my-5 lg:my-0 bg-gray-800 text-gray-50 w-full md:w-5/6 lg:w-2/5 lg:mx-5 rounded shadow-lg hover:shadow-2xl">
       <a

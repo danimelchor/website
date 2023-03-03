@@ -1,3 +1,5 @@
+import { ReactElement } from "react"
+
 export type PostType = {
   title: string,
   subtitle: string,
@@ -25,7 +27,6 @@ export type SocialType = {
   title: string,
   url: string,
   icon: React.ReactNode,
-  type: string,
 }
 
 export type EducationType = {
@@ -44,7 +45,7 @@ export type SkillSection = {
 export type ContactType = {
   text: string,
   href: string,
-  icon: React.ReactNode,
+  icon: ReactElement,
   copyText: string,
 }
 
@@ -54,6 +55,7 @@ export type ExperienceType = {
   from: string,
   to: string,
   where: string,
-  image: React.ReactNode,
+  image?: string,
   duration: string,
+  website: string,
 }
