@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <div
       id="footer"
-      className="w-full py-10 bg-gray-900 text-gray-200 text-lg text-center"
+      className="w-full py-10 bg-gray-900 text-gray-200 text-lg text-center mb:mt-96"
     >
       <div className="m-auto w-full px-7 md:px-0 md:w-2/3 lg:w-1/2">
         <h1 className="font-bold text-2xl">Contribute / Use code</h1>

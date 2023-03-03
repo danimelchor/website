@@ -8,7 +8,7 @@ $primary-dark: #111827;
 $secondary-dark: #e9b500;
 
 // TAILWIND
-$gray-7: #374151;
+$gray-9: #111827;
 
 ::-moz-selection,
 ::selection {
@@ -184,12 +184,12 @@ body {
     color 150ms ease-in, margin 250ms linear, border-color 150ms ease-in;
   white-space: nowrap;
   color: white;
-  background: $gray-7;
+  background: $gray-9;
 }
 
 .say-hello:hover {
   background: white;
-  color: $gray-7;
+  color: $gray-9;
   transform: scale(1.08);
 }
 
@@ -201,14 +201,14 @@ body {
   padding: 0.4em;
   color: white;
   border-color: white;
-  background-color: $gray-7;
+  background-color: $gray-9;
 }
 
 .say-hello-scrolled:hover {
   background: white;
   transform: translate(-100%, -100%);
-  color: $gray-7;
-  border-color: $gray-7;
+  color: $gray-9;
+  border-color: $gray-9;
 }
 
 /* Jumpy arrow */

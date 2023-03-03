@@ -146,7 +146,6 @@ export default function Menu() {
           </a>
         </div>
       </div>
-      {/* Dark mode icon */}
       <div
         className="flex z-40 fixed items-center justify-center mt-2 md:mt-0 text-xl gap-2"
         style={{
@@ -155,7 +154,7 @@ export default function Menu() {
         }}
       >
         <a
-          className="transition-none flex z-40 cursor-pointer text-white w-10 h-10 items-center justify-center md:bg-gray-700 rounded-full md:hover:bg-gray-800 transition-colors text-xl duration-200"
+          className="transition-none flex z-40 cursor-pointer text-white w-10 h-10 items-center justify-center md:bg-gray-900 rounded-full md:hover:bg-gray-700 transition-colors text-xl duration-200"
           href="https://danimelchor.github.io/terminal-website-example/"
         >
           <FiTerminal />

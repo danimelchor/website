@@ -36,7 +36,7 @@ export default function Welcome() {
     <div>
       <div
         id="welcome"
-        className="bg-gray-700 w-screen flex justify-center items-center flex-col transition-colors duration-200"
+        className="bg-gray-900 w-screen flex justify-center items-center flex-col transition-colors duration-200"
         style={{ height: "99vh" }}
       >
         <div
