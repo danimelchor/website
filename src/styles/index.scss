@@ -2,13 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-$selection: rgb(193, 212, 226);
 $dar-selection: rgb(75, 89, 99);
 
-$primary: #2f4858;
 $primary-dark: #111827;
-
-$secondary: #17b169;
 $secondary-dark: #e9b500;
 
 // TAILWIND
@@ -16,11 +12,6 @@ $gray-7: #374151;
 
 ::-moz-selection,
 ::selection {
-  background: $selection;
-}
-
-.dark ::-moz-selection,
-.dark ::selection {
   background: rgb(75, 89, 99);
 }
 
@@ -31,11 +22,7 @@ $gray-7: #374151;
 }
 
 body {
-  overflow-x: hidden;
-  background-color: white;
-}
-
-.dark body {
+  background: url(./background.png);
   background-color: $primary-dark;
 }
 
@@ -136,7 +123,7 @@ body {
   .tooltip {
     opacity: 0;
     color: white;
-    background: $secondary;
+    background: $secondary-dark;
     transition: opacity 200ms 200ms;
     position: absolute;
     top: 0;
@@ -150,7 +137,7 @@ body {
       height: 0;
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-top: 8px solid $secondary;
+      border-top: 8px solid $secondary-dark;
       transition: border-top-color 200ms 200ms;
       position: absolute;
       bottom: 0;
@@ -163,27 +150,15 @@ body {
   }
 }
 
-.dark .social-icon .tooltip {
-  background: $secondary-dark;
-
-  & .arrow {
-    border-top-color: $secondary-dark;
-  }
-}
 
 @media only screen and (max-width: 640px) {
   .arrow {
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid $secondary;
-    border-bottom: 8px solid transparent;
     top: auto;
     bottom: 0;
-    transform: translate(0, 100%);
-  }
-
-  .dark .arrow {
     border-top: 8px solid $secondary-dark;
+    transform: translate(0, 100%);
     border-bottom: 8px solid transparent;
   }
 }
@@ -195,14 +170,12 @@ body {
   left: 0;
   margin-left: 2vw;
   margin-top: 2vw;
-  border: 2px solid $primary;
-  background: white;
+  border: 2px solid white;
   border-radius: 100px;
   padding: 0.7em 1.5em;
   text-decoration: none;
   font-family: sans-serif;
   font-size: 1.1em;
-  color: $primary;
   z-index: 100;
   display: flex;
   align-items: center;
@@ -210,23 +183,14 @@ body {
   transition: transform 150ms ease-in, background 150ms ease-in,
     color 150ms ease-in, margin 250ms linear, border-color 150ms ease-in;
   white-space: nowrap;
-}
-
-.dark .say-hello {
-  border-color: white;
   color: white;
   background: $gray-7;
 }
 
 .say-hello:hover {
-  background-color: $primary;
-  color: white;
-  transform: scale(1.08);
-}
-
-.dark .say-hello:hover {
-  color: $gray-7;
   background: white;
+  color: $gray-7;
+  transform: scale(1.08);
 }
 
 .say-hello-scrolled {
@@ -235,26 +199,14 @@ body {
   transform: translate(-100%, -100%);
   font-size: 2em;
   padding: 0.4em;
-  color: $primary;
-  background-color: white;
-  border-color: $primary;
-}
-
-.dark .say-hello-scrolled {
   color: white;
   border-color: white;
   background-color: $gray-7;
 }
 
 .say-hello-scrolled:hover {
-  border-color: white;
-  color: white;
-  background-color: $primary;
-  transform: translate(-100%, -100%);
-}
-
-.dark .say-hello-scrolled:hover {
   background: white;
+  transform: translate(-100%, -100%);
   color: $gray-7;
   border-color: $gray-7;
 }
@@ -305,16 +257,12 @@ body {
       transform: translateY(100%);
 
       .arrow {
-        border-bottom: 8px solid $secondary;
         border-top: 0 none;
         bottom: auto;
         top: 0;
         transform: translate(0, -100%);
+        border-bottom: 8px solid $secondary-dark;
       }
     }
-  }
-
-  .dark .social-icon .tooltip .arrow {
-    border-bottom: 8px solid $secondary-dark;
   }
 }

@@ -20,15 +20,16 @@
   font-size: 30px;
   line-height: 40px;
   font-weight: 900;
+  color: rgb(228, 228, 228);
 }
 
 /* Subtitle */
 #blog-post h2 {
   font-size: 16px;
   line-height: 26px;
-  color: rgb(117, 117, 117);
   font-weight: 400;
   margin-bottom: 25px;
+  color: rgb(148, 148, 148);
 }
 
 /* Section */
@@ -38,6 +39,7 @@
   font-weight: 700;
   margin-top: 1.35em;
   margin-bottom: 3px;
+  color: rgb(228, 228, 228);
 }
 
 /* Subsection */
@@ -46,14 +48,15 @@
   line-height: 28px;
   margin-top: 1em;
   font-weight: 600;
+  color: rgb(228, 228, 228);
 }
 
 /* Image caption */
 #blog-post h5 {
+  color: rgb(165, 165, 165);
   font-size: 12px;
   width: 100%;
   text-align: center;
-  color: #6b6b6b;
   margin-bottom: 1.72em;
   margin-top: -6px;
 }
@@ -88,19 +91,21 @@
   display: block;
   margin-left: 25px;
   margin-bottom: 20px;
+  color: rgb(228, 228, 228);
 }
 
 #blog-post li {
   margin: 10px 0;
+  color: rgb(228, 228, 228);
 }
 
 /* Normal text */
 #blog-post p {
   line-height: 26px;
   font-size: 16px;
-  color: rgb(41, 41, 41);
   margin-bottom: 15px;
   text-align: justify;
+  color: rgb(228, 228, 228);
 }
 
 /* Block quote */
@@ -110,49 +115,16 @@
   color: rgb(41, 41, 41);
   margin-bottom: 15px;
   display: block;
-  border-left: 4px solid rgb(41, 41, 41);
   padding-left: 5px;
   width: 90%;
-}
-
-/* Code block */
-#blog-post pre div {
-  border: 1px solid #ccc;
-}
-
-/* -------------------------------------------------- */
-/* -------------------- DARK MODE ------------------- */
-/* -------------------------------------------------- */
-
-/* Subtitle */
-.dark #blog-post h2 {
-  color: rgb(148, 148, 148) !important;
-}
-
-/* Image caption */
-.dark #blog-post h5 {
-  color: rgb(165, 165, 165) !important;
-}
-
-/* Block quote */
-.dark #blog-post blockquote {
   border-left: 4px solid rgb(240, 240, 240);
 }
 
 /* Code block */
-.dark #blog-post pre div {
+#blog-post pre div {
   border: 1px solid rgb(90, 90, 90);
 }
 
-/* Link */
-.dark #blog-post h1,
-.dark #blog-post h3,
-.dark #blog-post h4,
-.dark #blog-post ul,
-.dark #blog-post li,
-.dark #blog-post p {
-  color: rgb(228, 228, 228) !important;
-}
 
 /* -------------------------------------------------- */
 /* ----------------- RESPONSIVE SIZES --------------- */
