@@ -11,7 +11,7 @@ export default function Footer() {
             className="text-secondaryDark hover:text-primaryDark"
             href="/"
           >
-            Danielmelchor.com
+            danielmelchor.com
           </a>{" "}
           is an open-source project. The source code is available on{" "}
           <a
@@ -20,14 +20,7 @@ export default function Footer() {
           >
             GitHub
           </a>
-          . Feel free to use the code /{" "}
-          <a
-            className="text-secondaryDark hover:text-primaryDark"
-            href="#contact"
-          >
-            ask me any questions
-          </a>{" "}
-          if you want to.
+          . Feel free to use the code /ask me any questions if you want to.
         </p>
       </div>
     </div>
