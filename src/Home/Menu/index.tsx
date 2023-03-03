@@ -6,11 +6,8 @@ import {
   FiHome,
   FiSmile,
   FiBriefcase,
-  FiTool,
   FiMenu,
-  FiTerminal,
 } from "react-icons/fi";
-import { BiBrain } from "react-icons/bi";
 import { IoSchoolOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 
