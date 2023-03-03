@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 
 import About from "./Sections/About";
 import Experience from "./Sections/Experience";
-import Projects from "./Sections/Projects";
-import Skills from "./Sections/Skills";
 import Education from "./Sections/Education";
 import Footer from "./Sections/Footer";
 import Welcome from "./Sections/Welcome";
@@ -34,8 +32,6 @@ export default function Home() {
             <div className="flex flex-col justify-start items-end w-screen md:w-2/3 lg:w-3/4 2xl:w-4/5">
               <About />
               <Experience />
-              <Projects />
-              <Skills />
               <Education />
               <Footer />
             </div>

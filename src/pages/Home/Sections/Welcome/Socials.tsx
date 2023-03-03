@@ -31,12 +31,6 @@ const SOCIALS : SocialType[] = [
     type: "external",
   },
   {
-    title: "Projects",
-    url: "projects",
-    icon: <FiTool className="w-6 h-6 2xl:w-8 2xl:h-8" />,
-    type: "scroll",
-  },
-  {
     title: "Blog",
     url: "/blog",
     icon: <IoTextOutline className="w-6 h-6 2xl:w-8 2xl:h-8" />,

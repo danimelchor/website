@@ -4,7 +4,6 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Post from "./pages/Blog/Post";
-import ProjectPage from "./pages/Projects";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/blog" element={<Blog />} />
           <Route exact path="/blog/:post" element={<Post />} />
-          <Route exact path="/projects/:project" element={<ProjectPage />} />
           <Route
             exact
             path="/:section"

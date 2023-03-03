@@ -2,7 +2,14 @@ import React, { useState, useEffect, useCallback } from "react";
 
 import { Link } from "react-scroll";
 
-export default function MenuItem({ linkTo, icon, text, toggleMenuFunc }) {
+type PropTypes = {
+  linkTo: string;
+  icon: JSX.Element;
+  text: string;
+  toggleMenuFunc: () => void;
+}
+
+export default function MenuItem({ linkTo, icon, text, toggleMenuFunc } : PropTypes) {
   const [active, setActive] = useState(false);
 
   // Checks window scroll to see if a menu element should be highlighted

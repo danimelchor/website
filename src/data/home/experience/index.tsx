@@ -19,6 +19,16 @@ const getMonthsSince = (date1: Date, date2: Date) => {
 
 export const EXPERIENCE_LIST : ExperienceType = [
   {
+    role: "Software Engineer",
+    company: "Stripe",
+    from: "Jun 2023",
+    to: "undefined",
+    duration: "undefined",
+    where: "Boston, Massachusetts, USA",
+    website: "https://stripe.com/",
+    image: StripeImg,
+  },
+  {
     role: "Software Engineer Intern",
     company: "Stripe",
     from: "May 2022",
@@ -28,7 +38,6 @@ export const EXPERIENCE_LIST : ExperienceType = [
     website: "https://stripe.com/",
     image: StripeImg,
   },
-
   {
     role: "Software Engineer Intern",
     company: "BastionZero",

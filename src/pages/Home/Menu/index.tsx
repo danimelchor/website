@@ -116,18 +116,6 @@ export default function Menu() {
                 linkTo="experience"
               />
               <MenuItem
-                text=".projects()"
-                toggleMenuFunc={toggleMenu}
-                icon={<FiTool />}
-                linkTo="projects"
-              />
-              <MenuItem
-                text=".skills()"
-                toggleMenuFunc={toggleMenu}
-                icon={<BiBrain />}
-                linkTo="skills"
-              />
-              <MenuItem
                 text=".education()"
                 toggleMenuFunc={toggleMenu}
                 icon={<IoSchoolOutline />}
