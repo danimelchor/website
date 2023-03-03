@@ -1,28 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.8b588a07.css",
-    "main.js": "/static/js/main.d27fd2c9.js",
-    "static/js/881.4a8705e0.chunk.js": "/static/js/881.4a8705e0.chunk.js",
-    "static/js/763.d627f284.chunk.js": "/static/js/763.d627f284.chunk.js",
-    "static/js/336.2b1b1c5c.chunk.js": "/static/js/336.2b1b1c5c.chunk.js",
-    "static/js/257.94b958bd.chunk.js": "/static/js/257.94b958bd.chunk.js",
+    "main.css": "/static/css/main.75f30380.css",
+    "main.js": "/static/js/main.5a704bb7.js",
     "static/js/787.71e672d5.chunk.js": "/static/js/787.71e672d5.chunk.js",
-    "static/media/blog-bg.jpg": "/static/media/blog-bg.4390218891388242e82e.jpg",
     "static/media/me.jpg": "/static/media/me.2c87f549dbcd0337ac7c.jpg",
-    "static/media/0-pytorch-nntransformer.md": "/static/media/0-pytorch-nntransformer.05fad6dd24adcb7c5531.md",
     "static/media/background.png": "/static/media/background.f42243e322be5cd709c4.png",
-    "static/media/1-important-extraction.md": "/static/media/1-important-extraction.03f507d6ba1fd29d021f.md",
     "static/media/bunexus.png": "/static/media/bunexus.84a39915a268bbdfd77b.png",
     "static/media/intelygenz.png": "/static/media/intelygenz.06938bce1e14fd834b3b.png",
-    "static/media/2-C++-Data-Structures.md": "/static/media/2-C++-Data-Structures.0cfe3afc7b5ca7135a8e.md",
-    "static/media/3-Python-Data-Structures.md": "/static/media/3-Python-Data-Structures.68fdb8aa2bb291532f21.md",
     "index.html": "/index.html",
-    "main.8b588a07.css.map": "/static/css/main.8b588a07.css.map",
-    "main.d27fd2c9.js.map": "/static/js/main.d27fd2c9.js.map",
+    "main.75f30380.css.map": "/static/css/main.75f30380.css.map",
+    "main.5a704bb7.js.map": "/static/js/main.5a704bb7.js.map",
     "787.71e672d5.chunk.js.map": "/static/js/787.71e672d5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b588a07.css",
-    "static/js/main.d27fd2c9.js"
+    "static/css/main.75f30380.css",
+    "static/js/main.5a704bb7.js"
   ]
 }
