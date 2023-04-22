@@ -1,0 +1,125 @@
+<html>
+
+<head>
+  <title>Feliz aniversario!</title>
+</head>
+
+<body>
+  <img src="anniversary_header.jpg" id="header" />
+  <h1>Feliz aniversario Val!</h1>
+  <h3>Espero que te gusten mis regalitos.</h3>
+  <h2>El itinerario de hoy</h2>
+  <div id="itinerary">
+    <div class="itinerary-item">
+      <p>Comida en <a href="https://www.landwercafe.com/">Cafe Landwer</a></p>
+      <img src="anniversary_landwer.jpg" class="itinerary-img" />
+    </div>
+    <div class="itinerary-item">
+      <p>Unos Boba Tea de <a href="https://www.shinmiotea.com/">Shinmio Tea</a></p>
+      <img src="anniversary_shinmio.jpg" class="itinerary-img" />
+    </div>
+    <div class="itinerary-item">
+      <p>Paseo (si no llueve)</p>
+      <img src="anniversary_park.jpg" class="itinerary-img" />
+    </div>
+    <div class="itinerary-item">
+      <p>Early dinner en <a href="https://www.luccaboston.com/">Lucca</a></p>
+      <img src="anniversary_lucca.jpg" class="itinerary-img" />
+    </div>
+    <div class="itinerary-item">
+      <p>Tarta deliciosa (3 estrellas Michelin)</p>
+      <img src="anniversary_cake.jpg" class="itinerary-img" />
+    </div>
+    <h4>4/23/2022-4/23/2023</h4>
+  </div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: Helvetica, sans-serif;
+    }
+
+    body {
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      overflow-x: hidden;
+      text-align: center;
+    }
+
+    #header {
+      width: 100vw;
+      height: 30vh;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    a {
+      color: #0062ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: 80px;
+      margin: 0.5rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: 60px;
+      margin: 0.4rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+
+    h3 {
+      font-size: 30px;
+      margin: 0.3rem;
+      font-style: italic;
+      font-weight: normal;
+      color: #666;
+      width: 100%;
+    }
+
+    h4 {
+      margin-top: 10vh;
+      margin-bottom: 10vh;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 30px;
+      margin: 1rem;
+    }
+
+    #itinerary {
+      gap: 1rem;
+    }
+
+    .itinerary-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 95vw;
+    }
+
+    .itinerary-img {
+      width: 95vw;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 15px;
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+</html>
