@@ -87,55 +87,79 @@
     const CARDS = [
         {
             name: "Amex Gold",
-            restaurants: 4,
-            groceries: 4,
-            flights: 3,
-            "*": 1
+            importance: 2,
+            rewards: {
+                restaurants: 4,
+                groceries: 4,
+                flights: 3,
+                "*": 1
+            }
         },
         {
             name: "Apple Card",
-            applePay: 2,
-            apple: 3,
-            "*": 1
+            importance: 1,
+            rewards: {
+                applePay: 2,
+                apple: 3,
+                "*": 1
+            }
         },
         {
             name: "Discover It",
-            applePay: 5,
-            gas: 5,
-            "*": 1
+            importance: 1,
+            rewards: {
+                applePay: 5,
+                gas: 5,
+                "*": 1
+            }
         },
         {
             name: "Chase Freedom Flex",
-            flights: 5,
-            restaurants: 3,
-            drugstores: 3,
-            lyft: 5,
-            gas: 5,
-            entertainment: 5
+            importance: 3,
+            rewards: {
+                flights: 5,
+                hotels: 5,
+                restaurants: 3,
+                drugstores: 3,
+                lyft: 5,
+                gas: 5,
+                entertainment: 5,
+                "*": 1
+            }
         }
     ]
 
     let categories = []
     for (const card of CARDS) {
-        categories = categories.concat(Object.keys(card));
+        for (const category in card.rewards) {
+            categories.push(category);
+        }
     }
     categories = [...new Set(categories)];
     categories.sort();
 
     function findBestCard(category) {
-        let bestCard = null;
+        let bestCard = {};
         let bestValue = 0;
         for (const card of CARDS) {
-            if (card[category] === undefined) {
+            if (card.rewards[category] === undefined) {
                 continue;
             }
 
-            if (card[category] > bestValue) {
-                bestValue = card[category];
-                bestCard = card.name;
+            if (category == "flights")
+                console.log(card.name, card.rewards[category], bestValue, bestCard.name);
+
+            if (card.rewards[category] > bestValue) {
+                bestValue = card.rewards[category];
+                bestCard = card;
+            } else if (card.rewards[category] === bestValue) {
+                if (card.importance > bestCard.importance) {
+                    bestValue = card.rewards[category];
+                    bestCard = card;
+                }
             }
         }
-        return bestCard;
+        return bestCard.name;
     }
 
     function normalize(category) {
