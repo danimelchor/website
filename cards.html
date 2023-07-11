@@ -154,7 +154,7 @@
         button.onclick = () => {
             const modal = document.getElementById("modal");
             modal.innerHTML = `
-                <h2>The best card for ${normalize(category)} is</h1>
+                <h2>The best card for <b>${normalize(category)}</b> is</h1>
                 <h1>${bestCard}</h2>
             `;
             document.getElementById("modal-bg").style.visibility = "visible";
