@@ -32,11 +32,11 @@
     }
 
     button {
-        padding: 30px;
+        padding: 20px;
         border: 0 none;
         border-radius: 5px;
         background-color: white;
-        font-size: 70px;
+        font-size: 60px;
         width: 100%;
     }
 
@@ -171,10 +171,6 @@
     }
 
     for (const category of categories) {
-        if (category === "*") {
-            continue;
-        }
-
         const bestCard = findBestCard(category);
         const button = document.createElement("button");
         button.style.backgroundColor = getColor();
