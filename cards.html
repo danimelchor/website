@@ -7,14 +7,28 @@
 </head>
 
 <div id="buttons"></div>
+<div id="modal-bg">
+    <div id="modal">
+    </div>
+</div>
 
 <style>
+    * {
+        font-family: sans-serif;
+        font-weight: 100;
+        box-sizing: border-box;
+    }
+
     #buttons {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        padding: 20px;
     }
 
     button {
@@ -23,6 +37,45 @@
         border-radius: 5px;
         background-color: white;
         font-size: 70px;
+        width: 100%;
+    }
+
+    #modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+    }
+
+    #modal {
+        padding: 40px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #modal h1 {
+        font-size: 70px;
+        margin: 0;
+        color: gold;
+        font-weight: bold;
+    }
+
+    #modal h2 {
+        font-size: 50px;
+        margin: 0;
+        color: #888;
     }
 </style>
 
@@ -88,9 +141,18 @@
         button.style.backgroundColor = getColor();
         button.innerText = normalize(category);
         button.onclick = () => {
-            alert(bestCard);
+            const modal = document.getElementById("modal");
+            modal.innerHTML = `
+                <h2>The best card for ${normalize(category)} is</h1>
+                <h1>${bestCard}</h2>
+            `;
+            document.getElementById("modal-bg").style.visibility = "visible";
         }
         document.getElementById("buttons").appendChild(button);
+    }
+
+    document.getElementById("modal-bg").onclick = () => {
+        document.getElementById("modal-bg").style.visibility = "hidden";
     }
 </script>
 
