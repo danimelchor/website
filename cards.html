@@ -70,6 +70,10 @@
         return bestCard;
     }
 
+    function normalize(category) {
+        return category.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase());
+    }
+
     function getColor() {
         return `hsla(${~~(360 * Math.random())}, 70%,  72%, 0.8)`
     }
@@ -82,7 +86,7 @@
         const bestCard = findBestCard(category);
         const button = document.createElement("button");
         button.style.backgroundColor = getColor();
-        button.innerText = category;
+        button.innerText = normalize(category);
         button.onclick = () => {
             alert(bestCard);
         }
