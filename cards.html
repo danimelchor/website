@@ -84,43 +84,39 @@
 </style>
 
 <script type="text/javascript">
-    amex = {
-        restaurants: 4,
-        groceries: 4,
-        flights: 3,
-        "*": 1
-    }
-
-    apple = {
-        applePay: 2,
-        apple: 3,
-        "*": 1
-    }
-
-    discover = {
-        applePay: 5,
-        gas: 5,
-        "*": 1
-    }
-
-    chaseFlex = {
-        flights: 5,
-        restaurants: 3,
-        drugstores: 3,
-        lyft: 5,
-        gas: 5,
-        entertainment: 5
-    }
-
-    const CARDS = {
-        "Amex Gold": amex,
-        "Apple Card": apple,
-        "Discover It": discover,
-        "Chase Freedom Flex": chaseFlex
-    }
+    const CARDS = [
+        {
+            name: "Amex Gold",
+            restaurants: 4,
+            groceries: 4,
+            flights: 3,
+            "*": 1
+        },
+        {
+            name: "Apple Card",
+            applePay: 2,
+            apple: 3,
+            "*": 1
+        },
+        {
+            name: "Discover It",
+            applePay: 5,
+            gas: 5,
+            "*": 1
+        },
+        {
+            name: "Chase Freedom Flex",
+            flights: 5,
+            restaurants: 3,
+            drugstores: 3,
+            lyft: 5,
+            gas: 5,
+            entertainment: 5
+        }
+    ]
 
     let categories = []
-    for (const card of Object.values(CARDS)) {
+    for (const card of CARDS) {
         categories = categories.concat(Object.keys(card));
     }
     categories = [...new Set(categories)];
@@ -129,11 +125,14 @@
     function findBestCard(category) {
         let bestCard = null;
         let bestValue = 0;
-        for (const key of Object.keys(CARDS)) {
-            const card = CARDS[key];
+        for (const card of CARDS) {
+            if (card[category] === undefined) {
+                continue;
+            }
+
             if (card[category] > bestValue) {
-                bestCard = key;
                 bestValue = card[category];
+                bestCard = card.name;
             }
         }
         return bestCard;
