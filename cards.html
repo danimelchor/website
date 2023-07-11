@@ -124,6 +124,7 @@
         categories = categories.concat(Object.keys(card));
     }
     categories = [...new Set(categories)];
+    categories.sort();
 
     function findBestCard(category) {
         let bestCard = null;
