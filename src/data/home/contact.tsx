@@ -22,9 +22,9 @@ export const CONTACT_WAYS : ContactType[] = [
     copyText: "dmh672@gmail.com",
   },
   {
-    text: "@danii672",
-    href: "https://twitter.com/danii672",
+    text: "@dmelchor672",
+    href: "https://twitter.com/dmelchor672",
     icon: <FiTwitter />,
-    copyText: "@danii672",
+    copyText: "@dmelchor672",
   },
 ];

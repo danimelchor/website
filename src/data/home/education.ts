@@ -4,7 +4,7 @@ export const EDUCATION_LIST : EducationType[] = [
   {
     url: "https://www.bu.edu/",
     school: "Boston University",
-    year: "2020 - Present",
+    year: "2020 - 2023",
     type: ["B.A. in Computer Science"],
     location: "Boston, MA, USA",
   },

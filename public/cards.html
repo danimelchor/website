@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Better Card</title>
+</head>
+
+<div id="buttons"></div>
+<div id="modal-bg">
+    <div id="modal">
+    </div>
+</div>
+
+<style>
+    * {
+        font-family: sans-serif;
+        font-weight: 100;
+        box-sizing: border-box;
+    }
+
+    #buttons {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        padding: 20px;
+    }
+
+    button {
+        padding: 20px;
+        border: 0 none;
+        border-radius: 5px;
+        background-color: white;
+        font-size: 60px;
+        width: 100%;
+    }
+
+    #modal-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: rgba(0, 0, 0, 0.5);
+        visibility: hidden;
+    }
+
+    #modal {
+        padding: 40px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #modal h1 {
+        font-size: 70px;
+        margin: 0;
+        color: gold;
+        font-weight: bold;
+    }
+
+    #modal h2 {
+        font-size: 40px;
+        margin: 0;
+        color: #888;
+    }
+
+    b {
+        font-weight: bold;
+    }
+</style>
+
+<script type="text/javascript">
+    const CARDS = [
+        {
+            name: "Amex Gold",
+            importance: 2,
+            rewards: {
+                restaurants: 4,
+                groceries: 4,
+                flights: 3,
+                "*": 1
+            }
+        },
+        {
+            name: "Apple Card",
+            importance: 1,
+            rewards: {
+                applePay: 2,
+                apple: 3,
+                "*": 1
+            }
+        },
+        {
+            name: "Discover It",
+            importance: 1,
+            rewards: {
+                applePay: 5,
+                gas: 5,
+                "*": 1
+            }
+        },
+        {
+            name: "Chase Freedom Flex",
+            importance: 3,
+            rewards: {
+                flights: 5,
+                hotels: 5,
+                restaurants: 3,
+                drugstores: 3,
+                lyft: 5,
+                gas: 5,
+                entertainment: 5,
+                "*": 1
+            }
+        }
+    ]
+
+    let categories = []
+    for (const card of CARDS) {
+        for (const category in card.rewards) {
+            categories.push(category);
+        }
+    }
+    categories = [...new Set(categories)];
+    categories.sort();
+
+    function findBestCard(category) {
+        let bestCard = {};
+        let bestValue = 0;
+        for (const card of CARDS) {
+            if (card.rewards[category] === undefined) {
+                continue;
+            }
+
+            if (category == "flights")
+                console.log(card.name, card.rewards[category], bestValue, bestCard.name);
+
+            if (card.rewards[category] > bestValue) {
+                bestValue = card.rewards[category];
+                bestCard = card;
+            } else if (card.rewards[category] === bestValue) {
+                if (card.importance > bestCard.importance) {
+                    bestValue = card.rewards[category];
+                    bestCard = card;
+                }
+            }
+        }
+        return bestCard.name;
+    }
+
+    function normalize(category) {
+        return category.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase());
+    }
+
+    function getColor() {
+        return `hsla(${~~(360 * Math.random())}, 70%,  72%, 0.8)`
+    }
+
+    for (const category of categories) {
+        const bestCard = findBestCard(category);
+        const button = document.createElement("button");
+        button.style.backgroundColor = getColor();
+        button.innerText = normalize(category);
+        button.onclick = () => {
+            const modal = document.getElementById("modal");
+            modal.innerHTML = `
+                <h2>The best card for <b>${normalize(category)}</b> is</h1>
+                <h1>${bestCard}</h2>
+            `;
+            document.getElementById("modal-bg").style.visibility = "visible";
+        }
+        document.getElementById("buttons").appendChild(button);
+    }
+
+    document.getElementById("modal-bg").onclick = () => {
+        document.getElementById("modal-bg").style.visibility = "hidden";
+    }
+</script>
+
+</html>

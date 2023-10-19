@@ -33,22 +33,23 @@ export default function About() {
             <div className={htmlTagsStyle}>&#60;/h1&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>
             <p className="leading-relaxed text-lg text-gray-300 transition-colors duration-200">
-              I'm a {getAge()}-year-old student from Spain studying at Boston
-              University. I am pursuing a major in Computer Science, and, most
-              likely, will be graduating one year early.
+              I'm a {getAge()}-year-old from Spain working at Stripe as a SWE. I am
+              part of the data platform org, where I work on the data transformation
+              team. I build tools that help Stripe's data engineers and data
+              scientists do their job faster, better, and more efficiently.
+            </p>
+            <div className={htmlTagsStyle}>&#60;/h1&#62;</div>
+            <div className={htmlTagsStyle}>&#60;p&#62;</div>
+            <p className="leading-relaxed text-lg text-gray-300 transition-colors duration-200">
+              Previously, I was a student at Boston
+              University, where I pursued a major in Computer Science and ended
+              up graduating in 3 years (1 year early)
             </p>
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
             <div className={htmlTagsStyle}>&#60;p&#62;</div>
             <p className="leading-relaxed text-lg text-gray-300 transition-colors duration-200">
-              During the summer, I have worked at Stripe as a SWE intern. During
-              the year, I was working at a SWE at BastionZero, a cloud service
-              designed for modern Infrastructure as Code environments.
-            </p>
-            <div className={htmlTagsStyle}>&#60;/p&#62;</div>
-            <div className={htmlTagsStyle}>&#60;p&#62;</div>
-            <p className="leading-relaxed text-lg text-gray-300 transition-colors duration-200">
-              People describe me as: naturally curious, engaging, and hard
-              working.
+              Lately, you can find me traveling, reading, working on side projects, or
+              working out.
             </p>
             <div className={htmlTagsStyle}>&#60;/p&#62;</div>
           </div>

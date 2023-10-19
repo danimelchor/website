@@ -21,7 +21,7 @@ export const EXPERIENCE_LIST : ExperienceType[] = [
   {
     role: "Software Engineer",
     company: "Stripe",
-    from: "Jun 2023",
+    from: "Jul 2023",
     to: "undefined",
     duration: "undefined",
     where: "Boston, Massachusetts, USA",

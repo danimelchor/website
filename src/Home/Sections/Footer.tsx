@@ -20,7 +20,7 @@ export default function Footer() {
           >
             GitHub
           </a>
-          . Feel free to use the code /ask me any questions if you want to.
+          . Feel free to use the code / ask me any questions if you want to.
         </p>
       </div>
     </div>

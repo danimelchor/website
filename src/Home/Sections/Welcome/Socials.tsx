@@ -27,7 +27,7 @@ const SOCIALS : SocialType[] = [
   },
   {
     title: "Twitter",
-    url: "https://twitter.com/danii672",
+    url: "https://twitter.com/dmelchor672",
     icon: <FiTwitter className="w-6 h-6 2xl:w-8 2xl:h-8" />,
   },
 ];
