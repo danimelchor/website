@@ -5,6 +5,8 @@ import Footer from "./Sections/Footer";
 import Welcome from "./Sections/Welcome";
 import Menu from "./Menu";
 
+import "../styles/index.scss";
+
 export default function Home() {
   return (
     <div className="w-full min-h-full">
