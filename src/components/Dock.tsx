@@ -97,7 +97,7 @@ export default function Dock({
   }, []);
 
   return (
-    <div className="w-full flex justify-center items-center">
+    <div className="w-full flex justify-center items-center px-2">
       <div className="rounded-full p-3 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto lg:overflow-x-visible">
         {APPS.map((item, key) => {
           return (
@@ -110,7 +110,9 @@ export default function Dock({
             />
           );
         })}
-        <hr className="h-9 w-0.5 bg-slate-200 dark:bg-slate-800 rounded-full border-0" />
+        <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
+          &nbsp;
+        </div>
         {SOCIALS.map((item, key) => {
           return (
             <DockIcon
@@ -122,7 +124,9 @@ export default function Dock({
             />
           );
         })}
-        <hr className="h-9 w-0.5 bg-slate-200 dark:bg-slate-800 rounded-full border-0" />
+        <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
+          &nbsp;
+        </div>
         <DockIcon
           tooltip="Change theme"
           icon={
