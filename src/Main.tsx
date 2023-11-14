@@ -22,6 +22,7 @@ function Main() {
     if (newApp && newApp !== app) {
       setApp(newApp);
     } else {
+      setApp(null);
     }
 
     // Update URL
