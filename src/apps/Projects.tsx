@@ -141,13 +141,14 @@ export default function Projects() {
       className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
     >
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold">
-        My experience
+        Open-Souce Projects
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
-        From Stripe in Boston to Intelygenz in Madrid, my experience as a
-        software engineer has been a journey of diverse landscapes. These roles
-        have sculpted my skills, from contributing to cutting-edge projects at
-        Stripe to shaping innovations at smaller but impactful companies.
+        I've been busy crafting my own tech projects, all open-source and born
+        straight from my imagination. Think of them as my personal experiments
+        in coding cool stuff. From tinkering with neural networks to creating
+        slick user interfaces, these projects are my playground for mixing
+        innovation with a dash of unconventional problem-solving.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
         {PROJECT_LIST.map((item, key) => (
