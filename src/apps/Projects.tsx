@@ -141,7 +141,7 @@ export default function Projects() {
       className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
     >
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold">
-        Open-Souce Projects
+        Open-Source Projects
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
         I've been busy crafting my own tech projects, all open-source and born
