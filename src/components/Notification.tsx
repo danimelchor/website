@@ -43,7 +43,7 @@ export default function Notification() {
   return (
     <div
       className={classNames(
-        "absolute md:right-3 left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 top-3 bg-slate-200/50 dark:bg-slate-800/70 shadow-lg rounded-lg py-3 px-5 backdrop-blur-sm group transition-all duration-300 cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60",
+        "absolute md:right-3 left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 top-16 lg:top-3 bg-slate-200/50 dark:bg-slate-800/70 shadow-lg rounded-lg py-3 px-5 backdrop-blur-sm group transition-all duration-300 cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60",
         {
           "opacity-0 translate-x-full": !notification.show,
         },

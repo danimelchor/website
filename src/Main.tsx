@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import App from "components/App";
 import Notification from "components/Notification";
 import Dock, { APPS } from "components/Dock";
+import Background from "components/Background";
+import classNames from "classnames";
 
 function Main() {
   const getAppFromUrl = () => {
@@ -56,7 +58,12 @@ function Main() {
 
   return (
     <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
-      <div className="w-full h-full relative">
+      <Background interactive={!app} />
+      <div
+        className={classNames("w-full h-full relative", {
+          "pointer-events-none": !app,
+        })}
+      >
         {APPS.map((item, key) => {
           return (
             <App
