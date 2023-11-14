@@ -39,6 +39,7 @@ const PROJECT_LIST: ProjectType[] = [
     github: "https://github.com/Decentrapass",
     description: "Decentralized password manager built on Ethereum.",
     color: "emerald",
+    url: "https://decentrapass.github.io/Decentrapass-v1-Interface/",
   },
   {
     title: "PDF Summarizer",
