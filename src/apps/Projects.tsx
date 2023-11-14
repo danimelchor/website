@@ -84,7 +84,7 @@ function GithubIcon({
       target="_blank"
       rel="noreferrer"
       className={classNames(
-        "flex items-center justify-center gap-2 mt-auto bg-black dark:bg-slate-200 rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
+        "flex items-center justify-center gap-2 bg-black dark:bg-slate-200 rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
         extraClassNames,
       )}
     >
