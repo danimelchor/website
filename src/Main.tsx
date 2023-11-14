@@ -39,12 +39,14 @@ function Main() {
   };
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const lsTheme = localStorage.theme;
+
     // Set theme
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
+    if (media) {
+      localStorage.theme = "dark";
+      document.documentElement.classList.add("dark");
+    } else if (lsTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
