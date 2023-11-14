@@ -49,7 +49,7 @@ function TopBarIcon({
 
 function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
   return (
-    <div className="w-full h-8 flex items-center justify-between bg-slate-200 px-2">
+    <div className="w-full h-8 flex items-center justify-between bg-slate-200 dark:bg-slate-800 px-2">
       <div className="flex items-center justify-center gap-1">
         {TOP_ICONS.map((item, key) => {
           return (
@@ -62,7 +62,9 @@ function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
           );
         })}
       </div>
-      <div className="text-slate-600 text-sm font-bold">{title}</div>
+      <div className="text-slate-600 dark:text-slate-400 text-sm font-bold">
+        {title}
+      </div>
       <div className="opacity-0 pointer-events-none flex items-center justify-center gap-1">
         {TOP_ICONS.map((item, key) => {
           return (
@@ -93,19 +95,15 @@ export default function App({
   return (
     <div
       className={classNames(
-        "rounded-md bg-slate-100 shadow-md flex flex-col items-center justify-center absolute transition-all top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden duration-300",
+        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute transition-all top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden duration-300",
         {
           "scale-0 translate-y-1/2": !isOpen,
           "scale-100 -translate-y-1/2": isOpen,
         },
       )}
-      style={{
-        width: "90%",
-        height: "90%",
-      }}
     >
       <TopBar closeApp={closeApp} title={title} />
-      <div className="w-full h-full flex flex-col overflow-y-auto overflow-x-hidden">
+      <div className="w-full max-w-6xl my-10 xl:my-20 h-full flex flex-col overflow-y-auto overflow-x-hidden">
         {children}
       </div>
     </div>

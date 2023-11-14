@@ -1,6 +1,4 @@
-import { PostList } from "../../types";
-
-export const POSTS_LIST : PostList = {
+export const POSTS_LIST = {
   "3-Python-Data-Structures": {
     title: "Python's best data structures for coding interviews",
     subtitle:
@@ -38,4 +36,3 @@ export const POSTS_LIST : PostList = {
     internallink: "0-pytorch-nntransformer",
   },
 };
-

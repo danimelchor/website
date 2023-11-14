@@ -1,5 +1,51 @@
 import classNames from "classnames";
-import { ExperienceType } from "types";
+
+type ExperienceType = {
+  role: string;
+  roleSmall: string;
+  company: string;
+  from: string;
+  to?: string;
+  where: string;
+  image?: string;
+  duration: string;
+  website: string;
+  color: string;
+};
+
+type EducationType = {
+  website: string;
+  school: string;
+  year: string;
+  type: string;
+  typeSmall: string;
+  where: string;
+  color: string;
+  image: string;
+};
+
+export const EDUCATION_LIST: EducationType[] = [
+  {
+    website: "https://www.bu.edu/",
+    school: "Boston University",
+    year: "2020 - 2023",
+    type: "B.A. in Computer Science",
+    typeSmall: "B.A. in CS",
+    where: "Boston, MA, USA",
+    image: "bu.jpg",
+    color: "rose",
+  },
+  {
+    website: "https://logosinternationalschool.es/",
+    school: "Logos School",
+    year: "2005 - 2020",
+    type: "International Baccalaureate",
+    typeSmall: "IB",
+    where: "Madrid, Spain",
+    image: "logos.jpg",
+    color: "emerald",
+  },
+];
 
 const getMonthsSince = (date1: Date, date2: Date) => {
   var Difference_In_Time = date1.getTime() - date2.getTime();
@@ -17,6 +63,7 @@ const getMonthsSince = (date1: Date, date2: Date) => {
 export const EXPERIENCE_LIST: ExperienceType[] = [
   {
     role: "Software Engineer",
+    roleSmall: "SWE",
     company: "Stripe",
     from: "Jul 2023",
     duration: getMonthsSince(new Date(), new Date("07/01/2023")),
@@ -27,6 +74,7 @@ export const EXPERIENCE_LIST: ExperienceType[] = [
   },
   {
     role: "Software Engineer Intern",
+    roleSmall: "SWE Intern",
     company: "Stripe",
     from: "May 2022",
     to: "Aug 2022",
@@ -38,6 +86,7 @@ export const EXPERIENCE_LIST: ExperienceType[] = [
   },
   {
     role: "Software Engineer Intern",
+    roleSmall: "SWE Intern",
     company: "BastionZero",
     from: "Feb 2022",
     to: "May 2022",
@@ -48,7 +97,8 @@ export const EXPERIENCE_LIST: ExperienceType[] = [
     color: "orange",
   },
   {
-    role: "ML Software Engineer",
+    role: "ML Software Engineer Intern",
+    roleSmall: "ML SWE Intern",
     company: "Intelygenz",
     from: "Jun 2021",
     to: "Aug 2021",
@@ -65,58 +115,137 @@ type Mapping = {
 };
 
 const COLOR_TO_SHADOW: Mapping = {
-  indigo: "shadow-indigo-300",
-  orange: "shadow-orange-300",
-  cyan: "shadow-cyan-300",
+  indigo: "shadow-indigo-300 dark:shadow-indigo-700",
+  orange: "shadow-orange-300 dark:shadow-orange-700",
+  cyan: "shadow-cyan-300 dark:shadow-cyan-700",
+  emerald: "shadow-emerald-300 dark:shadow-emerald-700",
+  rose: "shadow-rose-300 dark:shadow-rose-700",
 };
 
 const COLOR_TO_BG: Mapping = {
-  indigo: "to-indigo-100 hover:to-indigo-200",
-  orange: "to-orange-100 hover:to-orange-200",
-  cyan: "to-cyan-100 hover:to-cyan-200",
+  indigo:
+    "to-indigo-100 hover:to-indigo-200 dark:to-indigo-900 dark:hover:to-indigo-800",
+  orange:
+    "to-orange-100 hover:to-orange-200 dark:to-orange-900 dark:hover:to-orange-800",
+  cyan: "to-cyan-100 hover:to-cyan-200 dark:to-cyan-900 dark:hover:to-cyan-800",
+  emerald:
+    "to-green-100 hover:to-green-200 dark:to-green-900 dark:hover:to-green-800",
+  rose: "to-rose-100 hover:to-rose-200 dark:to-rose-900 dark:hover:to-rose-800",
 };
 
 const COLOR_TO_TEXT_COLOR: Mapping = {
-  indigo: "text-indigo-700",
-  orange: "text-orange-700",
-  cyan: "text-cyan-700",
+  indigo: "text-indigo-700 dark:text-indigo-300",
+  orange: "text-orange-700 dark:text-orange-300",
+  cyan: "text-cyan-700 dark:text-cyan-300",
+  emerald: "text-green-700 dark:text-green-300",
+  rose: "text-rose-700 dark:text-rose-300",
 };
 
 const ExperienceItem = (item: ExperienceType) => {
   return (
     <a
       className={classNames(
-        "flex gap-7 bg-gradient-to-t from-transparent rounded-xl p-10 w-full",
+        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full",
         COLOR_TO_BG[item.color],
       )}
       href={item.website}
       target="_blank"
       rel="noreferrer"
     >
-      <img
-        className={classNames(
-          "w-16 h-16 rounded-md shadow-lg",
-          COLOR_TO_SHADOW[item.color],
-        )}
-        src={process.env.PUBLIC_URL + `/experience/${item.image}`}
-        alt={item.company}
-      />
-      <div className="flex flex-col">
-        <h3 className="text-slate-800 text-2xl font-bold">{item.role}</h3>
-        <div
+      <div className="flex gap-3 lg:gap-7 items-center lg:items-start">
+        <img
           className={classNames(
-            "text-md font-bold",
-            COLOR_TO_TEXT_COLOR[item.color],
+            "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg mb-2 lg:mb-0",
+            COLOR_TO_SHADOW[item.color],
           )}
-        >
-          {item.company}
+          src={process.env.PUBLIC_URL + `/experience/${item.image}`}
+          alt={item.company}
+        />
+        <div className="flex flex-col">
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block">
+            {item.role}
+          </h3>
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">
+            {item.roleSmall}
+          </h3>
+          <div
+            className={classNames(
+              "text-md font-bold",
+              COLOR_TO_TEXT_COLOR[item.color],
+            )}
+          >
+            {item.company}
+          </div>
+          <div className="text-slate-600 dark:text-slate-400 text-sm hidden lg:block">
+            {item.to
+              ? item.from + " - " + item.to + " (" + item.duration + ")"
+              : "Started " + item.from + " (" + item.duration + ")"}
+          </div>
+          <div className="text-slate-500 text-sm italic hidden lg:block">
+            {item.where}
+          </div>
         </div>
-        <div className="text-slate-600 text-sm">
-          {item.to
-            ? item.from + " - " + item.to + " (" + item.duration + ")"
-            : "Started " + item.from + " (" + item.duration + ")"}
+      </div>
+      <div className="text-slate-600 dark:text-slate-400 text-sm lg:hidden">
+        {item.to
+          ? item.from + " - " + item.to + " (" + item.duration + ")"
+          : "Started " + item.from + " (" + item.duration + ")"}
+      </div>
+      <div className="text-slate-500 text-sm italic lg:hidden">
+        {item.where}
+      </div>
+    </a>
+  );
+};
+
+const EducationItem = (item: EducationType) => {
+  return (
+    <a
+      className={classNames(
+        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full",
+        COLOR_TO_BG[item.color],
+      )}
+      href={item.website}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <div className="flex gap-3 lg:gap-7 items-center lg:items-start mb-2 lg:mb-0">
+        <img
+          className={classNames(
+            "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg",
+            COLOR_TO_SHADOW[item.color],
+          )}
+          src={process.env.PUBLIC_URL + `/education/${item.image}`}
+          alt={item.school}
+        />
+        <div className="flex flex-col">
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block">
+            {item.type}
+          </h3>
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">
+            {item.typeSmall}
+          </h3>
+          <div
+            className={classNames(
+              "text-md font-bold",
+              COLOR_TO_TEXT_COLOR[item.color],
+            )}
+          >
+            {item.school}
+          </div>
+          <div className="text-slate-600 dark:text-slate-400 text-sm hidden lg:block">
+            {item.year}
+          </div>
+          <div className="text-slate-500 text-sm italic hidden lg:block">
+            {item.where}
+          </div>
         </div>
-        <div className="text-slate-400 text-sm italic">{item.where}</div>
+      </div>
+      <div className="text-slate-600 dark:text-slate-400 text-sm lg:hidden">
+        {item.year}
+      </div>
+      <div className="text-slate-500 text-sm italic lg:hidden">
+        {item.where}
       </div>
     </a>
   );
@@ -128,8 +257,10 @@ const Experience = () => {
       id="experience"
       className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
     >
-      <h2 className="text-slate-800 text-4xl font-bold">My experience</h2>
-      <p className="text-slate-600 w-full lg:w-1/2">
+      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold">
+        My experience
+      </h2>
+      <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
         From Stripe in Boston to Intelygenz in Madrid, my experience as a
         software engineer has been a journey of diverse landscapes. These roles
         have sculpted my skills, from contributing to cutting-edge projects at
@@ -138,6 +269,21 @@ const Experience = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
         {EXPERIENCE_LIST.map((item, key) => (
           <ExperienceItem key={key} {...item} />
+        ))}
+      </div>
+      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold mt-10 xl:mt-20">
+        My education
+      </h2>
+      <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
+        I attended Boston University for a fast-tracked B.A. in Computer
+        Science, graduating in three years to jumpstart my career after learning
+        extensively through internships. Previously, I completed the
+        International Baccalaureate at Colegio Logos in Spain, paving the way
+        for U.S. college to pursue a robust Computer Science education.{" "}
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
+        {EDUCATION_LIST.map((item, key) => (
+          <EducationItem key={key} {...item} />
         ))}
       </div>
     </div>
