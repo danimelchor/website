@@ -13,17 +13,20 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media screen and (max-width: 767px) {
-    _::-webkit-full-page-media, _:future, :root .safari-only {
-        padding-bottom: 65px;
-    }
+html {
+  height: 100%;
 }
 
 body {
   @apply bg-blue-300;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  height: 100%;
 }
 
 .dark body {
   @apply bg-slate-700;
+}
+
+#root {
+  height: 100%;
 }

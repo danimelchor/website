@@ -22,17 +22,20 @@ function Main() {
     if (newApp && newApp !== app) {
       setApp(newApp);
     } else {
-      setApp(null);
     }
 
-    // Set app ?app=about
-    const urlParams = new URLSearchParams(window.location.search);
-    urlParams.set("app", newApp || "");
-    window.history.replaceState(
-      {},
-      "",
-      `${window.location.pathname}?${urlParams.toString()}`,
-    );
+    // Update URL
+    if (newApp !== "about") {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.set("app", newApp || "");
+      window.history.replaceState(
+        {},
+        "",
+        `${window.location.pathname}?${urlParams.toString()}`,
+      );
+    } else {
+      window.history.replaceState({}, "", `${window.location.pathname}`);
+    }
   };
 
   useEffect(() => {
@@ -49,7 +52,7 @@ function Main() {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col justify-between items-center relative overflow-hidden safari-only">
+    <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
       <div className="w-full h-full relative">
         {APPS.map((item, key) => {
           return (
