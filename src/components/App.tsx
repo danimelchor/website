@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiMaximize2, FiX, FiMinus } from "react-icons/fi";
 
 const TOP_ICONS = [
@@ -92,6 +92,14 @@ export default function App({
   isOpen: boolean;
   closeApp: () => void;
 }) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      contentRef.current?.scrollTo(0, 0);
+    }
+  }, [isOpen]);
+
   return (
     <div
       className={classNames(
@@ -103,7 +111,10 @@ export default function App({
       )}
     >
       <TopBar closeApp={closeApp} title={title} />
-      <div className="w-full max-w-6xl my-10 xl:my-20 h-full flex flex-col overflow-y-auto overflow-x-hidden">
+      <div
+        className="w-full max-w-6xl my-10 xl:my-20 h-full flex flex-col overflow-y-auto overflow-x-hidden"
+        ref={contentRef}
+      >
         {children}
       </div>
     </div>
