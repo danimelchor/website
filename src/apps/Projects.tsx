@@ -40,6 +40,21 @@ const PROJECT_LIST: ProjectType[] = [
     description: "Decentralized password manager built on Ethereum.",
     color: "emerald",
   },
+  {
+    title: "PDF Summarizer",
+    image: "pdf-summarizer.png",
+    github: "https://github.com/danimelchor/pdf-summarizer",
+    description: "Summarize PDFs into beautiful, easy-to-read documents.",
+    color: "violet",
+  },
+  {
+    title: "Sorting Visualizer",
+    image: "sorting-visualizer.jpeg",
+    github: "https://github.com/danimelchor/sorting-visualizer",
+    description: "Visualize sorting algorithms in real-time.",
+    url: "https://danimelchor.github.io/sorting-visualizer/",
+    color: "rose",
+  },
 ];
 
 type Mapping = {
@@ -51,6 +66,8 @@ const COLOR_TO_SHADOW: Mapping = {
   emerald: "shadow-emerald-300 dark:shadow-emerald-700",
   blue: "shadow-blue-300 dark:shadow-blue-700",
   slate: "shadow-slate-500",
+  violet: "shadow-violet-300 dark:shadow-violet-700",
+  rose: "shadow-rose-300 dark:shadow-rose-700",
 };
 
 const COLOR_TO_BG: Mapping = {
@@ -58,6 +75,8 @@ const COLOR_TO_BG: Mapping = {
   emerald: "to-green-100 dark:to-green-900",
   slate: "to-slate-200 dark:to-slate-800",
   blue: "to-blue-100 dark:to-blue-900",
+  violet: "to-violet-100 dark:to-violet-900",
+  rose: "to-rose-100 dark:to-rose-900",
 };
 
 const COLOR_TO_TEXT_COLOR: Mapping = {
@@ -65,6 +84,8 @@ const COLOR_TO_TEXT_COLOR: Mapping = {
   emerald: "text-green-700 dark:text-green-300",
   slate: "text-slate-700 dark:text-slate-300",
   blue: "text-blue-700 dark:text-blue-300",
+  violet: "text-violet-700 dark:text-violet-300",
+  rose: "text-rose-700 dark:text-rose-300",
 };
 
 function GithubIcon({
@@ -112,14 +133,19 @@ const ProjectItem = (item: ProjectType) => {
           alt={item.title}
         />
         <div className="flex flex-col">
-          <h3
-            className={classNames(
-              "text-lg md:text-xl lg:text-2xl font-bold",
-              COLOR_TO_TEXT_COLOR[item.color],
-            )}
-          >
-            {item.title}
-          </h3>
+          <a href={item.url} target="_blank" rel="noreferrer">
+            <h3
+              className={classNames(
+                "text-lg md:text-xl lg:text-2xl font-bold",
+                COLOR_TO_TEXT_COLOR[item.color],
+                {
+                  "hover:underline": item.url,
+                },
+              )}
+            >
+              {item.title}
+            </h3>
+          </a>
           <div className="text-slate-800 dark:text-slate-200">
             {item.description}
           </div>
@@ -150,7 +176,7 @@ export default function Projects() {
         slick user interfaces, these projects are my playground for mixing
         innovation with a dash of unconventional problem-solving.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center justify-center">
         {PROJECT_LIST.map((item, key) => (
           <ProjectItem key={key} {...item} />
         ))}
