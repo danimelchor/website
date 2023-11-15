@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTheme } from "providers/ThemeProvider";
 import { useEffect, useRef, useState } from "react";
 import { FiMaximize2, FiX, FiMinus } from "react-icons/fi";
 
@@ -92,6 +93,7 @@ export default function App({
   isOpen: boolean;
   closeApp: () => void;
 }) {
+  const { reducedMotion } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -110,8 +112,9 @@ export default function App({
         },
       )}
       style={{
-        transition:
-          "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: reducedMotion
+          ? ""
+          : "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <TopBar closeApp={closeApp} title={title} />

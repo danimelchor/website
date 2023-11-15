@@ -8,6 +8,7 @@ import {
 } from "react-icons/fi";
 import { HiOutlineLightBulb } from "react-icons/hi2";
 import { LiaCompassSolid } from "react-icons/lia";
+import { MdAnimation, MdOutlineCircle } from "react-icons/md";
 
 import { useEffect, useState } from "react";
 
@@ -16,6 +17,7 @@ import Projects from "apps/Projects";
 import Experience from "apps/Experience";
 import DockIcon from "components/DockIcon";
 import classNames from "classnames";
+import { useTheme } from "providers/ThemeProvider";
 // import { lazy } from "react";
 // const About = lazy(() => import("./apps/About"));
 // const Projects = lazy(() => import("./apps/Projects"));
@@ -77,25 +79,8 @@ export default function Dock({
   app: string | null;
   setApp: (app: string) => void;
 }) {
-  const [dark, setDark] = useState<boolean>(false);
-
-  const handleToggleTheme = () => {
-    if (localStorage.theme === "dark") {
-      localStorage.theme = "light";
-      document.documentElement.classList.remove("dark");
-      setDark(false);
-    } else {
-      localStorage.theme = "dark";
-      document.documentElement.classList.add("dark");
-      setDark(true);
-    }
-  };
-
-  useEffect(() => {
-    if (localStorage.theme === "dark") {
-      setDark(true);
-    }
-  }, []);
+  const { darkMode, reducedMotion, toggleDarkMode, toggleReducedMotion } =
+    useTheme();
 
   return (
     <div
@@ -138,14 +123,32 @@ export default function Dock({
         <DockIcon
           tooltip="Theme"
           icon={
-            dark ? (
+            darkMode ? (
               <FiSun className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
             ) : (
               <FiMoon className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
             )
           }
           selected={false}
-          onClick={handleToggleTheme}
+          onClick={toggleDarkMode}
+        />
+        <DockIcon
+          tooltip="Reduced Motion"
+          icon={
+            reducedMotion ? (
+              <MdAnimation
+                className="w-3 h-3 2xl:w-6 2xl:h-6"
+                color={slate500}
+              />
+            ) : (
+              <MdOutlineCircle
+                className="w-6 h-6 2xl:w-8 2xl:h-8"
+                color={slate500}
+              />
+            )
+          }
+          selected={false}
+          onClick={toggleReducedMotion}
         />
       </div>
     </div>

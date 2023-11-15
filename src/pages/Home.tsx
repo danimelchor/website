@@ -6,7 +6,7 @@ import Dock, { APPS } from "components/Dock";
 import Background from "components/Background";
 import classNames from "classnames";
 
-function Main() {
+function Home() {
   const getAppFromUrl = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const app = urlParams.get("app");
@@ -41,20 +41,6 @@ function Main() {
     }
   };
 
-  useEffect(() => {
-    const lsTheme = localStorage.theme;
-
-    // Set theme
-    if (lsTheme && lsTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else if (lsTheme && lsTheme === "light") {
-      document.documentElement.classList.remove("dark");
-    } else {
-      localStorage.theme = "dark";
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
   return (
     <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
       <Background />
@@ -82,4 +68,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;

@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTheme } from "providers/ThemeProvider";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = [
@@ -19,7 +20,17 @@ const COLORS = [
 const SIZE = 60;
 const DELAY_MULTIPLIER = 2;
 
-function GridItem({ x, y, cols }: { x: number; y: number; cols: number }) {
+function GridItem({
+  x,
+  y,
+  cols,
+  reducedMotion,
+}: {
+  x: number;
+  y: number;
+  cols: number;
+  reducedMotion: boolean;
+}) {
   const [tout, setTout] = useState<NodeJS.Timeout>();
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -29,14 +40,6 @@ function GridItem({ x, y, cols }: { x: number; y: number; cols: number }) {
   useEffect(() => {
     const box = boxRef.current;
     if (!box) return;
-
-    setTimeout(
-      () => {
-        box.style.opacity = "1";
-        box.style.pointerEvents = "auto";
-      },
-      (x + y * cols) * DELAY_MULTIPLIER,
-    );
 
     const handleMouseEnter = () => {
       box.style.transition = "background 0s ease";
@@ -51,30 +54,42 @@ function GridItem({ x, y, cols }: { x: number; y: number; cols: number }) {
       );
     };
 
-    box.addEventListener("mouseenter", handleMouseEnter);
-    box.addEventListener("mouseleave", handleMouseLeave);
+    if (!reducedMotion) {
+      setTimeout(
+        () => {
+          box.style.opacity = "1";
+          box.style.pointerEvents = "auto";
+        },
+        (x + y * cols) * DELAY_MULTIPLIER,
+      );
+
+      box.addEventListener("mouseenter", handleMouseEnter);
+      box.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
       box.removeEventListener("mouseenter", handleMouseEnter);
       box.removeEventListener("mouseleave", handleMouseLeave);
       if (tout) clearTimeout(tout);
     };
-  }, [boxRef, tout]);
+  }, [boxRef, tout, x, y, cols, reducedMotion]);
 
   return (
     <div
       className={classNames(
         "bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 cursor-pointer absolute",
-        color,
+        {
+          [color]: !reducedMotion,
+        },
       )}
       style={{
         width: SIZE,
         height: SIZE,
         top: y * SIZE,
         left: x * SIZE,
-        opacity: 0,
-        pointerEvents: "none",
-        transition: "opacity 1s ease",
+        opacity: reducedMotion ? 1 : 0,
+        pointerEvents: reducedMotion ? "auto" : "none",
+        transition: reducedMotion ? "" : "opacity 1s ease",
       }}
       ref={boxRef}
     ></div>
@@ -93,6 +108,7 @@ export default function Background() {
   const [cols, setCols] = useState(getCols());
   const [rows, setRows] = useState(getRows());
   const [cells, setCells] = useState<JSX.Element[]>([]);
+  const { reducedMotion } = useTheme();
 
   useEffect(() => {
     const handleResize = () => {
@@ -111,17 +127,31 @@ export default function Background() {
     let cells = [];
     for (let x = 0; x < 2 * cols; x++) {
       for (let y = 0; y < 2 * rows; y++) {
-        cells.push(<GridItem x={x} y={y} key={`${x}-${y}`} cols={cols} />);
+        cells.push(
+          <GridItem
+            x={x}
+            y={y}
+            key={`${x}-${y}`}
+            cols={cols}
+            reducedMotion={reducedMotion}
+          />,
+        );
       }
     }
     return cells;
-  }, [cols, rows]);
+  }, [cols, rows, reducedMotion]);
 
   useEffect(() => {
-    setTimeout(() => {
+    if (cells) setCells([]);
+
+    if (!reducedMotion) {
+      setTimeout(() => {
+        setCells(getCells());
+      }, 300);
+    } else {
       setCells(getCells());
-    }, 300);
-  }, [cols, rows, getCells]);
+    }
+  }, [cols, rows, getCells, reducedMotion]);
 
   return (
     <div className="w-screen h-screen fixed top-0 left-0">

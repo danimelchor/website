@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTheme } from "providers/ThemeProvider";
 import { ReactNode, useEffect, useState } from "react";
 import { FiX } from "react-icons/fi";
 import { TbMessageCirclePlus } from "react-icons/tb";
@@ -12,6 +13,7 @@ type NotificationType = {
 };
 
 export default function Notification() {
+  const { reducedMotion } = useTheme();
   const [notification, setNotification] = useState<NotificationType>({
     show: false,
   });
@@ -29,7 +31,7 @@ export default function Notification() {
           setNotification((n: NotificationType) => ({ ...n, show: false }));
         },
       });
-    }, 1000);
+    }, 4000);
 
     return () => {
       if (to) clearTimeout(to);
@@ -51,13 +53,22 @@ export default function Notification() {
       )}
       onClick={notification.onClick}
       style={{
-        transitionProperty: "transform, background-color, opacity",
-        transitionDuration: "150ms",
-        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+        transitionProperty: reducedMotion
+          ? ""
+          : "transform, background-color, opacity",
+        transitionDuration: reducedMotion ? "" : "150ms",
+        transitionTimingFunction: reducedMotion
+          ? ""
+          : "cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <div
-        className="absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-full w-5 h-5 cursor-pointer backdrop-blur-sm shadow-md bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70 transition-all"
+        className={classNames(
+          "absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-full w-5 h-5 cursor-pointer backdrop-blur-sm shadow-md bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70",
+          {
+            transition: !reducedMotion,
+          },
+        )}
         onClick={(e) => {
           e.stopPropagation();
           dismiss();
