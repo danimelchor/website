@@ -2,6 +2,32 @@ import classNames from "classnames";
 import { useTheme } from "providers/ThemeProvider";
 import { useEffect, useState } from "react";
 
+function Tooltip({
+  tooltip,
+  show,
+  reducedMotion,
+}: {
+  tooltip: string;
+  show: boolean;
+  reducedMotion: boolean;
+}) {
+  return (
+    <div
+      className={classNames(
+        "absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full mb-10 text-xs text-slate-600 dark:text-slate-300 bg-slate-300 dark:bg-slate-600 px-2 py-1 rounded-md shadow-md text-center select-none w-28",
+        {
+          "opacity-0": !show,
+          "opacity-0 lg:opacity-100": show,
+          "transition-opacity duration-300 scale-75": !reducedMotion,
+        },
+      )}
+    >
+      {tooltip}
+      <div className="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-300 dark:border-t-slate-600" />
+    </div>
+  );
+}
+
 export default function DockIcon({
   onClick,
   tooltip,
@@ -67,18 +93,11 @@ export default function DockIcon({
       onClick={onClick}
     >
       {icon}
-      <div
-        className={classNames(
-          "absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full mb-10 text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-md shadow-md text-center select-none",
-          {
-            "opacity-0": !showTooltip,
-            "opacity-0 lg:opacity-100": showTooltip,
-            "transition-opacity duration-300 scale-75": !reducedMotion,
-          },
-        )}
-      >
-        {tooltip}
-      </div>
+      <Tooltip
+        tooltip={tooltip}
+        show={showTooltip}
+        reducedMotion={reducedMotion}
+      />
       <div
         className={classNames(
           "h-1 w-1 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 transition-all duration-300",

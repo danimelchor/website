@@ -145,7 +145,7 @@ const ExperienceItem = (item: ExperienceType) => {
   return (
     <a
       className={classNames(
-        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full",
+        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full group",
         COLOR_TO_BG[item.color],
       )}
       href={item.website}
@@ -162,7 +162,7 @@ const ExperienceItem = (item: ExperienceType) => {
           alt={item.company}
         />
         <div className="flex flex-col">
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block">
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block lg:group-hover:underline">
             {item.role}
           </h3>
           <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">
@@ -202,7 +202,7 @@ const EducationItem = (item: EducationType) => {
   return (
     <a
       className={classNames(
-        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full",
+        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full group",
         COLOR_TO_BG[item.color],
       )}
       href={item.website}
@@ -219,7 +219,7 @@ const EducationItem = (item: EducationType) => {
           alt={item.school}
         />
         <div className="flex flex-col">
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block">
+          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block lg:group-hover:underline">
             {item.type}
           </h3>
           <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">

@@ -120,7 +120,7 @@ export default function Dock({
           &nbsp;
         </div>
         <DockIcon
-          tooltip="Theme"
+          tooltip={darkMode ? "Light Mode" : "Dark Mode"}
           icon={
             darkMode ? (
               <FiSun className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
@@ -132,7 +132,7 @@ export default function Dock({
           onClick={toggleDarkMode}
         />
         <DockIcon
-          tooltip="Reduced Motion"
+          tooltip={reducedMotion ? "Enable Motion" : "Disable Motion"}
           icon={
             reducedMotion ? (
               <PiSneakerMoveBold
