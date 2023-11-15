@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import { useTheme } from "providers/ThemeProvider";
 import { ReactNode, useEffect, useState } from "react";
-import { FiX } from "react-icons/fi";
-import { TbMessageCirclePlus } from "react-icons/tb";
+import { FiUserPlus, FiX } from "react-icons/fi";
 
 type NotificationType = {
   title?: string;
@@ -25,7 +24,7 @@ export default function Notification() {
         message: "I'm always open to chat, feel free to reach out!",
         show: true,
         icon: (
-          <TbMessageCirclePlus className="w-6 h-6 stroke-slate-800 dark:stroke-slate-200" />
+          <FiUserPlus className="mt-1 w-5 h-5 stroke-slate-800 dark:stroke-slate-200" />
         ),
         onClick: () => {
           setNotification((n: NotificationType) => ({ ...n, show: false }));
@@ -42,16 +41,20 @@ export default function Notification() {
     setNotification((n: NotificationType) => ({ ...n, show: false }));
   };
 
+  const bgColor =
+    "bg-gradient-to-r from-blue-400/70 to-emerald-400/70 dark:from-emerald-700/70 dark:to-blue-700/70";
+
   return (
     <div
       className={classNames(
-        "absolute md:right-3 left-1/2 md:left-auto transform top-3 bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70 shadow-lg rounded-lg py-3 px-5 backdrop-blur-sm group cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60 z-20",
+        "absolute md:right-3 left-1/2 md:left-auto transform top-3 shadow-lg rounded-lg py-3 px-4 backdrop-blur-sm group cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60 z-20",
         {
           "opacity-0 -translate-x-1/2 -translate-y-full md:translate-x-full md:translate-y-0":
             !notification.show,
           "opacity-1 -translate-x-1/2 translate-y-0 md:translate-x-0 md:translate-y-0":
             notification.show,
         },
+        bgColor,
       )}
       onClick={notification.onClick}
       style={{
@@ -66,10 +69,11 @@ export default function Notification() {
     >
       <div
         className={classNames(
-          "absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 opacity-0 md:group-hover:opacity-100 flex items-center justify-center rounded-full w-5 h-5 cursor-pointer backdrop-blur-sm shadow-md bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70",
+          "absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 opacity-0 md:group-hover:opacity-100 flex items-center justify-center rounded-full w-5 h-5 cursor-pointer backdrop-blur-sm shadow-md",
           {
             transition: !reducedMotion,
           },
+          bgColor,
         )}
         onClick={(e) => {
           e.stopPropagation();
@@ -78,9 +82,9 @@ export default function Notification() {
       >
         <FiX className="w-3 h-3 text-slate-800 dark:text-slate-200 " />
       </div>
-      <div className="flex justify-center gap-3">
+      <div className="flex gap-3 h-full">
         {notification.icon}
-        <div>
+        <div className="flex h-full flex-col">
           <div className="text-slate-800 dark:text-slate-200 text-md font-bold">
             {notification.title}
           </div>
