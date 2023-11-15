@@ -72,7 +72,7 @@ export default function DockIcon({
           "absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full mb-10 text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-800 px-2 py-1 rounded-md shadow-md text-center select-none",
           {
             "opacity-0": !showTooltip,
-            "lg:opacity-100": showTooltip,
+            "opacity-0 lg:opacity-100": showTooltip,
             "transition-opacity duration-300 scale-75": !reducedMotion,
           },
         )}
