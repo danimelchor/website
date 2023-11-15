@@ -8,9 +8,8 @@ import {
 } from "react-icons/fi";
 import { HiOutlineLightBulb } from "react-icons/hi2";
 import { LiaCompassSolid } from "react-icons/lia";
-import { MdAnimation, MdOutlineCircle } from "react-icons/md";
-
-import { useEffect, useState } from "react";
+import { MdSlowMotionVideo } from "react-icons/md";
+import { PiSneakerMoveBold } from "react-icons/pi";
 
 import About from "apps/About";
 import Projects from "apps/Projects";
@@ -136,12 +135,12 @@ export default function Dock({
           tooltip="Reduced Motion"
           icon={
             reducedMotion ? (
-              <MdAnimation
+              <PiSneakerMoveBold
                 className="w-3 h-3 2xl:w-6 2xl:h-6"
                 color={slate500}
               />
             ) : (
-              <MdOutlineCircle
+              <MdSlowMotionVideo
                 className="w-6 h-6 2xl:w-8 2xl:h-8"
                 color={slate500}
               />

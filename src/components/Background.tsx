@@ -147,7 +147,7 @@ export default function Background() {
     if (!reducedMotion) {
       setTimeout(() => {
         setCells(getCells());
-      }, 300);
+      }, 50);
     } else {
       setCells(getCells());
     }
