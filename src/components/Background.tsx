@@ -1,46 +1,56 @@
 import classNames from "classnames";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const COLORS = [
-  "lg:hover:bg-red-200 lg:dark:hover:bg-red-800",
-  "lg:hover:bg-orange-200 lg:dark:hover:bg-orange-800",
-  "lg:hover:bg-yellow-200 lg:dark:hover:bg-yellow-800",
-  "lg:hover:bg-green-200 lg:dark:hover:bg-green-800",
-  "lg:hover:bg-blue-200 lg:dark:hover:bg-blue-800",
-  "lg:hover:bg-indigo-200 lg:dark:hover:bg-indigo-800",
-  "lg:hover:bg-purple-200 lg:dark:hover:bg-purple-800",
-  "lg:hover:bg-pink-200 lg:dark:hover:bg-pink-800",
-  "lg:hover:bg-rose-200 lg:dark:hover:bg-rose-800",
-  "lg:hover:bg-cyan-200 lg:dark:hover:bg-cyan-800",
-  "lg:hover:bg-emerald-200 lg:dark:hover:bg-emerald-800",
-  "lg:hover:bg-violet-200 lg:dark:hover:bg-violet-800",
+  "hover:bg-red-200 dark:hover:bg-red-800",
+  "hover:bg-orange-200 dark:hover:bg-orange-800",
+  "hover:bg-yellow-200 dark:hover:bg-yellow-800",
+  "hover:bg-green-200 dark:hover:bg-green-800",
+  "hover:bg-blue-200 dark:hover:bg-blue-800",
+  "hover:bg-indigo-200 dark:hover:bg-indigo-800",
+  "hover:bg-purple-200 dark:hover:bg-purple-800",
+  "hover:bg-pink-200 dark:hover:bg-pink-800",
+  "hover:bg-rose-200 dark:hover:bg-rose-800",
+  "hover:bg-cyan-200 dark:hover:bg-cyan-800",
+  "hover:bg-emerald-200 dark:hover:bg-emerald-800",
+  "hover:bg-violet-200 dark:hover:bg-violet-800",
 ];
 
 const SIZE = 60;
 
 function GridItem({ x, y }: { x: number; y: number }) {
-  const [transition, setTransition] = useState("background 0.1s ease-out");
-  const [to, setTo] = useState<NodeJS.Timeout>();
+  const [tout, setTout] = useState<NodeJS.Timeout>();
+  const boxRef = useRef<HTMLDivElement>(null);
 
   const i = x + y;
   const color = COLORS[i % COLORS.length];
 
-  const handleMouseLeave = () => {
-    setTransition("background 1s ease-in");
-    setTo(
-      setTimeout(() => {
-        setTransition("background 0.1s ease-out");
-      }, 1000),
-    );
-  };
-
   useEffect(() => {
-    return () => {
-      if (to) {
-        clearTimeout(to);
-      }
+    const box = boxRef.current;
+    if (!box) return;
+
+    const handleMouseEnter = () => {
+      box.style.transition = "background 0s ease";
     };
-  }, [to]);
+
+    const handleMouseLeave = () => {
+      box.style.transition = "background 2s ease";
+      setTout(
+        setTimeout(() => {
+          box.style.transition = "";
+        }, 2000),
+      );
+    };
+
+    box.addEventListener("mouseenter", handleMouseEnter);
+    box.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      box.removeEventListener("mouseenter", handleMouseEnter);
+      box.removeEventListener("mouseleave", handleMouseLeave);
+      if (tout) clearTimeout(tout);
+    };
+  }, [boxRef, tout]);
 
   return (
     <div
@@ -53,9 +63,8 @@ function GridItem({ x, y }: { x: number; y: number }) {
         height: SIZE,
         top: y * SIZE,
         left: x * SIZE,
-        transition: transition,
       }}
-      onMouseLeave={handleMouseLeave}
+      ref={boxRef}
     ></div>
   );
 }
@@ -100,7 +109,7 @@ export default function Background({ interactive }: { interactive: boolean }) {
       className={classNames(
         "w-screen h-screen fixed top-0 left-0 pointer-events-none",
         {
-          "lg:pointer-events-auto": interactive,
+          "pointer-events-auto": interactive,
         },
       )}
     >
