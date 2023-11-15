@@ -110,9 +110,8 @@ export default function App({
         },
       )}
       style={{
-        transitionProperty: "transform, background-color",
-        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-        transitionDuration: "150ms",
+        transition:
+          "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
       <TopBar closeApp={closeApp} title={title} />

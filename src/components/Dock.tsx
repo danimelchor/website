@@ -136,7 +136,7 @@ export default function Dock({
           &nbsp;
         </div>
         <DockIcon
-          tooltip="Change theme"
+          tooltip="Theme"
           icon={
             dark ? (
               <FiSun className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
