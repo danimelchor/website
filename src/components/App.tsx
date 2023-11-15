@@ -105,7 +105,7 @@ export default function App({
   return (
     <div
       className={classNames(
-        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden",
+        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden pointer-events-auto",
         {
           "scale-0 translate-y-1/2": !isOpen,
           "scale-100 -translate-y-1/2": isOpen,

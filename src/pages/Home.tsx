@@ -4,7 +4,6 @@ import App from "components/App";
 import Notification from "components/Notification";
 import Dock, { APPS } from "components/Dock";
 import Background from "components/Background";
-import classNames from "classnames";
 
 function Home() {
   const getAppFromUrl = () => {
@@ -44,11 +43,7 @@ function Home() {
   return (
     <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
       <Background />
-      <div
-        className={classNames("w-full h-full relative z-10", {
-          "pointer-events-none": !app,
-        })}
-      >
+      <div className="w-full h-full relative z-10 pointer-events-none">
         {APPS.map((item, key) => {
           return (
             <App
