@@ -257,8 +257,8 @@ const Experience = () => {
       id="experience"
       className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
     >
-      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold">
-        My experience
+      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
+        Experience
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
         From Stripe in Boston to Intelygenz in Madrid, my experience as a
@@ -271,8 +271,8 @@ const Experience = () => {
           <ExperienceItem key={key} {...item} />
         ))}
       </div>
-      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold mt-10 xl:mt-20">
-        My education
+      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold mt-10 xl:mt-20 transition-colors">
+        Education
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
         I attended Boston University for a fast-tracked B.A. in Computer

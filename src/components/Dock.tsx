@@ -15,6 +15,7 @@ import About from "apps/About";
 import Projects from "apps/Projects";
 import Experience from "apps/Experience";
 import DockIcon from "components/DockIcon";
+import classNames from "classnames";
 // import { lazy } from "react";
 // const About = lazy(() => import("./apps/About"));
 // const Projects = lazy(() => import("./apps/Projects"));
@@ -97,8 +98,15 @@ export default function Dock({
   }, []);
 
   return (
-    <div className="w-full flex justify-center items-center px-2">
-      <div className="rounded-full p-3 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto lg:overflow-x-visible z-50">
+    <div
+      className={classNames(
+        "w-full flex justify-center items-center px-2 z-10",
+        {
+          "pointer-events-none": !app,
+        },
+      )}
+    >
+      <div className="rounded-full p-3 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto lg:overflow-x-visible pointer-events-auto">
         {APPS.map((item, key) => {
           return (
             <DockIcon

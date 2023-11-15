@@ -106,7 +106,7 @@ function GithubIcon({
       target="_blank"
       rel="noreferrer"
       className={classNames(
-        "flex items-center justify-center gap-2 bg-black dark:bg-slate-200 rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
+        "flex items-center justify-center gap-2 bg-black dark:bg-slate-200 transition-colors rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
         extraClassNames,
       )}
     >
@@ -167,7 +167,7 @@ export default function Projects() {
       id="experience"
       className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
     >
-      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold">
+      <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
         Open-Source Projects
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">

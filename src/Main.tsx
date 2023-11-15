@@ -42,25 +42,24 @@ function Main() {
   };
 
   useEffect(() => {
-    const media = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const lsTheme = localStorage.theme;
 
     // Set theme
-    if (media) {
+    if (lsTheme && lsTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (lsTheme && lsTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
       localStorage.theme = "dark";
       document.documentElement.classList.add("dark");
-    } else if (lsTheme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   return (
     <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
-      <Background interactive={!app} />
+      <Background />
       <div
-        className={classNames("w-full h-full relative", {
+        className={classNames("w-full h-full relative z-10", {
           "pointer-events-none": !app,
         })}
       >
@@ -70,8 +69,9 @@ function Main() {
               closeApp={() => handleChangeApp(null)}
               isOpen={app === item.title.toLowerCase()}
               title={item.title}
+              key={key}
             >
-              <item.component key={key} />
+              <item.component />
             </App>
           );
         })}

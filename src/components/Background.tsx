@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = [
   "hover:bg-red-200 dark:hover:bg-red-800",
@@ -17,8 +17,9 @@ const COLORS = [
 ];
 
 const SIZE = 60;
+const DELAY_MULTIPLIER = 2;
 
-function GridItem({ x, y }: { x: number; y: number }) {
+function GridItem({ x, y, cols }: { x: number; y: number; cols: number }) {
   const [tout, setTout] = useState<NodeJS.Timeout>();
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -28,6 +29,14 @@ function GridItem({ x, y }: { x: number; y: number }) {
   useEffect(() => {
     const box = boxRef.current;
     if (!box) return;
+
+    setTimeout(
+      () => {
+        box.style.opacity = "1";
+        box.style.pointerEvents = "auto";
+      },
+      (x + y * cols) * DELAY_MULTIPLIER,
+    );
 
     const handleMouseEnter = () => {
       box.style.transition = "background 0s ease";
@@ -63,13 +72,16 @@ function GridItem({ x, y }: { x: number; y: number }) {
         height: SIZE,
         top: y * SIZE,
         left: x * SIZE,
+        opacity: 0,
+        pointerEvents: "none",
+        transition: "opacity 1s ease",
       }}
       ref={boxRef}
     ></div>
   );
 }
 
-export default function Background({ interactive }: { interactive: boolean }) {
+export default function Background() {
   const getCols = () => {
     return Math.ceil(window.innerWidth / SIZE);
   };
@@ -80,6 +92,7 @@ export default function Background({ interactive }: { interactive: boolean }) {
 
   const [cols, setCols] = useState(getCols());
   const [rows, setRows] = useState(getRows());
+  const [cells, setCells] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -94,25 +107,24 @@ export default function Background({ interactive }: { interactive: boolean }) {
     };
   }, []);
 
-  const cells = useMemo(() => {
+  const getCells = useCallback(() => {
     let cells = [];
     for (let x = 0; x < 2 * cols; x++) {
       for (let y = 0; y < 2 * rows; y++) {
-        cells.push(<GridItem x={x} y={y} key={`${x}-${y}`} />);
+        cells.push(<GridItem x={x} y={y} key={`${x}-${y}`} cols={cols} />);
       }
     }
     return cells;
   }, [cols, rows]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setCells(getCells());
+    }, 300);
+  }, [cols, rows, getCells]);
+
   return (
-    <div
-      className={classNames(
-        "w-screen h-screen fixed top-0 left-0 pointer-events-none",
-        {
-          "pointer-events-auto": interactive,
-        },
-      )}
-    >
+    <div className="w-screen h-screen fixed top-0 left-0">
       <div className="w-screen h-screen relative">{cells}</div>
     </div>
   );

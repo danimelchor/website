@@ -29,7 +29,7 @@ export default function Notification() {
           setNotification((n: NotificationType) => ({ ...n, show: false }));
         },
       });
-    }, 4000);
+    }, 1000);
 
     return () => {
       if (to) clearTimeout(to);
@@ -43,21 +43,27 @@ export default function Notification() {
   return (
     <div
       className={classNames(
-        "absolute md:right-3 left-1/2 md:left-auto transform -translate-x-1/2 md:translate-x-0 top-16 lg:top-3 bg-slate-200/50 dark:bg-slate-800/70 shadow-lg rounded-lg py-3 px-5 backdrop-blur-sm group transition-all duration-300 cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60",
+        "absolute md:right-3 left-1/2 md:left-auto transform top-16 lg:top-3 bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70 shadow-lg rounded-lg py-3 px-5 backdrop-blur-sm group cursor-pointer w-9.5/10 md:w-auto shadow-slate-300/60 dark:shadow-slate-700/60",
         {
           "opacity-0 translate-x-full": !notification.show,
+          "opacity-1 -translate-x-1/2 md:translate-x-0": notification.show,
         },
       )}
       onClick={notification.onClick}
+      style={{
+        transitionProperty: "transform, background-color, opacity",
+        transitionDuration: "150ms",
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
     >
       <div
-        className="absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 text-slate-800 hidden group-hover:flex items-center justify-center rounded-full w-5 h-5 bg-slate-300/80 dark:bg-slate-700/80 cursor-pointer backdrop-blur-sm shadow-md"
+        className="absolute left-0 top-0 transform -translate-x-1/3 -translate-y-1/3 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-full w-5 h-5 cursor-pointer backdrop-blur-sm shadow-md bg-gradient-to-r from-blue-600/70 to-emerald-500/70 dark:from-emerald-700/70 dark:to-blue-700/70 transition-all"
         onClick={(e) => {
           e.stopPropagation();
           dismiss();
         }}
       >
-        <FiX className="w-3 h-3" />
+        <FiX className="w-3 h-3 text-slate-800 dark:text-slate-200 " />
       </div>
       <div className="flex justify-center gap-3">
         {notification.icon}

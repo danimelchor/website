@@ -103,12 +103,17 @@ export default function App({
   return (
     <div
       className={classNames(
-        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute transition-all top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden duration-300",
+        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden",
         {
           "scale-0 translate-y-1/2": !isOpen,
           "scale-100 -translate-y-1/2": isOpen,
         },
       )}
+      style={{
+        transitionProperty: "transform, background-color",
+        transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+        transitionDuration: "150ms",
+      }}
     >
       <TopBar closeApp={closeApp} title={title} />
       <div
