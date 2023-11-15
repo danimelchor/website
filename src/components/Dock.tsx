@@ -136,7 +136,7 @@ export default function Dock({
           icon={
             reducedMotion ? (
               <PiSneakerMoveBold
-                className="w-3 h-3 2xl:w-6 2xl:h-6"
+                className="w-6 h-6 2xl:w-8 2xl:h-8"
                 color={slate500}
               />
             ) : (

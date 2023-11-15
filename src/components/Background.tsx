@@ -18,16 +18,17 @@ const COLORS = [
 ];
 
 const SIZE = 60;
-const DELAY_MULTIPLIER = 2;
 
 function GridItem({
   x,
   y,
+  rows,
   cols,
   reducedMotion,
 }: {
   x: number;
   y: number;
+  rows: number;
   cols: number;
   reducedMotion: boolean;
 }) {
@@ -54,14 +55,17 @@ function GridItem({
       );
     };
 
+    const totalAnimTime = 1500;
+    const numCells = rows * cols;
+    const step = totalAnimTime / numCells;
+    const cellNum = x + y * cols;
+    const delay = step * cellNum;
+
     if (!reducedMotion) {
-      setTimeout(
-        () => {
-          box.style.opacity = "1";
-          box.style.pointerEvents = "auto";
-        },
-        (x + y * cols) * DELAY_MULTIPLIER,
-      );
+      setTimeout(() => {
+        box.style.opacity = "1";
+        box.style.pointerEvents = "auto";
+      }, delay);
 
       box.addEventListener("mouseenter", handleMouseEnter);
       box.addEventListener("mouseleave", handleMouseLeave);
@@ -132,6 +136,7 @@ export default function Background() {
             x={x}
             y={y}
             key={`${x}-${y}`}
+            rows={rows}
             cols={cols}
             reducedMotion={reducedMotion}
           />,
