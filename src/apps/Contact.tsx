@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { IconType } from "react-icons";
 import { FiGithub, FiLinkedin, FiMail, FiTwitter } from "react-icons/fi";
-import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "./colors";
+import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
 
 type ContactType = {
   text: string;
@@ -22,7 +22,9 @@ function contactItem(item: ContactType) {
       target="_blank"
       rel="noreferrer"
     >
-      <item.icon className={classNames("w-6 h-6 lg:w-8 lg:h-8 rounded-md shadow-lg", COLOR_TO_TEXT_COLOR[item.color])} />
+      <item.icon className={classNames("w-8 h-8 p-2 lg:w-10 lg:h-10 rounded-md shadow-md", COLOR_TO_SHADOW[item.color],
+        COLOR_TO_TEXT_COLOR[item.color]
+      )} />
       <div className="flex flex-col">
         <div
           className={classNames(
