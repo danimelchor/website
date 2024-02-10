@@ -18,7 +18,17 @@ export default function Notification() {
   });
 
   useEffect(() => {
+    // Display notif once an hour at most
+    let lastShown = localStorage.getItem("notification");
+    if (lastShown) {
+      const timeDiff = Date.now() - parseInt(lastShown, 10);
+      if (timeDiff < 1000 * 60 * 60) {
+        return;
+      }
+    }
+
     let to = setTimeout(() => {
+      localStorage.setItem("notification", Date.now().toString());
       setNotification({
         title: "Want to connect?",
         message: "I'm always open to chat, feel free to reach out!",
