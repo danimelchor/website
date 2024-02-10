@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { FaGithub } from "react-icons/fa";
+import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
 
 type ProjectType = {
   title: string;
@@ -57,37 +58,6 @@ const PROJECT_LIST: ProjectType[] = [
     color: "rose",
   },
 ];
-
-type Mapping = {
-  [key: string]: string;
-};
-
-const COLOR_TO_SHADOW: Mapping = {
-  orange: "shadow-orange-300 dark:shadow-orange-700",
-  emerald: "shadow-emerald-300 dark:shadow-emerald-700",
-  blue: "shadow-blue-300 dark:shadow-blue-700",
-  slate: "shadow-slate-500",
-  violet: "shadow-violet-300 dark:shadow-violet-700",
-  rose: "shadow-rose-300 dark:shadow-rose-700",
-};
-
-const COLOR_TO_BG: Mapping = {
-  orange: "to-orange-100 dark:to-orange-900",
-  emerald: "to-green-100 dark:to-green-900",
-  slate: "to-slate-200 dark:to-slate-800",
-  blue: "to-blue-100 dark:to-blue-900",
-  violet: "to-violet-100 dark:to-violet-900",
-  rose: "to-rose-100 dark:to-rose-900",
-};
-
-const COLOR_TO_TEXT_COLOR: Mapping = {
-  orange: "text-orange-700 dark:text-orange-300",
-  emerald: "text-green-700 dark:text-green-300",
-  slate: "text-slate-700 dark:text-slate-300",
-  blue: "text-blue-700 dark:text-blue-300",
-  violet: "text-violet-700 dark:text-violet-300",
-  rose: "text-rose-700 dark:text-rose-300",
-};
 
 function GithubIcon({
   url,

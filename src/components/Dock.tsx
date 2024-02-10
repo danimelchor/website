@@ -5,23 +5,25 @@ import {
   FiBookOpen,
   FiSun,
   FiMoon,
+  FiMail,
 } from "react-icons/fi";
 import { HiOutlineLightBulb } from "react-icons/hi2";
 import { LiaCompassSolid } from "react-icons/lia";
 import { MdSlowMotionVideo } from "react-icons/md";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
-import About from "apps/About";
-import Projects from "apps/Projects";
-import Experience from "apps/Experience";
+// import About from "apps/About";
+// import Projects from "apps/Projects";
+// import Experience from "apps/Experience";
+// import Contact from "apps/Contact";
 import DockIcon from "components/DockIcon";
 import { useTheme } from "providers/ThemeProvider";
 
-// import { lazy } from "react";
-// const About = lazy(() => import("./apps/About"));
-// const Projects = lazy(() => import("./apps/Projects"));
-// const Experience = lazy(() => import("./apps/Experience"));
-// const Education = lazy(() => import("./apps/Education"));
+import { lazy } from "react";
+const About = lazy(() => import("apps/About"));
+const Projects = lazy(() => import("apps/Projects"));
+const Experience = lazy(() => import("apps/Experience"));
+const Contact = lazy(() => import("apps/Contact"));
 
 const slate500 = "#64748b";
 
@@ -50,6 +52,12 @@ export const APPS = [
       <LiaCompassSolid className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
     ),
     component: Experience,
+  },
+  {
+    title: "Contact",
+    tooltip: "Contact",
+    icon: <FiMail className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
+    component: Contact,
   },
 ];
 

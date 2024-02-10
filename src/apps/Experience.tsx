@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
 
 type ExperienceType = {
   role: string;
@@ -109,37 +110,6 @@ export const EXPERIENCE_LIST: ExperienceType[] = [
     color: "cyan",
   },
 ];
-
-type Mapping = {
-  [key: string]: string;
-};
-
-const COLOR_TO_SHADOW: Mapping = {
-  indigo: "shadow-indigo-300 dark:shadow-indigo-700",
-  orange: "shadow-orange-300 dark:shadow-orange-700",
-  cyan: "shadow-cyan-300 dark:shadow-cyan-700",
-  emerald: "shadow-emerald-300 dark:shadow-emerald-700",
-  rose: "shadow-rose-300 dark:shadow-rose-700",
-};
-
-const COLOR_TO_BG: Mapping = {
-  indigo:
-    "to-indigo-100 hover:to-indigo-200 dark:to-indigo-900 dark:hover:to-indigo-800",
-  orange:
-    "to-orange-100 hover:to-orange-200 dark:to-orange-900 dark:hover:to-orange-800",
-  cyan: "to-cyan-100 hover:to-cyan-200 dark:to-cyan-900 dark:hover:to-cyan-800",
-  emerald:
-    "to-green-100 hover:to-green-200 dark:to-green-900 dark:hover:to-green-800",
-  rose: "to-rose-100 hover:to-rose-200 dark:to-rose-900 dark:hover:to-rose-800",
-};
-
-const COLOR_TO_TEXT_COLOR: Mapping = {
-  indigo: "text-indigo-700 dark:text-indigo-300",
-  orange: "text-orange-700 dark:text-orange-300",
-  cyan: "text-cyan-700 dark:text-cyan-300",
-  emerald: "text-green-700 dark:text-green-300",
-  rose: "text-rose-700 dark:text-rose-300",
-};
 
 const ExperienceItem = (item: ExperienceType) => {
   return (
@@ -255,7 +225,7 @@ const Experience = () => {
   return (
     <div
       id="experience"
-      className="w-full mb-24 flex flex-col gap-10 p-10 gap-10"
+      className="w-full mb-24 flex flex-col gap-10 p-10"
     >
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
         Experience
