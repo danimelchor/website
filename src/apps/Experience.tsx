@@ -1,5 +1,7 @@
 import classNames from "classnames";
 import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
+import moment from "moment";
+import humanizeDuration from "humanize-duration";
 
 type ExperienceType = {
   role: string;
@@ -49,16 +51,12 @@ export const EDUCATION_LIST: EducationType[] = [
 ];
 
 const getMonthsSince = (date1: Date, date2: Date) => {
-  var Difference_In_Time = date1.getTime() - date2.getTime();
-  var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-  var Difference_In_Months = Math.ceil(Difference_In_Days / 30);
-
-  if (Difference_In_Months < 0) return `in ${-1 * Difference_In_Months}mos`;
-  else if (Difference_In_Months < 12) return `${Difference_In_Months}mos`;
-  else {
-    var Difference_In_Years = Math.floor(Difference_In_Months / 12) % 12;
-    return `${Difference_In_Years}ys ${Difference_In_Months}mos`;
-  }
+  const a = moment(date1);
+  const b = moment(date2);
+  return humanizeDuration(a.diff(b), {
+    units: ["y", "mo"],
+    round: true,
+  });
 };
 
 export const EXPERIENCE_LIST: ExperienceType[] = [
