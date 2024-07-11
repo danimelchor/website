@@ -57,7 +57,7 @@ const getMonthsSince = (date1: Date, date2: Date) => {
   else if (Difference_In_Months < 12) return `${Difference_In_Months}mos`;
   else {
     var Difference_In_Years = Math.floor(Difference_In_Months / 12) % 12;
-    return `${Difference_In_Years}ys ${Difference_In_Months}mos"`;
+    return `${Difference_In_Years}ys ${Difference_In_Months}mos`;
   }
 };
 
@@ -223,10 +223,7 @@ const EducationItem = (item: EducationType) => {
 
 const Experience = () => {
   return (
-    <div
-      id="experience"
-      className="w-full mb-24 flex flex-col gap-10 p-10"
-    >
+    <div id="experience" className="w-full mb-24 flex flex-col gap-10 p-10">
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
         Experience
       </h2>
