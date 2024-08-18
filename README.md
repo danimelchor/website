@@ -1,4 +1,4 @@
-# danielmelchor.com
+# dmelchor.com
 Welcome! This is my current website's repository. Below you will have some information about how it was made and how to run it in your own device. I hope you enjoy it and don't doubt in messaging me if you have any doubts about the project :).
 
 ## Languages and Modules
