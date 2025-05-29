@@ -22,9 +22,22 @@ export const COLOR_TO_BG: Mapping = {
   emerald:
     "to-green-100 hover:to-green-200 dark:to-green-900 dark:hover:to-green-800",
   rose: "to-rose-100 hover:to-rose-200 dark:to-rose-900 dark:hover:to-rose-800",
-  slate: "to-slate-200 dark:to-slate-800 hover:to-slate-300 dark:hover:to-slate-700",
+  slate:
+    "to-slate-200 dark:to-slate-800 hover:to-slate-300 dark:hover:to-slate-700",
   blue: "to-blue-100 dark:to-blue-900 hover:to-blue-200 dark:hover:to-blue-800",
-  violet: "to-violet-100 dark:to-violet-900 hover:to-violet-200 dark:hover:to-violet-800",
+  violet:
+    "to-violet-100 dark:to-violet-900 hover:to-violet-200 dark:hover:to-violet-800",
+};
+
+export const COLOR_TO_IMG_BG: Mapping = {
+  indigo: "bg-indigo-300 dark:bg-indigo-700",
+  orange: "bg-orange-300 dark:bg-orange-700",
+  cyan: "bg-cyan-300 dark:bg-cyan-700",
+  emerald: "bg-emerald-300 dark:bg-emerald-700",
+  rose: "bg-rose-300 dark:bg-rose-700",
+  slate: "bg-slate-300 dark:bg-slate-700",
+  blue: "bg-blue-300 dark:bg-blue-700",
+  violet: "bg-violet-300 dark:bg-violet-700",
 };
 
 export const COLOR_TO_TEXT_COLOR: Mapping = {
@@ -37,4 +50,3 @@ export const COLOR_TO_TEXT_COLOR: Mapping = {
   blue: "text-blue-700 dark:text-blue-300",
   violet: "text-violet-700 dark:text-violet-300",
 };
-

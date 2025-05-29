@@ -53,20 +53,36 @@ export const EDUCATION_LIST: EducationType[] = [
 const getMonthsSince = (date1: Date, date2: Date) => {
   const a = moment(date1);
   const b = moment(date2);
-  return humanizeDuration(a.diff(b), {
+  let humanized = humanizeDuration(a.diff(b), {
     units: ["y", "mo"],
     round: true,
   });
+  if (a < b) {
+    humanized = "in " + humanized;
+  }
+  return humanized;
 };
 
 export const EXPERIENCE_LIST: ExperienceType[] = [
   {
     role: "Software Engineer",
     roleSmall: "SWE",
+    company: "Jane Street",
+    from: "Jun 2025",
+    duration: getMonthsSince(new Date(), new Date("06/23/2025")),
+    where: "New York, New York, USA",
+    website: "https://janestreet.com/",
+    image: "janestreet.png",
+    color: "blue",
+  },
+  {
+    role: "Software Engineer",
+    roleSmall: "SWE",
     company: "Stripe",
     from: "Jul 2023",
-    duration: getMonthsSince(new Date(), new Date("07/01/2023")),
-    where: "Boston, Massachusetts, USA",
+    to: "Jun 2025",
+    duration: getMonthsSince(new Date("06/16/2025"), new Date("07/01/2023")),
+    where: "New York, New York, USA",
     website: "https://stripe.com/",
     image: "stripe.png",
     color: "indigo",
@@ -130,19 +146,19 @@ const ExperienceItem = (item: ExperienceType) => {
           alt={item.company}
         />
         <div className="flex flex-col">
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block lg:group-hover:underline">
-            {item.role}
-          </h3>
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">
-            {item.roleSmall}
-          </h3>
-          <div
+          <h3
             className={classNames(
-              "text-md font-bold",
+              "text-lg md:text-xl lg:text-2xl font-bold",
               COLOR_TO_TEXT_COLOR[item.color],
             )}
           >
             {item.company}
+          </h3>
+          <div className="text-slate-800 dark:text-slate-200 text-md font-bold hidden lg:block lg:group-hover:underline">
+            {item.role}
+          </div>
+          <div className="text-slate-800 dark:text-slate-200 text-md font-bold lg:hidden">
+            {item.roleSmall}
           </div>
           <div className="text-slate-600 dark:text-slate-400 text-sm hidden lg:block">
             {item.to
@@ -187,19 +203,19 @@ const EducationItem = (item: EducationType) => {
           alt={item.school}
         />
         <div className="flex flex-col">
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold hidden lg:block lg:group-hover:underline">
-            {item.type}
-          </h3>
-          <h3 className="text-slate-800 dark:text-slate-200 text-lg md:text-xl lg:text-2xl font-bold lg:hidden">
-            {item.typeSmall}
-          </h3>
-          <div
+          <h3
             className={classNames(
-              "text-md font-bold",
+              "text-lg md:text-xl lg:text-2xl  font-bold",
               COLOR_TO_TEXT_COLOR[item.color],
             )}
           >
             {item.school}
+          </h3>
+          <div className="text-slate-800 dark:text-slate-200 text-md font-bold hidden lg:block lg:group-hover:underline">
+            {item.type}
+          </div>
+          <div className="text-slate-800 dark:text-slate-200 text-md font-bold lg:hidden">
+            {item.typeSmall}
           </div>
           <div className="text-slate-600 dark:text-slate-400 text-sm hidden lg:block">
             {item.year}
@@ -226,10 +242,11 @@ const Experience = () => {
         Experience
       </h2>
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
-        From Stripe in Boston to Intelygenz in Madrid, my experience as a
-        software engineer has been a journey of diverse landscapes. These roles
-        have sculpted my skills, from contributing to cutting-edge projects at
-        Stripe to shaping innovations at smaller but impactful companies.
+        From Jane Street in New York, Stripe in Boston, and Intelygenz in
+        Madrid, my experience as a software engineer has been a journey of
+        diverse landscapes. These roles have sculpted my skills, from
+        contributing to cutting-edge projects at larger companies to shaping
+        innovations at smaller but impactful companies.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
         {EXPERIENCE_LIST.map((item, key) => (
@@ -244,7 +261,7 @@ const Experience = () => {
         Science, graduating in three years to jumpstart my career after learning
         extensively through internships. Previously, I completed the
         International Baccalaureate at Colegio Logos in Spain, paving the way
-        for U.S. college to pursue a robust Computer Science education.{" "}
+        for U.S. college to pursue a robust Computer Science education.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
         {EDUCATION_LIST.map((item, key) => (

@@ -1,17 +1,31 @@
 import classNames from "classnames";
-import { FaGithub } from "react-icons/fa";
-import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
+import { FaGithub, FaBook } from "react-icons/fa";
+import {
+  COLOR_TO_BG,
+  COLOR_TO_IMG_BG,
+  COLOR_TO_SHADOW,
+  COLOR_TO_TEXT_COLOR,
+} from "./colors";
 
 type ProjectType = {
   title: string;
   image: React.ReactNode;
   github: string;
+  docs?: string;
   description: React.ReactNode;
   color: string;
   url?: string;
 };
 
 const PROJECT_LIST: ProjectType[] = [
+  {
+    title: "Clypi",
+    image: "clypi.png",
+    github: "https://github.com/danimelchor/clypi",
+    docs: "https://danimelchor.github.io/clypi/learn/getting_started/",
+    description: "Your all-in-one for beautiful, prod-ready CLIs ",
+    color: "indigo",
+  },
   {
     title: "ASL-to-Text",
     image: "asl-to-text.png",
@@ -86,6 +100,33 @@ function GithubIcon({
   );
 }
 
+function DocsIcon({
+  url,
+  extraClassNames,
+  text = "Docs",
+  icon = true,
+}: {
+  url: string;
+  text?: string;
+  extraClassNames?: string;
+  icon?: boolean;
+}) {
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noreferrer"
+      className={classNames(
+        "flex items-center justify-center gap-2 bg-black dark:bg-slate-200 transition-colors rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
+        extraClassNames,
+      )}
+    >
+      {text}
+      {icon && <FaBook className="w-5 h-5" />}
+    </a>
+  );
+}
+
 const ProjectItem = (item: ProjectType) => {
   return (
     <div
@@ -99,6 +140,7 @@ const ProjectItem = (item: ProjectType) => {
           className={classNames(
             "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg",
             COLOR_TO_SHADOW[item.color],
+            COLOR_TO_IMG_BG[item.color],
           )}
           src={process.env.PUBLIC_URL + `/projects/${item.image}`}
           alt={item.title}
@@ -120,10 +162,18 @@ const ProjectItem = (item: ProjectType) => {
           <div className="text-slate-800 dark:text-slate-200">
             {item.description}
           </div>
-          <GithubIcon
-            url={item.github}
-            extraClassNames="w-1/2 mt-5 hidden lg:flex"
-          />
+          <div className="flex gap-4">
+            {item.docs && (
+              <DocsIcon
+                url={item.docs}
+                extraClassNames="w-1/2 mt-5 hidden lg:flex"
+              />
+            )}
+            <GithubIcon
+              url={item.github}
+              extraClassNames="w-1/2 mt-5 hidden lg:flex"
+            />
+          </div>
         </div>
       </div>
       <GithubIcon url={item.github} extraClassNames="lg:hidden w-full" />
@@ -155,7 +205,7 @@ export default function Projects() {
       <div className="flex justify-center items-center w-full">
         <GithubIcon
           text="View more on Github"
-          url="https://gitihub.com/danimelchor"
+          url="https://github.com/danimelchor"
           extraClassNames="w-full lg:w-1/2 mt-5"
           icon={false}
         />
