@@ -162,21 +162,16 @@ const ProjectItem = (item: ProjectType) => {
           <div className="text-slate-800 dark:text-slate-200">
             {item.description}
           </div>
-          <div className="flex gap-4">
-            {item.docs && (
-              <DocsIcon
-                url={item.docs}
-                extraClassNames="w-1/2 mt-5 hidden lg:flex"
-              />
-            )}
-            <GithubIcon
-              url={item.github}
-              extraClassNames="w-1/2 mt-5 hidden lg:flex"
-            />
+          <div className="flex gap-4 mt-5 hidden lg:flex">
+            {item.docs && <DocsIcon url={item.docs} extraClassNames="w-full" />}
+            <GithubIcon url={item.github} extraClassNames="w-full" />
           </div>
         </div>
       </div>
-      <GithubIcon url={item.github} extraClassNames="lg:hidden w-full" />
+      <div className="flex gap-4 mt-5 lg:hidden w-full">
+        {item.docs && <DocsIcon url={item.docs} extraClassNames="w-full" />}
+        <GithubIcon url={item.github} extraClassNames="w-full" />
+      </div>
     </div>
   );
 };
