@@ -135,15 +135,19 @@ function BlogPostList({
 }
 
 export default function Blog({ open }: { open: boolean }) {
+  const [loaded, setLoaded] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState<string>();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const article = urlParams.get("article");
     setSelectedArticle(article ?? undefined);
+    setLoaded(true);
   }, [open]);
 
   useEffect(() => {
+    if (!loaded) return;
+
     let urlParams = new URLSearchParams(window.location.search);
     if (selectedArticle) {
       urlParams.set("article", selectedArticle!);
@@ -156,7 +160,7 @@ export default function Blog({ open }: { open: boolean }) {
       "",
       `${window.location.pathname}?${urlParams.toString()}`,
     );
-  }, [selectedArticle]);
+  }, [selectedArticle, loaded]);
 
   if (selectedArticle) {
     return (

@@ -56,13 +56,16 @@ function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
         >
           <FaChevronLeft /> Go back
         </div>
-        <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
-          <h1>{article.title}</h1>
+        <div className="flex flex-col gap-2">
+          <h1 className="text-4xl font-bold mb-1">{article.title}</h1>
+          <h2 className="text-2xl mb-3">{article.subtitle}</h2>
           <div className="flex gap-2">
             <span>{article.date.format(DATE_FMT)}</span>
             <span>•</span>
             <span>{article.readTime.humanize()} read</span>
           </div>
+        </div>
+        <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
           <Markdown>{content}</Markdown>
         </article>
       </div>
