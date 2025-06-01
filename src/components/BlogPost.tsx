@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa";
 import Markdown from "./Mardown";
+import Spinner from "./Spinner";
 
 export type ArticleType = "idea" | "observation";
 export type ArticleState = "published" | "draft" | "not_started";
@@ -36,15 +37,26 @@ export const ARTICLES: { [name: string]: Article } = {
 };
 
 function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
+  const [loading, setLoading] = useState<boolean>();
   const [content, setContent] = useState<string>();
+
   const article = ARTICLES[name];
 
+  const loadFile = async () => {
+    try {
+      setLoading(true);
+      const file = require(`../blog/${name}.md`);
+      const res = await fetch(file);
+      const md = await res.text();
+      setContent(md);
+    } catch {
+      setContent(`Error loading ${name} blog post`);
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
-    fetch(require(`../blog/${name}.md`))
-      .then((res) => res.text())
-      .then((md) => {
-        setContent(md);
-      });
+    loadFile();
   }, [name]);
 
   return (
@@ -56,19 +68,24 @@ function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
         >
           <FaChevronLeft /> Go back
         </div>
-        <div className="flex flex-col gap-2">
-          <h1 className="text-4xl font-bold mb-1 text-slate-800 dark:text-slate-200">
-            {article.title}
-          </h1>
-          <h2 className="text-2xl mb-3 text-slate-800 dark:text-slate-200">
-            {article.subtitle}
-          </h2>
-          <div className="flex gap-2 text-slate-700 dark:text-slate-400">
-            <span>{article.date.format(DATE_FMT)}</span>
-            <span>•</span>
-            <span>{article.readTime.humanize()} read</span>
+
+        {article && (
+          <div className="flex flex-col gap-2">
+            <h1 className="text-4xl font-bold mb-1 text-slate-800 dark:text-slate-200">
+              {article.title}
+            </h1>
+            <h2 className="text-2xl mb-3 text-slate-800 dark:text-slate-200">
+              {article.subtitle}
+            </h2>
+            <div className="flex gap-2 text-slate-700 dark:text-slate-400">
+              <span>{article.date.format(DATE_FMT)}</span>
+              <span>•</span>
+              <span>{article.readTime.humanize()} read</span>
+            </div>
           </div>
-        </div>
+        )}
+
+        {loading && <Spinner />}
 
         <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
           <Markdown content={content} />
