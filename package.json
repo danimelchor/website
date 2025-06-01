@@ -28,12 +28,12 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "BROWSER=none react-scripts start",
+    "dev": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "publish": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
