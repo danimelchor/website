@@ -23,7 +23,7 @@ export const ARTICLES: { [name: string]: Article } = {
     date: moment("2025/06/01"),
     readTime: moment.duration(10, "minutes"),
     type: "observation",
-    state: "draft",
+    state: "published",
   },
   probability_and_prejudice: {
     title: "Bayes theorem and prejudice",
