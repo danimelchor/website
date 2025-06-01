@@ -11,7 +11,6 @@ type ProjectType = {
   title: string;
   image: React.ReactNode;
   github: string;
-  docs?: string;
   description: React.ReactNode;
   color: string;
   url?: string;
@@ -22,9 +21,9 @@ const PROJECT_LIST: ProjectType[] = [
     title: "Clypi",
     image: "clypi.png",
     github: "https://github.com/danimelchor/clypi",
-    docs: "https://danimelchor.github.io/clypi/learn/getting_started/",
     description: "Your all-in-one for beautiful, prod-ready CLIs ",
     color: "indigo",
+    url: "https://danimelchor.github.io/clypi/learn/getting_started/",
   },
   {
     title: "ASL-to-Text",
@@ -100,38 +99,11 @@ function GithubIcon({
   );
 }
 
-function DocsIcon({
-  url,
-  extraClassNames,
-  text = "Docs",
-  icon = true,
-}: {
-  url: string;
-  text?: string;
-  extraClassNames?: string;
-  icon?: boolean;
-}) {
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noreferrer"
-      className={classNames(
-        "flex items-center justify-center gap-2 bg-black dark:bg-slate-200 transition-colors rounded-full p-2 text-slate-100 dark:text-black hover:shadow-md shadow-slate-800 dark:shadow-slate-300/30",
-        extraClassNames,
-      )}
-    >
-      {text}
-      {icon && <FaBook className="w-5 h-5" />}
-    </a>
-  );
-}
-
 const ProjectItem = (item: ProjectType) => {
   return (
     <div
       className={classNames(
-        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full",
+        "flex flex-col bg-gradient-to-t from-transparent rounded-xl p-5 lg:p-10 w-full gap-2 h-full group",
         COLOR_TO_BG[item.color],
       )}
     >
@@ -152,7 +124,7 @@ const ProjectItem = (item: ProjectType) => {
                 "text-lg md:text-xl lg:text-2xl font-bold",
                 COLOR_TO_TEXT_COLOR[item.color],
                 {
-                  "hover:underline": item.url,
+                  "group-hover:underline": item.url,
                 },
               )}
             >
@@ -163,13 +135,11 @@ const ProjectItem = (item: ProjectType) => {
             {item.description}
           </div>
           <div className="flex gap-4 mt-5 hidden lg:flex">
-            {item.docs && <DocsIcon url={item.docs} extraClassNames="w-full" />}
             <GithubIcon url={item.github} extraClassNames="w-full" />
           </div>
         </div>
       </div>
       <div className="flex gap-4 mt-5 lg:hidden w-full">
-        {item.docs && <DocsIcon url={item.docs} extraClassNames="w-full" />}
         <GithubIcon url={item.github} extraClassNames="w-full" />
       </div>
     </div>
