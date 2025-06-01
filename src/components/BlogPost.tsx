@@ -3,32 +3,31 @@ import Markdown from "react-markdown";
 import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa";
 
+export type ArticleType = "idea" | "observation";
+
 export type Article = {
   title: string;
   subtitle: string;
   date: moment.Moment;
   readTime: string;
+  type: ArticleType;
 };
 
 export const DATE_FMT = "MMMM Do, YYYY";
 export const ARTICLES: { [name: string]: Article } = {
-  test: {
-    title: "Testing a blog",
-    subtitle: "A detailed guide to writing blog posts",
-    date: moment("2025/05/31"),
+  high_performers: {
+    title: "On being a good engineer",
+    subtitle: "The single most-defining characteristic of high performers",
+    date: moment("2025/06/01"),
     readTime: "10 min",
+    type: "observation",
   },
-  test2: {
-    title: "Testing a blog 2",
-    subtitle: "A detailed guide to writing blog posts",
-    date: moment("2025/05/31"),
-    readTime: "10 min",
-  },
-  test3: {
-    title: "Testing a blog 3",
-    subtitle: "A detailed guide to writing blog posts",
-    date: moment("2025/05/31"),
-    readTime: "10 min",
+  probability_and_prejudice: {
+    title: "Bayes theorem and prejudice",
+    subtitle: "The conflict between mathematics and morality",
+    date: moment("2025/06/01"),
+    readTime: "8 min",
+    type: "idea",
   },
 };
 
@@ -45,7 +44,7 @@ function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
   }, [name]);
 
   return (
-    <div>
+    <div id="blog" className="w-full mb-24 flex flex-col gap-10 p-10 gap-10">
       <div
         className="flex items-center gap-2 dark:text-white mb-4 cursor-pointer hover:underline"
         onClick={goBack}

@@ -59,7 +59,7 @@ export const APPS: App[] = [
     tooltip: "Nuggets",
     icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
     component: Blog,
-    hidden: true,
+    hidden: false,
   },
   {
     title: "Contact",

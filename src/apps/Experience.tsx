@@ -148,13 +148,13 @@ const ExperienceItem = (item: ExperienceType) => {
         <div className="flex flex-col">
           <h3
             className={classNames(
-              "text-lg md:text-xl lg:text-2xl font-bold",
+              "text-lg md:text-xl lg:text-2xl font-bold lg:group-hover:underline",
               COLOR_TO_TEXT_COLOR[item.color],
             )}
           >
             {item.company}
           </h3>
-          <div className="text-slate-800 dark:text-slate-200 text-md font-bold hidden lg:block lg:group-hover:underline">
+          <div className="text-slate-800 dark:text-slate-200 text-md font-bold hidden lg:block">
             {item.role}
           </div>
           <div className="text-slate-800 dark:text-slate-200 text-md font-bold lg:hidden">
