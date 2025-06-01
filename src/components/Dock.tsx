@@ -16,7 +16,7 @@ import { PiSneakerMoveBold } from "react-icons/pi";
 import DockIcon from "components/DockIcon";
 import { useTheme } from "providers/ThemeProvider";
 
-import { lazy } from "react";
+import { lazy, LazyExoticComponent, ReactNode } from "react";
 const About = lazy(() => import("apps/About"));
 const Blog = lazy(() => import("apps/Blog"));
 const Projects = lazy(() => import("apps/Projects"));
@@ -25,7 +25,15 @@ const Contact = lazy(() => import("apps/Contact"));
 
 const slate500 = "#64748b";
 
-export const APPS = [
+type App = {
+  title: string;
+  tooltip: string;
+  icon: ReactNode;
+  component: LazyExoticComponent<any>;
+  hidden?: boolean;
+};
+
+export const APPS: App[] = [
   {
     title: "About",
     tooltip: "About",
