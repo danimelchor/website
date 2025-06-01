@@ -28,7 +28,7 @@ function Home() {
 
     // Update URL
     if (newApp !== "about") {
-      const urlParams = new URLSearchParams(window.location.search);
+      const urlParams = new URLSearchParams();
       urlParams.set("app", newApp || "");
       window.history.replaceState(
         {},
@@ -45,14 +45,16 @@ function Home() {
       <Background />
       <div className="w-full h-full relative z-10 pointer-events-none">
         {APPS.map((item, key) => {
+          const open = app === item.title.toLowerCase();
           return (
             <App
               closeApp={() => handleChangeApp(null)}
-              isOpen={app === item.title.toLowerCase()}
+              isOpen={open}
               title={item.title}
               key={key}
             >
-              <item.component />
+              {/* @ts-ignore */}
+              <item.component open={open} />
             </App>
           );
         })}

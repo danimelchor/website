@@ -5,7 +5,7 @@ import BlogPost, {
   Article,
   ArticleType,
 } from "components/BlogPost";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaEye, FaLightbulb } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
@@ -50,7 +50,7 @@ const BlogPostItem = ({
             COLOR_TO_IMG_BG[color],
           )}
         >
-          <Icon className="dark:text-white text-2xl" />
+          <Icon className="text-slate-800 dark:text-slate-200 text-2xl" />
         </div>
         <div className="flex flex-col">
           <div
@@ -67,7 +67,7 @@ const BlogPostItem = ({
           <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
             <span>{article.date.format(DATE_FMT)}</span>
             <span>•</span>
-            <span>{article.readTime}</span>
+            <span>{article.readTime.humanize()} read</span>
           </div>
         </div>
       </div>
@@ -102,8 +102,29 @@ function BlogPostList({
   );
 }
 
-export default function Blog() {
+export default function Blog({ open }: { open: boolean }) {
   const [selectedArticle, setSelectedArticle] = useState<string>();
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const article = urlParams.get("article");
+    setSelectedArticle(article ?? undefined);
+  }, [open]);
+
+  useEffect(() => {
+    let urlParams = new URLSearchParams(window.location.search);
+    if (selectedArticle) {
+      urlParams.set("article", selectedArticle!);
+    } else {
+      urlParams.delete("article");
+    }
+
+    window.history.replaceState(
+      {},
+      "",
+      `${window.location.pathname}?${urlParams.toString()}`,
+    );
+  }, [selectedArticle]);
 
   if (selectedArticle) {
     return (
@@ -115,10 +136,8 @@ export default function Blog() {
   }
 
   return (
-    <div id="blog" className="w-full mb-24 flex flex-col gap-10 p-10 gap-10">
-      {!selectedArticle && (
-        <BlogPostList setSelectedArticle={setSelectedArticle} />
-      )}
+    <div id="blog" className="w-full mb-24 flex flex-col gap-10 gap-10">
+      <BlogPostList setSelectedArticle={setSelectedArticle} />
     </div>
   );
 }

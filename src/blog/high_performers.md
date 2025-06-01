@@ -1,13 +1,5 @@
-## Subtitle
-### Sub-subtitle
-Some text here [with](http://google.com) some link :)
+As my time at Stripe comes to an end, I realize that the best-performing engineers, the ones that everyone seeks advice from, and the ones who end up with the best projects, are those who truly love Computer Science. It's the engineers that went into the field for the love of it, the ones who spend their evenings tinkering with new tech, and the ones who stay curious that often do best.
 
-And the reasons are:
-- A
-- B
-- C
+The reason is probably obvious and not revolutionary, but those who truly love their work are those who tend to understand concepts at a deeper level than the rest. During these past two years, I have spent lots of time just asking questions or learning about others' projects. Not because my work required me to do so, in fact, it was probably discouraged. Instead, I just love understanding challenges other people are running into and learning how they solve them to finetune my ability to do so.
 
-Or perhaps:
-1. asdasd
-2. asdadasd
-3. asdasd
+In summary, the most defining charachteristic of high performers is passion. The college you come from, your highest level of education, your nationality, gender, etc. do not matter as much as just truly loving what you do. Software Engineering is an enticing career due to the high salaries, but I've only ever seen people who actually love it make it big.
