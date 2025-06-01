@@ -4,6 +4,7 @@ import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa";
 
 export type ArticleType = "idea" | "observation";
+export type ArticleState = "published" | "draft" | "not_started";
 
 export type Article = {
   title: string;
@@ -11,6 +12,7 @@ export type Article = {
   date: moment.Moment;
   readTime: moment.Duration;
   type: ArticleType;
+  state: ArticleState;
 };
 
 export const DATE_FMT = "MMMM Do, YYYY";
@@ -21,6 +23,7 @@ export const ARTICLES: { [name: string]: Article } = {
     date: moment("2025/06/01"),
     readTime: moment.duration(10, "minutes"),
     type: "observation",
+    state: "draft",
   },
   probability_and_prejudice: {
     title: "Bayes theorem and prejudice",
@@ -28,6 +31,7 @@ export const ARTICLES: { [name: string]: Article } = {
     date: moment("2025/06/01"),
     readTime: moment.duration(8, "minutes"),
     type: "idea",
+    state: "not_started",
   },
 };
 

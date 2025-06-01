@@ -80,24 +80,56 @@ function BlogPostList({
 }: {
   setSelectedArticle: (a: string) => void;
 }) {
+  const [showDrafts, setShowDrafts] = useState(false);
+
+  let articles = Object.entries(ARTICLES);
+  if (!showDrafts) {
+    articles = articles.filter(([_, article]) => article.state === "published");
+  } else {
+    const states = ["published", "draft"];
+    articles = articles.filter(([_, article]) =>
+      states.includes(article.state),
+    );
+  }
+
   return (
     <div className="flex flex-col">
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors mb-3">
         Nuggets
       </h2>
-      <h3 className="text-slate-800 dark:text-slate-200 text-2xl transition-colors mb-8">
-        A collection of ideas and topics I'm interested in.
-      </h3>
+      <div className="flex items-center justify-between mb-8">
+        <h3 className="text-slate-800 dark:text-slate-200 text-2xl transition-colors">
+          A collection of ideas and topics I'm interested in.
+        </h3>
+
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="show-drafts"
+            className="cursor-pointer"
+            onChange={(e) => setShowDrafts(e.target.checked)}
+          />
+          <label
+            htmlFor="show-drafts"
+            className="text-slate-600 dark:text-slate-400 select-none cursor-pointer"
+          >
+            Show drafts
+          </label>
+        </div>
+      </div>
 
       <div className="grid grid-cols-2 gap-4">
-        {Object.keys(ARTICLES).map((a, idx) => (
+        {articles.map(([name, article]) => (
           <BlogPostItem
-            article={ARTICLES[a]}
-            key={idx}
-            selectArticle={() => setSelectedArticle(a)}
+            article={article}
+            key={name}
+            selectArticle={() => setSelectedArticle(name)}
           />
         ))}
       </div>
+      {articles.length === 0 && (
+        <p className="dark:text-slate-200">No articles yet!</p>
+      )}
     </div>
   );
 }
