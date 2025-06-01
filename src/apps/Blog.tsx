@@ -37,39 +37,37 @@ const BlogPostItem = ({
   return (
     <div
       className={classNames(
-        "flex flex-col p-4 rounded-xl p-5 lg:p-10 bg-gradient-to-t from-transparent group cursor-pointer",
+        "flex flex-col p-4 rounded-xl py-7 px-5 lg:p-10 bg-gradient-to-t from-transparent group cursor-pointer",
         COLOR_TO_BG[color],
       )}
       onClick={selectArticle}
     >
-      <div className="flex gap-3 lg:gap-5 items-center lg:items-start">
+      <div className="flex gap-2 lg:gap-3 items-center mb-2">
         <div
           className={classNames(
-            "w-10 h-10 lg:w-12 lg:h-12 rounded-md shadow-lg mb-2 lg:mb-0 flex flex-none items-center justify-center",
+            "w-6 h-6 lg:w-8 lg:h-8 rounded-md shadow-md flex flex-none items-center justify-center",
             COLOR_TO_SHADOW[color],
             COLOR_TO_IMG_BG[color],
           )}
         >
-          <Icon className="text-slate-800 dark:text-slate-200 text-2xl" />
+          <Icon className="text-slate-800 dark:text-slate-200 text-xl" />
         </div>
-        <div className="flex flex-col">
-          <div
-            className={classNames(
-              "text-xl font-bold lg:group-hover:underline",
-              COLOR_TO_TEXT_COLOR[color],
-            )}
-          >
-            {article.title}
-          </div>
-          <div className="text-lg text-slate-800 dark:text-slate-200">
-            {article.subtitle}
-          </div>
-          <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
-            <span>{article.date.format(DATE_FMT)}</span>
-            <span>•</span>
-            <span>{article.readTime.humanize()} read</span>
-          </div>
+        <div
+          className={classNames(
+            "text-xl font-bold lg:group-hover:underline",
+            COLOR_TO_TEXT_COLOR[color],
+          )}
+        >
+          {article.title}
         </div>
+      </div>
+      <div className="text-lg text-slate-800 dark:text-slate-200">
+        {article.subtitle}
+      </div>
+      <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
+        <span>{article.date.format(DATE_FMT)}</span>
+        <span>•</span>
+        <span>{article.readTime.humanize()} read</span>
       </div>
     </div>
   );
