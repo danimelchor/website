@@ -21,7 +21,7 @@ export const ARTICLES: { [name: string]: Article } = {
     title: "On being a good engineer",
     subtitle: "The single most-defining characteristic of high performers",
     date: moment("2025/06/01"),
-    readTime: moment.duration(10, "minutes"),
+    readTime: moment.duration(2, "minutes"),
     type: "observation",
     state: "published",
   },
