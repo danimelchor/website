@@ -82,10 +82,12 @@ export default function DockIcon({
   return (
     <div
       className={classNames(
-        "bg-slate-200 dark:bg-slate-800 rounded-full relative cursor-pointer w-12 h-12 2xl:w-14 2xl:h-14 flex items-center justify-center shrink-0",
+        "bg-slate-200 dark:bg-slate-800 rounded-full relative cursor-pointer w-12 h-12 2xl:w-14 2xl:h-14 flex items-center justify-center shrink-0 border-2 box-border",
         {
           "transform transition-all duration-300 lg:hover:scale-150 lg:hover:-translate-y-3 lg:hover:mx-4 ":
             !reducedMotion,
+          "border-slate-400 dark:border-slate-600": selected,
+          "border-slate-200 dark:border-slate-800": !selected,
         },
       )}
       onMouseEnter={handleMouseEnter}
@@ -97,16 +99,6 @@ export default function DockIcon({
         tooltip={tooltip}
         show={showTooltip}
         reducedMotion={reducedMotion}
-      />
-      <div
-        className={classNames(
-          "h-1 w-1 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 transition-all duration-300",
-          {
-            "bg-slate-400 dark:bg-slate-600": selected,
-            "lg:opacity-0": hovered && !reducedMotion,
-            "opacity-100": !hovered || reducedMotion,
-          },
-        )}
       />
     </div>
   );
