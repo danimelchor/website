@@ -155,9 +155,7 @@ export default function Projects() {
       <p className="text-slate-600 dark:text-slate-400 w-full lg:w-1/2">
         I've been busy crafting my own tech projects, all open-source and born
         straight from my imagination. Think of them as my personal experiments
-        in coding cool stuff. From tinkering with neural networks to creating
-        slick user interfaces, these projects are my playground for mixing
-        innovation with a dash of unconventional problem-solving.
+        in coding cool stuff.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center justify-center">
         {PROJECT_LIST.map((item, key) => (
