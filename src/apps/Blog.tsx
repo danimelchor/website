@@ -102,7 +102,7 @@ function BlogPostList({
           A collection of ideas and topics I'm interested in.
         </h3>
 
-        <div className="flex items-center gap-2">
+        <div className="items-center gap-2 hidden lg:flex">
           <input
             type="checkbox"
             id="show-drafts"
