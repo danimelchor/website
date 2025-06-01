@@ -56,7 +56,7 @@ function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
         >
           <FaChevronLeft /> Go back
         </div>
-        <article className="prose prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
+        <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
           <h1>{article.title}</h1>
           <div className="flex gap-2">
             <span>{article.date.format(DATE_FMT)}</span>
