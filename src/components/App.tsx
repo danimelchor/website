@@ -122,7 +122,7 @@ export default function App({
         className="w-full max-w-5xl h-full flex flex-col overflow-x-hidden"
         ref={contentRef}
       >
-        <div className="w-full h-full py-10 xl:py-32 flex flex-col overflow-y-auto overflow-x-hidden">
+        <div className="w-full h-full py-10 xl:py-32 px-20 lg:px-0 flex flex-col overflow-y-auto overflow-x-hidden">
           {children}
         </div>
         <div className="w-full fixed flex-none max-w-6xl h-10 xl:h-32 bg-gradient-to-t from-transparent to-60% to-slate-100 dark:to-slate-900" />
