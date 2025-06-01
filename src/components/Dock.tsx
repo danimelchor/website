@@ -6,21 +6,19 @@ import {
   FiSun,
   FiMoon,
   FiMail,
+  FiFeather,
+  FiPackage,
 } from "react-icons/fi";
-import { HiOutlineLightBulb } from "react-icons/hi2";
 import { LiaCompassSolid } from "react-icons/lia";
 import { MdSlowMotionVideo } from "react-icons/md";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
-// import About from "apps/About";
-// import Projects from "apps/Projects";
-// import Experience from "apps/Experience";
-// import Contact from "apps/Contact";
 import DockIcon from "components/DockIcon";
 import { useTheme } from "providers/ThemeProvider";
 
 import { lazy } from "react";
 const About = lazy(() => import("apps/About"));
+const Blog = lazy(() => import("apps/Blog"));
 const Projects = lazy(() => import("apps/Projects"));
 const Experience = lazy(() => import("apps/Experience"));
 const Contact = lazy(() => import("apps/Contact"));
@@ -37,12 +35,7 @@ export const APPS = [
   {
     title: "Open Source Projects",
     tooltip: "Projects",
-    icon: (
-      <HiOutlineLightBulb
-        className="w-6 h-6 2xl:w-8 2xl:h-8"
-        color={slate500}
-      />
-    ),
+    icon: <FiPackage className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
     component: Projects,
   },
   {
@@ -52,6 +45,13 @@ export const APPS = [
       <LiaCompassSolid className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
     ),
     component: Experience,
+  },
+  {
+    title: "Nuggets",
+    tooltip: "Nuggets",
+    icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
+    component: Blog,
+    hidden: true,
   },
   {
     title: "Contact",
@@ -92,7 +92,7 @@ export default function Dock({
   return (
     <div className="w-full flex justify-center items-center px-2 z-10 pointer-events-none">
       <div className="rounded-full p-3 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto lg:overflow-x-visible pointer-events-auto">
-        {APPS.map((item, key) => {
+        {APPS.filter((a) => !a.hidden).map((item, key) => {
           return (
             <DockIcon
               tooltip={item.tooltip}
