@@ -31,7 +31,7 @@ export const ARTICLES: { [name: string]: Article } = {
     date: moment("2025/06/01"),
     readTime: moment.duration(8, "minutes"),
     type: "idea",
-    state: "not_started",
+    state: "draft",
   },
 };
 

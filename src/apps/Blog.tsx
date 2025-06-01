@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import Badge from "components/Badge";
 import BlogPost, {
   ARTICLES,
   DATE_FMT,
@@ -6,22 +7,11 @@ import BlogPost, {
   ArticleType,
 } from "components/BlogPost";
 import { useEffect, useState } from "react";
-import { FaEye, FaLightbulb } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
-import {
-  COLOR_TO_BG,
-  COLOR_TO_IMG_BG,
-  COLOR_TO_SHADOW,
-  COLOR_TO_TEXT_COLOR,
-} from "./colors";
+import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "./colors";
 
 export const ARTICLE_TYPE_COLOR: Record<ArticleType, string> = {
   idea: "blue",
   observation: "orange",
-};
-export const ARTICLE_TYPE_ICON: Record<ArticleType, IconType> = {
-  idea: FaLightbulb,
-  observation: FaEye,
 };
 
 const BlogPostItem = ({
@@ -32,26 +22,16 @@ const BlogPostItem = ({
   selectArticle: () => void;
 }) => {
   const color = ARTICLE_TYPE_COLOR[article.type];
-  const Icon = ARTICLE_TYPE_ICON[article.type];
 
   return (
     <div
       className={classNames(
-        "flex flex-col p-4 rounded-xl py-7 px-5 lg:p-10 bg-gradient-to-t from-transparent group cursor-pointer",
+        "flex flex-col justify-between p-4 rounded-xl py-7 px-5 lg:p-10 bg-gradient-to-t from-transparent group cursor-pointer gap-2",
         COLOR_TO_BG[color],
       )}
       onClick={selectArticle}
     >
-      <div className="flex gap-2 lg:gap-3 items-center mb-2">
-        <div
-          className={classNames(
-            "w-6 h-6 lg:w-8 lg:h-8 rounded-md shadow-md flex flex-none items-center justify-center",
-            COLOR_TO_SHADOW[color],
-            COLOR_TO_IMG_BG[color],
-          )}
-        >
-          <Icon className="text-slate-800 dark:text-slate-200 text-xl" />
-        </div>
+      <div className="flex flex-col">
         <div
           className={classNames(
             "text-xl font-bold lg:group-hover:underline",
@@ -60,14 +40,19 @@ const BlogPostItem = ({
         >
           {article.title}
         </div>
+        <div className="text-lg text-slate-800 dark:text-slate-200">
+          {article.subtitle}
+        </div>
+        <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
+          <span>{article.date.format(DATE_FMT)}</span>
+          <span>•</span>
+          <span>{article.readTime.humanize()} read</span>
+        </div>
       </div>
-      <div className="text-lg text-slate-800 dark:text-slate-200">
-        {article.subtitle}
-      </div>
-      <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
-        <span>{article.date.format(DATE_FMT)}</span>
-        <span>•</span>
-        <span>{article.readTime.humanize()} read</span>
+
+      <div className="flex flex-wrap gap-2">
+        <Badge text={article.type} color={color} />
+        <Badge text={article.state} color="slate" />
       </div>
     </div>
   );

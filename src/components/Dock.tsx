@@ -98,7 +98,7 @@ export default function Dock({
     useTheme();
 
   return (
-    <div className="w-full flex justify-center items-center px-2 z-10 pointer-events-none">
+    <div className="w-full flex justify-center items-center px-2 z-10 pointer-events-none select-none">
       <div className="rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto overflow-y-hidden lg:overflow-x-visible lg:overflow-y-visible pointer-events-auto border-8 border-slate-100 dark:border-slate-900">
         {APPS.filter((a) => !a.hidden).map((item, key) => {
           return (

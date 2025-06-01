@@ -50,3 +50,25 @@ export const COLOR_TO_TEXT_COLOR: Mapping = {
   blue: "text-blue-700 dark:text-blue-300",
   violet: "text-violet-700 dark:text-violet-300",
 };
+
+export const COLOR_TO_RING_COLOR: Mapping = {
+  indigo: "ring-indigo-600/20 dark:ring-indigo-500/20",
+  orange: "ring-orange-600/20 dark:ring-orange-500/20",
+  cyan: "ring-cyan-600/20 dark:ring-cyan-500/20",
+  emerald: "ring-green-600/20 dark:ring-green-500/20",
+  rose: "ring-rose-600/20 dark:ring-rose-500/20",
+  slate: "ring-slate-600/20 dark:ring-slate-500/20",
+  blue: "ring-blue-600/20 dark:ring-blue-500/20",
+  violet: "ring-violet-600/20 dark:ring-violet-500/20",
+};
+
+export const COLOR_TO_LIGHT_BG: Mapping = {
+  indigo: "bg-indigo-50 dark:bg-indigo-700",
+  orange: "bg-orange-50 dark:bg-orange-700",
+  cyan: "bg-cyan-50 dark:bg-cyan-700",
+  emerald: "bg-emerald-50 dark:bg-emerald-700",
+  rose: "bg-rose-50 dark:bg-rose-700",
+  slate: "bg-slate-50 dark:bg-slate-700",
+  blue: "bg-blue-50 dark:bg-blue-700",
+  violet: "bg-violet-50 dark:bg-violet-700",
+};
