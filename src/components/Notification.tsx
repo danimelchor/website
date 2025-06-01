@@ -27,7 +27,8 @@ export default function Notification() {
       }
     }
 
-    let to = setTimeout(() => {
+    let clearTo: NodeJS.Timeout | undefined;
+    let newTo = setTimeout(() => {
       localStorage.setItem("notification", Date.now().toString());
       setNotification({
         title: "Want to connect?",
@@ -36,14 +37,14 @@ export default function Notification() {
         icon: (
           <FiUserPlus className="mt-1 w-5 h-5 stroke-slate-800 dark:stroke-slate-200" />
         ),
-        onClick: () => {
-          setNotification((n: NotificationType) => ({ ...n, show: false }));
-        },
+        onClick: dismiss,
       });
+      clearTo = setTimeout(dismiss, 4000);
     }, 4000);
 
     return () => {
-      if (to) clearTimeout(to);
+      if (newTo) clearTimeout(newTo);
+      if (clearTo) clearTimeout(clearTo);
     };
   }, []);
 
