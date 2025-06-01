@@ -40,7 +40,7 @@ const BlogPostItem = ({
         >
           {article.title}
         </div>
-        <div className="text-lg text-slate-800 dark:text-slate-200">
+        <div className="lg:text-lg text-slate-800 dark:text-slate-200">
           {article.subtitle}
         </div>
         <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2">
