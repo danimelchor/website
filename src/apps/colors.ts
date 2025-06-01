@@ -10,6 +10,7 @@ export const COLOR_TO_SHADOW: Mapping = {
   rose: "shadow-rose-300 dark:shadow-rose-700",
   blue: "shadow-blue-300 dark:shadow-blue-700",
   slate: "shadow-slate-500",
+  gray: "shadow-gray-500",
   violet: "shadow-violet-300 dark:shadow-violet-700",
 };
 
@@ -24,6 +25,7 @@ export const COLOR_TO_BG: Mapping = {
   rose: "to-rose-100 hover:to-rose-200 dark:to-rose-900 dark:hover:to-rose-800",
   slate:
     "to-slate-200 dark:to-slate-800 hover:to-slate-300 dark:hover:to-slate-700",
+  gray: "to-gray-200 dark:to-gray-800 hover:to-gray-300 dark:hover:to-gray-700",
   blue: "to-blue-100 dark:to-blue-900 hover:to-blue-200 dark:hover:to-blue-800",
   violet:
     "to-violet-100 dark:to-violet-900 hover:to-violet-200 dark:hover:to-violet-800",
@@ -36,6 +38,7 @@ export const COLOR_TO_IMG_BG: Mapping = {
   emerald: "bg-emerald-300 dark:bg-emerald-700",
   rose: "bg-rose-300 dark:bg-rose-700",
   slate: "bg-slate-300 dark:bg-slate-700",
+  gray: "bg-gray-300 dark:bg-gray-700",
   blue: "bg-blue-300 dark:bg-blue-700",
   violet: "bg-violet-300 dark:bg-violet-700",
 };
@@ -47,6 +50,7 @@ export const COLOR_TO_TEXT_COLOR: Mapping = {
   emerald: "text-green-700 dark:text-green-300",
   rose: "text-rose-700 dark:text-rose-300",
   slate: "text-slate-700 dark:text-slate-300",
+  gray: "text-gray-700 dark:text-gray-300",
   blue: "text-blue-700 dark:text-blue-300",
   violet: "text-violet-700 dark:text-violet-300",
 };
@@ -58,17 +62,19 @@ export const COLOR_TO_RING_COLOR: Mapping = {
   emerald: "ring-green-600/20 dark:ring-green-500/20",
   rose: "ring-rose-600/20 dark:ring-rose-500/20",
   slate: "ring-slate-600/20 dark:ring-slate-500/20",
+  gray: "ring-gray-600/20 dark:ring-gray-500/20",
   blue: "ring-blue-600/20 dark:ring-blue-500/20",
   violet: "ring-violet-600/20 dark:ring-violet-500/20",
 };
 
 export const COLOR_TO_LIGHT_BG: Mapping = {
-  indigo: "bg-indigo-50 dark:bg-indigo-700",
-  orange: "bg-orange-50 dark:bg-orange-700",
-  cyan: "bg-cyan-50 dark:bg-cyan-700",
-  emerald: "bg-emerald-50 dark:bg-emerald-700",
-  rose: "bg-rose-50 dark:bg-rose-700",
-  slate: "bg-slate-50 dark:bg-slate-700",
-  blue: "bg-blue-50 dark:bg-blue-700",
-  violet: "bg-violet-50 dark:bg-violet-700",
+  indigo: "bg-indigo-50 dark:bg-indigo-950",
+  orange: "bg-orange-50 dark:bg-orange-950",
+  cyan: "bg-cyan-50 dark:bg-cyan-950",
+  emerald: "bg-emerald-50 dark:bg-emerald-950",
+  rose: "bg-rose-50 dark:bg-rose-950",
+  slate: "bg-slate-50 dark:bg-slate-950",
+  gray: "bg-gray-50 dark:bg-gray-800",
+  blue: "bg-blue-50 dark:bg-blue-950",
+  violet: "bg-violet-50 dark:bg-violet-950",
 };

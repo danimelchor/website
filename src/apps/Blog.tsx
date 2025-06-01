@@ -52,7 +52,7 @@ const BlogPostItem = ({
 
       <div className="flex flex-wrap gap-2">
         <Badge text={article.type} color={color} />
-        <Badge text={article.state} color="slate" />
+        <Badge text={article.state} color="gray" />
       </div>
     </div>
   );
