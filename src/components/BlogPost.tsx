@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Markdown from "react-markdown";
 import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa";
+import Markdown from "./Mardown";
 
 export type ArticleType = "idea" | "observation";
 export type ArticleState = "published" | "draft" | "not_started";
@@ -69,8 +69,9 @@ function BlogPost({ name, goBack }: { name: string; goBack: () => void }) {
             <span>{article.readTime.humanize()} read</span>
           </div>
         </div>
+
         <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
-          <Markdown>{content}</Markdown>
+          <Markdown content={content} />
         </article>
       </div>
     </div>

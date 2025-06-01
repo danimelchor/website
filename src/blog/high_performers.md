@@ -1,4 +1,4 @@
-As my time at Stripe comes to an end, I have been reflecting on what makes some engineers truly stand out. The ones who consistently perform at the highest level, who are sought after for advice, and who land the most interesting projects all seem to share one thing in common: they genuinely love Computer Science.
+As my time at [Stripe](https://stripe.com) comes to an end, I have been reflecting on what makes some engineers truly stand out. The ones who consistently perform at the highest level, who are sought after for advice, and who land the most interesting projects all seem to share one thing in common: they genuinely love Computer Science.
 
 These are the people who tinker with new technologies in their spare time, who stay curious long after their day’s work is done. They didn’t choose this field just for the high salaries or rocketing RSUs, they chose it because they’re fascinated by it.
 

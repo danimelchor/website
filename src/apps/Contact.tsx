@@ -16,7 +16,7 @@ type ContactType = {
   icon: IconType;
 };
 
-function contactItem(item: ContactType) {
+function ContactItem({ item }: { item: ContactType }) {
   return (
     <a
       className={classNames(
@@ -80,7 +80,7 @@ const CONTACTS: ContactType[] = [
   },
 ];
 
-const About = () => {
+const Contact = () => {
   return (
     <div id="contact" className="w-full mb-24 flex flex-col gap-10">
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
@@ -93,10 +93,12 @@ const About = () => {
         or a simple hello.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full items-center">
-        {CONTACTS.map((item) => contactItem(item))}
+        {CONTACTS.map((item) => (
+          <ContactItem item={item} key={item.type} />
+        ))}
       </div>
     </div>
   );
 };
 
-export default About;
+export default Contact;
