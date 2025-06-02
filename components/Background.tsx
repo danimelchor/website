@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import { useTheme } from "@/providers/ThemeProvider";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = [
   "hover:bg-red-200 dark:hover:bg-red-800",
@@ -112,7 +112,7 @@ export default function Background() {
 
   const [cols, setCols] = useState(getCols());
   const [rows, setRows] = useState(getRows());
-  const [cells, setCells] = useState<Element[]>([]);
+  const [cells, setCells] = useState<ReactNode[]>([]);
   const { reducedMotion } = useTheme();
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export default function Background() {
   }, []);
 
   const getCells = useCallback(() => {
-    const cells = [];
+    const cells: ReactNode[] = [];
     for (let x = 0; x < 2 * cols; x++) {
       for (let y = 0; y < 2 * rows; y++) {
         cells.push(
