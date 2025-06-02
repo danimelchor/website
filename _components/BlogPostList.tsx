@@ -8,6 +8,8 @@ import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "@/colors";
 import { useRouter } from "next/navigation";
 import { Article } from "@/interfaces/post";
 import { getPostList, ListPostsFilter } from "@/lib/api";
+import { useQuery } from "@tanstack/react-query";
+import Spinner from "./Spinner";
 
 const BlogPostItem = ({ article }: { article: Article }) => {
   const color = ARTICLE_TYPE_COLOR[article.type];
@@ -54,11 +56,11 @@ export default function BlogPostList() {
     offset: 0,
     showDrafts: false,
   });
-  const [articles, setArticles] = useState<Article[]>([]);
 
-  useEffect(() => {
-    getPostList(filters).then((res) => setArticles(res));
-  }, [filters]);
+  const { data: articles, isLoading } = useQuery({
+    queryKey: ["articles", filters],
+    queryFn: async () => getPostList(filters),
+  });
 
   return (
     <div className="flex flex-col">
@@ -88,12 +90,13 @@ export default function BlogPostList() {
         </div>
       </div>
 
+      {isLoading && <Spinner />}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {articles.map((article) => (
+        {articles?.map((article) => (
           <BlogPostItem article={article} key={article.id} />
         ))}
       </div>
-      {articles.length === 0 && (
+      {!isLoading && (!articles || articles.length === 0) && (
         <p className="dark:text-slate-200">No articles yet!</p>
       )}
     </div>
