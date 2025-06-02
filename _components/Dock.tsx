@@ -14,7 +14,7 @@ import { LiaCompassSolid } from "react-icons/lia";
 import { MdSlowMotionVideo } from "react-icons/md";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
-import DockIcon from "@/components/DockIcon";
+import DockIcon from "@/_components/DockIcon";
 import { useTheme } from "@/providers/ThemeProvider";
 
 import { Dispatch, ReactNode, SetStateAction } from "react";

@@ -1,14 +1,12 @@
 "use server";
+import moment from "moment";
 import { FaChevronLeft } from "react-icons/fa";
-import Markdown from "@/components/Mardown";
-import { promises as fs } from "fs";
-import { ARTICLES, DATE_FMT } from "./blog";
+import Markdown from "@/_components/Mardown";
+import { DATE_FMT } from "./blog";
 import Link from "next/link";
-import Spinner from "@/components/Spinner";
+import Spinner from "@/_components/Spinner";
 import { Suspense } from "react";
-import { join } from "path";
-
-const POSTS_DIR = join(process.cwd(), "_posts");
+import { getPost } from "@/lib/api";
 
 export default async function BlogPost({
   params,
@@ -16,8 +14,7 @@ export default async function BlogPost({
   params: Promise<{ blog: string }>;
 }) {
   const { blog } = await params;
-  const article = ARTICLES[blog];
-  const content = await fs.readFile(join(POSTS_DIR, `${blog}.md`), "utf8");
+  const article = await getPost(blog);
 
   return (
     <div id="blog" className="w-full mb-24 flex flex-col items-center">
@@ -37,16 +34,16 @@ export default async function BlogPost({
               {article.subtitle}
             </h2>
             <div className="flex gap-2 text-slate-700 dark:text-slate-400">
-              <span>{article.date.format(DATE_FMT)}</span>
+              <span>{moment.utc(article.date).format(DATE_FMT)}</span>
               <span>•</span>
-              <span>{article.readTime.humanize()} read</span>
+              <span>{moment.duration(article.read).humanize()} read</span>
             </div>
           </div>
         )}
 
         <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
           <Suspense fallback={<Spinner />}>
-            <Markdown content={content} />
+            <Markdown content={article.content} />
           </Suspense>
         </article>
       </div>

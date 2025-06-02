@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Metadata } from "next";
-import Page from "@/components/Page";
+import Page from "@/_components/Page";
 
 export const metadata: Metadata = {
   title: "Daniel Melchor",

@@ -1,9 +1,9 @@
 "use client";
 
-import Notification from "@/components/Notification";
-import Dock from "@/components/Dock";
-import Background from "@/components/Background";
-import App from "@/components/App";
+import Notification from "@/_components/Notification";
+import Dock from "@/_components/Dock";
+import Background from "@/_components/Background";
+import App from "@/_components/App";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { ReactNode, useState } from "react";
 
