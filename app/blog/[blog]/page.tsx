@@ -16,8 +16,8 @@ export default async function BlogPost({
   const { blog } = await params;
   const article = ARTICLES[blog];
 
-  console.log(await fs.readdir(process.cwd()));
-  console.log(await fs.readdir(join(process.cwd(), `_posts/${blog}.md`)));
+  console.warn(await fs.readdir(process.cwd()));
+  console.warn(await fs.readdir(join(process.cwd(), `_posts/${blog}.md`)));
 
   const content = await fs.readFile(
     join(process.cwd(), `_posts/${blog}.md`),
