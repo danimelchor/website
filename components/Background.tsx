@@ -112,7 +112,7 @@ export default function Background() {
 
   const [cols, setCols] = useState(getCols());
   const [rows, setRows] = useState(getRows());
-  const [cells, setCells] = useState<JSX.Element[]>([]);
+  const [cells, setCells] = useState<Element[]>([]);
   const { reducedMotion } = useTheme();
 
   useEffect(() => {
