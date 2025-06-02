@@ -14,7 +14,10 @@ export default async function BlogPost({
 }) {
   const { blog } = await params;
   const article = ARTICLES[blog];
-  const content = await fs.readFile(process.cwd() + `/blog/${blog}.md`, "utf8");
+  const content = await fs.readFile(
+    process.cwd() + `/app/blog/data/${blog}.md`,
+    "utf8",
+  );
 
   return (
     <div id="blog" className="w-full mb-24 flex flex-col items-center">
