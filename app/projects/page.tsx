@@ -1,11 +1,12 @@
 import classNames from "classnames";
-import { FaGithub, FaBook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import {
   COLOR_TO_BG,
   COLOR_TO_IMG_BG,
   COLOR_TO_SHADOW,
   COLOR_TO_TEXT_COLOR,
-} from "./colors";
+} from "@/colors";
+import Image from "next/image";
 
 type ProjectType = {
   title: string;
@@ -108,14 +109,16 @@ const ProjectItem = (item: ProjectType) => {
       )}
     >
       <div className="flex gap-3 lg:gap-7 mb-2 lg:mb-0">
-        <img
+        <Image
           className={classNames(
             "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg",
             COLOR_TO_SHADOW[item.color],
             COLOR_TO_IMG_BG[item.color],
           )}
-          src={process.env.PUBLIC_URL + `/projects/${item.image}`}
+          src={`/projects/${item.image}`}
           alt={item.title}
+          width={130}
+          height={130}
         />
         <div className="flex flex-col">
           <a href={item.url} target="_blank" rel="noreferrer">

@@ -6,7 +6,7 @@ import {
   COLOR_TO_IMG_BG,
   COLOR_TO_SHADOW,
   COLOR_TO_TEXT_COLOR,
-} from "./colors";
+} from "@/colors";
 
 type ContactType = {
   text: string;

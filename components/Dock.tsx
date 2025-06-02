@@ -1,3 +1,4 @@
+"use client";
 import {
   FiGithub,
   FiTwitter,
@@ -13,15 +14,11 @@ import { LiaCompassSolid } from "react-icons/lia";
 import { MdSlowMotionVideo } from "react-icons/md";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
-import DockIcon from "components/DockIcon";
-import { useTheme } from "providers/ThemeProvider";
+import DockIcon from "@/components/DockIcon";
+import { useTheme } from "@/providers/ThemeProvider";
 
-import { lazy, LazyExoticComponent, ReactNode } from "react";
-const About = lazy(() => import("apps/About"));
-const Blog = lazy(() => import("apps/Blog"));
-const Projects = lazy(() => import("apps/Projects"));
-const Experience = lazy(() => import("apps/Experience"));
-const Contact = lazy(() => import("apps/Contact"));
+import { Dispatch, ReactNode, SetStateAction } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const slate500 = "#64748b";
 
@@ -29,8 +26,9 @@ type App = {
   title: string;
   tooltip: string;
   icon: ReactNode;
-  component: LazyExoticComponent<any>;
   hidden?: boolean;
+  path: string;
+  match: RegExp;
 };
 
 export const APPS: App[] = [
@@ -38,13 +36,15 @@ export const APPS: App[] = [
     title: "About",
     tooltip: "About",
     icon: <FiBookOpen className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    component: About,
+    path: "/",
+    match: /^\/$/,
   },
   {
     title: "Open Source Projects",
     tooltip: "Projects",
     icon: <FiPackage className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    component: Projects,
+    path: "/projects",
+    match: /^\/projects/,
   },
   {
     title: "Experience",
@@ -52,22 +52,35 @@ export const APPS: App[] = [
     icon: (
       <LiaCompassSolid className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
     ),
-    component: Experience,
+    path: "/experience",
+    match: /^\/experience/,
   },
   {
-    title: "Nuggets",
-    tooltip: "Nuggets",
+    title: "Blog",
+    tooltip: "Blog",
     icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    component: Blog,
     hidden: false,
+    path: "/blog",
+    match: /^\/blog/,
   },
   {
     title: "Contact",
     tooltip: "Contact",
     icon: <FiMail className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    component: Contact,
+    path: "/contact",
+    match: /^\/contact/,
   },
 ];
+
+export const getSelectedApp = (path: string): App => {
+  for (const app of APPS) {
+    if (app.match.test(path)) {
+      return app;
+    }
+  }
+
+  throw new Error("Invalid app");
+};
 
 const SOCIALS = [
   {
@@ -88,12 +101,13 @@ const SOCIALS = [
 ];
 
 export default function Dock({
-  app,
-  setApp,
+  setOpen,
 }: {
-  app: string | null;
-  setApp: (app: string) => void;
+  setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const pathname = usePathname();
+  const router = useRouter();
+
   const { darkMode, reducedMotion, toggleDarkMode, toggleReducedMotion } =
     useTheme();
 
@@ -101,13 +115,21 @@ export default function Dock({
     <div className="w-full flex justify-center items-center px-2 z-10 pointer-events-none select-none">
       <div className="rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto overflow-y-hidden lg:overflow-x-visible lg:overflow-y-visible pointer-events-auto border-8 border-slate-100 dark:border-slate-900">
         {APPS.filter((a) => !a.hidden).map((item, key) => {
+          const selected = item.match.test(pathname);
           return (
             <DockIcon
               tooltip={item.tooltip}
               icon={item.icon}
               key={key}
-              selected={app === item.title.toLowerCase()}
-              onClick={() => setApp(item.title.toLowerCase())}
+              selected={selected}
+              onClick={() => {
+                if (selected) {
+                  setOpen((o) => !o);
+                } else {
+                  setOpen(true);
+                  router.replace(item.path);
+                }
+              }}
             />
           );
         })}
@@ -120,7 +142,7 @@ export default function Dock({
               tooltip={item.tooltip}
               icon={item.icon}
               key={key}
-              selected={app === item.tooltip.toLowerCase()}
+              selected={false}
               onClick={() => window.open(item.url, "_blank")}
             />
           );

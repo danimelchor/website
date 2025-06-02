@@ -1,5 +1,6 @@
+"use client";
 import classNames from "classnames";
-import { useTheme } from "providers/ThemeProvider";
+import { useTheme } from "@/providers/ThemeProvider";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = [

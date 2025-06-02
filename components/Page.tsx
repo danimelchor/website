@@ -1,0 +1,26 @@
+"use client";
+
+import Notification from "@/components/Notification";
+import Dock from "@/components/Dock";
+import Background from "@/components/Background";
+import App from "@/components/App";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { ReactNode, useState } from "react";
+
+export default function Page({ children }: { children: ReactNode }) {
+  const [open, setOpen] = useState(true);
+  return (
+    <ThemeProvider>
+      <div className="w-screen h-full flex flex-col justify-between items-center relative overflow-hidden">
+        <Background />
+        <div className="w-full h-full relative z-10 pointer-events-none">
+          <App open={open} setOpen={setOpen}>
+            {children}
+          </App>
+        </div>
+        <Notification />
+        <Dock setOpen={setOpen} />
+      </div>
+    </ThemeProvider>
+  );
+}

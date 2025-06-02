@@ -1,7 +1,8 @@
 import classNames from "classnames";
-import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "./colors";
+import { COLOR_TO_BG, COLOR_TO_SHADOW, COLOR_TO_TEXT_COLOR } from "@/colors";
 import moment from "moment";
 import humanizeDuration from "humanize-duration";
+import Image from "next/image";
 
 type ExperienceType = {
   role: string;
@@ -137,12 +138,14 @@ const ExperienceItem = (item: ExperienceType) => {
       rel="noreferrer"
     >
       <div className="flex gap-3 lg:gap-7 items-center lg:items-start">
-        <img
+        <Image
           className={classNames(
             "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg mb-2 lg:mb-0",
             COLOR_TO_SHADOW[item.color],
           )}
-          src={process.env.PUBLIC_URL + `/experience/${item.image}`}
+          src={`/experience/${item.image}`}
+          width={130}
+          height={130}
           alt={item.company}
         />
         <div className="flex flex-col">
@@ -194,13 +197,15 @@ const EducationItem = (item: EducationType) => {
       rel="noreferrer"
     >
       <div className="flex gap-3 lg:gap-7 items-center lg:items-start mb-2 lg:mb-0">
-        <img
+        <Image
           className={classNames(
             "w-14 h-14 lg:w-16 lg:h-16 rounded-md shadow-lg",
             COLOR_TO_SHADOW[item.color],
           )}
-          src={process.env.PUBLIC_URL + `/education/${item.image}`}
+          src={`/education/${item.image}`}
           alt={item.school}
+          width={130}
+          height={130}
         />
         <div className="flex flex-col">
           <h3
