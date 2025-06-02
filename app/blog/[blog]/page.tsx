@@ -6,6 +6,7 @@ import { ARTICLES, DATE_FMT } from "./blog";
 import Link from "next/link";
 import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
+import { join } from "path";
 
 export default async function BlogPost({
   params,
@@ -14,8 +15,12 @@ export default async function BlogPost({
 }) {
   const { blog } = await params;
   const article = ARTICLES[blog];
+
+  console.log(await fs.readdir(process.cwd()));
+  console.log(await fs.readdir(join(process.cwd(), `_posts/${blog}.md`)));
+
   const content = await fs.readFile(
-    process.cwd() + `/app/blog/data/${blog}.md`,
+    join(process.cwd(), `_posts/${blog}.md`),
     "utf8",
   );
 
