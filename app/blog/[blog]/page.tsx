@@ -5,6 +5,7 @@ import Spinner from "@/_components/Spinner";
 import { Suspense } from "react";
 import { getPost } from "@/lib/api";
 import BlogPost from "@/_components/BlogPost";
+import { Metadata } from "next";
 
 export default async function BlogPostPage({
   params,
@@ -29,4 +30,17 @@ export default async function BlogPostPage({
       </div>
     </div>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ blog: string }>;
+}): Promise<Metadata> {
+  const { blog } = await params;
+  const post = await getPost(blog);
+  return {
+    title: post.title,
+    description: post.subtitle,
+  };
 }

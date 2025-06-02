@@ -13,10 +13,10 @@ export default function BlogPost({ post }: { post: Promise<Article> }) {
   return (
     <>
       <div className="flex flex-col gap-2">
-        <h1 className="text-4xl font-bold mb-1 text-slate-800 dark:text-slate-200">
+        <h1 className="text-3xl lg:text-4xl font-bold mb-1 text-slate-800 dark:text-slate-200">
           {article.title}
         </h1>
-        <h2 className="text-2xl mb-3 text-slate-800 dark:text-slate-200">
+        <h2 className="text-xl lg:text-2xl mb-3 text-slate-800 dark:text-slate-200">
           {article.subtitle}
         </h2>
         <div className="flex gap-2 text-slate-700 dark:text-slate-400">

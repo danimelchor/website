@@ -1,5 +1,6 @@
 "use server";
 
+import { cache } from "react";
 import { promises as fs } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
@@ -7,11 +8,11 @@ import type { Article } from "@/interfaces/post";
 
 const POSTS_DIR = join(process.cwd(), "_posts");
 
-export async function getPost(name: string): Promise<Article> {
+export const getPost = cache(async (name: string): Promise<Article> => {
   const fileContents = await fs.readFile(join(POSTS_DIR, `${name}.md`), "utf8");
   const { data, content } = matter(fileContents);
   return { ...data, id: name, content } as Article;
-}
+});
 
 export interface ListPostsFilter {
   limit: number;
@@ -19,27 +20,29 @@ export interface ListPostsFilter {
   showDrafts: boolean;
 }
 
-export async function getPostList({
-  limit,
-  offset,
-  showDrafts,
-}: ListPostsFilter): Promise<Article[]> {
-  // Load all articles
-  const files = await fs.readdir(POSTS_DIR);
-  const names = files.map((f) => f.replace(".md", ""));
-  const allPosts = await Promise.all(names.map(getPost));
-  const sortedPosts = allPosts.sort(
-    (a, b) => b.date.getTime() - a.date.getTime(),
-  );
-
-  // Filter for drafts
-  let visiblePosts = sortedPosts;
-  if (!showDrafts) {
-    visiblePosts = sortedPosts.filter(
-      (article) => article.state === "published",
+export const getPostList = cache(
+  async ({
+    limit,
+    offset,
+    showDrafts,
+  }: ListPostsFilter): Promise<Article[]> => {
+    // Load all articles
+    const files = await fs.readdir(POSTS_DIR);
+    const names = files.map((f) => f.replace(".md", ""));
+    const allPosts = await Promise.all(names.map(getPost));
+    const sortedPosts = allPosts.sort(
+      (a, b) => b.date.getTime() - a.date.getTime(),
     );
-  }
 
-  // Paginate
-  return visiblePosts.slice(offset, offset + limit);
-}
+    // Filter for drafts
+    let visiblePosts = sortedPosts;
+    if (!showDrafts) {
+      visiblePosts = sortedPosts.filter(
+        (article) => article.state === "published",
+      );
+    }
+
+    // Paginate
+    return visiblePosts.slice(offset, offset + limit);
+  },
+);
