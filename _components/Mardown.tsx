@@ -3,6 +3,7 @@
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -20,6 +21,7 @@ function Markdown({ content }: { content: string }) {
     <ReactMarkdown
       remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[
+        rehypeRaw,
         rehypeKatex,
         [rehypeExternalLinks, { rel: ["nofollow"], target: "_blank" }],
       ]}
