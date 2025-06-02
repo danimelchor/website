@@ -4,6 +4,8 @@ import { DATE_FMT } from "@/app/blog/[blog]/blog";
 import { Article } from "@/interfaces/post";
 import { use } from "react";
 import Markdown from "./Mardown";
+import { IoWarning } from "react-icons/io5";
+import Banner from "./Banner";
 
 export default function BlogPost({ post }: { post: Promise<Article> }) {
   const article = use(post);
@@ -23,6 +25,15 @@ export default function BlogPost({ post }: { post: Promise<Article> }) {
           <span>{moment.duration(article.read).humanize()} read</span>
         </div>
       </div>
+
+      {article.state !== "published" && (
+        <Banner
+          title="Warning"
+          icon={<IoWarning className="w-5 h-5" />}
+          description={`This is a ${article.state} post still. Please, do not take any information here as factual nor quote me on it yet ;). If you have any suggestions or comments, please contact me and I will address them ASAP.`}
+          color="orange"
+        />
+      )}
 
       <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
         <Markdown content={article.content} />

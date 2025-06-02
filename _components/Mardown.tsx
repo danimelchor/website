@@ -3,20 +3,24 @@
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneDark,
   oneLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useTheme } from "@/providers/ThemeProvider";
+import "katex/dist/katex.min.css";
 
 function Markdown({ content }: { content: string }) {
   const { darkMode } = useTheme();
 
   return (
     <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
+      remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[
+        rehypeKatex,
         [rehypeExternalLinks, { rel: ["nofollow"], target: "_blank" }],
       ]}
       components={{

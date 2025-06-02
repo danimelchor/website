@@ -33,12 +33,8 @@ export async function getPostList({
   );
 
   // Filter for drafts
-  let visiblePosts;
-  if (showDrafts) {
-    visiblePosts = sortedPosts.filter((article) =>
-      ["published", "draft"].includes(article.state),
-    );
-  } else {
+  let visiblePosts = sortedPosts;
+  if (!showDrafts) {
     visiblePosts = sortedPosts.filter(
       (article) => article.state === "published",
     );

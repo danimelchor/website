@@ -54,8 +54,16 @@ export default function BlogPostList() {
   const [filters, setFilters] = useState<ListPostsFilter>({
     limit: 10,
     offset: 0,
-    showDrafts: false,
+    showDrafts: localStorage.getItem("showDrafts") === "true",
   });
+
+  useEffect(() => {
+    if (filters.showDrafts) {
+      localStorage.setItem("showDrafts", "true");
+    } else {
+      localStorage.removeItem("showDrafts");
+    }
+  }, [filters.showDrafts]);
 
   const { data: articles, isLoading } = useQuery({
     queryKey: ["articles", filters],
@@ -77,6 +85,7 @@ export default function BlogPostList() {
             type="checkbox"
             id="show-drafts"
             className="cursor-pointer"
+            checked={filters.showDrafts}
             onChange={(e) =>
               setFilters((f) => ({ ...f, showDrafts: e.target.checked }))
             }

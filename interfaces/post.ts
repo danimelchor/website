@@ -1,5 +1,5 @@
 export type ArticleType = "idea" | "observation";
-export type ArticleState = "published" | "draft" | "not_started";
+export type ArticleState = "published" | "draft" | "not started";
 export interface Article {
   id: string;
   title: string;
