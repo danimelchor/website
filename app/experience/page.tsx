@@ -28,7 +28,7 @@ interface EducationType {
   image: string;
 }
 
-export const EDUCATION_LIST: EducationType[] = [
+const EDUCATION_LIST: EducationType[] = [
   {
     website: "https://www.bu.edu/",
     school: "Boston University",
@@ -64,7 +64,7 @@ const getMonthsSince = (date1: Date, date2: Date) => {
   return humanized;
 };
 
-export const EXPERIENCE_LIST: ExperienceType[] = [
+const EXPERIENCE_LIST: ExperienceType[] = [
   {
     role: "Software Engineer",
     roleSmall: "SWE",
