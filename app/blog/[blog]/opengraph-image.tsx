@@ -8,14 +8,8 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ blog: string }>;
-}) {
-  const { blog } = await params;
-  const article = await getPost(blog);
-
+export default async function Image({ params }: { params: { blog: string } }) {
+  const article = await getPost(params.blog);
   return new ImageResponse(
     (
       <div
