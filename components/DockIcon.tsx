@@ -1,7 +1,7 @@
 "use client";
 import classNames from "classnames";
 import { useTheme } from "@/providers/ThemeProvider";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 function Tooltip({
   tooltip,
@@ -36,13 +36,12 @@ export default function DockIcon({
   selected,
 }: {
   tooltip: string;
-  icon: any;
+  icon: ReactNode;
   selected: boolean;
   onClick: () => void;
 }) {
   const { reducedMotion } = useTheme();
 
-  const [hovered, setHovered] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout>();
@@ -64,12 +63,10 @@ export default function DockIcon({
     } else {
       setShowTooltip(true);
     }
-    setHovered(true);
   };
 
   const handleMouseLeave = () => {
     clearTimeout(hoverTimeout);
-    setHovered(false);
     setShowTooltip(false);
   };
 

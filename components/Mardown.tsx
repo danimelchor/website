@@ -28,7 +28,6 @@ function Markdown({ content }: { content: string }) {
           const { children, className, node, ...rest } = props;
           const match = /language-(\w+)/.exec(className || "");
           return match ? (
-            // @ts-ignore
             <SyntaxHighlighter
               {...rest}
               PreTag="div"

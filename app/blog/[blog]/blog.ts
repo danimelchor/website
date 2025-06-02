@@ -3,17 +3,17 @@ import moment from "moment";
 export type ArticleType = "idea" | "observation";
 export type ArticleState = "published" | "draft" | "not_started";
 
-export type Article = {
+export interface Article {
   title: string;
   subtitle: string;
   date: moment.Moment;
   readTime: moment.Duration;
   type: ArticleType;
   state: ArticleState;
-};
+}
 
 export const DATE_FMT = "MMMM Do, YYYY";
-export const ARTICLES: { [name: string]: Article } = {
+export const ARTICLES: Record<string, Article> = {
   high_performers: {
     title: "On being a good engineer",
     subtitle: "The single most-defining characteristic of high performers",

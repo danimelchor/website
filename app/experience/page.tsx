@@ -4,7 +4,7 @@ import moment from "moment";
 import humanizeDuration from "humanize-duration";
 import Image from "next/image";
 
-type ExperienceType = {
+interface ExperienceType {
   role: string;
   roleSmall: string;
   company: string;
@@ -15,9 +15,9 @@ type ExperienceType = {
   duration: string;
   website: string;
   color: string;
-};
+}
 
-type EducationType = {
+interface EducationType {
   website: string;
   school: string;
   year: string;
@@ -26,7 +26,7 @@ type EducationType = {
   where: string;
   color: string;
   image: string;
-};
+}
 
 export const EDUCATION_LIST: EducationType[] = [
   {

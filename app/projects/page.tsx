@@ -8,14 +8,14 @@ import {
 } from "@/colors";
 import Image from "next/image";
 
-type ProjectType = {
+interface ProjectType {
   title: string;
   image: React.ReactNode;
   github: string;
   description: React.ReactNode;
   color: string;
   url?: string;
-};
+}
 
 const PROJECT_LIST: ProjectType[] = [
   {

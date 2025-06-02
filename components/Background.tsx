@@ -129,7 +129,7 @@ export default function Background() {
   }, []);
 
   const getCells = useCallback(() => {
-    let cells = [];
+    const cells = [];
     for (let x = 0; x < 2 * cols; x++) {
       for (let y = 0; y < 2 * rows; y++) {
         cells.push(

@@ -22,14 +22,14 @@ import { usePathname, useRouter } from "next/navigation";
 
 const slate500 = "#64748b";
 
-type App = {
+interface App {
   title: string;
   tooltip: string;
   icon: ReactNode;
   hidden?: boolean;
   path: string;
   match: RegExp;
-};
+}
 
 export const APPS: App[] = [
   {

@@ -8,13 +8,13 @@ import {
   COLOR_TO_TEXT_COLOR,
 } from "@/colors";
 
-type ContactType = {
+interface ContactType {
   text: string;
   url: string;
   color: string;
   type: string;
   icon: IconType;
-};
+}
 
 function ContactItem({ item }: { item: ContactType }) {
   return (
