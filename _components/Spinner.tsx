@@ -1,9 +1,10 @@
 "use client";
-function Spinner() {
+
+function SpinnerAnim() {
   return (
     <svg
       aria-hidden="true"
-      className="w-8 h-8 text-slate-200 animate-spin dark:text-slate-600 fill-indigo-600"
+      className="w-8 h-8 text-slate-400 animate-spin dark:text-slate-600 fill-indigo-600"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -17,6 +18,17 @@ function Spinner() {
         fill="currentFill"
       />
     </svg>
+  );
+}
+
+function Spinner({ title }: { title: string }) {
+  return (
+    <div className="flex w-full justify-center">
+      <div className="flex items-center bg-slate-200 dark:bg-slate-800 p-6 rounded-sm justify-center gap-2 text-lg text-slate-800 dark:text-slate-300 shadow-md">
+        <SpinnerAnim />
+        {title}
+      </div>
+    </div>
   );
 }
 

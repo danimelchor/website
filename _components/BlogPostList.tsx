@@ -90,7 +90,7 @@ export default function BlogPostList() {
         </div>
       </div>
 
-      {isLoading && <Spinner />}
+      {isLoading && <Spinner title="Loading blog posts" />}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {articles?.map((article) => (
           <BlogPostItem article={article} key={article.id} />
