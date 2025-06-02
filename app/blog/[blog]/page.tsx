@@ -8,6 +8,8 @@ import Spinner from "@/components/Spinner";
 import { Suspense } from "react";
 import { join } from "path";
 
+const POSTS_DIR = join(process.cwd(), "_posts");
+
 export default async function BlogPost({
   params,
 }: {
@@ -15,14 +17,7 @@ export default async function BlogPost({
 }) {
   const { blog } = await params;
   const article = ARTICLES[blog];
-
-  console.warn(await fs.readdir(process.cwd()));
-  console.warn(await fs.readdir(join(process.cwd(), `_posts`)));
-
-  const content = await fs.readFile(
-    join(process.cwd(), `_posts/${blog}.md`),
-    "utf8",
-  );
+  const content = await fs.readFile(join(POSTS_DIR, `${blog}.md`), "utf8");
 
   return (
     <div id="blog" className="w-full mb-24 flex flex-col items-center">
