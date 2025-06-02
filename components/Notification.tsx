@@ -1,5 +1,6 @@
+"use client";
 import classNames from "classnames";
-import { useTheme } from "providers/ThemeProvider";
+import { useTheme } from "@/providers/ThemeProvider";
 import { ReactNode, useEffect, useState } from "react";
 import { FiUserPlus, FiX } from "react-icons/fi";
 

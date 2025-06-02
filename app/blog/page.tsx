@@ -1,27 +1,26 @@
+"use client";
+
 import classNames from "classnames";
-import Badge from "components/Badge";
-import BlogPost, {
+import Badge from "@/components/Badge";
+import {
   ARTICLES,
   DATE_FMT,
   Article,
-  ArticleType,
-} from "components/BlogPost";
-import { useEffect, useState } from "react";
-import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "./colors";
-
-export const ARTICLE_TYPE_COLOR: Record<ArticleType, string> = {
-  idea: "blue",
-  observation: "orange",
-};
+  ARTICLE_TYPE_COLOR,
+} from "@/app/blog/[blog]/blog";
+import { useState } from "react";
+import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "@/colors";
+import { useRouter } from "next/navigation";
 
 const BlogPostItem = ({
+  name,
   article,
-  selectArticle,
 }: {
+  name: string;
   article: Article;
-  selectArticle: () => void;
 }) => {
   const color = ARTICLE_TYPE_COLOR[article.type];
+  const router = useRouter();
 
   return (
     <div
@@ -29,7 +28,7 @@ const BlogPostItem = ({
         "flex flex-col justify-between p-4 rounded-xl py-7 px-5 lg:p-10 bg-gradient-to-t from-transparent group cursor-pointer gap-2",
         COLOR_TO_BG[color],
       )}
-      onClick={selectArticle}
+      onClick={() => router.replace(`/blog/${name}`)}
     >
       <div className="flex flex-col">
         <div
@@ -58,11 +57,7 @@ const BlogPostItem = ({
   );
 };
 
-function BlogPostList({
-  setSelectedArticle,
-}: {
-  setSelectedArticle: (a: string) => void;
-}) {
+function BlogPostList() {
   const [showDrafts, setShowDrafts] = useState(false);
 
   let articles = Object.entries(ARTICLES);
@@ -78,7 +73,7 @@ function BlogPostList({
   return (
     <div className="flex flex-col">
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors mb-3">
-        Nuggets
+        Blog
       </h2>
       <div className="flex items-center justify-between mb-8">
         <h3 className="text-slate-800 dark:text-slate-200 text-2xl transition-colors">
@@ -103,11 +98,7 @@ function BlogPostList({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {articles.map(([name, article]) => (
-          <BlogPostItem
-            article={article}
-            key={name}
-            selectArticle={() => setSelectedArticle(name)}
-          />
+          <BlogPostItem name={name} article={article} key={name} />
         ))}
       </div>
       {articles.length === 0 && (
@@ -117,46 +108,10 @@ function BlogPostList({
   );
 }
 
-export default function Blog({ open }: { open: boolean }) {
-  const [loaded, setLoaded] = useState(false);
-  const [selectedArticle, setSelectedArticle] = useState<string>();
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const article = urlParams.get("article");
-    setSelectedArticle(article ?? undefined);
-    setLoaded(true);
-  }, [open]);
-
-  useEffect(() => {
-    if (!loaded) return;
-
-    let urlParams = new URLSearchParams(window.location.search);
-    if (selectedArticle) {
-      urlParams.set("article", selectedArticle!);
-    } else {
-      urlParams.delete("article");
-    }
-
-    window.history.replaceState(
-      {},
-      "",
-      `${window.location.pathname}?${urlParams.toString()}`,
-    );
-  }, [selectedArticle, loaded]);
-
-  if (selectedArticle) {
-    return (
-      <BlogPost
-        name={selectedArticle}
-        goBack={() => setSelectedArticle(undefined)}
-      />
-    );
-  }
-
+export default function Blog() {
   return (
     <div id="blog" className="w-full mb-24 flex flex-col gap-10 gap-10">
-      <BlogPostList setSelectedArticle={setSelectedArticle} />
+      <BlogPostList />
     </div>
   );
 }

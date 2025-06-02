@@ -1,7 +1,11 @@
+"use client";
+
 import classNames from "classnames";
-import { useTheme } from "providers/ThemeProvider";
+import { useTheme } from "@/providers/ThemeProvider";
 import { useEffect, useRef, useState } from "react";
 import { FiMaximize2, FiX, FiMinus } from "react-icons/fi";
+import { usePathname } from "next/navigation";
+import { getSelectedApp } from "./Dock";
 
 const TOP_ICONS = [
   {
@@ -84,40 +88,41 @@ function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
 
 export default function App({
   children,
-  title,
-  isOpen,
-  closeApp,
+  open,
+  setOpen,
 }: {
   children: React.ReactNode;
-  title: string;
-  isOpen: boolean;
-  closeApp: () => void;
+  open: boolean;
+  setOpen: (open: boolean) => void;
 }) {
   const { reducedMotion } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
 
+  const path = usePathname();
+  const title = getSelectedApp(path).title;
+
   useEffect(() => {
-    if (isOpen) {
+    if (open) {
       contentRef.current?.scrollTo(0, 0);
     }
-  }, [isOpen]);
+  }, [open]);
 
   return (
     <div
       className={classNames(
-        "w-9.5/10 h-9.5/10 md:w-9/10 rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 overflow-hidden pointer-events-auto",
+        "w-[95%] h-[95%] md:w-[90%] rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-auto",
         {
-          "scale-0 translate-y-1/2": !isOpen,
-          "scale-100 -translate-y-1/2": isOpen,
+          "scale-0 translate-y-1/2": !open,
+          "scale-100 -translate-y-1/2": open,
         },
       )}
       style={{
         transition: reducedMotion
           ? ""
-          : "transform 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+          : "scale 300ms cubic-bezier(0.4, 0, 0.2, 1), translate 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
       }}
     >
-      <TopBar closeApp={closeApp} title={title} />
+      <TopBar closeApp={() => setOpen(false)} title={title} />
       <div
         className="w-full max-w-5xl h-full flex flex-col overflow-x-hidden"
         ref={contentRef}

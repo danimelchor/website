@@ -1,8 +1,9 @@
+"use client";
 import {
   COLOR_TO_LIGHT_BG,
   COLOR_TO_RING_COLOR,
   COLOR_TO_TEXT_COLOR,
-} from "apps/colors";
+} from "@/colors";
 import classNames from "classnames";
 
 function Badge({ text, color }: { text: string; color: string }) {

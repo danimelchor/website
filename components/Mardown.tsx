@@ -1,3 +1,5 @@
+"use client";
+
 import ReactMarkdown from "react-markdown";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
@@ -6,10 +8,11 @@ import {
   oneDark,
   oneLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { useTheme } from "providers/ThemeProvider";
+import { useTheme } from "@/providers/ThemeProvider";
 
-function Markdown({ content }: { content: string | undefined }) {
+function Markdown({ content }: { content: string }) {
   const { darkMode } = useTheme();
+
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
@@ -42,8 +45,9 @@ function Markdown({ content }: { content: string | undefined }) {
           );
         },
       }}
-      children={content}
-    />
+    >
+      {content}
+    </ReactMarkdown>
   );
 }
 
