@@ -1,8 +1,8 @@
-import { ArticleType } from "@/interfaces/post";
+import { PostType } from "@/interfaces/post";
 
 export const DATE_FMT = "MMMM Do, YYYY";
 
-export const ARTICLE_TYPE_COLOR: Record<ArticleType, string> = {
+export const POST_TYPE_COLOR: Record<PostType, string> = {
   idea: "blue",
   observation: "orange",
 };

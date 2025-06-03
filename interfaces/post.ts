@@ -1,12 +1,12 @@
-export type ArticleType = "idea" | "observation";
-export type ArticleState = "published" | "draft" | "not started";
-export interface Article {
+export type PostType = "idea" | "observation";
+export type PostState = "published" | "draft" | "not started";
+export interface Post {
   id: string;
   title: string;
   subtitle: string;
   date: Date;
   read: string;
-  type: ArticleType;
-  state: ArticleState;
+  type: PostType;
+  state: PostState;
   content: string;
 }

@@ -9,7 +9,7 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image({ params }: { params: { blog: string } }) {
-  const article = await getPost(params.blog);
+  const post = await getPost(params.blog);
   return new ImageResponse(
     (
       <div
@@ -31,7 +31,7 @@ export default async function Image({ params }: { params: { blog: string } }) {
             fontSize: "2rem" /* text-2xl */,
           }}
         >
-          {article.title}
+          {post.title}
         </p>
         <p
           style={{
@@ -39,7 +39,7 @@ export default async function Image({ params }: { params: { blog: string } }) {
             fontSize: "1.3rem" /* text-lg */,
           }}
         >
-          {article.subtitle}
+          {post.subtitle}
         </p>
       </div>
     ),

@@ -13,7 +13,7 @@ export default async function BlogPostPage({
   params: Promise<{ blog: string }>;
 }) {
   const { blog } = await params;
-  const article = getPost(blog);
+  const post = getPost(blog);
 
   return (
     <div id="blog" className="w-full mb-24 flex flex-col items-center">
@@ -25,7 +25,7 @@ export default async function BlogPostPage({
         </Link>
 
         <Suspense fallback={<Spinner title="Loading post" />}>
-          <BlogPost post={article} />
+          <BlogPost post={post} />
         </Suspense>
       </div>
     </div>
