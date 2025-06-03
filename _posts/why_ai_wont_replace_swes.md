@@ -1,7 +1,7 @@
 ---
 title: Why AI won't replace Software Engineers
 subtitle: It's a calculator, not a mathematician
-date: 2025-06-02
+date: 2025-06-03
 read: PT7M
 type: idea
 state: published
