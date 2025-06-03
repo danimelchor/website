@@ -129,8 +129,8 @@ export default function App({
           "scale-100 -translate-y-1/2": open,
         },
         {
-          "w-[98%] h-[98%] md:w-[95%]": !focus,
-          "w-[98%] h-[98%] md:w-[98%]": focus,
+          "w-[95%] h-[98%]": !focus,
+          "w-[98%] h-[98%]": focus,
         },
       )}
       style={{
