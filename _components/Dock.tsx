@@ -47,6 +47,14 @@ export const APPS: App[] = [
     match: /^\/projects/,
   },
   {
+    title: "Blog",
+    tooltip: "Blog",
+    icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
+    hidden: false,
+    path: "/blog",
+    match: /^\/blog/,
+  },
+  {
     title: "Experience",
     tooltip: "Experience",
     icon: (
@@ -54,14 +62,6 @@ export const APPS: App[] = [
     ),
     path: "/experience",
     match: /^\/experience/,
-  },
-  {
-    title: "Blog",
-    tooltip: "Blog",
-    icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    hidden: false,
-    path: "/blog",
-    match: /^\/blog/,
   },
   {
     title: "Contact",
@@ -136,20 +136,6 @@ export default function Dock({
         <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
           &nbsp;
         </div>
-        {SOCIALS.map((item, key) => {
-          return (
-            <DockIcon
-              tooltip={item.tooltip}
-              icon={item.icon}
-              key={key}
-              selected={false}
-              onClick={() => window.open(item.url, "_blank")}
-            />
-          );
-        })}
-        <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
-          &nbsp;
-        </div>
         <DockIcon
           tooltip={darkMode ? "Light Mode" : "Dark Mode"}
           icon={
@@ -180,6 +166,20 @@ export default function Dock({
           selected={false}
           onClick={toggleReducedMotion}
         />
+        <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
+          &nbsp;
+        </div>
+        {SOCIALS.map((item, key) => {
+          return (
+            <DockIcon
+              tooltip={item.tooltip}
+              icon={item.icon}
+              key={key}
+              selected={false}
+              onClick={() => window.open(item.url, "_blank")}
+            />
+          );
+        })}
       </div>
     </div>
   );

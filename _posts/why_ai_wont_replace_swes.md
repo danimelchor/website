@@ -8,7 +8,9 @@ state: draft
 ---
 
 > "Does anyone want a Cursor license to try it out? I heard @dmelchor is a
-> staunch anti-AI advocate"—My manager
+> staunch anti-AI advocate"
+>
+> —My manager
 
 ### Will AI replace software engineers?
 
