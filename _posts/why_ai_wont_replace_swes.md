@@ -53,11 +53,11 @@ AI (at least as of June 2025):
 1. Understanding patterns and generating new data that fits them
 2. Following well-structured directions to produce specific outputs
 
-These two strengths explain why AI models are
-outstanding at both creative and mathematical tasks. For creative
-tasks (videos, images, or writing), neither the input nor output of are well
-defined. There is no "right" image corresponding to "a cowboy riding a frog with
-Elon's Musk face". In fact, there are countless _weird_ results I'd be satisfied with:
+These two strengths explain why AI models excel at both creative and
+mathematical tasks. For creative tasks (videos, images, or writing), neither
+the input nor output of are well defined. There is no "correct" image
+corresponding to "a cowboy riding a frog with Elon Musk's face". In fact, there
+are countless _weird_ results I'd be satisfied with:
 
 <div class="flex justify-center">
     <div class="grid grid-cols-2 gap-4 w-full lg:w-3/4">
@@ -82,7 +82,7 @@ $$
 
 ---
 
-### Why engineering is different
+### Why engineering is uniquely hard
 
 Software engineering sits in an awkward middle ground. The tasks have
 clearly defined objective—but rarely a single, clearly defined path to reach
@@ -113,7 +113,7 @@ sentence without grasping the meaning of the paragraph.
 To put it simply:
 
 - Knowing what a hammer is doesn't mean you can build a house.
-- Knowing nouns and verbs doesn't mean you can speak English.
+- Knowing nouns and verbs doesn't mean you can hold a conversation.
 
 In the same way, generating code that looks right doesn't mean you've
 engineered a solution that is right. That's why AI won't replace software
