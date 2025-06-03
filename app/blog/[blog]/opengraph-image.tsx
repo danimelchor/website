@@ -12,20 +12,12 @@ export default async function Image({ params }: { params: { blog: string } }) {
   const article = await getPost(params.blog);
   return new ImageResponse(
     (
-      <div
-        style={{
-          fontSize: 48,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        {article.title}
+      <div className="w-full h-full bg-slate-100 flex flex-col justify-center p-10 text-slate-800">
+        <p className="font-bold text-2xl">{article.title}</p>
+        <p className="text-lg">{article.subtitle}</p>
       </div>
     ),
+
     {
       ...size,
     },
