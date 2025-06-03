@@ -33,7 +33,7 @@ A few months later [GitHub Copilot](https://github.com/features/copilot) was
 released. My friends and I got early access, and we felt more productive than
 we could have ever imagined. However, it was only a couple of months until the
 enchantment began to fade away. This post isn't about Copilot and similar tools
-aren't good. Instead, I think you should read [JJ's blog
+not being good. Instead, I think you should read [JJ's blog
 post](https://deplet.ing/the-copilot-delusion/) which covers that beautifully
 and will help you understand a feeling many engineers share nowadays.
 
