@@ -3,8 +3,8 @@ import { ImageResponse } from "next/og";
 
 export const alt = "Daniel Melchor";
 export const size = {
-  width: 1200,
-  height: 630,
+  width: 800,
+  height: 200,
 };
 export const contentType = "image/png";
 
@@ -12,12 +12,37 @@ export default async function Image({ params }: { params: { blog: string } }) {
   const article = await getPost(params.blog);
   return new ImageResponse(
     (
-      <div className="w-full h-full bg-slate-100 flex flex-col justify-center p-10 text-slate-800">
-        <p className="font-bold text-2xl">{article.title}</p>
-        <p className="text-lg">{article.subtitle}</p>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#f1f5f9", // bg-slate-100
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "2.5rem", // p-10
+          color: "#1e293b", // text-slate-800
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "ui-sans-serif, system-ui, sans-serif",
+            fontWeight: 900,
+            fontSize: "2rem" /* text-2xl */,
+          }}
+        >
+          {article.title}
+        </p>
+        <p
+          style={{
+            fontFamily: "ui-sans-serif, system-ui, sans-serif",
+            fontSize: "1.3rem" /* text-lg */,
+          }}
+        >
+          {article.subtitle}
+        </p>
       </div>
     ),
-
     {
       ...size,
     },
