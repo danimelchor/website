@@ -33,7 +33,7 @@ function GridItem({
   cols: number;
   reducedMotion: boolean;
 }) {
-  const [tout, setTout] = useState<NodeJS.Timeout>();
+  const [to, setTo] = useState<NodeJS.Timeout>();
   const boxRef = useRef<HTMLDivElement>(null);
 
   const i = x + y;
@@ -49,14 +49,14 @@ function GridItem({
 
     const handleMouseLeave = () => {
       box.style.transition = "background 2s ease";
-      setTout(
+      setTo(
         setTimeout(() => {
           box.style.transition = "";
         }, 2000),
       );
     };
 
-    const totalAnimTime = 1500;
+    const totalAnimTime = 700;
     const numCells = rows * cols;
     const step = totalAnimTime / numCells;
     const cellNum = x + y * cols;
@@ -75,9 +75,9 @@ function GridItem({
     return () => {
       box.removeEventListener("mouseenter", handleMouseEnter);
       box.removeEventListener("mouseleave", handleMouseLeave);
-      if (tout) clearTimeout(tout);
+      if (to) clearTimeout(to);
     };
-  }, [boxRef, tout, x, y, cols, reducedMotion]);
+  }, [boxRef, to, x, y, cols, reducedMotion]);
 
   return (
     <div
