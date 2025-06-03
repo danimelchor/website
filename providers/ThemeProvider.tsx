@@ -35,10 +35,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       "(prefers-reduced-motion: reduce)",
     );
     const lsReducedMotion = localStorage.reducedMotion;
-    if (mediaPrefersReducedMotion.matches || lsReducedMotion === "true") {
+    if (lsReducedMotion === "true") {
       setReducedMotion(true);
-    } else {
+    } else if (lsReducedMotion === "false") {
       setReducedMotion(false);
+    } else {
+      setReducedMotion(mediaPrefersReducedMotion.matches);
     }
 
     setLoading(false);
@@ -70,11 +72,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const toggleReducedMotion = () => {
-    if (reducedMotion) {
-      setReducedMotion(false);
-    } else {
-      setReducedMotion(true);
-    }
+    setReducedMotion(!reducedMotion);
   };
 
   const memoedTheme = useMemo(
