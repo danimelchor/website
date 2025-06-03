@@ -19,6 +19,7 @@ import { useTheme } from "@/providers/ThemeProvider";
 
 import { Dispatch, ReactNode, SetStateAction } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import classNames from "classnames";
 
 const slate500 = "#64748b";
 
@@ -104,8 +105,10 @@ const SOCIALS = [
 
 export default function Dock({
   setOpen,
+  focus,
 }: {
   setOpen: Dispatch<SetStateAction<boolean>>;
+  focus: boolean;
 }) {
   const pathname = usePathname();
   const router = useRouter();
@@ -114,7 +117,15 @@ export default function Dock({
     useTheme();
 
   return (
-    <div className="w-full flex justify-center items-center px-2 z-10 pointer-events-none select-none">
+    <div
+      className={classNames(
+        "w-full flex justify-center items-center px-2 z-10 pointer-events-none select-none transform",
+        {
+          "translate-y-full scale-0 h-0": focus,
+          "transition-transform": !reducedMotion,
+        },
+      )}
+    >
       <div className="rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto overflow-y-hidden lg:overflow-x-visible lg:overflow-y-visible pointer-events-auto border-8 border-slate-100 dark:border-slate-900">
         {APPS.filter((a) => !a.hidden).map((item, key) => {
           const selected = item.match.test(pathname);

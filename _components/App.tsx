@@ -52,9 +52,19 @@ function TopBarIcon({
   );
 }
 
-function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
+function TopBar({
+  closeApp,
+  title,
+  focus,
+  setFocus,
+}: {
+  closeApp: () => void;
+  title: string;
+  focus: boolean;
+  setFocus: (focus: boolean) => void;
+}) {
   return (
-    <div className="w-full h-8 flex items-center justify-between bg-slate-200 dark:bg-slate-800 px-2">
+    <div className="w-full h-8 flex items-center justify-between bg-slate-200 dark:bg-slate-800 px-2 relative">
       <div className="flex items-center justify-center gap-1">
         {TOP_ICONS.map((item, key) => {
           return (
@@ -67,21 +77,20 @@ function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
           );
         })}
       </div>
-      <div className="text-slate-600 dark:text-slate-400 text-sm font-bold">
+      <div className="text-slate-600 dark:text-slate-400 text-sm font-bold absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
         {title}
       </div>
-      <div className="opacity-0 pointer-events-none flex items-center justify-center gap-1">
-        {TOP_ICONS.map((item, key) => {
-          return (
-            <TopBarIcon
-              icon={item.icon}
-              closeApp={closeApp}
-              color={item.color}
-              key={key}
-            />
-          );
-        })}
-      </div>
+      <button
+        className={classNames(
+          "flex justify-center gap-1 rounded-full px-2 text-sm text-slate-700 dark:text-slate-400 ring-2 ring-slate-400 dark:ring-slate-700 cursor-pointer",
+          {
+            "bg-slate-400 dark:bg-slate-700": focus,
+          },
+        )}
+        onClick={() => setFocus(!focus)}
+      >
+        Focus mode
+      </button>
     </div>
   );
 }
@@ -90,10 +99,14 @@ export default function App({
   children,
   open,
   setOpen,
+  focus,
+  setFocus,
 }: {
   children: React.ReactNode;
   open: boolean;
   setOpen: (open: boolean) => void;
+  focus: boolean;
+  setFocus: (focus: boolean) => void;
 }) {
   const { reducedMotion } = useTheme();
   const contentRef = useRef<HTMLDivElement>(null);
@@ -110,19 +123,34 @@ export default function App({
   return (
     <div
       className={classNames(
-        "w-[98%] h-[98%] md:w-[90%] md:w-[95%] rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-auto",
+        "rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-auto",
         {
           "scale-0 translate-y-1/2": !open,
           "scale-100 -translate-y-1/2": open,
+        },
+        {
+          "w-[98%] h-[98%] md:w-[95%]": !focus,
+          "w-[98%] h-[98%] md:w-[98%]": focus,
         },
       )}
       style={{
         transition: reducedMotion
           ? ""
-          : "scale 300ms cubic-bezier(0.4, 0, 0.2, 1), translate 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+          : [
+              "scale 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              "translate 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+              "width 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+              "height 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+              "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+            ].join(", "),
       }}
     >
-      <TopBar closeApp={() => setOpen(false)} title={title} />
+      <TopBar
+        closeApp={() => setOpen(false)}
+        title={title}
+        focus={focus}
+        setFocus={setFocus}
+      />
       <div
         className="w-full max-w-5xl h-full flex flex-col overflow-x-hidden"
         ref={contentRef}
