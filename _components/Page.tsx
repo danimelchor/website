@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 
 export default function Page({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(true);
-  const [focus, setFocus] = useState(true);
+  const [focus, setFocus] = useState(false);
 
   return (
     <ThemeProvider>
