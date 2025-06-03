@@ -3,8 +3,8 @@ title: Why AI won't replace Software Engineers
 subtitle: It's a calculator, not a mathematician
 date: 2025-06-02
 read: PT7M
-type: observation
-state: draft
+type: idea
+state: published
 ---
 
 > "Does anyone want a Cursor license to try it out? I heard @dmelchor is a

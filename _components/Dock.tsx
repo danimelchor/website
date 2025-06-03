@@ -7,11 +7,11 @@ import {
   FiSun,
   FiMoon,
   FiMail,
-  FiFeather,
   FiPackage,
 } from "react-icons/fi";
 import { LiaCompassSolid } from "react-icons/lia";
 import { MdSlowMotionVideo } from "react-icons/md";
+import { RiQuillPenLine } from "react-icons/ri";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
 import DockIcon from "@/_components/DockIcon";
@@ -40,16 +40,18 @@ export const APPS: App[] = [
     match: /^\/$/,
   },
   {
-    title: "Open Source Projects",
+    title: "Open source projects",
     tooltip: "Projects",
     icon: <FiPackage className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
     path: "/projects",
     match: /^\/projects/,
   },
   {
-    title: "Blog",
+    title: "Just another blog",
     tooltip: "Blog",
-    icon: <FiFeather className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
+    icon: (
+      <RiQuillPenLine className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
+    ),
     hidden: false,
     path: "/blog",
     match: /^\/blog/,
