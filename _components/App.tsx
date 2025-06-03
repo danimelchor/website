@@ -110,7 +110,7 @@ export default function App({
   return (
     <div
       className={classNames(
-        "w-[95%] h-[95%] md:w-[90%] rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-auto",
+        "w-[98%] h-[98%] md:w-[90%] md:w-[95%] rounded-xl bg-slate-100 dark:bg-slate-900 shadow-md flex flex-col items-center justify-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden pointer-events-auto",
         {
           "scale-0 translate-y-1/2": !open,
           "scale-100 -translate-y-1/2": open,
@@ -127,11 +127,11 @@ export default function App({
         className="w-full max-w-5xl h-full flex flex-col overflow-x-hidden"
         ref={contentRef}
       >
-        <div className="w-full h-full py-10 xl:py-32 px-10 xl:px-0 flex flex-col overflow-y-auto overflow-x-hidden">
+        <div className="w-full h-full py-5 md:py-10 xl:py-32 px-5 md:px-10 xl:px-0 flex flex-col overflow-y-auto overflow-x-hidden">
           {children}
         </div>
-        <div className="w-full fixed flex-none max-w-6xl h-10 xl:h-32 bg-gradient-to-t from-transparent to-60% to-slate-100 dark:to-slate-900" />
-        <div className="w-full fixed bottom-0 flex-none max-w-6xl h-10 xl:h-32 bg-gradient-to-b from-transparent to-60% to-slate-100 dark:to-slate-900" />
+        <div className="w-full fixed flex-none max-w-6xl h-5 md:h-10 xl:h-32 bg-gradient-to-t from-transparent to-60% to-slate-100 dark:to-slate-900" />
+        <div className="w-full fixed bottom-0 flex-none max-w-6xl h-5 md:h-10 xl:h-32 bg-gradient-to-b from-transparent to-60% to-slate-100 dark:to-slate-900" />
       </div>
     </div>
   );
