@@ -3,6 +3,8 @@
 import classNames from "classnames";
 import { useTheme } from "@/providers/ThemeProvider";
 import { useEffect, useRef, useState } from "react";
+import { animateScroll } from "react-scroll";
+import { FaArrowUp } from "react-icons/fa";
 import { FiMaximize2, FiX, FiMinus } from "react-icons/fi";
 import useApp from "@/_hooks/useApp";
 
@@ -85,6 +87,28 @@ function TopBar({ closeApp, title }: { closeApp: () => void; title: string }) {
   );
 }
 
+function ScrollArrow({
+  onClick,
+  visible,
+}: {
+  onClick: () => void;
+  visible: boolean;
+}) {
+  return (
+    <button
+      className={classNames(
+        "absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-slate-300/70 dark:bg-slate-700/70 p-4 rounded-full shadow-xl mb-4 backdrop-blur-sm cursor-pointer",
+        {
+          "opacity-0": visible,
+        },
+      )}
+      onClick={onClick}
+    >
+      <FaArrowUp className="h-5 w-5 text-slate-600 dark:text-slate-300" />
+    </button>
+  );
+}
+
 export default function App({
   children,
   open,
@@ -98,9 +122,19 @@ export default function App({
   const contentRef = useRef<HTMLDivElement>(null);
   const { app } = useApp();
 
+  const [scrolled, setScrolled] = useState(0);
+
+  const scroll = () => {
+    animateScroll.scrollToTop({
+      duration: 500,
+      smooth: true,
+      containerId: "contentScrollDiv",
+    });
+  };
+
   useEffect(() => {
     if (open) {
-      contentRef.current?.scrollTo(0, 0);
+      scroll();
     }
   }, [open]);
 
@@ -142,8 +176,13 @@ export default function App({
         <TopBar closeApp={() => setOpen(false)} title={app.title} />
         <div className="w-full h-full flex flex-col items-center relative overflow-x-hidden">
           <div
-            className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden"
+            className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden scroll-smooth"
+            onScroll={(e) => {
+              // @ts-expect-error target has no scrollTop property
+              setScrolled(e.target.scrollTop);
+            }}
             ref={contentRef}
+            id="contentScrollDiv"
           >
             <div className="max-w-5xl w-full h-full py-5 md:py-10 xl:py-20 px-5 md:px-10 xl:px-0 flex flex-col">
               {children}
@@ -151,6 +190,7 @@ export default function App({
           </div>
           <div className="w-full absolute flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-t from-transparent to-60% to-slate-100 dark:to-slate-900" />
           <div className="w-full absolute bottom-0 flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-b from-transparent to-60% to-slate-100 dark:to-slate-900" />
+          <ScrollArrow onClick={scroll} visible={scrolled <= 50} />
         </div>
       </div>
     </div>
