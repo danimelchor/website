@@ -4,18 +4,18 @@ import { useTheme } from "@/providers/ThemeProvider";
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 const COLORS = [
-  "hover:bg-red-200 dark:hover:bg-red-800",
-  "hover:bg-orange-200 dark:hover:bg-orange-800",
-  "hover:bg-yellow-200 dark:hover:bg-yellow-800",
-  "hover:bg-green-200 dark:hover:bg-green-800",
-  "hover:bg-blue-200 dark:hover:bg-blue-800",
-  "hover:bg-indigo-200 dark:hover:bg-indigo-800",
-  "hover:bg-purple-200 dark:hover:bg-purple-800",
-  "hover:bg-pink-200 dark:hover:bg-pink-800",
-  "hover:bg-rose-200 dark:hover:bg-rose-800",
-  "hover:bg-cyan-200 dark:hover:bg-cyan-800",
-  "hover:bg-emerald-200 dark:hover:bg-emerald-800",
-  "hover:bg-violet-200 dark:hover:bg-violet-800",
+  "hover:bg-red-300 dark:hover:bg-red-800",
+  "hover:bg-orange-300 dark:hover:bg-orange-800",
+  "hover:bg-yellow-300 dark:hover:bg-yellow-800",
+  "hover:bg-green-300 dark:hover:bg-green-800",
+  "hover:bg-blue-300 dark:hover:bg-blue-800",
+  "hover:bg-indigo-300 dark:hover:bg-indigo-800",
+  "hover:bg-purple-300 dark:hover:bg-purple-800",
+  "hover:bg-pink-300 dark:hover:bg-pink-800",
+  "hover:bg-rose-300 dark:hover:bg-rose-800",
+  "hover:bg-cyan-300 dark:hover:bg-cyan-800",
+  "hover:bg-emerald-300 dark:hover:bg-emerald-800",
+  "hover:bg-violet-300 dark:hover:bg-violet-800",
 ];
 
 const SIZE = 60;
@@ -89,7 +89,7 @@ function GridItem({
   return (
     <div
       className={classNames(
-        "bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 cursor-pointer absolute",
+        "bg-slate-300 dark:bg-slate-950 border border-slate-200 dark:border-slate-900 cursor-pointer absolute",
         {
           [color]: !reducedMotion,
         },
