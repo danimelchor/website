@@ -2,6 +2,9 @@
 
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
+import nextPlugin from "@next/eslint-plugin-next";
+import reactPlugin from "eslint-plugin-react";
+import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -10,6 +13,11 @@ export default tseslint.config(
   {
     rules: {
       "@typescript-eslint/no-unused-vars": "warn",
+    },
+    plugins: {
+      "@next/next": nextPlugin,
+      react: reactPlugin,
+      "react-hooks": reactHooksPlugin,
     },
   },
 );
