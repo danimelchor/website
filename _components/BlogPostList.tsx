@@ -2,7 +2,7 @@
 import moment from "moment";
 import classNames from "classnames";
 import Badge from "@/_components/Badge";
-import { DATE_FMT, POST_TYPE_COLOR } from "@/app/blog/[blog]/blog";
+import { DATE_FMT, POST_TYPE_COLOR } from "@/app/blog/[post]/blog";
 import { useState } from "react";
 import { COLOR_TO_BG, COLOR_TO_TEXT_COLOR } from "@/colors";
 import { useRouter } from "next/navigation";

@@ -1,12 +1,13 @@
 "use client";
 import moment from "moment";
-import { DATE_FMT } from "@/app/blog/[blog]/blog";
-import { Post } from "@/interfaces/post";
-import { use } from "react";
+import { DATE_FMT } from "@/app/blog/[post]/blog";
 import Markdown from "./Mardown";
 import { IoWarning } from "react-icons/io5";
 import Banner from "./Banner";
 import Skeleton from "./Skeleton";
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { getPost } from "@/lib/api";
 
 const Word = ({ width }: { width: number }) => <Skeleton width={width} />;
 
@@ -18,7 +19,7 @@ const Sentence = ({ words }: { words: number[] }) => (
   </div>
 );
 
-export function BlogPostLoader() {
+export function BlogPostSkeleton() {
   return (
     <div className="flex flex-col gap-2 animate-pulse">
       <Skeleton extra="h-10 mb-1" width={100} />
@@ -46,8 +47,17 @@ export function BlogPostLoader() {
   );
 }
 
-export default function BlogPost({ post }: { post: Promise<Post> }) {
-  const postInfo = use(post);
+export default function BlogPost() {
+  const { post } = useParams();
+  console.log(post);
+  const { data: postInfo, isLoading } = useQuery({
+    queryKey: ["post", post],
+    queryFn: async () => getPost(post as string),
+  });
+
+  if (isLoading || !postInfo) {
+    return <BlogPostSkeleton />;
+  }
 
   return (
     <>

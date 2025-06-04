@@ -1,19 +1,11 @@
 "use server";
 import { FaChevronLeft } from "react-icons/fa";
 import Link from "next/link";
-import { Suspense } from "react";
 import { getPost } from "@/lib/api";
-import BlogPost, { BlogPostLoader } from "@/_components/BlogPost";
+import BlogPost from "@/_components/BlogPost";
 import { Metadata } from "next";
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: Promise<{ blog: string }>;
-}) {
-  const { blog } = await params;
-  const post = getPost(blog);
-
+export default async function BlogPostPage() {
   return (
     <div id="blog" className="w-full flex flex-col items-center pb-20">
       <div className="w-full max-w-3xl flex flex-col gap-6">
@@ -23,9 +15,7 @@ export default async function BlogPostPage({
           </div>
         </Link>
 
-        <Suspense fallback={<BlogPostLoader />}>
-          <BlogPost post={post} />
-        </Suspense>
+        <BlogPost />
       </div>
     </div>
   );
@@ -34,12 +24,12 @@ export default async function BlogPostPage({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ blog: string }>;
+  params: Promise<{ post: string }>;
 }): Promise<Metadata> {
-  const { blog } = await params;
-  const post = await getPost(blog);
+  const { post } = await params;
+  const postInfo = await getPost(post);
   return {
-    title: post.title,
-    description: post.subtitle,
+    title: postInfo.title,
+    description: postInfo.subtitle,
   };
 }
