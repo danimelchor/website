@@ -56,10 +56,17 @@ function GridItem({
       );
     };
 
+    // Start from the corners inwards
+    const cellNum = Math.min(
+      Math.max(x, y),
+      Math.max(x, rows - y - 1),
+      Math.max(cols - x - 1, y),
+      Math.max(cols - x - 1, rows - y - 1),
+    );
+
+    const maxSize = Math.max(rows, cols);
     const totalAnimTime = 700;
-    const numCells = rows * cols;
-    const step = totalAnimTime / numCells;
-    const cellNum = x + y * cols;
+    const step = totalAnimTime / (maxSize / 2);
     const delay = step * cellNum;
 
     if (!reducedMotion) {
