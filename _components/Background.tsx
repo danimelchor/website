@@ -89,7 +89,7 @@ function GridItem({
   return (
     <div
       className={classNames(
-        "bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 cursor-pointer absolute",
+        "bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 cursor-pointer absolute",
         {
           [color]: !reducedMotion,
         },

@@ -1,89 +1,17 @@
 "use client";
-import {
-  FiGithub,
-  FiTwitter,
-  FiFileText,
-  FiBookOpen,
-  FiSun,
-  FiMoon,
-  FiMail,
-  FiPackage,
-} from "react-icons/fi";
-import { LiaCompassSolid } from "react-icons/lia";
+import { FiGithub, FiTwitter, FiFileText, FiSun, FiMoon } from "react-icons/fi";
 import { MdSlowMotionVideo } from "react-icons/md";
-import { RiQuillPenLine } from "react-icons/ri";
 import { PiSneakerMoveBold } from "react-icons/pi";
 
 import DockIcon from "@/_components/DockIcon";
 import { useTheme } from "@/providers/ThemeProvider";
 
-import { Dispatch, ReactNode, SetStateAction } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { Dispatch, SetStateAction } from "react";
+import { useRouter } from "next/navigation";
 import classNames from "classnames";
+import useApp from "@/_hooks/useApp";
 
 const slate500 = "#64748b";
-
-interface App {
-  title: string;
-  tooltip: string;
-  icon: ReactNode;
-  hidden?: boolean;
-  path: string;
-  match: RegExp;
-}
-
-export const APPS: App[] = [
-  {
-    title: "About",
-    tooltip: "About",
-    icon: <FiBookOpen className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    path: "/",
-    match: /^\/$/,
-  },
-  {
-    title: "Open source projects",
-    tooltip: "Projects",
-    icon: <FiPackage className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    path: "/projects",
-    match: /^\/projects/,
-  },
-  {
-    title: "Just another blog",
-    tooltip: "Blog",
-    icon: (
-      <RiQuillPenLine className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
-    ),
-    hidden: false,
-    path: "/blog",
-    match: /^\/blog/,
-  },
-  {
-    title: "Experience",
-    tooltip: "Experience",
-    icon: (
-      <LiaCompassSolid className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />
-    ),
-    path: "/experience",
-    match: /^\/experience/,
-  },
-  {
-    title: "Contact",
-    tooltip: "Contact",
-    icon: <FiMail className="w-6 h-6 2xl:w-8 2xl:h-8" color={slate500} />,
-    path: "/contact",
-    match: /^\/contact/,
-  },
-];
-
-export const getSelectedApp = (path: string): App => {
-  for (const app of APPS) {
-    if (app.match.test(path)) {
-      return app;
-    }
-  }
-
-  throw new Error("Invalid app");
-};
 
 const SOCIALS = [
   {
@@ -105,13 +33,11 @@ const SOCIALS = [
 
 export default function Dock({
   setOpen,
-  focus,
 }: {
   setOpen: Dispatch<SetStateAction<boolean>>;
-  focus: boolean;
 }) {
-  const pathname = usePathname();
   const router = useRouter();
+  const { app, allApps } = useApp();
 
   const { darkMode, reducedMotion, toggleDarkMode, toggleReducedMotion } =
     useTheme();
@@ -119,33 +45,34 @@ export default function Dock({
   return (
     <div
       className={classNames(
-        "w-full flex justify-center items-center px-2 z-10 pointer-events-none select-none transform",
+        "w-full flex justify-center items-center px-2 z-4 pointer-events-none select-none absolute transform bottom-0 h-22",
         {
-          "translate-y-full scale-0 h-0": focus,
+          "translate-y-full scale-0 h-0": app.focused,
           "transition-transform": !reducedMotion,
         },
       )}
     >
-      <div className="rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 mb-2 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto overflow-y-hidden lg:overflow-x-visible lg:overflow-y-visible pointer-events-auto border-8 border-slate-100 dark:border-slate-900">
-        {APPS.filter((a) => !a.hidden).map((item, key) => {
-          const selected = item.match.test(pathname);
-          return (
-            <DockIcon
-              tooltip={item.tooltip}
-              icon={item.icon}
-              key={key}
-              selected={selected}
-              onClick={() => {
-                if (selected) {
-                  setOpen((o) => !o);
-                } else {
-                  setOpen(true);
-                  router.replace(item.path);
-                }
-              }}
-            />
-          );
-        })}
+      <div className="rounded-full bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100 bg-opacity-95 shadow-md flex lg:justify-center items-center gap-2 transiton-all overflow-x-auto overflow-y-hidden lg:overflow-x-visible lg:overflow-y-visible pointer-events-auto border-8 border-slate-100 dark:border-slate-900">
+        {allApps
+          .filter((a) => !a.hidden)
+          .map((item, key) => {
+            return (
+              <DockIcon
+                tooltip={item.tooltip}
+                icon={item.icon}
+                key={key}
+                selected={item.selected}
+                onClick={() => {
+                  if (item.selected) {
+                    setOpen((o) => !o);
+                  } else {
+                    setOpen(true);
+                    router.replace(item.path);
+                  }
+                }}
+              />
+            );
+          })}
         <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded-full border-0 w-0.5">
           &nbsp;
         </div>

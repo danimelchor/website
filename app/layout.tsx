@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Page from "@/_components/Page";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://dmelchor.com"),
   title: "Daniel Melchor",
   description: "A personal collection of ideas and projects",
 };
