@@ -21,7 +21,7 @@ export default function Page({ children }: { children: ReactNode }) {
             <App open={open} setOpen={setOpen}>
               {children}
             </App>
-            <Dock setOpen={setOpen} />
+            <Dock open={open} setOpen={setOpen} />
           </div>
           <Notification />
         </div>{" "}

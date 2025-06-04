@@ -32,8 +32,10 @@ const SOCIALS = [
 ];
 
 export default function Dock({
+  open,
   setOpen,
 }: {
+  open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }) {
   const router = useRouter();
@@ -47,7 +49,7 @@ export default function Dock({
       className={classNames(
         "w-full flex justify-center items-center px-2 z-4 pointer-events-none select-none absolute transform bottom-0 h-22",
         {
-          "translate-y-full scale-0 h-0": app.focused,
+          "translate-y-full scale-0 h-0": open && app.focused,
           "transition-transform": !reducedMotion,
         },
       )}
