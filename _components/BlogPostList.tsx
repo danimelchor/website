@@ -9,7 +9,33 @@ import { useRouter } from "next/navigation";
 import { Post } from "@/interfaces/post";
 import { getPostList, ListPostsFilter } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
-import Spinner from "./Spinner";
+import Skeleton from "./Skeleton";
+
+const BlogPostSkeleton = () => {
+  return (
+    <div
+      className={classNames(
+        "flex flex-col justify-between p-4 rounded-xl py-7 px-5 lg:p-10 bg-gradient-to-t from-transparent gap-8 animate-pulse",
+        COLOR_TO_BG.slate,
+      )}
+    >
+      <div className="flex flex-col">
+        <Skeleton width={70} extra="h-8 mb-2" />
+        <Skeleton width={100} extra="h-5" />
+        <div className="text-slate-700 dark:text-slate-400 flex gap-2 mt-2 items-center">
+          <Skeleton width={20} extra="h-4" />
+          <span>•</span>
+          <Skeleton width={20} extra="h-4" />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2">
+        <Skeleton width={20} extra="h-4" />
+        <Skeleton width={20} extra="h-4" />
+      </div>
+    </div>
+  );
+};
 
 const BlogPostItem = ({ post }: { post: Post }) => {
   const color = POST_TYPE_COLOR[post.type];
@@ -63,8 +89,9 @@ export default function BlogPostList() {
 
   return (
     <>
-      {isLoading && <Spinner title="Loading blog posts" />}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {isLoading &&
+          Array.from({ length: 3 }).map((_, i) => <BlogPostSkeleton key={i} />)}
         {posts?.map((post) => <BlogPostItem post={post} key={post.id} />)}
       </div>
       {!isLoading && (!posts || posts.length === 0) && (
