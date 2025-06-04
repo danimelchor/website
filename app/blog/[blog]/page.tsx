@@ -1,10 +1,9 @@
 "use server";
 import { FaChevronLeft } from "react-icons/fa";
 import Link from "next/link";
-import Spinner from "@/_components/Spinner";
 import { Suspense } from "react";
 import { getPost } from "@/lib/api";
-import BlogPost from "@/_components/BlogPost";
+import BlogPost, { BlogPostLoader } from "@/_components/BlogPost";
 import { Metadata } from "next";
 
 export default async function BlogPostPage({
@@ -24,7 +23,7 @@ export default async function BlogPostPage({
           </div>
         </Link>
 
-        <Suspense fallback={<Spinner title="Loading post" />}>
+        <Suspense fallback={<BlogPostLoader />}>
           <BlogPost post={post} />
         </Suspense>
       </div>

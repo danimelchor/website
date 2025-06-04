@@ -7,6 +7,49 @@ import Markdown from "./Mardown";
 import { IoWarning } from "react-icons/io5";
 import Banner from "./Banner";
 
+const Word = ({ width }: { width: number }) => (
+  <div
+    className={"rounded-full h-3 bg-gray-200 grow-0"}
+    style={{ width: `${width}%` }}
+  />
+);
+
+const Sentence = ({ words }: { words: number[] }) => (
+  <div className="flex gap-3">
+    {words.map((w, key) => (
+      <Word width={w} key={key} />
+    ))}
+  </div>
+);
+
+export function BlogPostLoader() {
+  return (
+    <div className="flex flex-col gap-2 animate-pulse">
+      <div className="rounded-full h-10 w-full bg-gray-200 mb-1"></div>
+      <div className="rounded-full h-8 w-2/3 mb-3 bg-gray-200"></div>
+      <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400 mb-6">
+        <div className="rounded-full h-4 w-30 bg-gray-200"></div>
+        <span>•</span>
+        <div className="rounded-full h-4 w-30 bg-gray-200"></div>
+      </div>
+      <div className="flex flex-col gap-3 mb-4">
+        <Sentence words={[10, 10, 5, 20, 5, 20, 20, 5]} />
+        <Sentence words={[10, 5, 10, 5, 20, 10, 20, 15]} />
+        <Sentence words={[5, 10, 5, 5, 15, 5, 10, 10, 20]} />
+        <Sentence words={[10, 10, 5, 20, 5, 20, 20]} />
+        <Sentence words={[3, 7, 10, 5, 5, 20]} />
+      </div>
+      <div className="flex flex-col gap-3">
+        <Sentence words={[10, 5, 10, 5, 20, 10, 20, 15]} />
+        <Sentence words={[10, 10, 5, 20, 5, 20, 20]} />
+        <Sentence words={[10, 10, 5, 20, 5, 20, 20, 5]} />
+        <Sentence words={[5, 10, 5, 5, 15, 5, 10, 10, 20]} />
+        <Sentence words={[3, 7, 10, 5, 5, 10, 10]} />
+      </div>
+    </div>
+  );
+}
+
 export default function BlogPost({ post }: { post: Promise<Post> }) {
   const postInfo = use(post);
 
