@@ -112,7 +112,7 @@ export default function App({
           "scale-0 translate-y-1/2": !open,
           "scale-100 -translate-y-1/2": open,
           "w-[95%] pt-4 pb-22": !app.focused,
-          "w-[98%] py-4": app.focused,
+          "px-2 py-2 w-full md:px-0 md:w-[98%] md:py-4": app.focused,
         },
       )}
       style={{
