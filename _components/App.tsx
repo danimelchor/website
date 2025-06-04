@@ -140,11 +140,11 @@ export default function App({
         }}
       >
         <TopBar closeApp={() => setOpen(false)} title={app.title} />
-        <div
-          className="w-full h-full flex flex-col items-center relative overflow-x-hidden"
-          ref={contentRef}
-        >
-          <div className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden">
+        <div className="w-full h-full flex flex-col items-center relative overflow-x-hidden">
+          <div
+            className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden"
+            ref={contentRef}
+          >
             <div className="max-w-5xl w-full h-full py-5 md:py-10 xl:py-20 px-5 md:px-10 xl:px-0 flex flex-col">
               {children}
             </div>
