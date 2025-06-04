@@ -16,7 +16,7 @@ export default async function BlogPostPage({
   const post = getPost(blog);
 
   return (
-    <div id="blog" className="w-full mb-24 flex flex-col items-center">
+    <div id="blog" className="w-full flex flex-col items-center pb-20">
       <div className="w-full max-w-3xl flex flex-col gap-6">
         <Link href="/blog">
           <div className="flex items-center gap-2 dark:text-white mb-4 cursor-pointer hover:underline">

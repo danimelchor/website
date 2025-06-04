@@ -151,7 +151,7 @@ const ProjectItem = (item: ProjectType) => {
 
 export default function Projects() {
   return (
-    <div id="experience" className="w-full mb-24 flex flex-col gap-10">
+    <div id="experience" className="w-full pb-20 flex flex-col gap-10">
       <h2 className="text-slate-800 dark:text-slate-200 text-4xl font-bold transition-colors">
         Open-Source Projects
       </h2>

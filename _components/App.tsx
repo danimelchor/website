@@ -2,7 +2,7 @@
 
 import classNames from "classnames";
 import { useTheme } from "@/providers/ThemeProvider";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { animateScroll } from "react-scroll";
 import { FaArrowUp } from "react-icons/fa";
 import { FiMaximize2, FiX, FiMinus } from "react-icons/fi";
@@ -119,7 +119,6 @@ export default function App({
   setOpen: (open: boolean) => void;
 }) {
   const { reducedMotion } = useTheme();
-  const contentRef = useRef<HTMLDivElement>(null);
   const { app } = useApp();
 
   const [scrolled, setScrolled] = useState(0);
@@ -176,20 +175,19 @@ export default function App({
         <TopBar closeApp={() => setOpen(false)} title={app.title} />
         <div className="w-full h-full flex flex-col items-center relative overflow-x-hidden">
           <div
-            className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden scroll-smooth"
+            className="w-full h-full flex justify-center overflow-y-auto overflow-x-hidden py-5 md:py-10 xl:py-20"
             onScroll={(e) => {
               // @ts-expect-error target has no scrollTop property
               setScrolled(e.target.scrollTop);
             }}
-            ref={contentRef}
             id="contentScrollDiv"
           >
-            <div className="max-w-5xl w-full h-full py-5 md:py-10 xl:py-20 px-5 md:px-10 xl:px-0 flex flex-col">
+            <div className="max-w-5xl w-full px-5 md:px-10 xl:px-0">
               {children}
             </div>
           </div>
-          <div className="w-full absolute flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-t from-transparent to-60% to-slate-100 dark:to-slate-900" />
-          <div className="w-full absolute bottom-0 flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-b from-transparent to-60% to-slate-100 dark:to-slate-900" />
+          <div className="w-full absolute flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-t from-transparent to-slate-100 dark:to-slate-900" />
+          <div className="w-full absolute bottom-0 flex-none h-5 md:h-10 xl:h-20 bg-gradient-to-b from-transparent to-slate-100 dark:to-slate-900" />
           <ScrollArrow onClick={scroll} visible={scrolled <= 50} />
         </div>
       </div>
