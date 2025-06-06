@@ -85,7 +85,8 @@ export default function DockIcon({
           "transform transition-all duration-300 lg:hover:scale-150 lg:hover:-translate-y-3 lg:hover:mx-4 ":
             !reducedMotion,
           "border-slate-400 dark:border-slate-600": selected,
-          "border-slate-200 dark:border-slate-800": !selected,
+          "border-slate-200 dark:border-slate-800 hover:border-slate-300 hover:dark:border-slate-700":
+            !selected,
         },
       )}
       onMouseEnter={handleMouseEnter}
