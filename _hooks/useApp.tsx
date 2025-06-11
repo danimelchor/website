@@ -51,6 +51,7 @@ export default function useApp() {
         path: "/blog",
         selected: /^\/blog/.test(pathname),
         focused: !/^\/blog$/.test(pathname),
+        hidden: true,
       },
       {
         title: "Experience",
