@@ -8,6 +8,7 @@ import Skeleton from "./Skeleton";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { getPost } from "@/lib/api";
+import Article from "./Article";
 
 const Word = ({ width }: { width: number }) => <Skeleton width={width} />;
 
@@ -84,9 +85,9 @@ export default function BlogPost() {
         />
       )}
 
-      <article className="prose lg:prose-lg max-w-none prose-slate dark:prose-invert prose-h1:mb-4 text-justify">
+      <Article>
         <Markdown content={postInfo.content} />
-      </article>
+      </Article>
     </>
   );
 }
