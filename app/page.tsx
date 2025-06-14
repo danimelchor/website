@@ -25,7 +25,7 @@ const About = () => {
               className="rounded-full h-40 w-40 lg:h-30 lg:w-30"
             />
             <Article>
-              Hi there, my name is Daniel Melchor and I'm one of many software
+              Hi there. My name is Daniel Melchor and I'm one of many software
               engineers living in New York city. I now work for{" "}
               <a href="https://www.janestreet.com/" target="_blank">
                 Jane Street
